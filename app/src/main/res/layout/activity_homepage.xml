@@ -6,4 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomepageActivity">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="20dp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:cardElevation="10dp"
+        app:cardCornerRadius="15dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/homepage_intro_pic_desc"
+
+            android:src="@drawable/homepage_intro_pic"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+            android:layout_margin="10dp"
+            android:layout_gravity="top|center"
+
+            android:contentDescription="@string/logo_content_desc"
+
+            android:src="@drawable/camerlang_color_logo_transparent"/>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
