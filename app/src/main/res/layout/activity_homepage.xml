@@ -1,45 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.appbar.CollapsingToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    style="@style/BackgroundColor"
     tools:context=".ui.HomepageActivity">
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="match_parent">
 
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="20dp"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:cardElevation="10dp"
-        app:cardCornerRadius="15dp">
-
-        <ImageView
+        <androidx.cardview.widget.CardView
+            android:id="@+id/homepage_header_card"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="300dp"
 
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/homepage_intro_pic_desc"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="20dp"
 
-            android:src="@drawable/homepage_intro_pic"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="15dp">
 
-            android:layout_margin="10dp"
-            android:layout_gravity="top|center"
+            <ImageView
+                android:id="@+id/homepage_header_content_pic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
 
-            android:contentDescription="@string/logo_content_desc"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/homepage_intro_pic_desc"
 
-            android:src="@drawable/camerlang_color_logo_transparent"/>
-    </androidx.cardview.widget.CardView>
+                android:src="@drawable/homepage_intro_pic"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/header_logo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+
+                android:layout_margin="10dp"
+                android:layout_gravity="top|center"
+
+                android:contentDescription="@string/logo_content_desc"
+
+                android:src="@drawable/camerlang_color_logo_transparent"/>
+
+            <ImageView
+                android:id="@+id/notification_btn_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+
+                android:layout_gravity="end|top"
+
+                android:contentDescription="@string/notification_icon_desc"
+
+                android:src="@drawable/notification_icon"
+                app:tint="@color/md_theme_light_onPrimary" />
+
+
+            <TextView
+                android:id="@+id/homepage_header_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginEnd="15dp"
+
+                android:layout_gravity="bottom|start"
+                android:text="@string/homepage_header_text"
+
+                android:textColor="@color/md_theme_light_secondaryContainer"
+                android:fontFamily="@font/poppins_black"
+                android:textSize="25sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/article_section_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/article_head"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="20dp"
+
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/md_theme_light_onPrimary"
+            android:textSize="24sp"
+
+            app:layout_constraintTop_toBottomOf="@id/homepage_header_card"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/article_section_subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/article_subhead"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="5dp"
+
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/md_theme_light_onPrimary"
+            android:textSize="18sp"
+
+            app:layout_constraintTop_toBottomOf="@id/article_section_head"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/article_overflow_recyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="5dp"
+
+            app:layout_constraintTop_toBottomOf="@id/article_section_subhead"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"/>
+
+        <TextView
+            android:id="@+id/product_section_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/product_head"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="20dp"
+
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/md_theme_light_onPrimary"
+            android:textSize="24sp"
+
+            app:layout_constraintTop_toBottomOf="@id/article_overflow_recyclerview"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/product_section_subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/product_subhead"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="5dp"
+
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/md_theme_light_onPrimary"
+            android:textSize="18sp"
+
+            app:layout_constraintTop_toBottomOf="@id/product_section_head"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/product_overflow_recyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="5dp"
+
+            app:layout_constraintTop_toBottomOf="@id/product_section_subhead"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.appbar.CollapsingToolbarLayout>
