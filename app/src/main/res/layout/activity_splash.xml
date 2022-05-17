@@ -19,8 +19,9 @@
 
         android:textAlignment="center"
         android:textSize="12sp"
-        android:textStyle="italic"
         android:textColor="@color/md_theme_light_primaryInverse"
+
+        android:fontFamily="@font/poppins_light"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -49,8 +50,9 @@
 
         android:textAlignment="center"
         android:textSize="22sp"
-        android:textStyle="italic"
-        android:textColor="@color/md_theme_light_primaryInverse"
+        android:textColor="@color/md_theme_light_secondaryContainer"
+
+        android:fontFamily="@font/poppins_regular"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
