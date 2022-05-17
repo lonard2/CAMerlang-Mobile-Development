@@ -15,4 +15,10 @@
     <string name="content_title_article_sample">"This is an article's title."</string>
     <string name="category_name_sample">Category</string>
     <string name="content_seller_pic_desc">An skincare product seller image.</string>
+    <string name="homepage_header_text">Keep care of your skin with us.</string>
+    <string name="article_head">Latest articles</string>
+    <string name="article_subhead">Read about everything skin.</string>
+    <string name="product_head">Popular skin products</string>
+    <string name="product_subhead">Trusted skincare products for your skin.</string>
+    <string name="notification_icon_desc">Bell icon for indicating notification section.</string>
 </resources>

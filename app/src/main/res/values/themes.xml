@@ -34,4 +34,8 @@
 		<item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
 		<item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
 	</style>
+
+	<style name="BackgroundColor">
+		<item name="android:background">@color/md_theme_light_primary</item>
+	</style>
 </resources>

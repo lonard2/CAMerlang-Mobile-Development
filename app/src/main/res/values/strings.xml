@@ -14,4 +14,10 @@
     <string name="content_title_article_sample">Ini adalah judul artikel.</string>
     <string name="category_name_sample">Kategori</string>
     <string name="content_seller_pic_desc">Sebuah gambar penjual produk skincare.</string>
+    <string name="homepage_header_text">Jaga kulitmu bersama kami.</string>
+    <string name="article_head">Artikel terkini</string>
+    <string name="article_subhead">Baca tentang segalanya kulit.</string>
+    <string name="product_head">Produk perawatan kulit terpopuler</string>
+    <string name="product_subhead">Produk-produk skincare yang terpercaya untuk kulitmu.</string>
+    <string name="notification_icon_desc">Ikon lonceng untuk menandakan section notifikasi.</string>
 </resources>
