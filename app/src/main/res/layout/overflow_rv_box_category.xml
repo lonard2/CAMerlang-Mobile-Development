@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="200dp"
+    android:layout_height="150dp"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/content_list_card"
+
+    app:cardCornerRadius="20dp"
+    app:cardElevation="25dp"
+    app:cardMaxElevation="50dp"
+    app:cardBackgroundColor="@color/skin_bg_category_color"
+
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <ImageView
+        android:id="@+id/category_data_list_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+
+        android:layout_marginTop="25dp"
+
+        android:src="@drawable/ic_launcher_foreground"
+        android:contentDescription="@string/category_list_img_desc"
+
+        android:layout_gravity="top|center"/>
+
+    <TextView
+        android:id="@+id/category_data_list_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="25dp"
+
+        android:layout_gravity="bottom|center"
+
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="18sp"
+        android:textColor="@color/md_theme_light_onSecondaryContainer"
+
+        android:text="@string/category_rv_list_sample"/>
+
+</androidx.cardview.widget.CardView>

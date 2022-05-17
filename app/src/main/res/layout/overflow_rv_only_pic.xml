@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="250dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:background="@color/md_theme_light_primary"
+
+    app:cardCornerRadius="20dp"
+    app:cardElevation="25dp"
+    app:cardMaxElevation="50dp"
+    app:cardBackgroundColor="@color/md_theme_light_tertiary">
+
+    <ImageView
+        android:id="@+id/content_list_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/content_list_image_rv_only_pic"/>
+
+    <ProgressBar
+        android:id="@+id/loading_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        style="?android:attr/progressBarStyle"/>
+
+</androidx.cardview.widget.CardView>

@@ -4,4 +4,14 @@
     <string name="logo_content_desc">Logo CAMerlang dalam format warna-warni dan transparan.</string>
     <string name="version_info">Versi prototype A</string>
     <string name="homepage_intro_pic_desc">Seorang wanita sedang merasakan kulitnya di tempat yang terang.</string>
+    <string name="content_title_rv_sample">Ini adalah judul.</string>
+    <string name="content_list_img_rv_sample">Sebuah gambar untuk entri library.</string>
+    <string name="content_list_image_rv_only_pic">Sebuah gambar untuk entri library pada bagian More Images.</string>
+    <string name="category_rv_list_sample">Test Category</string>
+    <string name="category_list_img_desc">Sebuah gambar atau ikon untuk menunjukkan identitas suatu kategori di Library.</string>
+    <string name="content_list_image_showcase_desc">Sebuah gambar untuk menampilkan showcase produk skincare di Library dan Homepage.</string>
+    <string name="content_list_img_article_desc">Sebuah gambar untuk merepresentasikan suatu artikel di homepage.</string>
+    <string name="content_title_article_sample">Ini adalah judul artikel.</string>
+    <string name="category_name_sample">Kategori</string>
+    <string name="content_seller_pic_desc">Sebuah gambar penjual produk skincare.</string>
 </resources>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_light_primary"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView android:layout_width="250dp"
+        android:layout_height="250dp"
+
+        android:id="@+id/content_list_card"
+
+        app:cardCornerRadius="20dp"
+        app:cardElevation="25dp"
+        app:cardMaxElevation="50dp"
+        app:cardBackgroundColor="@color/md_theme_light_tertiary"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/content_list_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:contentDescription="@string/content_list_image_showcase_desc"/>
+
+        <ProgressBar
+            android:id="@+id/loading_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            style="?android:attr/progressBarStyle"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/content_list_image_seller"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+
+        app:cardCornerRadius="3dp"
+        app:cardElevation="60dp"
+        app:layout_constraintBottom_toBottomOf="@id/content_list_card"
+        app:layout_constraintStart_toStartOf="@id/content_list_card">
+
+        <ImageView
+            android:id="@+id/content_list_image_seller_pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/camerlang_color_logo_transparent"
+
+            android:contentDescription="@string/content_seller_pic_desc"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/content_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/md_theme_light_onPrimary"
+        android:textSize="16sp"
+
+        app:layout_constraintBottom_toBottomOf="@id/content_list_card"
+        app:layout_constraintStart_toEndOf="@id/content_list_image_seller"
+
+        android:elevation="60dp"
+
+        android:text="@string/content_title_rv_sample" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
