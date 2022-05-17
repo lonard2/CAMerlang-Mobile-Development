@@ -73,4 +73,5 @@
 	
 	<color name="seed">#004CED</color>
 	<color name="error">#BA1B1B</color>
+	<color name="skin_bg_category_color">#FFBD59</color>
 </resources>
