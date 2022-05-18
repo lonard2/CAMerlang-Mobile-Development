@@ -3,14 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/notification_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -24,6 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/notification_card_constraint"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@drawable/notification_gradient">
@@ -109,6 +106,7 @@
 
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="15dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
 
                 android:text="You have passed two days of your determined treatment product usage. Please use it to minimalize your concern."
@@ -119,6 +117,7 @@
 
                 app:layout_constraintTop_toBottomOf="@id/notification_content"
                 app:layout_constraintStart_toStartOf="@id/notification_content"
+                app:layout_constraintEnd_toEndOf="@id/notification_content"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

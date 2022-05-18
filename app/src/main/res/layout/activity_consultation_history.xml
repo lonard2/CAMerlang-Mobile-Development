@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_light_primary"
+    tools:context=".ui.ConsultationHistoryActivity">
+
+    <ImageView
+        android:id="@+id/consultation_history_intro_emoji_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+
+        app:layout_constraintEnd_toStartOf="@id/consultation_history_intro_text"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:src="@drawable/consultation_history_emoji_icon" />
+
+    <TextView
+        android:id="@+id/consultation_history_intro_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+
+        android:text="Consultation History"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="22sp"
+        android:textColor="@color/md_theme_light_onPrimary"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/consultation_history_list_rv"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/consultation_history_intro_emoji_icon"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
