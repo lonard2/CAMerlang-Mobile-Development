@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="15dp"
+        app:cardBackgroundColor="@color/md_theme_light_secondaryContainer"
+
+        app:cardElevation="25dp"
+        app:cardCornerRadius="15dp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/time_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
+                android:layout_margin="15dp"
+
+                android:src="@drawable/time_icon"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/datetime_info"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+
+                android:text="18 Juni 2022 | 11.10 WIB"
+
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp"
+
+                app:layout_constraintStart_toEndOf="@id/time_icon"
+                app:layout_constraintBottom_toTopOf="@id/diagnosis_outcome_info"/>
+
+            <TextView
+                android:id="@+id/diagnosis_outcome_info"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+
+                android:text="Whitehead"
+
+                android:fontFamily="@font/poppins_black"
+                android:textSize="20sp"
+                android:textColor="@color/md_theme_light_tertiary"
+
+                app:layout_constraintTop_toBottomOf="@id/time_icon"
+                app:layout_constraintStart_toStartOf="@id/time_icon"/>
+
+            <TextView
+                android:id="@+id/diagnosis_id"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginEnd="5dp"
+
+                android:text="consultation-scan-clrg00a223aa001"
+
+                android:fontFamily="@font/poppins_light"
+                android:textSize="10sp"
+                android:textColor="@color/md_theme_light_outline"
+
+                app:layout_constraintTop_toBottomOf="@id/diagnosis_outcome_info"
+                app:layout_constraintStart_toStartOf="@id/diagnosis_outcome_info"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

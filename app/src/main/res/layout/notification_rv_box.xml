@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="15dp"
+
+        app:cardElevation="25dp"
+        app:cardCornerRadius="15dp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/notification_gradient">
+
+            <TextView
+                android:id="@+id/notification_type"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+
+                android:text="REMINDER"
+
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/md_theme_light_onPrimary"
+                android:textSize="16sp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/dot_separator"
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+
+                android:layout_margin="10dp"
+
+                android:src="@drawable/circle_dot"
+
+                app:layout_constraintStart_toEndOf="@id/notification_type"
+                app:layout_constraintTop_toTopOf="@id/notification_type"
+                app:layout_constraintEnd_toStartOf="@id/datetime_info"
+                app:tint="@color/md_theme_light_onPrimary" />
+
+            <TextView
+                android:id="@+id/datetime_info"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+
+                android:text="11.15 WIB"
+
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="16sp"
+                android:textColor="@color/md_theme_light_onPrimary"
+
+                app:layout_constraintStart_toEndOf="@id/dot_separator"
+                app:layout_constraintBottom_toTopOf="@id/notification_content"/>
+
+            <TextView
+                android:id="@+id/notification_content"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+
+                android:text="Don’t forget to apply your treatment product."
+
+                android:fontFamily="@font/poppins_black"
+                android:textSize="20sp"
+                android:textColor="@color/md_theme_light_onPrimary"
+
+                app:layout_constraintTop_toBottomOf="@id/notification_type"
+                app:layout_constraintStart_toStartOf="@id/notification_type"/>
+
+            <TextView
+                android:id="@+id/notification_detail"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginEnd="5dp"
+
+                android:text="You have passed two days of your determined treatment product usage. Please use it to minimalize your concern."
+
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="12sp"
+                android:textColor="@color/md_theme_light_onPrimary"
+
+                app:layout_constraintTop_toBottomOf="@id/notification_content"
+                app:layout_constraintStart_toStartOf="@id/notification_content"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
