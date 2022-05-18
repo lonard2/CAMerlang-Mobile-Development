@@ -4,6 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_theme_light_tertiary"
     tools:context=".ui.NotificationActivity">
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+
+        android:contentDescription="@string/notification_icon_desc"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:src="@drawable/back_btn_icon"
+        app:tint="@color/md_theme_light_onPrimary" />
+
+    <ImageView
+        android:id="@+id/notification_page_intro_emoji_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+
+        app:layout_constraintEnd_toStartOf="@id/notification_page_intro_text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/back_btn"
+
+        android:src="@drawable/notification_emoji_icon"/>
+
+    <TextView
+        android:id="@+id/notification_page_intro_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+
+        android:text="Notification"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="22sp"
+        android:textColor="@color/md_theme_light_onPrimary"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/back_btn"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notification_cat_list_rv"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="20dp"
+
+        app:layout_constraintTop_toBottomOf="@id/back_btn"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notification_data_list_rv"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="30dp"
+
+        app:layout_constraintTop_toBottomOf="@id/notification_cat_list_rv"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

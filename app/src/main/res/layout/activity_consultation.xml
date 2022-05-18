@@ -4,6 +4,134 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_theme_light_secondary"
     tools:context=".ui.ConsultationActivity">
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+
+        android:contentDescription="@string/notification_icon_desc"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:src="@drawable/back_btn_icon"
+        app:tint="@color/md_theme_light_onPrimary" />
+
+    <ImageView
+        android:id="@+id/consultation_page_intro_emoji_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+
+        app:layout_constraintEnd_toStartOf="@id/consultation_page_intro_text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/back_btn"
+
+        android:src="@drawable/consultation_emoji_icon" />
+
+    <TextView
+        android:id="@+id/consultation_page_intro_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+
+        android:text="Consultation"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="22sp"
+        android:textColor="@color/md_theme_light_onPrimary"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/back_btn"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/advice_disclaimer_card"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="15dp"
+
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@color/md_theme_light_tertiary"
+        app:cardCornerRadius="10dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_btn">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/disclaimer_header_text"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+
+                android:text="Important Note"
+                android:fontFamily="@font/poppins_black"
+                android:textColor="@color/md_theme_light_onPrimary"
+                android:textSize="18sp"
+
+                app:layout_constraintTop_toTopOf="@id/disclaimer_header_emoji_icon"
+                app:layout_constraintBottom_toBottomOf="@id/disclaimer_header_emoji_icon"
+                app:layout_constraintStart_toEndOf="@id/disclaimer_header_emoji_icon"/>
+
+            <ImageView
+                android:id="@+id/disclaimer_header_emoji_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
+                android:layout_marginTop="8dp"
+
+                android:src="@drawable/information_icon"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.244"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/disclaimer_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginEnd="25dp"
+
+                android:text="Please be informed that advices and information that given in this conversation are meant as informational references. Please consult to experienced doctors if you need to do."
+
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12sp"
+                android:textColor="@color/md_theme_light_onPrimary"
+
+                app:layout_constraintTop_toBottomOf="@id/disclaimer_header_emoji_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
