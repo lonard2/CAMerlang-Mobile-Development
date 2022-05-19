@@ -38,4 +38,8 @@
 	<style name="BackgroundColor">
 		<item name="android:background">@color/md_theme_light_primary</item>
 	</style>
+
+	<style name="BottomNavbarText">
+		<item name="fontFamily">@font/poppins_semibold</item>
+	</style>
 </resources>

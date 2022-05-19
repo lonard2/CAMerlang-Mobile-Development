@@ -151,6 +151,8 @@
             android:background="@color/md_theme_light_secondaryContainer"
 
             app:menu="@menu/bottom_navbar_menu"
+            app:itemTextAppearanceActive="@style/BottomNavbarText"
+            app:itemTextAppearanceInactive="@style/BottomNavbarText"
 
             app:itemIconTint="@drawable/navbar_color"
 
