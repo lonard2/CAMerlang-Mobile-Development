@@ -1,141 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/md_theme_light_primary"
-    tools:context=".ui.LibraryHomeActivity">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/library_intro_img_layer1"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="match_parent"
+        android:background="@color/md_theme_light_primary"
+        tools:context=".ui.LibraryHomeActivity">
 
-        android:scaleType="centerCrop"
+        <ImageView
+            android:id="@+id/library_intro_img_layer1"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
 
-        android:background="@color/md_theme_light_tertiary"
+            android:scaleType="centerCrop"
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+            android:background="@color/md_theme_light_tertiary"
 
-    <ImageView
-        android:id="@+id/library_intro_img_layer2"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        android:src="@drawable/library_intro_pic"
-        android:scaleType="centerCrop"
+        <ImageView
+            android:id="@+id/library_intro_img_layer2"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
 
-        android:alpha="0.5"
+            android:src="@drawable/library_intro_pic"
+            android:scaleType="centerCrop"
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+            android:alpha="0.5"
 
-    <TextView
-        android:id="@+id/library_intro_text_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        android:text="Absorb your knowledge"
+        <TextView
+            android:id="@+id/library_intro_text_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        android:textColor="@color/md_theme_light_onPrimary"
-        android:fontFamily="@font/poppins_bold"
-        android:textSize="28sp"
+            android:text="Absorb your knowledge"
 
-        app:layout_constraintStart_toStartOf="@id/library_intro_img_layer2"
-        app:layout_constraintEnd_toEndOf="@id/library_intro_img_layer2"
-        app:layout_constraintBottom_toTopOf="@id/library_intro_text_2"/>
+            android:textColor="@color/md_theme_light_onPrimary"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="28sp"
 
-    <TextView
-        android:id="@+id/library_intro_text_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/library_intro_img_layer2"
+            app:layout_constraintEnd_toEndOf="@id/library_intro_img_layer2"
+            app:layout_constraintBottom_toTopOf="@id/library_intro_text_2"/>
 
-        android:fontFamily="@font/poppins_bold"
+        <TextView
+            android:id="@+id/library_intro_text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        android:text="In everything skin."
-        android:textColor="@color/md_theme_light_onPrimary"
-        android:textSize="20sp"
+            android:fontFamily="@font/poppins_bold"
 
-        app:layout_constraintBottom_toTopOf="@id/lib_search_box"
-        app:layout_constraintEnd_toEndOf="@id/library_intro_img_layer2"
-        app:layout_constraintStart_toStartOf="@id/library_intro_img_layer2"
-        app:layout_constraintTop_toTopOf="@id/library_intro_img_layer2"
-        app:layout_constraintVertical_bias="0.7" />
+            android:text="In everything skin."
+            android:textColor="@color/md_theme_light_onPrimary"
+            android:textSize="20sp"
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/lib_search_box"
+            app:layout_constraintBottom_toTopOf="@id/lib_search_box"
+            app:layout_constraintEnd_toEndOf="@id/library_intro_img_layer2"
+            app:layout_constraintStart_toStartOf="@id/library_intro_img_layer2"
+            app:layout_constraintTop_toTopOf="@id/library_intro_img_layer2"
+            app:layout_constraintVertical_bias="0.7" />
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/lib_search_box"
 
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toBottomOf="@id/library_intro_img_layer2"
-        app:layout_constraintBottom_toBottomOf="@id/library_intro_img_layer2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
 
-        android:background="@color/md_theme_light_onPrimary"
-        app:queryHint="Search your skin-related keyword..."
-        app:iconifiedByDefault="true"/>
+            app:layout_constraintTop_toBottomOf="@id/library_intro_img_layer2"
+            app:layout_constraintBottom_toBottomOf="@id/library_intro_img_layer2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
 
-    <ImageView
-        android:id="@+id/library_intro_emoji_icon"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+            android:background="@color/md_theme_light_onPrimary"
+            app:queryHint="Search your skin-related keyword..."
+            app:iconifiedByDefault="true"/>
 
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
+        <ImageView
+            android:id="@+id/library_intro_emoji_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
 
-        app:layout_constraintEnd_toStartOf="@id/library_intro_text"
-        app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
 
-        android:src="@drawable/library_emoji_icon" />
+            app:layout_constraintEnd_toStartOf="@id/library_intro_text"
+            app:layout_constraintTop_toTopOf="parent"
 
-    <TextView
-        android:id="@+id/library_intro_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            android:src="@drawable/library_emoji_icon" />
 
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
+        <TextView
+            android:id="@+id/library_intro_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        android:text="Library"
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="22sp"
-        android:textColor="@color/md_theme_light_onPrimary"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+            android:text="Library"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="22sp"
+            android:textColor="@color/md_theme_light_onPrimary"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lib_category_list_rv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lib_category_list_rv"
 
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toBottomOf="@id/lib_search_box"
-        app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="15dp"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lib_alphabet_list_rv"
+            app:layout_constraintTop_toBottomOf="@id/lib_search_box"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lib_alphabet_list_rv"
 
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toBottomOf="@id/lib_category_list_rv"
-        app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
 
+            app:layout_constraintTop_toBottomOf="@id/lib_category_list_rv"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navbar"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@color/md_theme_light_secondaryContainer"
+
+            app:menu="@menu/bottom_navbar_menu"
+
+            app:itemIconTint="@drawable/navbar_color"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/scanner_to_action_fab"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            style="?attr/floatingActionButtonLargePrimaryStyle"
+
+            android:src="@drawable/scanner_btn_icon"
+            app:maxImageSize="65dp"
+            app:rippleColor="@color/md_theme_light_tertiary"
+
+            app:layout_constraintBottom_toTopOf="@id/bottom_navbar"
+            app:layout_constraintTop_toTopOf="@id/bottom_navbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

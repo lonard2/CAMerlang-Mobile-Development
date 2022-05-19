@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navbar_menu_1"
+        android:title="Home"
+        android:icon="@drawable/home_menu_icon" />
+
+    <item
+        android:id="@+id/navbar_menu_2"
+        android:title="History"
+        android:icon="@drawable/consultation_history_menu_icon" />
+
+    <item
+        android:id="@+id/navbar_menu_middle_empty"
+        android:title="Detect" />
+
+    <item
+        android:id="@+id/navbar_menu_3"
+        android:title="Library"
+        android:icon="@drawable/library_menu_icon" />
+
+    <item
+        android:id="@+id/navbar_menu_4"
+        android:title="Settings"
+        android:icon="@drawable/settings_icon" />
+</menu>

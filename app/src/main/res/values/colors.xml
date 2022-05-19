@@ -84,4 +84,6 @@
 	<color name="settings_user_section_2">#7E19FF</color>
 	<color name="settings_user_section_3">#FF6B00</color>
 	<color name="settings_user_section_4">#9E0269</color>
+
+	<color name="navbar_selected">#FD9800</color>
 </resources>
