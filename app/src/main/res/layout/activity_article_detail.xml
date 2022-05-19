@@ -1,9 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.ArticleDetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:background="@color/md_theme_light_tertiaryContainer"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        tools:context=".ui.LibraryDetailActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/article_detail_header_card"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="20dp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:cardElevation="20dp"
+            app:cardCornerRadius="15dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/article_detail_header_pic"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:src="@color/md_theme_light_tertiary"
+                    android:scaleType="centerCrop"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/back_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
+
+                    android:contentDescription="@string/notification_icon_desc"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    android:src="@drawable/back_btn_icon"
+                    app:tint="@color/md_theme_light_onPrimary" />
+
+                <ImageView
+                    android:id="@+id/datetime_calendar_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+
+                    android:src="@drawable/calendar_icon"
+
+                    android:layout_marginStart="15dp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/article_name"
+
+                    app:tint="@color/md_theme_light_onPrimary" />
+
+                <TextView
+                    android:id="@+id/article_datetime_published_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Date/time"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/md_theme_light_onPrimary"
+
+                    android:layout_marginStart="10dp"
+
+                    app:layout_constraintBottom_toTopOf="@id/article_name"
+                    app:layout_constraintStart_toEndOf="@id/datetime_calendar_icon"/>
+
+                <ImageView
+                    android:id="@+id/dot_separator_article_detail"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+
+                    android:src="@drawable/circle_dot"
+
+                    android:layout_marginStart="10dp"
+
+                    app:layout_constraintTop_toTopOf="@id/article_datetime_published_info"
+                    app:layout_constraintBottom_toBottomOf="@id/article_datetime_published_info"
+                    app:layout_constraintStart_toEndOf="@id/article_datetime_published_info"
+
+                    app:tint="@color/md_theme_light_onPrimary" />
+
+                <TextView
+                    android:id="@+id/article_duration_read_approx_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Approx. read duration"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/md_theme_light_onPrimary"
+
+                    android:layout_marginStart="10dp"
+
+                    app:layout_constraintBottom_toTopOf="@id/article_name"
+                    app:layout_constraintStart_toEndOf="@id/dot_separator_article_detail"/>
+
+                <TextView
+                    android:id="@+id/article_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Article name"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/md_theme_light_onPrimary"
+
+                    android:textSize="30sp"
+
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="10dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/article_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="15dp"
+
+            android:text="This is a header."
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="20sp"
+
+            app:layout_constraintTop_toBottomOf="@id/article_detail_header_card"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/article_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="15dp"
+
+            android:text="Header content."
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"
+
+            app:layout_constraintTop_toBottomOf="@id/article_header"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

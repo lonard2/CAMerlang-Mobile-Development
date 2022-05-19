@@ -4,6 +4,219 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_theme_light_onSurface"
     tools:context=".ui.settings.SettingsUserActivity">
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+
+        android:contentDescription="@string/notification_icon_desc"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:src="@drawable/back_btn_icon"
+        app:tint="@color/md_theme_light_onPrimary" />
+
+    <ImageView
+        android:id="@+id/user_settings_intro_emoji_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+
+        app:layout_constraintEnd_toStartOf="@id/user_settings_page_intro_text_2"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:src="@drawable/user_account_emoji_icon"/>
+
+    <TextView
+        android:id="@+id/user_settings_page_intro_text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="5dp"
+
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Settings"
+        android:textColor="@color/md_theme_light_onPrimary"
+        android:textSize="16sp"
+
+        app:layout_constraintBottom_toTopOf="@id/user_settings_page_intro_text_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/user_settings_page_intro_text_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="15dp"
+
+        android:text="User account"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="12sp"
+        android:textColor="@color/md_theme_light_onPrimary"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_settings_page_intro_text_1"
+        app:layout_constraintBottom_toBottomOf="@id/user_settings_intro_emoji_icon"/>
+
+    <ImageView
+        android:id="@+id/settings_user_section_1"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="15dp"
+
+        android:padding="7dp"
+
+        android:background="@drawable/rounded_box_settings"
+        android:backgroundTint="@color/settings_user_section_1"
+
+        android:src="@drawable/rename_icon"
+        android:scaleType="fitXY"
+
+        app:layout_constraintTop_toBottomOf="@id/back_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/md_theme_light_onPrimary"/>
+
+    <TextView
+        android:id="@+id/settings_user_section_1_intro_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+
+        android:text="My name is..."
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="20sp"
+        android:textColor="@color/md_theme_light_onPrimary"
+
+        app:layout_constraintStart_toEndOf="@id/settings_user_section_1"
+        app:layout_constraintTop_toTopOf="@id/settings_user_section_1"
+        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_1"/>
+
+
+    <ImageView
+        android:id="@+id/settings_user_section_2"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+
+        android:padding="5dp"
+
+        android:background="@drawable/rounded_box_settings"
+        android:backgroundTint="@color/settings_user_section_2"
+
+        android:src="@drawable/person_icon"
+        android:scaleType="fitXY"
+
+        app:layout_constraintTop_toBottomOf="@id/settings_user_section_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/md_theme_light_onPrimary"/>
+
+    <TextView
+        android:id="@+id/settings_user_section_2_intro_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+
+        android:text="My age is..."
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="20sp"
+        android:textColor="@color/md_theme_light_onPrimary"
+
+        app:layout_constraintStart_toEndOf="@id/settings_user_section_2"
+        app:layout_constraintTop_toTopOf="@id/settings_user_section_2"
+        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_2"/>
+
+
+    <ImageView
+        android:id="@+id/settings_user_section_3"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+
+        android:padding="10dp"
+
+        android:background="@drawable/rounded_box_settings"
+        android:backgroundTint="@color/settings_user_section_3"
+
+        android:src="@drawable/briefcase_icon"
+        android:scaleType="fitXY"
+
+        app:layout_constraintTop_toBottomOf="@id/settings_user_section_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/md_theme_light_onPrimary"/>
+
+    <TextView
+        android:id="@+id/settings_user_section_3_intro_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+
+        android:text="My job/profession is..."
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="20sp"
+        android:textColor="@color/md_theme_light_onPrimary"
+
+        app:layout_constraintStart_toEndOf="@id/settings_user_section_3"
+        app:layout_constraintTop_toTopOf="@id/settings_user_section_3"
+        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_3"/>
+
+
+    <ImageView
+        android:id="@+id/settings_user_section_4"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+
+        android:padding="10dp"
+
+        android:background="@drawable/rounded_box_settings"
+        android:backgroundTint="@color/settings_user_section_4"
+
+        android:src="@drawable/user_status_icon"
+        android:scaleType="fitXY"
+
+        app:layout_constraintTop_toBottomOf="@id/settings_user_section_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/md_theme_light_onPrimary" />
+
+    <TextView
+        android:id="@+id/settings_user_section_4_intro_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+
+        android:text="My current status is..."
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="20sp"
+        android:textColor="@color/md_theme_light_onPrimary"
+
+        app:layout_constraintStart_toEndOf="@id/settings_user_section_4"
+        app:layout_constraintTop_toTopOf="@id/settings_user_section_4"
+        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_4"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

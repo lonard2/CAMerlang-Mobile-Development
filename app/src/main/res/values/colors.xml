@@ -74,4 +74,14 @@
 	<color name="seed">#004CED</color>
 	<color name="error">#BA1B1B</color>
 	<color name="skin_bg_category_color">#FFBD59</color>
+
+	<color name="settings_menu_1">#04FF4A</color>
+	<color name="settings_menu_2">#380A66</color>
+	<color name="settings_menu_3">#FF00C7</color>
+	<color name="settings_menu_4">#FAFF00</color>
+
+	<color name="settings_user_section_1">#70121E</color>
+	<color name="settings_user_section_2">#7E19FF</color>
+	<color name="settings_user_section_3">#FF6B00</color>
+	<color name="settings_user_section_4">#9E0269</color>
 </resources>
