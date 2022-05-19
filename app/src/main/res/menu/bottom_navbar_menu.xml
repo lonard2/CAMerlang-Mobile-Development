@@ -11,7 +11,7 @@
         android:icon="@drawable/consultation_history_menu_icon" />
 
     <item
-        android:id="@+id/navbar_menu_middle_empty"
+        android:id="@+id/navbar_menu_middle_placeholder"
         android:title="Detect" />
 
     <item

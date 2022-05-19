@@ -25,6 +25,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
 
+            android:outlineAmbientShadowColor="@color/md_theme_light_secondaryContainer"
+            android:outlineSpotShadowColor="@color/md_theme_light_secondaryContainer"
+
             app:cardElevation="30dp"
             app:cardCornerRadius="15dp">
 

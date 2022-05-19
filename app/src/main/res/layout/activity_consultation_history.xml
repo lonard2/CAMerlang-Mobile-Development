@@ -67,6 +67,7 @@
             app:itemTextAppearanceInactive="@style/BottomNavbarText"
 
             app:itemIconTint="@drawable/navbar_color"
+            app:itemIconSize="33dp"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
