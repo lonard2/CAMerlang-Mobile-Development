@@ -14,10 +14,7 @@
         android:theme="@style/CAMerlang_theme"
         tools:targetApi="31">
         <activity
-            android:name=".FrontActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.ConsultationHistoryFragment"
+            android:name=".ui.FrontActivity"
             android:exported="false" />
         <activity
             android:name=".ui.ArticleDetailActivity"
@@ -26,16 +23,10 @@
             android:name=".ui.settings.SettingsUserActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.settings.SettingsMainFragment"
-            android:exported="false" />
-        <activity
             android:name=".camera.ScannerCameraActivity"
             android:exported="false" />
         <activity
             android:name=".ui.LibraryDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.LibraryHomeFragment"
             android:exported="false" />
         <activity
             android:name=".ui.ConsultationActivity"
@@ -45,9 +36,6 @@
             android:exported="false" />
         <activity
             android:name=".ui.NotificationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.HomepageFragment"
             android:exported="false" />
         <activity
             android:name=".ui.SplashActivity"
