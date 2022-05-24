@@ -86,4 +86,8 @@
 	<color name="settings_user_section_4">#9E0269</color>
 
 	<color name="navbar_selected">#FD9800</color>
+
+	<color name="positive_button">#026A1F</color>
+	<color name="negative_button">#FF053F</color>
+
 </resources>

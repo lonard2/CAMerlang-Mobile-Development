@@ -42,4 +42,9 @@
 	<style name="BottomNavbarText">
 		<item name="fontFamily">@font/poppins_semibold</item>
 	</style>
+
+	<style name="OnboardingPicShape">
+		<item name="cornerFamily">rounded</item>
+		<item name="cornerSize">35dp</item>
+	</style>
 </resources>
