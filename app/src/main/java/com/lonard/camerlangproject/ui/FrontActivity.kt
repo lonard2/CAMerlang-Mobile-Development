@@ -3,14 +3,14 @@ package com.lonard.camerlangproject.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lonard.camerlangproject.databinding.ActivityConsultationHistoryBinding
-import com.lonard.camerlangproject.databinding.ActivityLibraryDetailBinding
+import com.lonard.camerlangproject.databinding.ActivityFrontBinding
 
-class LibraryDetailActivity : AppCompatActivity() {
-    private lateinit var bind: ActivityLibraryDetailBinding
+class FrontActivity : AppCompatActivity() {
+    private lateinit var bind: ActivityFrontBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bind = ActivityLibraryDetailBinding.inflate(layoutInflater)
+        bind = ActivityFrontBinding.inflate(layoutInflater)
         setContentView(bind.root)
     }
 }

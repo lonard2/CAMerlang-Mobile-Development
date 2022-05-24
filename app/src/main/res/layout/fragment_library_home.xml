@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/md_theme_light_primary"
-        tools:context=".ui.LibraryHomeActivity">
+        tools:context=".ui.LibraryHomeFragment">
 
         <ImageView
             android:id="@+id/library_intro_img_layer1"

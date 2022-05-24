@@ -1,28 +1,30 @@
-package com.lonard.camerlangproject.db.library
+package com.lonard.camerlangproject.db
 
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.lonard.camerlangproject.db.consultation.ConsultationDao
+import com.lonard.camerlangproject.db.library.LibraryDao
 
-abstract class LibraryDB: RoomDatabase() {
+abstract class AppDB: RoomDatabase() {
 
     abstract fun libraryDao(): LibraryDao
+    abstract fun consultationDao(): ConsultationDao
 
     companion object {
         @Volatile
-        private var INSTANCE: LibraryDB? = null
+        private var INSTANCE: AppDB? = null
 
         @JvmStatic
-        fun getConsultationDatabase(context: Context): LibraryDB {
+        fun getAppDatabase(context: Context): AppDB {
             if (INSTANCE == null) {
-                synchronized(LibraryDB::class.java) {
+                synchronized(AppDB::class.java) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
-                        LibraryDB::class.java, "camerlang_library_db")
+                        AppDB::class.java, "camerlang_app_db")
                         .build()
                 }
             }
-            return INSTANCE as LibraryDB
+            return INSTANCE as AppDB
         }
     }
 

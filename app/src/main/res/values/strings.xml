@@ -20,4 +20,6 @@
     <string name="product_head">Produk perawatan kulit terpopuler</string>
     <string name="product_subhead">Produk-produk skincare yang terpercaya untuk kulitmu.</string>
     <string name="notification_icon_desc">Ikon lonceng untuk menandakan section notifikasi.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
