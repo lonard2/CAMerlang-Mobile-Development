@@ -19,7 +19,7 @@
 
             android:scaleType="centerCrop"
 
-            android:background="@color/md_theme_light_onTertiaryContainer"
+            android:src="@drawable/sunflower_template_user_bg"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="225dp"
 
-            android:src="@color/md_theme_light_secondaryContainer"
+            android:src="@color/md_theme_light_onSecondaryContainer"
             android:scaleType="centerCrop"
 
             android:alpha="0.5"
@@ -296,42 +296,6 @@
             android:src="@drawable/camerlang_wordmark_bw_transparent_cropped"
 
             app:layout_constraintTop_toBottomOf="@id/brand_id_footer_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navbar"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:background="@color/md_theme_light_secondaryContainer"
-
-            app:menu="@menu/bottom_navbar_menu"
-            app:itemTextAppearanceActive="@style/BottomNavbarText"
-            app:itemTextAppearanceInactive="@style/BottomNavbarText"
-
-            app:itemIconTint="@drawable/navbar_color"
-            app:itemIconSize="33dp"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/scanner_to_action_fab"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            style="?attr/floatingActionButtonLargePrimaryStyle"
-
-            android:src="@drawable/scanner_btn_icon"
-            app:maxImageSize="65dp"
-            app:rippleColor="@color/md_theme_light_tertiary"
-
-            app:layout_constraintBottom_toTopOf="@id/bottom_navbar"
-            app:layout_constraintTop_toTopOf="@id/bottom_navbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
