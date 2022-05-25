@@ -1,176 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
 
-    android:background="@color/md_theme_light_onErrorContainer"
+    app:cardBackgroundColor="@color/md_theme_light_onErrorContainer"
+    app:cardElevation="20dp"
+    app:cardCornerRadius="50dp"
 
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/warning_anim_lottie"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/warning_anim_lottie"
 
-        android:layout_margin="5dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
 
-        app:lottie_rawRes="@raw/warning_anim"
+            android:layout_margin="5dp"
 
-        app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/warning_anim"
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+            app:lottie_autoPlay="true"
 
-    <TextView
-        android:id="@+id/dialog_menu_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Oops! Chat ya!"
-        android:fontFamily="@font/poppins_black"
-        android:textSize="24dp"
-
-        android:layout_marginTop="15dp"
-
-        android:textColor="@color/md_theme_dark_onErrorContainer"
-
-        app:layout_constraintTop_toBottomOf="@id/warning_anim_lottie"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/dialog_menu_content_a"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Untuk saat ini, fitur ini hanya bisa dilakukan untuk keluhan jerawat saja."
-        android:fontFamily="@font/poppins_regular"
-        android:textSize="16dp"
-
-        android:layout_marginTop="15dp"
-
-        android:textAlignment="center"
-
-        android:textColor="@color/md_theme_dark_onErrorContainer"
-
-        app:layout_constraintTop_toBottomOf="@id/dialog_menu_header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/dialog_menu_content_b"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Kamu bisa cek melalui chatbot consultation di bawah ini!"
-        android:fontFamily="@font/poppins_regular"
-        android:textSize="16dp"
-
-        android:layout_marginTop="5dp"
-
-        android:textAlignment="center"
-
-        android:textColor="@color/md_theme_dark_onErrorContainer"
-
-        app:layout_constraintTop_toBottomOf="@id/dialog_menu_content_a"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/consultation_button"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="15dp"
-
-        android:backgroundTint="@color/skin_bg_category_color"
-
-        app:layout_constraintTop_toBottomOf="@id/dialog_menu_content_b"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:cardCornerRadius="5dp"
-        app:cardElevation="25dp">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
+            android:id="@+id/dialog_menu_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_margin="10dp"
+            android:text="Oops! Chat ya!"
+            android:fontFamily="@font/poppins_black"
+            android:textSize="24dp"
 
-            android:text="Consultation Chatbot"
-            android:fontFamily="@font/poppins_bold"
-            android:textSize="18dp" />
+            android:layout_marginTop="15dp"
 
+            android:textColor="@color/md_theme_dark_onErrorContainer"
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/continue_scanning_btn"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="35dp"
-
-        android:backgroundTint="@color/positive_button"
-
-        app:layout_constraintTop_toBottomOf="@id/consultation_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:cardCornerRadius="5dp"
-        app:cardElevation="25dp">
+            app:layout_constraintTop_toBottomOf="@id/warning_anim_lottie"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
+            android:id="@+id/dialog_menu_content_a"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_margin="10dp"
+            android:text="Untuk saat ini, fitur ini hanya bisa dilakukan untuk keluhan jerawat saja."
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="16dp"
 
-            android:text="Lanjutkan scanning"
-            android:fontFamily="@font/poppins_bold"
-            android:textSize="14dp"
-            android:textColor="@color/md_theme_light_onSecondary"/>
+            android:layout_marginTop="15dp"
 
-    </androidx.cardview.widget.CardView>
+            android:textAlignment="center"
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/back_to_home_btn"
+            android:textColor="@color/md_theme_dark_onErrorContainer"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="35dp"
-
-        android:backgroundTint="@color/negative_button"
-
-        app:layout_constraintTop_toBottomOf="@id/continue_scanning_btn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:cardCornerRadius="5dp"
-        app:cardElevation="25dp">
+            app:layout_constraintTop_toBottomOf="@id/dialog_menu_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
+            android:id="@+id/dialog_menu_content_b"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_margin="10dp"
+            android:text="Kamu bisa cek melalui chatbot consultation di bawah ini!"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="16dp"
 
-            android:text="Kembali ke beranda"
-            android:fontFamily="@font/poppins_bold"
-            android:textSize="14dp"
-            android:textColor="@color/md_theme_light_onSecondary"/>
+            android:layout_marginTop="5dp"
 
-    </androidx.cardview.widget.CardView>
+            android:textAlignment="center"
+
+            android:textColor="@color/md_theme_dark_onErrorContainer"
+
+            app:layout_constraintTop_toBottomOf="@id/dialog_menu_content_a"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/consultation_button"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="15dp"
+
+            android:backgroundTint="@color/skin_bg_category_color"
+
+            app:layout_constraintTop_toBottomOf="@id/dialog_menu_content_b"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:cardCornerRadius="5dp"
+            app:cardElevation="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="10dp"
+
+                android:text="Consultation Chatbot"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="18dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/continue_scanning_btn"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="35dp"
+
+            android:backgroundTint="@color/positive_button"
+
+            app:layout_constraintTop_toBottomOf="@id/consultation_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:cardCornerRadius="5dp"
+            app:cardElevation="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="10dp"
+
+                android:text="Lanjutkan scanning"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14dp"
+                android:textColor="@color/md_theme_light_onSecondary"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/back_to_home_btn"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="35dp"
+
+            android:backgroundTint="@color/negative_button"
+
+            app:layout_constraintTop_toBottomOf="@id/continue_scanning_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:cardCornerRadius="5dp"
+            app:cardElevation="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="10dp"
+
+                android:text="Kembali ke beranda"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="14dp"
+                android:textColor="@color/md_theme_light_onSecondary"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -9,19 +9,13 @@
 
     <ImageView
         android:id="@+id/back_btn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
 
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="15dp"
-
-        android:contentDescription="@string/notification_icon_desc"
+        style="@style/BackButton"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
-        android:src="@drawable/back_btn_icon"
-        app:tint="@color/md_theme_light_onPrimary" />
+        android:contentDescription="@string/back_btn_desc"/>
 
     <ImageView
         android:id="@+id/user_settings_intro_emoji_icon"

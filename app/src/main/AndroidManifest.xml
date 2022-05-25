@@ -17,7 +17,7 @@
             android:name=".ui.OnboardingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ConsultationHistoryActivity"
+            android:name=".ui.FrontActivity"
             android:exported="false" />
         <activity
             android:name=".ui.ArticleDetailActivity"
@@ -26,16 +26,10 @@
             android:name=".ui.settings.SettingsUserActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.settings.SettingsMainActivity"
-            android:exported="false" />
-        <activity
             android:name=".camera.ScannerCameraActivity"
             android:exported="false" />
         <activity
             android:name=".ui.LibraryDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.LibraryHomeActivity"
             android:exported="false" />
         <activity
             android:name=".ui.ConsultationActivity"
@@ -45,9 +39,6 @@
             android:exported="false" />
         <activity
             android:name=".ui.NotificationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.HomepageActivity"
             android:exported="false" />
         <activity
             android:name=".ui.SplashActivity"

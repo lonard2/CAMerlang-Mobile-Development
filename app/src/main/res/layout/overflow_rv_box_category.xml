@@ -7,15 +7,7 @@
 
     android:id="@+id/content_list_card"
 
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-
-    app:cardCornerRadius="20dp"
-    app:cardElevation="25dp"
-    app:cardMaxElevation="50dp"
-    app:cardBackgroundColor="@color/skin_bg_category_color"
+    style="@style/CardView.Box.Category"
 
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"

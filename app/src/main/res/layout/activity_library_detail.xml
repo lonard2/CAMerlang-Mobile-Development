@@ -6,29 +6,21 @@
     android:background="@color/md_theme_light_onPrimaryContainer"
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.LibraryDetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-       tools:context=".ui.LibraryDetailActivity">
+        android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/library_detail_header_card"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
 
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="20dp"
+            style="@style/CardView.Header.LibraryDet"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-
-            app:cardElevation="20dp"
-            app:cardCornerRadius="15dp">
+            app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -37,11 +29,7 @@
                 <ImageView
                     android:id="@+id/lib_detail_header_pic"
 
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    android:src="@color/md_theme_light_tertiaryContainer"
-                    android:scaleType="centerCrop"
+                    style="@style/ImageContent.SectionHeader"
 
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -50,76 +38,51 @@
 
                 <ImageView
                     android:id="@+id/back_btn"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
 
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="15dp"
-
-                    android:contentDescription="@string/notification_icon_desc"
+                    style="@style/BackButton"
 
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
 
-                    android:src="@drawable/back_btn_icon"
-                    app:tint="@color/md_theme_light_onPrimary" />
+                    android:contentDescription="@string/back_btn_desc"/>
 
                 <TextView
                     android:id="@+id/disease_type_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
-                    android:text="Location type"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/md_theme_light_onPrimary"
+                    style="@style/DetailHeaderText.Content"
 
-                    android:layout_marginStart="15dp"
+                    android:text="@string/loc_type_desc"
 
                     app:layout_constraintBottom_toTopOf="@id/disease_name"
                     app:layout_constraintStart_toStartOf="parent"/>
 
                 <ImageView
                     android:id="@+id/dot_separator_lib_detail"
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
 
-                    android:src="@drawable/circle_dot"
-
-                    android:layout_marginStart="10dp"
+                    style="@style/DotSeparator"
 
                     app:layout_constraintTop_toTopOf="@id/disease_type_info"
                     app:layout_constraintBottom_toBottomOf="@id/disease_type_info"
                     app:layout_constraintStart_toEndOf="@id/disease_type_info"
 
-                    app:tint="@color/md_theme_light_onPrimary" />
+                    android:contentDescription="@string/dot_separator_desc" />
 
                 <TextView
                     android:id="@+id/disease_level_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
-                    android:text="Risk level"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/md_theme_light_onPrimary"
+                    style="@style/DetailHeaderText.Content"
 
-                    android:layout_marginStart="10dp"
+                    android:text="@string/risk_level_desc"
 
                     app:layout_constraintBottom_toTopOf="@id/disease_name"
                     app:layout_constraintStart_toEndOf="@id/dot_separator_lib_detail"/>
 
                 <TextView
                     android:id="@+id/disease_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
-                    android:text="Problem name"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/md_theme_light_onPrimary"
+                    style="@style/DetailHeaderText.Title"
 
-                    android:textSize="30sp"
-
-                    android:layout_marginStart="15dp"
-                    android:layout_marginBottom="10dp"
+                    android:text="@string/disease_name_desc"
 
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"/>

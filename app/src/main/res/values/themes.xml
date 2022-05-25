@@ -47,4 +47,114 @@
 		<item name="cornerFamily">rounded</item>
 		<item name="cornerSize">35dp</item>
 	</style>
+
+	<style name="ImageContent">
+		<item name="android:src">@color/md_theme_light_tertiary</item>
+		<item name="android:scaleType">centerCrop</item>
+	</style>
+
+	<style name="ImageContent.SectionHeader">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">match_parent</item>
+	</style>
+
+	<style name="BackButton">
+		<item name="android:layout_width">50dp</item>
+		<item name="android:layout_height">50dp</item>
+
+		<item name="android:layout_marginTop">15dp</item>
+		<item name="android:layout_marginStart">15dp</item>
+
+		<item name="android:src">@drawable/back_btn_icon</item>
+
+		<item name="tint">@color/md_theme_light_onPrimary</item>
+	</style>
+
+	<style name="DotSeparator">
+		<item name="android:layout_width">5dp</item>
+		<item name="android:layout_height">5dp</item>
+
+		<item name="android:layout_marginStart">15dp</item>
+
+		<item name="android:src">@drawable/circle_dot</item>
+
+		<item name="tint">@color/md_theme_light_onPrimary</item>
+	</style>
+
+	<style name="DetailHeaderText">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+		<item name="autoSizeTextType">uniform</item>
+	</style>
+
+	<style name="DetailHeaderText.Title">
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="android:layout_marginBottom">10dp</item>
+
+		<item name="android:textSize">30sp</item>
+		<item name="android:fontFamily">@font/poppins_semibold</item>
+	</style>
+
+	<style name="DetailHeaderText.Content">
+		<item name="android:layout_marginStart">15dp</item>
+
+		<item name="android:textSize">14sp</item>
+		<item name="android:fontFamily">@font/poppins_regular</item>
+	</style>
+
+	<style name="CardView">
+		<item name="cardElevation">20dp</item>
+		<item name="cardCornerRadius">15dp</item>
+	</style>
+
+	<style name="CardView.Header">
+		<item name="android:layout_width">match_parent</item>
+
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="android:layout_marginEnd">15dp</item>
+		<item name="android:layout_marginTop">20dp</item>
+	</style>
+
+	<style name="CardView.Header.Article">
+		<item name="android:layout_height">350dp</item>
+	</style>
+
+	<style name="CardView.Header.LibraryDet">
+		<item name="android:layout_height">250dp</item>
+	</style>
+
+	<style name="CardView.Box">
+		<item name="cardMaxElevation">50dp</item>
+		<item name="cardCornerRadius">20dp</item>
+
+		<item name="android:layout_marginStart">10dp</item>
+		<item name="android:layout_marginEnd">10dp</item>
+		<item name="android:layout_marginTop">8dp</item>
+		<item name="android:layout_marginBottom">8dp</item>
+	</style>
+
+	<style name="CardView.Box.Category">
+		<item name="cardMaxElevation">50dp</item>
+		<item name="cardCornerRadius">20dp</item>
+
+		<item name="android:layout_marginStart">10dp</item>
+		<item name="android:layout_marginEnd">10dp</item>
+		<item name="android:layout_marginTop">8dp</item>
+		<item name="android:layout_marginBottom">8dp</item>
+
+		<item name="cardBackgroundColor">@color/skin_bg_category_color</item>
+	</style>
+
+	<style name="CardView.Box.Inside">
+		<item name="android:layout_width">250dp</item>
+		<item name="android:layout_height">150dp</item>
+
+		<item name="cardBackgroundColor">@color/md_theme_light_tertiary</item>
+	</style>
+
+
+
+
 </resources>

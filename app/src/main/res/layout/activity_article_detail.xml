@@ -16,19 +16,12 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/article_detail_header_card"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
 
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="20dp"
+            style="@style/CardView.Header.Article"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-
-            app:cardElevation="20dp"
-            app:cardCornerRadius="15dp">
+            app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -37,11 +30,7 @@
                 <ImageView
                     android:id="@+id/article_detail_header_pic"
 
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    android:src="@color/md_theme_light_tertiary"
-                    android:scaleType="centerCrop"
+                    style="@style/ImageContent.SectionHeader"
 
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -50,19 +39,13 @@
 
                 <ImageView
                     android:id="@+id/back_btn"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
 
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="15dp"
-
-                    android:contentDescription="@string/notification_icon_desc"
+                    style="@style/BackButton"
 
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
 
-                    android:src="@drawable/back_btn_icon"
-                    app:tint="@color/md_theme_light_onPrimary" />
+                    android:contentDescription="@string/back_btn_desc"/>
 
                 <ImageView
                     android:id="@+id/datetime_calendar_icon"
@@ -80,64 +63,42 @@
 
                 <TextView
                     android:id="@+id/article_datetime_published_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
-                    android:text="Date/time"
-                    android:fontFamily="@font/poppins_regular"
-                    android:textColor="@color/md_theme_light_onPrimary"
+                    style="@style/DetailHeaderText.Content"
 
-                    android:layout_marginStart="10dp"
+                    android:text="@string/article_datetime_desc"
 
-                    app:autoSizeTextType="uniform"
                     app:layout_constraintBottom_toTopOf="@id/article_name"
                     app:layout_constraintStart_toEndOf="@id/datetime_calendar_icon"/>
 
                 <ImageView
                     android:id="@+id/dot_separator_article_detail"
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
 
-                    android:src="@drawable/circle_dot"
-
-                    android:layout_marginStart="10dp"
+                    style="@style/DotSeparator"
 
                     app:layout_constraintTop_toTopOf="@id/article_datetime_published_info"
                     app:layout_constraintBottom_toBottomOf="@id/article_datetime_published_info"
                     app:layout_constraintStart_toEndOf="@id/article_datetime_published_info"
 
-                    app:tint="@color/md_theme_light_onPrimary" />
+                    android:contentDescription="@string/dot_separator_desc" />
 
                 <TextView
                     android:id="@+id/article_duration_read_approx_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
-                    android:text="Approx. read duration"
-                    android:fontFamily="@font/poppins_regular"
-                    android:textColor="@color/md_theme_light_onPrimary"
+                    style="@style/DetailHeaderText.Content"
 
-                    android:layout_marginStart="10dp"
+                    android:text="@string/article_duration_desc"
 
-                    app:autoSizeTextType="uniform"
                     app:layout_constraintBottom_toTopOf="@id/article_name"
                     app:layout_constraintStart_toEndOf="@id/dot_separator_article_detail"/>
 
                 <TextView
                     android:id="@+id/article_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
-                    android:text="Article name"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/md_theme_light_onPrimary"
+                    style="@style/DetailHeaderText.Title"
 
-                    android:textSize="30sp"
+                    android:text="@string/article_name_desc"
 
-                    android:layout_marginStart="15dp"
-                    android:layout_marginBottom="10dp"
-
-                    app:autoSizeTextType="uniform"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"/>
 
