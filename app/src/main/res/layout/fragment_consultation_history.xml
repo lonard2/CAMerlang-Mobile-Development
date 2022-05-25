@@ -14,11 +14,7 @@
 
         <ImageView
             android:id="@+id/consultation_history_intro_emoji_icon"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            style="@style/PageIntroEmoji"
 
             app:layout_constraintEnd_toStartOf="@id/consultation_history_intro_text"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,7 +29,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
 
-            android:text="Consultation History"
+            android:text="@string/consultation_history_page_intro"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="22sp"
             android:textColor="@color/md_theme_light_onPrimary"

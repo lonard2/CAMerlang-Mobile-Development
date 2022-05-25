@@ -9,21 +9,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/onboarding_img_placeholder"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
 
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="125dp"
-
-        android:padding="10dp"
-        android:scaleType="centerCrop"
-
-        app:strokeColor="@color/md_theme_light_primary"
-        app:strokeWidth="3dp"
-
-        app:shapeAppearanceOverlay="@style/OnboardingPicShape"
+        style="@style/OnboardingImage"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,21 +19,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/onboarding_img_a"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
 
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="125dp"
-
-        android:padding="10dp"
-        android:scaleType="centerCrop"
-
-        app:strokeColor="@color/md_theme_light_primary"
-        app:strokeWidth="3dp"
-
-        app:shapeAppearanceOverlay="@style/OnboardingPicShape"
+        style="@style/OnboardingImage"
 
         android:src="@drawable/onboarding_4"
 
@@ -57,21 +31,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/onboarding_img_b"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
 
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="125dp"
-
-        android:padding="10dp"
-        android:scaleType="centerCrop"
-
-        app:strokeColor="@color/md_theme_light_primary"
-        app:strokeWidth="3dp"
-
-        app:shapeAppearanceOverlay="@style/OnboardingPicShape"
+        style="@style/OnboardingImage"
 
         android:src="@drawable/onboarding_2"
 
@@ -81,21 +42,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/onboarding_img_c"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
 
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="125dp"
-
-        android:padding="10dp"
-        android:scaleType="centerCrop"
-
-        app:strokeColor="@color/md_theme_light_primary"
-        app:strokeWidth="3dp"
-
-        app:shapeAppearanceOverlay="@style/OnboardingPicShape"
+        style="@style/OnboardingImage"
 
         android:src="@drawable/onboarding_3"
 
@@ -105,21 +53,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/onboarding_img_d"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
 
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="125dp"
-
-        android:padding="10dp"
-        android:scaleType="centerCrop"
-
-        app:strokeColor="@color/md_theme_light_primary"
-        app:strokeWidth="3dp"
-
-        app:shapeAppearanceOverlay="@style/OnboardingPicShape"
+        style="@style/OnboardingImage"
 
         android:src="@drawable/onboarding_1"
 
@@ -129,20 +64,11 @@
 
     <TextView
         android:id="@+id/onboarding_text_a"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
 
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        style="@style/OnboardingText"
 
-        app:strokeColor="@color/md_theme_light_primary"
-        app:strokeWidth="3dp"
-
-        android:text="Jadilah dirimu."
-        android:textColor="@color/md_theme_light_primary"
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="35dp"
+        android:text="@string/onboarding_text_a"
+        android:textSize="35sp"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/go_to_home_btn"
@@ -151,20 +77,11 @@
 
     <TextView
         android:id="@+id/onboarding_text_b"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
 
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        style="@style/OnboardingText"
 
-        app:strokeColor="@color/md_theme_light_primary"
-        app:strokeWidth="3dp"
-
-        android:text="Cari apa yang menghalangimu."
-        android:textColor="@color/md_theme_light_primary"
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="32dp"
+        android:text="@string/onboarding_text_b"
+        android:textSize="32sp"
 
         android:alpha="0"
 
@@ -175,20 +92,11 @@
 
     <TextView
         android:id="@+id/onboarding_text_c"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
 
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        style="@style/OnboardingText"
 
-        app:strokeColor="@color/md_theme_light_primary"
-        app:strokeWidth="3dp"
-
-        android:text="Ceriakan hidupmu."
-        android:textColor="@color/md_theme_light_primary"
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="35dp"
+        android:text="@string/onboarding_text_c"
+        android:textSize="35sp"
 
         android:alpha="0"
 
@@ -199,20 +107,10 @@
 
     <TextView
         android:id="@+id/onboarding_text_d"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
 
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        style="@style/OnboardingText"
 
-        app:strokeColor="@color/md_theme_light_primary"
-        app:strokeWidth="3dp"
-
-
-        android:text="Ayo ceriakan!"
-        android:textColor="@color/md_theme_light_primary"
-        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/onboarding_text_d"
         android:textSize="35sp"
 
         android:alpha="0"
@@ -247,6 +145,8 @@
             android:layout_margin="5dp"
             android:layout_gravity="center"
             android:src="@drawable/next_play_icon"
+
+            android:contentDescription="@string/next_icon_desc"
 
             app:tint="@color/md_theme_light_primary" />
 

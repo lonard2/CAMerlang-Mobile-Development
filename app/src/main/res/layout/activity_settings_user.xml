@@ -19,12 +19,9 @@
 
     <ImageView
         android:id="@+id/user_settings_intro_emoji_icon"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        style="@style/PageIntroEmoji"
 
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
-
+        android:contentDescription="@string/user_emoji_desc"
         app:layout_constraintEnd_toStartOf="@id/user_settings_page_intro_text_2"
         app:layout_constraintTop_toTopOf="parent"
 
@@ -40,7 +37,7 @@
         android:layout_marginBottom="5dp"
 
         android:fontFamily="@font/poppins_semibold"
-        android:text="Settings"
+        android:text="@string/settings_user_page_intro_1"
         android:textColor="@color/md_theme_light_onPrimary"
         android:textSize="16sp"
 
@@ -55,7 +52,7 @@
 
         android:layout_marginEnd="15dp"
 
-        android:text="User account"
+        android:text="@string/settings_user_page_intro_2"
         android:fontFamily="@font/poppins_semibold"
         android:textSize="12sp"
         android:textColor="@color/md_theme_light_onPrimary"
@@ -66,19 +63,12 @@
 
     <ImageView
         android:id="@+id/settings_user_section_1"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        style="@style/SettingBox.UserAccount"
 
-        android:layout_marginTop="35dp"
-        android:layout_marginStart="15dp"
-
-        android:padding="7dp"
-
-        android:background="@drawable/rounded_box_settings"
         android:backgroundTint="@color/settings_user_section_1"
 
         android:src="@drawable/rename_icon"
-        android:scaleType="fitXY"
+        android:contentDescription="@string/rename_icon_desc"
 
         app:layout_constraintTop_toBottomOf="@id/back_btn"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,15 +76,9 @@
 
     <TextView
         android:id="@+id/settings_user_section_1_intro_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/SettingText.UserAccount"
 
-        android:layout_marginStart="15dp"
-
-        android:text="My name is..."
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="20sp"
-        android:textColor="@color/md_theme_light_onPrimary"
+        android:text="@string/settings_user_text_intro_1"
 
         app:layout_constraintStart_toEndOf="@id/settings_user_section_1"
         app:layout_constraintTop_toTopOf="@id/settings_user_section_1"
@@ -103,19 +87,12 @@
 
     <ImageView
         android:id="@+id/settings_user_section_2"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        style="@style/SettingBox.UserAccount"
 
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="15dp"
-
-        android:padding="5dp"
-
-        android:background="@drawable/rounded_box_settings"
         android:backgroundTint="@color/settings_user_section_2"
 
         android:src="@drawable/person_icon"
-        android:scaleType="fitXY"
+        android:contentDescription="@string/age_icon_desc"
 
         app:layout_constraintTop_toBottomOf="@id/settings_user_section_1"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,15 +100,10 @@
 
     <TextView
         android:id="@+id/settings_user_section_2_intro_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        android:layout_marginStart="15dp"
+        style="@style/SettingText.UserAccount"
 
-        android:text="My age is..."
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="20sp"
-        android:textColor="@color/md_theme_light_onPrimary"
+        android:text="@string/settings_user_text_intro_2"
 
         app:layout_constraintStart_toEndOf="@id/settings_user_section_2"
         app:layout_constraintTop_toTopOf="@id/settings_user_section_2"
@@ -140,19 +112,12 @@
 
     <ImageView
         android:id="@+id/settings_user_section_3"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        style="@style/SettingBox.UserAccount"
 
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="15dp"
-
-        android:padding="10dp"
-
-        android:background="@drawable/rounded_box_settings"
         android:backgroundTint="@color/settings_user_section_3"
 
         android:src="@drawable/briefcase_icon"
-        android:scaleType="fitXY"
+        android:contentDescription="@string/briefcase_profession_icon"
 
         app:layout_constraintTop_toBottomOf="@id/settings_user_section_2"
         app:layout_constraintStart_toStartOf="parent"
@@ -160,15 +125,9 @@
 
     <TextView
         android:id="@+id/settings_user_section_3_intro_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/SettingText.UserAccount"
 
-        android:layout_marginStart="15dp"
-
-        android:text="My job/profession is..."
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="20sp"
-        android:textColor="@color/md_theme_light_onPrimary"
+        android:text="@string/settings_user_text_intro_3"
 
         app:layout_constraintStart_toEndOf="@id/settings_user_section_3"
         app:layout_constraintTop_toTopOf="@id/settings_user_section_3"
@@ -177,19 +136,12 @@
 
     <ImageView
         android:id="@+id/settings_user_section_4"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        style="@style/SettingBox.UserAccount"
 
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="15dp"
-
-        android:padding="10dp"
-
-        android:background="@drawable/rounded_box_settings"
         android:backgroundTint="@color/settings_user_section_4"
 
         android:src="@drawable/user_status_icon"
-        android:scaleType="fitXY"
+        android:contentDescription="@string/signal_icon_desc"
 
         app:layout_constraintTop_toBottomOf="@id/settings_user_section_3"
         app:layout_constraintStart_toStartOf="parent"
@@ -197,15 +149,9 @@
 
     <TextView
         android:id="@+id/settings_user_section_4_intro_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/SettingText.UserAccount"
 
-        android:layout_marginStart="15dp"
-
-        android:text="My current status is..."
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="20sp"
-        android:textColor="@color/md_theme_light_onPrimary"
+        android:text="@string/settings_user_text_intro_4"
 
         app:layout_constraintStart_toEndOf="@id/settings_user_section_4"
         app:layout_constraintTop_toTopOf="@id/settings_user_section_4"

@@ -14,10 +14,8 @@
 
         <ImageView
             android:id="@+id/settings_main_img_layer1"
-            android:layout_width="match_parent"
-            android:layout_height="225dp"
 
-            android:scaleType="centerCrop"
+            style="@style/Backdrop.Setting"
 
             android:src="@drawable/sunflower_template_user_bg"
 
@@ -27,11 +25,10 @@
 
         <ImageView
             android:id="@+id/settings_main_img_layer2"
-            android:layout_width="match_parent"
-            android:layout_height="225dp"
+
+            style="@style/Backdrop.Setting"
 
             android:src="@color/md_theme_light_onSecondaryContainer"
-            android:scaleType="centerCrop"
 
             android:alpha="0.5"
 
@@ -58,7 +55,7 @@
 
             android:layout_marginStart="15dp"
 
-            android:text="Lonard Steven"
+            android:text="@string/sample_app_username"
 
             android:textColor="@color/md_theme_light_onPrimary"
             android:fontFamily="@font/poppins_bold"
@@ -74,7 +71,7 @@
 
             android:layout_marginStart="15dp"
 
-            android:text="22 y.o."
+            android:text="@string/age_sample"
 
             android:textColor="@color/md_theme_light_onPrimary"
             android:fontFamily="@font/poppins_semibold"
@@ -101,7 +98,7 @@
 
             android:layout_marginStart="10dp"
 
-            android:text="Student"
+            android:text="@string/profession_sample"
 
             android:textColor="@color/md_theme_light_onPrimary"
             android:fontFamily="@font/poppins_semibold"
@@ -118,7 +115,7 @@
 
             android:layout_marginStart="15dp"
 
-            android:text="Trying to be shiny as ever..."
+            android:text="@string/user_status_sample"
 
             android:textColor="@color/md_theme_light_onPrimary"
             android:fontFamily="@font/poppins_regular"
@@ -127,22 +124,14 @@
             app:layout_constraintTop_toBottomOf="@id/settings_main_age"
             app:layout_constraintStart_toEndOf="@id/settings_user_icon"/>
 
-
         <ImageButton
             android:id="@+id/btn_settings_select_1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            style="@style/SettingBox.Main"
 
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="15dp"
-
-            android:padding="10dp"
-
-            android:background="@drawable/rounded_box_settings"
             android:backgroundTint="@color/settings_menu_1"
 
             android:src="@drawable/user_account_config_icon"
-            android:scaleType="fitXY"
+            android:contentDescription="@string/user_settings_btn_desc"
 
             app:layout_constraintTop_toBottomOf="@id/settings_main_img_layer2"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -154,7 +143,7 @@
 
             android:layout_marginStart="15dp"
 
-            android:text="User account"
+            android:text="@string/btn_settings_1_text"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="24sp"
             android:textColor="@color/md_theme_light_onPrimary"
@@ -165,19 +154,12 @@
 
         <ImageButton
             android:id="@+id/btn_settings_select_2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            style="@style/SettingBox.Main"
 
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="15dp"
-
-            android:padding="15dp"
-
-            android:background="@drawable/rounded_box_settings"
             android:backgroundTint="@color/settings_menu_2"
 
             android:src="@drawable/night_icon"
-            android:scaleType="fitXY"
+            android:contentDescription="@string/dark_mode_btn_desc"
 
             app:layout_constraintTop_toBottomOf="@id/btn_settings_select_1"
             app:layout_constraintStart_toStartOf="parent"
@@ -190,7 +172,7 @@
 
             android:layout_marginStart="15dp"
 
-            android:text="Dark mode"
+            android:text="@string/btn_settings_2_text"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="24sp"
             android:textColor="@color/md_theme_light_onPrimary"
@@ -201,19 +183,12 @@
 
         <ImageButton
             android:id="@+id/btn_settings_select_3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            style="@style/SettingBox.Main"
 
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="15dp"
-
-            android:padding="6dp"
-
-            android:background="@drawable/rounded_box_settings"
             android:backgroundTint="@color/settings_menu_3"
 
             android:src="@drawable/localization_icon"
-            android:scaleType="fitXY"
+            android:contentDescription="@string/locale_btn_desc"
 
             app:layout_constraintTop_toBottomOf="@id/btn_settings_select_2"
             app:layout_constraintStart_toStartOf="parent">
@@ -226,7 +201,7 @@
 
             android:layout_marginStart="15dp"
 
-            android:text="Localization"
+            android:text="@string/btn_settings_3_text"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="24sp"
             android:textColor="@color/md_theme_light_onPrimary"
@@ -237,19 +212,12 @@
 
         <ImageButton
             android:id="@+id/btn_settings_select_4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            style="@style/SettingBox.Main"
 
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="15dp"
-
-            android:padding="10dp"
-
-            android:background="@drawable/rounded_box_settings"
             android:backgroundTint="@color/settings_menu_4"
 
             android:src="@drawable/credits_icon"
-            android:scaleType="fitXY"
+            android:contentDescription="@string/credits_btn_desc"
 
             app:layout_constraintTop_toBottomOf="@id/btn_settings_select_3"
             app:layout_constraintStart_toStartOf="parent">
@@ -278,6 +246,7 @@
             android:layout_height="90dp"
 
             android:src="@drawable/camerlang_logo_bw_transparent"
+            android:contentDescription="@string/CAMerlang_bw_icon_desc"
 
             app:layout_constraintTop_toBottomOf="@id/btn_settings_select_4"
             app:layout_constraintStart_toStartOf="parent"
@@ -290,6 +259,7 @@
             android:layout_height="50dp"
 
             android:src="@drawable/camerlang_wordmark_bw_transparent_cropped"
+            android:contentDescription="@string/CAMerlang_bw_wordmark_desc"
 
             app:layout_constraintTop_toBottomOf="@id/brand_id_footer_1"
             app:layout_constraintStart_toStartOf="parent"

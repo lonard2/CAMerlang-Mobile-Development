@@ -347,6 +347,130 @@
 		<item name="android:orientation">horizontal</item>
 	</style>
 
+	<style name="ConsultationDisclaimerText">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:layout_marginTop">15dp</item>
+		<item name="android:layout_marginStart">35dp</item>
+		<item name="android:layout_marginEnd">35dp</item>
+
+		<item name="android:textSize">12sp</item>
+
+		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+		<item name="android:textAlignment">center</item>
+	</style>
+
+	<style name="ConsultationDisclaimerText.Standard">
+		<item name="android:layout_marginBottom">25dp</item>
+
+		<item name="android:fontFamily">@font/poppins_regular</item>
+	</style>
+
+	<style name="ConsultationDisclaimerText.Bold">
+		<item name="android:layout_marginBottom">10dp</item>
+
+		<item name="android:fontFamily">@font/poppins_semibold</item>
+	</style>
+
+	<style name="OnboardingImage">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">match_parent</item>
+
+		<item name="android:layout_marginTop">25dp</item>
+		<item name="android:layout_marginStart">25dp</item>
+		<item name="android:layout_marginEnd">25dp</item>
+		<item name="android:layout_marginBottom">125dp</item>
+
+		<item name="android:padding">10dp</item>
+		<item name="android:scaleType">centerCrop</item>
+
+		<item name="strokeColor">@color/md_theme_light_primary</item>
+		<item name="strokeWidth">3dp</item>
+
+		<item name="shapeAppearanceOverlay">@style/OnboardingPicShape</item>
+	</style>
+
+	<style name="OnboardingText">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">match_parent</item>
+
+		<item name="android:layout_marginTop">10dp</item>
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="android:layout_marginBottom">10dp</item>
+
+		<item name="android:textColor">@color/md_theme_light_primary</item>
+		<item name="android:fontFamily">@font/poppins_semibold</item>
+	</style>
+
+	<style name="PageIntroEmoji">
+		<item name="android:layout_width">35dp</item>
+		<item name="android:layout_height">35dp</item>
+
+		<item name="android:layout_marginTop">20dp</item>
+		<item name="android:layout_marginEnd">15dp</item>
+	</style>
+
+	<style name="SettingBox">
+		<item name="android:background">@drawable/rounded_box_settings</item>
+		<item name="android:scaleType">fitXY</item>
+	</style>
+
+	<style name="SettingBox.UserAccount">
+		<item name="android:layout_width">65dp</item>
+		<item name="android:layout_height">65dp</item>
+
+		<item name="android:layout_marginTop">35dp</item>
+		<item name="android:layout_marginStart">15dp</item>
+
+		<item name="android:padding">7dp</item>
+	</style>
+
+	<style name="SettingBox.Main">
+		<item name="android:layout_width">50dp</item>
+		<item name="android:layout_height">50dp</item>
+
+		<item name="android:layout_marginTop">20dp</item>
+		<item name="android:layout_marginStart">15dp</item>
+
+		<item name="android:padding">10dp</item>
+	</style>
+
+	<style name="SettingText">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:fontFamily">@font/poppins_semibold</item>
+
+		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+	</style>
+
+	<style name="SettingText.UserAccount">
+		<item name="android:layout_marginStart">15dp</item>
+
+		<item name="android:textSize">20sp</item>
+	</style>
+
+	<style name="Backdrop">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:scaleType">centerCrop</item>
+	</style>
+
+	<style name="Backdrop.Setting">
+		<item name="android:layout_height">225dp</item>
+	</style>
+
+	<style name="Backdrop.Library">
+		<item name="android:layout_height">300dp</item>
+	</style>
+
+	<style name="LibraryHeaderText">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+		<item name="android:fontFamily">@font/poppins_bold</item>
+	</style>
 
 
 </resources>

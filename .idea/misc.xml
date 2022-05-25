@@ -6,22 +6,25 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/drawable-v24/rounded_box_settings.xml" value="0.195" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/drawable/rounded_box.xml" value="0.195" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_article_detail.xml" value="0.264" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_consultation.xml" value="0.2125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_consultation.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_consultation_history.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_front.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_homepage.xml" value="0.264" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_library_detail.xml" value="0.4" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_library_detail.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_library_home.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_notification.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_onboarding.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_scanner.xml" value="0.25" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_scanner_camera.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_scanner_camera.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_settings_main.xml" value="0.152" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_settings_user.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_settings_user.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/consultation_history_rv_box.xml" value="0.1621376811594203" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_blank.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_consultation_history.xml" value="0.21603260869565216" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_homepage.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_library_home.xml" value="0.25" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_settings_main.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_settings_main.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/notification_rv_box.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_inside.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_inside_detail.xml" value="0.25" />

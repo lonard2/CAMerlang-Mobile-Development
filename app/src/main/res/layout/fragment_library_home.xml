@@ -14,12 +14,10 @@
 
         <ImageView
             android:id="@+id/library_intro_img_layer1"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-
-            android:scaleType="centerCrop"
+            style="@style/Backdrop.Library"
 
             android:background="@color/md_theme_light_tertiary"
+            android:contentDescription="@string/library_intro_img_layer1_desc"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,11 +25,10 @@
 
         <ImageView
             android:id="@+id/library_intro_img_layer2"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
+            style="@style/Backdrop.Library"
 
             android:src="@drawable/library_intro_pic"
-            android:scaleType="centerCrop"
+            android:contentDescription="@string/library_intro_img_layer2_desc"
 
             android:alpha="0.5"
 
@@ -41,13 +38,10 @@
 
         <TextView
             android:id="@+id/library_intro_text_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            android:text="Absorb your knowledge"
+            style="@style/LibraryHeaderText"
 
-            android:textColor="@color/md_theme_light_onPrimary"
-            android:fontFamily="@font/poppins_bold"
+            android:text="@string/library_menu_intro_1"
             android:textSize="28sp"
 
             app:layout_constraintStart_toStartOf="@id/library_intro_img_layer2"
@@ -56,13 +50,9 @@
 
         <TextView
             android:id="@+id/library_intro_text_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/LibraryHeaderText"
 
-            android:fontFamily="@font/poppins_bold"
-
-            android:text="In everything skin."
-            android:textColor="@color/md_theme_light_onPrimary"
+            android:text="@string/library_menu_intro_2"
             android:textSize="20sp"
 
             app:layout_constraintBottom_toTopOf="@id/lib_search_box"
@@ -91,11 +81,9 @@
 
         <ImageView
             android:id="@+id/library_intro_emoji_icon"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            style="@style/PageIntroEmoji"
 
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            android:contentDescription="@string/book_stack_icon_desc"
 
             app:layout_constraintEnd_toStartOf="@id/library_intro_text"
             app:layout_constraintTop_toTopOf="parent"
@@ -110,7 +98,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
 
-            android:text="Library"
+            android:text="@string/library_menu_text"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="22sp"
             android:textColor="@color/md_theme_light_onPrimary"

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">CamerlangProject</string>
     <string name="app_slogan">Berikan sinar pada kulitmu.</string>
@@ -45,4 +46,48 @@
     <string name="article_header_pic_desc">A place for showing article representative image.</string>
     <string name="calendar_icon_desc">A flat calendar icon.</string>
     <string name="lib_detail_header_pic_desc">A place for showing an library item\'s image illustration.</string>
+    <string name="consultation_page_header">Consultation</string>
+    <string name="important_note">Important Note</string>
+    <string name="consultation_disclaimer_1">Please be informed that advices and information that given in this conversation are meant as informational references.</string>
+    <string name="consultation_disclaimer_2">Please consult to experienced doctors if you need to do.</string>
+    <string name="onboarding_text_b">Cari apa yang menghalangimu.</string>
+    <string name="onboarding_text_a">Jadilah dirimu.</string>
+    <string name="onboarding_text_c">Ceriakan hidupmu.</string>
+    <string name="onboarding_text_d">Ayo ceriakan!</string>
+    <string name="settings_user_text_intro_4">My current status is…</string>
+    <string name="settings_user_text_intro_3">My job/profession is…</string>
+    <string name="settings_user_text_intro_2">My age is…</string>
+    <string name="settings_user_text_intro_1">My name is…</string>
+    <string name="settings_user_page_intro_2">User account</string>
+    <string name="settings_user_page_intro_1">Settings</string>
+    <string name="consultation_page_emoji_desc">Chat bubbles as representatives of conversation.</string>
+    <string name="information_box_desc">Information box for indicating information section.</string>
+    <string name="notification_emoji_desc">A ring as a symbol of notification.</string>
+    <string name="scanner_use_how_to">Aim your camera to your facial skin to detect your skin problem!</string>
+    <string name="camera_mode_switch_icon_desc">An camera with switch icon to indicate camera mode switch (from landscape to portrait, and conversely.</string>
+    <string name="user_emoji_desc">An person as an representative of an application user.</string>
+    <string name="rename_icon_desc">A rename icon.</string>
+    <string name="age_icon_desc">A person in full body as a representative of a user.</string>
+    <string name="briefcase_profession_icon">A briefcase icon as a representative of job or profession.</string>
+    <string name="signal_icon_desc">A signal icon as a symbol for status content or latest content.</string>
+    <string name="consultation_history_page_intro">Consultation History</string>
+    <string name="sample_app_username">Lonard Steven</string>
+    <string name="library_menu_intro_1">Absorb your knowledge</string>
+    <string name="library_menu_intro_2">In everything skin.</string>
+    <string name="book_stack_icon_desc">A stack of books which have lots of knowledge.</string>
+    <string name="library_menu_text">Library</string>
+    <string name="library_intro_img_layer1_desc">Blue layer for helping intended library intro picture to be transparent.</string>
+    <string name="library_intro_img_layer2_desc">A person is grabbing a book from a library\'s drawer.</string>
+    <string name="user_settings_btn_desc">A icon of adding new user.</string>
+    <string name="dark_mode_btn_desc">A moon, usually indicates nighttime.</string>
+    <string name="locale_btn_desc">Globe icon for indicating localization activities.</string>
+    <string name="credits_btn_desc">A paper of scripts, can be used for listing people, institutions, and stuffs who contributed to the project.</string>
+    <string name="CAMerlang_bw_icon_desc">CAMerlang logo icon, with sparkling element, C letter symbol, and a camera lens.</string>
+    <string name="CAMerlang_bw_wordmark_desc">CAMerlang brand wordmark.</string>
+    <string name="age_sample">22 y.o.</string>
+    <string name="profession_sample">Student</string>
+    <string name="user_status_sample">Trying to be shiny as ever…</string>
+    <string name="btn_settings_1_text">User account</string>
+    <string name="btn_settings_2_text">Dark mode</string>
+    <string name="btn_settings_3_text">Localization</string>
 </resources>
