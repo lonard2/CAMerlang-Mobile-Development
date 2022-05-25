@@ -295,5 +295,58 @@
 		<item name="android:textAllCaps">true</item>
 	</style>
 
+	<style name="DetailContent">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:layout_marginTop">25dp</item>
+		<item name="android:layout_marginStart">25dp</item>
+		<item name="android:layout_marginEnd">15dp</item>
+	</style>
+
+	<style name="DetailContent.Intro">
+		<item name="android:fontFamily">@font/poppins_semibold</item>
+		<item name="android:textSize">18sp</item>
+
+		<item name="autoSizeTextType">uniform</item>
+	</style>
+
+	<style name="DetailContent.Content">
+		<item name="android:fontFamily">@font/poppins_regular</item>
+		<item name="android:textSize">14sp</item>
+
+		<item name="autoSizeTextType">uniform</item>
+	</style>
+
+	<style name="IntroSection">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:fontFamily">@font/poppins_bold</item>
+		<item name="android:textSize">16sp</item>
+
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="autoSizeTextType">uniform</item>
+	</style>
+
+	<style name="DetailIcon">
+		<item name="android:layout_width">30dp</item>
+		<item name="android:layout_height">30dp</item>
+
+		<item name="android:layout_marginStart">25dp</item>
+		<item name="android:layout_marginTop">25dp</item>
+	</style>
+
+	<style name="DetailRv">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:layout_marginStart">25dp</item>
+		<item name="android:layout_marginTop">15dp</item>
+
+		<item name="android:orientation">horizontal</item>
+	</style>
+
+
 
 </resources>

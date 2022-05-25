@@ -31,6 +31,7 @@
                     android:id="@+id/article_detail_header_pic"
 
                     style="@style/ImageContent.SectionHeader"
+                    android:contentDescription="@string/article_header_pic_desc"
 
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -53,6 +54,7 @@
                     android:layout_height="30dp"
 
                     android:src="@drawable/calendar_icon"
+                    android:contentDescription="@string/calendar_icon_desc"
 
                     android:layout_marginStart="15dp"
 
@@ -108,33 +110,19 @@
 
         <TextView
             android:id="@+id/article_header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            android:layout_marginTop="25dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="15dp"
+            style="@style/DetailContent.Intro"
+            android:text="@string/article_header_sample"
 
-            android:text="This is a header."
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="20sp"
-
-            app:autoSizeTextType="uniform"
             app:layout_constraintTop_toBottomOf="@id/article_detail_header_card"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/article_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="15dp"
+            style="@style/DetailContent.Content"
 
-            android:text="Header content."
-            android:fontFamily="@font/poppins_regular"
-            android:textSize="14sp"
+            android:text="@string/article_content_desc"
 
             app:layout_constraintTop_toBottomOf="@id/article_header"
             app:layout_constraintStart_toStartOf="parent" />

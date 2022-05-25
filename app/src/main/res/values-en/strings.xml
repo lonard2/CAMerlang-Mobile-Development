@@ -34,4 +34,16 @@
     <string name="notification_content_sample">Don’t forget to apply your treatment product.</string>
     <string name="notification_detail_sample">You have passed two days of your determined treatment product usage. Please use it to minimalize your concern.</string>
     <string name="next_icon_desc">Play-like button to indicate next or more info section.</string>
+    <string name="lib_item_desc_sample">This is a problem test.</string>
+    <string name="article_header_sample">This is a header.</string>
+    <string name="article_content_desc">Header content.</string>
+    <string name="section_1">More images</string>
+    <string name="section_2">Products you can try</string>
+    <string name="section_3">Other entries</string>
+    <string name="product_emoji_desc">An box indicating packaging of a product.</string>
+    <string name="other_entries_emoji_desc">An folder icon, containing several documents.</string>
+    <string name="picture_emoji_desc">An framed picture.</string>
+    <string name="article_header_pic_desc">A place for showing article representative image.</string>
+    <string name="calendar_icon_desc">A flat calendar icon.</string>
+    <string name="lib_detail_header_pic_desc">A place for showing an library item\'s image illustration.</string>
 </resources>

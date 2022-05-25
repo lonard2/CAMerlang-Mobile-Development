@@ -30,6 +30,7 @@
                     android:id="@+id/lib_detail_header_pic"
 
                     style="@style/ImageContent.SectionHeader"
+                    android:contentDescription="@string/lib_detail_header_pic_desc"
 
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -94,44 +95,32 @@
         <TextView
             android:id="@+id/lib_item_short_desc"
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/DetailContent.Intro"
 
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="25dp"
+            android:text="@string/lib_item_desc_sample"
 
-            android:text="This is a problem test."
-
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="18sp"
-            android:textColor="@color/md_theme_light_onPrimary"
+            android:textColor="@color/md_theme_light_primaryContainer"
 
             app:layout_constraintTop_toBottomOf="@id/library_detail_header_card"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <ImageView
             android:id="@+id/more_images_emoji_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
 
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="25dp"
+            style="@style/DetailIcon"
 
             android:src="@drawable/framed_picture_emoji_icon"
+            android:contentDescription="@string/picture_emoji_desc"
 
             app:layout_constraintTop_toBottomOf="@id/lib_item_short_desc"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/more_images_intro_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/IntroSection"
 
-            android:layout_marginStart="15dp"
+            android:text="@string/section_1"
 
-            android:text="More images"
-            android:textSize="16sp"
-            android:fontFamily="@font/poppins_bold"
             android:textColor="@color/md_theme_light_onPrimary"
 
             app:layout_constraintTop_toTopOf="@id/more_images_emoji_icon"
@@ -141,38 +130,27 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/more_images_section_rv"
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="15dp"
+            style="@style/DetailRv"
 
             app:layout_constraintTop_toBottomOf="@id/more_images_emoji_icon"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <ImageView
             android:id="@+id/products_emoji_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
 
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="25dp"
+            style="@style/DetailIcon"
 
             android:src="@drawable/package_box_emoji_icon"
+            android:contentDescription="@string/product_emoji_desc"
 
             app:layout_constraintTop_toBottomOf="@id/more_images_section_rv"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/products_intro_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/IntroSection"
 
-            android:layout_marginStart="15dp"
-
-            android:text="More images"
-            android:textSize="16sp"
-            android:fontFamily="@font/poppins_bold"
+            android:text="@string/section_2"
             android:textColor="@color/md_theme_light_onPrimary"
 
             app:layout_constraintTop_toTopOf="@id/products_emoji_icon"
@@ -182,38 +160,27 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/products_section_rv"
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="15dp"
+            style="@style/DetailRv"
 
             app:layout_constraintTop_toBottomOf="@id/products_emoji_icon"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <ImageView
             android:id="@+id/other_entries_emoji_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
 
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="25dp"
+            style="@style/DetailIcon"
 
-            android:src="@drawable/package_box_emoji_icon"
+            android:src="@drawable/folder_emoji_icon"
+            android:contentDescription="@string/other_entries_emoji_desc"
 
             app:layout_constraintTop_toBottomOf="@id/products_section_rv"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/other_entries_intro_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/IntroSection"
 
-            android:layout_marginStart="15dp"
-
-            android:text="More images"
-            android:textSize="16sp"
-            android:fontFamily="@font/poppins_bold"
+            android:text="@string/section_3"
             android:textColor="@color/md_theme_light_onPrimary"
 
             app:layout_constraintTop_toTopOf="@id/other_entries_emoji_icon"
@@ -224,11 +191,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/other_entries_section_rv"
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="15dp"
+            style="@style/DetailRv"
 
             app:layout_constraintTop_toBottomOf="@id/other_entries_emoji_icon"
             app:layout_constraintStart_toStartOf="parent" />
