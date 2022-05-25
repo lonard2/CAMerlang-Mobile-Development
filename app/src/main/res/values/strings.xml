@@ -90,4 +90,13 @@
     <string name="btn_settings_1_text">User account</string>
     <string name="btn_settings_2_text">Dark mode</string>
     <string name="btn_settings_3_text">Localization</string>
+    <string name="consultation_history_emoji_desc">Notepad emoji icon, as a method of archiving.</string>
+    <string name="btn_settings_4_text">Credits</string>
+    <string name="sunflower_pic_desc">A picture of a sunflower placed among their peers.</string>
+    <string name="placeholder_img_settings_main_desc">A placeholder picture to give transparency to its sister layer below it.</string>
+    <string name="notification_menu_intro">Notification</string>
+    <string name="time_icon_desc">A clock icon, stylized in flat design.</string>
+    <string name="sample_datetime_consultation_history">18 Juni 2022 | 11.10 WIB</string>
+    <string name="diagnosis_result_sample">Whitehead</string>
+    <string name="diagnosis_id_sample">consultation-scan-clrg00a223aa001</string>
 </resources>

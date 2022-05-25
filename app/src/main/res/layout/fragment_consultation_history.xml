@@ -19,6 +19,8 @@
             app:layout_constraintEnd_toStartOf="@id/consultation_history_intro_text"
             app:layout_constraintTop_toTopOf="parent"
 
+            android:contentDescription="@string/consultation_history_emoji_desc"
+
             android:src="@drawable/consultation_history_emoji_icon" />
 
         <TextView

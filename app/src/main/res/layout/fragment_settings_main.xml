@@ -18,6 +18,7 @@
             style="@style/Backdrop.Setting"
 
             android:src="@drawable/sunflower_template_user_bg"
+            android:contentDescription="@string/sunflower_pic_desc"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +30,7 @@
             style="@style/Backdrop.Setting"
 
             android:src="@color/md_theme_light_onSecondaryContainer"
+            android:contentDescription="@string/placeholder_img_settings_main_desc"
 
             android:alpha="0.5"
 
@@ -230,7 +232,7 @@
 
             android:layout_marginStart="15dp"
 
-            android:text="Credits"
+            android:text="@string/btn_settings_4_text"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="24sp"
             android:textColor="@color/md_theme_light_onPrimary"

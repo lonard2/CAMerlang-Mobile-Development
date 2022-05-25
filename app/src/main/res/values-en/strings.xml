@@ -54,7 +54,7 @@
     <string name="onboarding_text_d">Ayo ceriakan!</string>
     <string name="onboarding_text_a">Jadilah dirimu.</string>
     <string name="onboarding_text_c">Ceriakan hidupmu.</string>
-    <string name="settings_user_text_intro_4">My current status is...</string>
+    <string name="settings_user_text_intro_4">My current status is…</string>
     <string name="settings_user_page_intro_2">User account</string>
     <string name="consultation_page_emoji_desc">Chat bubbles as representatives of conversation.</string>
     <string name="information_box_desc">Information box for indicating information section.</string>
@@ -82,12 +82,21 @@
     <string name="CAMerlang_bw_wordmark_desc">CAMerlang brand wordmark.</string>
     <string name="age_sample">22 y.o.</string>
     <string name="profession_sample">Student</string>
-    <string name="user_status_sample">Trying to be shiny as ever...</string>
+    <string name="user_status_sample">Trying to be shiny as ever…</string>
     <string name="btn_settings_1_text">User account</string>
     <string name="btn_settings_2_text">Dark mode</string>
     <string name="btn_settings_3_text">Localization</string>
-    <string name="settings_user_text_intro_3">My job/profession is...</string>
-    <string name="settings_user_text_intro_2">My age is...</string>
-    <string name="settings_user_text_intro_1">My name is...</string>
+    <string name="btn_settings_4_text">Credits</string>
+    <string name="settings_user_text_intro_3">My job/profession is…</string>
+    <string name="settings_user_text_intro_2">My age is…</string>
+    <string name="settings_user_text_intro_1">My name is…</string>
     <string name="settings_user_page_intro_1">Settings</string>
+    <string name="consultation_history_emoji_desc">Notepad emoji icon, as a method of archiving.</string>
+    <string name="sunflower_pic_desc">A picture of a sunflower placed among their peers.</string>
+    <string name="placeholder_img_settings_main_desc">A placeholder picture to give transparency to its sister layer below it.</string>
+    <string name="notification_menu_intro">Notification</string>
+    <string name="time_icon_desc">A clock icon, stylized in flat design.</string>
+    <string name="sample_datetime_consultation_history">18 Juni 2022 | 11.10 WIB</string>
+    <string name="diagnosis_result_sample">Whitehead</string>
+    <string name="diagnosis_id_sample">consultation-scan-clrg00a223aa001</string>
 </resources>

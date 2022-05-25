@@ -11,14 +11,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_margin="15dp"
-        app:cardBackgroundColor="@color/md_theme_light_secondaryContainer"
-
-        app:cardElevation="25dp"
-        app:cardCornerRadius="15dp"
+        style="@style/CardView.ConsultationHistory"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +29,7 @@
                 android:layout_margin="15dp"
 
                 android:src="@drawable/time_icon"
+                android:contentDescription="@string/time_icon_desc"
 
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -51,7 +45,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginEnd="5dp"
 
-                android:text="18 Juni 2022 | 11.10 WIB"
+                android:text="@string/sample_datetime_consultation_history"
 
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="16sp"
@@ -69,7 +63,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginEnd="5dp"
 
-                android:text="Whitehead"
+                android:text="@string/diagnosis_result_sample"
 
                 android:fontFamily="@font/poppins_black"
                 android:textSize="20sp"
@@ -88,10 +82,10 @@
                 android:layout_marginBottom="15dp"
                 android:layout_marginEnd="5dp"
 
-                android:text="consultation-scan-clrg00a223aa001"
+                android:text="@string/diagnosis_id_sample"
 
                 android:fontFamily="@font/poppins_light"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textColor="@color/md_theme_light_outline"
 
                 app:layout_constraintTop_toBottomOf="@id/diagnosis_outcome_info"
