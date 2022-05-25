@@ -133,16 +133,13 @@
 		<item name="android:layout_marginEnd">10dp</item>
 		<item name="android:layout_marginTop">8dp</item>
 		<item name="android:layout_marginBottom">8dp</item>
+
+		<item name="cardBackgroundColor">@color/md_theme_light_tertiary</item>
 	</style>
 
 	<style name="CardView.Box.Category">
 		<item name="cardMaxElevation">50dp</item>
 		<item name="cardCornerRadius">20dp</item>
-
-		<item name="android:layout_marginStart">10dp</item>
-		<item name="android:layout_marginEnd">10dp</item>
-		<item name="android:layout_marginTop">8dp</item>
-		<item name="android:layout_marginBottom">8dp</item>
 
 		<item name="cardBackgroundColor">@color/skin_bg_category_color</item>
 	</style>
@@ -150,11 +147,153 @@
 	<style name="CardView.Box.Inside">
 		<item name="android:layout_width">250dp</item>
 		<item name="android:layout_height">150dp</item>
-
-		<item name="cardBackgroundColor">@color/md_theme_light_tertiary</item>
 	</style>
 
+	<style name="CardView.Box.InsideDetail">
+		<item name="cardMaxElevation">15dp</item>
+		<item name="cardCornerRadius">15dp</item>
+	</style>
 
+	<style name="CardView.Box.Seller">
+		<item name="android:layout_width">35dp</item>
+		<item name="android:layout_height">35dp</item>
+
+		<item name="cardCornerRadius">3dp</item>
+		<item name="cardElevation">60dp</item>
+
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="android:layout_marginEnd">15dp</item>
+		<item name="android:layout_marginTop">15dp</item>
+		<item name="android:layout_marginBottom">10dp</item>
+
+		<item name="cardBackgroundColor">@color/md_theme_light_primaryContainer</item>
+	</style>
+
+	<style name="CardView.Box.Chip">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="cardCornerRadius">10dp</item>
+		<item name="cardElevation">15dp</item>
+		<item name="cardBackgroundColor">@color/md_theme_light_tertiaryContainer</item>
+	</style>
+
+	<style name="CardView.Box.Recommendation">
+		<item name="android:layout_width">275dp</item>
+		<item name="android:layout_height">175dp</item>
+	</style>
+
+	<style name="CardView.Box.Clean">
+		<item name="android:layout_width">350dp</item>
+		<item name="android:layout_height">250dp</item>
+	</style>
+
+	<style name="CardView.Notification">
+		<item name="cardCornerRadius">15dp</item>
+
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:layout_margin">15dp</item>
+	</style>
+
+	<style name="CardView.More">
+		<item name="android:layout_width">35dp</item>
+		<item name="android:layout_height">35dp</item>
+
+		<item name="android:layout_marginEnd">15dp</item>
+		<item name="android:layout_marginBottom">15dp</item>
+		<item name="android:layout_marginTop">20dp</item>
+
+		<item name="cardBackgroundColor">@color/md_theme_light_secondaryContainer</item>
+		<item name="cardCornerRadius">8dp</item>
+	</style>
+
+	<style name="CardText">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="android:layout_marginEnd">15dp</item>
+		<item name="android:layout_marginTop">15dp</item>
+		<item name="android:layout_marginBottom">10dp</item>
+
+		<item name="android:fontFamily">@font/poppins_semibold</item>
+		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+		<item name="android:textSize">16sp</item>
+	</style>
+
+	<style name="CardText.Chip">
+		<item name="android:layout_marginStart">5dp</item>
+		<item name="android:layout_marginEnd">5dp</item>
+		<item name="android:layout_marginTop">2dp</item>
+		<item name="android:layout_marginBottom">2dp</item>
+	</style>
+
+	<style name="NotificationText">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="android:layout_marginEnd">5dp</item>
+
+		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+	</style>
+
+	<style name="NotificationText.Type">
+		<item name="android:layout_marginBottom">5dp</item>
+		<item name="android:layout_marginTop">15dp</item>
+
+		<item name="android:fontFamily">@font/poppins_bold</item>
+		<item name="android:textSize">16sp</item>
+	</style>
+
+	<style name="NotificationText.DateTime">
+		<item name="android:layout_marginBottom">5dp</item>
+		<item name="android:layout_marginTop">5dp</item>
+
+		<item name="android:fontFamily">@font/poppins_regular</item>
+		<item name="android:textSize">16sp</item>
+	</style>
+
+	<style name="NotificationText.Content">
+		<item name="android:layout_marginBottom">5dp</item>
+		<item name="android:layout_marginTop">5dp</item>
+
+		<item name="android:fontFamily">@font/poppins_black</item>
+		<item name="android:textSize">20sp</item>
+	</style>
+
+	<style name="NotificationText.Detail">
+		<item name="android:layout_marginBottom">15dp</item>
+		<item name="android:layout_marginTop">5dp</item>
+
+		<item name="android:fontFamily">@font/poppins_medium</item>
+		<item name="android:textSize">12sp</item>
+	</style>
+
+	<style name="RvText">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="android:layout_marginEnd">15dp</item>
+		<item name="android:layout_marginTop">5dp</item>
+
+		<item name="android:textSize">14sp</item>
+	</style>
+
+	<style name="RvText.Title">
+		<item name="android:fontFamily">@font/poppins_semibold</item>
+		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+	</style>
+
+	<style name="RvText.Category">
+		<item name="android:fontFamily">@font/poppins_bold</item>
+		<item name="android:textColor">@color/md_theme_light_secondaryContainer</item>
+
+		<item name="android:textAllCaps">true</item>
+	</style>
 
 
 </resources>

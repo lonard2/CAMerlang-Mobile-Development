@@ -29,4 +29,9 @@
     <string name="loc_type_desc">Location type</string>
     <string name="article_duration_desc">Approx. read duration</string>
     <string name="article_datetime_desc">Date/time</string>
+    <string name="reminder_text">REMINDER</string>
+    <string name="sample_time">11.15 WIB</string>
+    <string name="notification_content_sample">Don’t forget to apply your treatment product.</string>
+    <string name="notification_detail_sample">You have passed two days of your determined treatment product usage. Please use it to minimalize your concern.</string>
+    <string name="next_icon_desc">Play-like button to indicate next or more info section.</string>
 </resources>

@@ -3,11 +3,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
 
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView android:layout_width="250dp"
@@ -15,10 +10,7 @@
 
         android:id="@+id/content_list_card"
 
-        app:cardCornerRadius="20dp"
-        app:cardElevation="25dp"
-        app:cardMaxElevation="50dp"
-        app:cardBackgroundColor="@color/md_theme_light_tertiary"
+        style="@style/CardView.Box.InsideDetail"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,16 +35,9 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/content_list_image_seller"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
 
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="10dp"
+        style="@style/CardView.Box.Seller"
 
-        app:cardCornerRadius="3dp"
-        app:cardElevation="60dp"
         app:layout_constraintBottom_toBottomOf="@id/content_list_card"
         app:layout_constraintStart_toStartOf="@id/content_list_card">
 
@@ -68,17 +53,8 @@
 
     <TextView
         android:id="@+id/content_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="10dp"
-
-        android:fontFamily="@font/poppins_semibold"
-        android:textColor="@color/md_theme_light_onPrimary"
-        android:textSize="16sp"
+        style="@style/CardText"
 
         app:layout_constraintBottom_toBottomOf="@id/content_list_card"
         app:layout_constraintStart_toEndOf="@id/content_list_image_seller"

@@ -2,41 +2,23 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/notification_category_chip"
 
-        app:cardElevation="15dp"
-        app:cardCornerRadius="10dp"
-        app:cardBackgroundColor="@color/md_theme_light_tertiaryContainer"
+        style="@style/CardView.Box.Chip"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/chip_text"
+           style="@style/CardText.Chip"/>
 
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-
-            android:text="Category 1"
-            android:fontFamily="@font/poppins_bold"
-            android:textSize="16sp"
-            android:textColor="@color/md_theme_light_onPrimaryContainer"/>
 
     </androidx.cardview.widget.CardView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

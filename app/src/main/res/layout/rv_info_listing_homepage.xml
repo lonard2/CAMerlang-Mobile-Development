@@ -31,28 +31,23 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/detail_more_btn"
 
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginEnd="15dp"
-
-        app:cardCornerRadius="8dp"
-        app:cardElevation="20dp"
-        app:cardBackgroundColor="@color/md_theme_light_secondaryContainer"
+        style="@style/CardView.More"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/section_subhead">
 
         <ImageView
+            android:id="@+id/next_icon"
+
             android:layout_width="20dp"
             android:layout_height="20dp"
 
             android:layout_margin="5dp"
             android:layout_gravity="center"
             android:src="@drawable/next_play_icon"
+
+            android:contentDescription="@string/next_icon_desc"
 
             app:tint="@color/md_theme_light_tertiary" />
 
