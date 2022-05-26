@@ -15,6 +15,7 @@
 
         <TextView
             android:id="@+id/chip_text"
+            android:text="@string/category_sample"
            style="@style/CardText.Chip"/>
 
 

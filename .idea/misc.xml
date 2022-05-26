@@ -16,6 +16,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_front.xml" value="0.1766304347826087" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_homepage.xml" value="0.22" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_library_detail.xml" value="0.1544943820224719" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_library_detail_image_show.xml" value="0.20153985507246377" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_library_home.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_notification.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_onboarding.xml" value="0.16" />
@@ -25,7 +26,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_settings_user.xml" value="0.18958333333333333" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_splash.xml" value="0.5" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/bottom_navbar_menu.xml" value="0.16032608695652173" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/consultation_history_rv_box.xml" value="0.33" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/consultation_history_rv_box.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/divert_dialog.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/fragment_settings_main.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/notification_rv_box.xml" value="0.1" />
