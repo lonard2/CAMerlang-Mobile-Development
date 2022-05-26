@@ -101,4 +101,6 @@
     <string name="diagnosis_id_sample">consultation-scan-clrg00a223aa001</string>
     <string name="category_sample">Category 1</string>
     <string name="detailed_img_container_library_desc">A showcase for a clicked picture from the library detail screen.</string>
+    <string name="library_section_intro_sample">Content categorized by alphabets.</string>
+    <string name="alphabet_emoji_desc">An example of an emoji based on alphabets.</string>
 </resources>

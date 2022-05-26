@@ -19,6 +19,7 @@
         android:layout_margin="15dp"
 
         android:src="@drawable/alphabet"
+        android:contentDescription="@string/alphabet_emoji_desc"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -32,7 +33,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginTop="3dp"
 
-        android:text="Content categorized by alphabets"
+        android:text="@string/library_section_intro_sample"
 
         android:fontFamily="@font/poppins_bold"
         android:textColor="@color/md_theme_light_onPrimary"
