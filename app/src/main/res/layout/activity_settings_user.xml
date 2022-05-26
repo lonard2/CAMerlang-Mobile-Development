@@ -82,8 +82,23 @@
 
         app:layout_constraintStart_toEndOf="@id/settings_user_section_1"
         app:layout_constraintTop_toTopOf="@id/settings_user_section_1"
-        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_1"/>
+        app:layout_constraintBottom_toTopOf="@id/settings_user_section_1_column"/>
 
+    <com.lonard.camerlangproject.edittext.GeneralEditText
+        android:id="@+id/settings_user_section_1_column"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp"
+
+        android:background="@color/md_theme_light_surfaceVariant"
+
+        android:fontFamily="@font/poppins_regular"
+
+        app:layout_constraintTop_toBottomOf="@id/settings_user_section_1_intro_txt"
+        app:layout_constraintStart_toEndOf="@id/settings_user_section_1"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
         android:id="@+id/settings_user_section_2"
@@ -107,7 +122,23 @@
 
         app:layout_constraintStart_toEndOf="@id/settings_user_section_2"
         app:layout_constraintTop_toTopOf="@id/settings_user_section_2"
-        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_2"/>
+        app:layout_constraintBottom_toTopOf="@id/settings_user_section_2_column"/>
+
+    <com.lonard.camerlangproject.edittext.NumberEditText
+        android:id="@+id/settings_user_section_2_column"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp"
+
+        android:background="@color/md_theme_light_surfaceVariant"
+
+        android:fontFamily="@font/poppins_regular"
+
+        app:layout_constraintTop_toBottomOf="@id/settings_user_section_2_intro_txt"
+        app:layout_constraintStart_toEndOf="@id/settings_user_section_2"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
     <ImageView
@@ -131,7 +162,23 @@
 
         app:layout_constraintStart_toEndOf="@id/settings_user_section_3"
         app:layout_constraintTop_toTopOf="@id/settings_user_section_3"
-        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_3"/>
+        app:layout_constraintBottom_toTopOf="@id/settings_user_section_3_column"/>
+
+    <com.lonard.camerlangproject.edittext.GeneralEditText
+        android:id="@+id/settings_user_section_3_column"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp"
+
+        android:background="@color/md_theme_light_surfaceVariant"
+
+        android:fontFamily="@font/poppins_regular"
+
+        app:layout_constraintTop_toBottomOf="@id/settings_user_section_3_intro_txt"
+        app:layout_constraintStart_toEndOf="@id/settings_user_section_3"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
     <ImageView
@@ -155,7 +202,27 @@
 
         app:layout_constraintStart_toEndOf="@id/settings_user_section_4"
         app:layout_constraintTop_toTopOf="@id/settings_user_section_4"
-        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_4"/>
+        app:layout_constraintBottom_toTopOf="@id/settings_user_section_4_column"/>
+
+    <com.lonard.camerlangproject.edittext.StatusEditText
+        android:id="@+id/settings_user_section_4_column"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp"
+
+        android:background="@color/md_theme_light_surfaceVariant"
+
+        android:fontFamily="@font/poppins_regular"
+        android:inputType="textMultiLine"
+        android:ems="15"
+
+        android:gravity="top"
+
+        app:layout_constraintTop_toBottomOf="@id/settings_user_section_4_intro_txt"
+        app:layout_constraintStart_toEndOf="@id/settings_user_section_4"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 
