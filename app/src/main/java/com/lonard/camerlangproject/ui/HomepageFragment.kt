@@ -18,7 +18,7 @@ class HomepageFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _bind = FragmentHomepageBinding.inflate(inflater, container, false)
         return bind.root
     }
@@ -30,10 +30,6 @@ class HomepageFragment : Fragment() {
             notificationBtnIcon.setOnClickListener {
                 val notificationScreenIntent = Intent(context, NotificationActivity::class.java)
                 startActivity(notificationScreenIntent)
-            }
-
-            bottomNavbar.setOnClickListener {
-
             }
         }
     }

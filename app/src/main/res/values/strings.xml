@@ -103,4 +103,9 @@
     <string name="detailed_img_container_library_desc">A showcase for a clicked picture from the library detail screen.</string>
     <string name="library_section_intro_sample">Content categorized by alphabets.</string>
     <string name="alphabet_emoji_desc">An example of an emoji based on alphabets.</string>
+    <string name="home_navbar_menu">Home</string>
+    <string name="history_navbar_menu">History</string>
+    <string name="detect_navbar_menu">Detect</string>
+    <string name="library_navbar_menu">Library</string>
+    <string name="settings_navbar_menu">Settings</string>
 </resources>
