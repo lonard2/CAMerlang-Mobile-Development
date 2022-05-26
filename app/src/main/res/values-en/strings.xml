@@ -99,4 +99,6 @@
     <string name="sample_datetime_consultation_history">18 Juni 2022 | 11.10 WIB</string>
     <string name="diagnosis_result_sample">Whitehead</string>
     <string name="diagnosis_id_sample">consultation-scan-clrg00a223aa001</string>
+    <string name="detailed_img_container_library_desc">A showcase for a clicked picture from the library detail screen.</string>
+    <string name="category_sample">Category 1</string>
 </resources>
