@@ -17,6 +17,9 @@
         android:theme="@style/CAMerlang_theme"
         tools:targetApi="31">
         <activity
+            android:name=".ui.CreditsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.LibraryDetailImageShowActivity"
             android:exported="false" />
         <activity
@@ -39,9 +42,6 @@
             android:exported="false" />
         <activity
             android:name=".ui.ConsultationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.ScannerActivity"
             android:exported="false" />
         <activity
             android:name=".ui.NotificationActivity"
