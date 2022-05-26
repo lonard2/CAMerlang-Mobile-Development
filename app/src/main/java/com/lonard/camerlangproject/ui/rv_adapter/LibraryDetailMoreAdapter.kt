@@ -9,6 +9,12 @@ import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideDetailBinding
 import com.squareup.picasso.Picasso
 
 class LibraryDetailMoreAdapter(private val diseaseEntriesList: ArrayList<LibraryResponseItem>): RecyclerView.Adapter<LibraryDetailMoreAdapter.ViewHolder>() {
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,9 +31,17 @@ class LibraryDetailMoreAdapter(private val diseaseEntriesList: ArrayList<Library
 
             contentTitle.text = entryDesc
         }
+
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(diseaseEntriesList[holder.bindingAdapterPosition])
+        }
     }
 
     override fun getItemCount(): Int = diseaseEntriesList.size
 
     class ViewHolder(var bind: OverflowRvBoxInsideBinding): RecyclerView.ViewHolder(bind.root)
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: EntryItem)
+    }
 }

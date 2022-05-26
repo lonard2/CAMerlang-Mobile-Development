@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.commit
 import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityFrontBinding
 import com.lonard.camerlangproject.ui.settings.SettingsMainFragment
@@ -12,7 +13,7 @@ class FrontActivity : AppCompatActivity() {
     private lateinit var bind: ActivityFrontBinding
     private lateinit var selectedFragment: Fragment
 
-    var fragmentManager: FragmentManager = supportFragmentManager
+    var fragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,13 +28,22 @@ class FrontActivity : AppCompatActivity() {
                 R.id.navbar_menu_4 -> selectedFragment = SettingsMainFragment()
             }
 
-            fragmentManager.beginTransaction().replace(R.id.fragment_container, selectedFragment)
+            fragmentManager.commit {
+                replace(R.id.fragment_container, selectedFragment)
+            }
+
             true
         }
 
         bind.bottomNavbar.selectedItemId = R.id.navbar_menu_1
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        finishAffinity()
+        finish()
+    }
 
 
 }

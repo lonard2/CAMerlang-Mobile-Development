@@ -10,6 +10,13 @@ import com.lonard.camerlangproject.databinding.OverflowRvOnlyPicBinding
 import com.squareup.picasso.Picasso
 
 class ConsultationHistoryItemAdapter(private val consultationList: ArrayList<ConsultationResponseItem>): RecyclerView.Adapter<ConsultationHistoryItemAdapter.ViewHolder>() {
+
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -26,9 +33,17 @@ class ConsultationHistoryItemAdapter(private val consultationList: ArrayList<Con
             diagnosisOutcomeInfo.text = outcome
             diagnosisId.text = id
         }
+
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(consultationList[holder.bindingAdapterPosition])
+        }
     }
 
     override fun getItemCount(): Int = consultationList.size
 
     class ViewHolder(var bind: ConsultationHistoryRvBoxBinding): RecyclerView.ViewHolder(bind.root)
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: HistoryItem)
+    }
 }

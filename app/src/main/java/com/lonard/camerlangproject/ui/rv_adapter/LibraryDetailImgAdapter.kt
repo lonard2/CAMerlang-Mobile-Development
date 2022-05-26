@@ -9,6 +9,12 @@ import com.lonard.camerlangproject.databinding.OverflowRvOnlyPicBinding
 import com.squareup.picasso.Picasso
 
 class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryResponseItem>): RecyclerView.Adapter<LibraryDetailImgAdapter.ViewHolder>() {
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -23,9 +29,17 @@ class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryRespons
         holder.bind.apply {
             Picasso.get().load(entryPicUrl).into(contentListImage)
         }
+
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(otherPicList[holder.bindingAdapterPosition])
+        }
     }
 
     override fun getItemCount(): Int = otherPicList.size
 
     class ViewHolder(var bind: OverflowRvOnlyPicBinding): RecyclerView.ViewHolder(bind.root)
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: ImageItem)
+    }
 }

@@ -12,6 +12,12 @@ import com.squareup.picasso.Picasso
 
 class LibraryHomeItemListAdapter(private val alphabetItemList: ArrayList<LibraryResponseItem>): RecyclerView.Adapter<LibraryHomeItemListAdapter.ViewHolder>() {
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -33,4 +39,8 @@ class LibraryHomeItemListAdapter(private val alphabetItemList: ArrayList<Library
     override fun getItemCount(): Int = alphabetItemList.size
 
     class ViewHolder(var bind: OverflowRvBoxInsideBinding): RecyclerView.ViewHolder(bind.root)
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: EntryItem)
+    }
 }

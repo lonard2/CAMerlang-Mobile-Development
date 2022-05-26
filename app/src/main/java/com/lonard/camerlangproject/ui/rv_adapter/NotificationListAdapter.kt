@@ -8,6 +8,12 @@ import com.lonard.camerlangproject.databinding.NotificationRvBoxBinding
 import com.lonard.camerlangproject.databinding.OverflowRvBoxNotificationListBinding
 
 class NotificationListAdapter(private val notificationList: ArrayList<NotificationResponseItem>): RecyclerView.Adapter<NotificationListAdapter.ViewHolder>() {
+    private lateinit var onItemClickCallback: NotificationListAdapter.OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: NotificationListAdapter.OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,9 +31,17 @@ class NotificationListAdapter(private val notificationList: ArrayList<Notificati
             notificationContent.text = infoContent
             notificationDetail.text = infoDetail
         }
+
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(notificationList[holder.bindingAdapterPosition])
+        }
     }
 
     override fun getItemCount(): Int = notificationList.size
 
     class ViewHolder(var bind: NotificationRvBoxBinding): RecyclerView.ViewHolder(bind.root)
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: NotificationItem)
+    }
 }

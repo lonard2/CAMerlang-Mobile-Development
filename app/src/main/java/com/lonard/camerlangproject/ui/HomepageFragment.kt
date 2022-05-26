@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.lonard.camerlangproject.api.HomepageResponseItem
 import com.lonard.camerlangproject.databinding.FragmentConsultationHistoryBinding
 import com.lonard.camerlangproject.databinding.FragmentHomepageBinding
+import com.lonard.camerlangproject.ui.rv_adapter.HomepageContentAdapter
 
 class HomepageFragment : Fragment() {
 
@@ -37,6 +40,14 @@ class HomepageFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _bind = null
+    }
+
+    private fun showSections(sectionList: List<SectionItem>) {
+        bind.sectionContentHomepageRv.layoutManager = LinearLayoutManager(this,
+            LinearLayoutManager.VERTICAL, false)
+
+        val homeSectionAdapter = HomepageContentAdapter(sectionList as ArrayList<HomepageResponseItem>)
+        bind.sectionContentHomepageRv.adapter = homeSectionAdapter
     }
 
 }

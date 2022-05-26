@@ -10,6 +10,13 @@ import com.lonard.camerlangproject.databinding.OverflowRvBoxCategoryBinding
 import com.squareup.picasso.Picasso
 
 class LibraryHomeCatAdapter(private val categoryList: ArrayList<LibraryResponseItem>): RecyclerView.Adapter<LibraryHomeCatAdapter.ViewHolder>() {
+
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -31,4 +38,8 @@ class LibraryHomeCatAdapter(private val categoryList: ArrayList<LibraryResponseI
     override fun getItemCount(): Int = categoryList.size
 
     class ViewHolder(var bind: OverflowRvBoxCategoryBinding): RecyclerView.ViewHolder(bind.root)
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: CategoryItem)
+    }
 }

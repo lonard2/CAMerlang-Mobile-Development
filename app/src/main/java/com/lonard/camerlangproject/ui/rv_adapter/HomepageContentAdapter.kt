@@ -31,7 +31,15 @@ class HomepageContentAdapter(private val infoSectionList: ArrayList<HomepageResp
 
             articleOverflowRecyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             articleOverflowRecyclerview.setHasFixedSize(true)
-            articleOverflowRecyclerview.adapter = HomepageContentListAdapter(rvData)
+
+            val overflowRvAdapter = HomepageContentListAdapter(rvData)
+            articleOverflowRecyclerview.adapter = overflowRvAdapter
+
+            overflowRvAdapter.setOnItemClickCallback(object: HomepageContentListAdapter.OnItemClickCallback {
+                override fun onItemClicked(data: SectionItem) {
+
+                }
+            })
         }
     }
 
