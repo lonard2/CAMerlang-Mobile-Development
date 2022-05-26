@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityArticleDetailBinding
 import com.lonard.camerlangproject.databinding.ActivityHomepageBinding
+import com.squareup.picasso.Picasso
 
 class ArticleDetailActivity : AppCompatActivity() {
     private lateinit var bind: ActivityArticleDetailBinding
@@ -13,5 +14,16 @@ class ArticleDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bind = ActivityArticleDetailBinding.inflate(layoutInflater)
         setContentView(bind.root)
+
+        bind.apply {
+            Picasso.get().load(selectedArticleImgUrl).into(articleDetailHeaderPic)
+
+            articleDatetimePublishedInfo.text = selectedArticleDatetime
+            articleDurationReadApproxInfo.text = selectedArticleDurationApprox
+            articleName.text = selectedArticleName
+
+            articleHeader.text = selectedArticleHeader
+            articleContent.text = selectedArticleContent
+        }
     }
 }

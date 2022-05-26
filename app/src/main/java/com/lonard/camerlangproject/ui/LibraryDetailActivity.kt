@@ -10,6 +10,7 @@ import com.lonard.camerlangproject.databinding.ActivityLibraryDetailBinding
 import com.lonard.camerlangproject.ui.rv_adapter.ConsultationHistoryItemAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailProductAdapter
+import com.squareup.picasso.Picasso
 
 class LibraryDetailActivity : AppCompatActivity() {
     private lateinit var bind: ActivityLibraryDetailBinding
@@ -18,6 +19,20 @@ class LibraryDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bind = ActivityLibraryDetailBinding.inflate(layoutInflater)
         setContentView(bind.root)
+
+        bind.apply {
+            backBtn.setOnClickListener {
+                finish()
+            }
+
+            Picasso.get().load(selectedItemImgUrl).into(libDetailHeaderPic)
+
+            diseaseTypeInfo.text = selectedLibItemType
+            diseaseLevelInfo.text = selectedLibItemLevel
+            diseaseName.text = selectedLibItemName
+
+            libItemShortDesc.text = selectedLibItemShortDesc
+        }
     }
 
     private fun showMoreImagesContent(imagesItems: List<ImageItem>) {

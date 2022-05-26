@@ -1,5 +1,6 @@
 package com.lonard.camerlangproject.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lonard.camerlangproject.R
@@ -13,5 +14,11 @@ class ConsultationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bind = ActivityConsultationBinding.inflate(layoutInflater)
         setContentView(bind.root)
+
+        bind.apply {
+            backBtn.setOnClickListener {
+                finish()
+            }
+        }
     }
 }
