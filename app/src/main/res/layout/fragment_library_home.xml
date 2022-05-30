@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorPrimary"
+        android:background="?attr/colorPrimaryContainer"
         tools:context=".ui.LibraryHomeFragment">
 
         <ImageView
@@ -75,7 +75,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
 
-            android:background="?attr/colorOnPrimary"
+            android:background="?attr/colorOnPrimarySurface"
             app:queryHint="Search your skin-related keyword..."
             app:iconifiedByDefault="true"/>
 

@@ -55,7 +55,7 @@
 	</style>
 
 	<style name="BackgroundColor">
-		<item name="android:background">@color/md_theme_light_primary</item>
+		<item name="android:background">?attr/colorPrimaryContainer</item>
 	</style>
 
 	<style name="BottomNavbarText">
@@ -68,7 +68,7 @@
 	</style>
 
 	<style name="ImageContent">
-		<item name="android:src">@color/md_theme_light_tertiary</item>
+		<item name="android:src">?attr/colorTertiary</item>
 		<item name="android:scaleType">centerCrop</item>
 	</style>
 
@@ -89,6 +89,10 @@
 		<item name="tint">?attr/colorSecondary</item>
 	</style>
 
+	<style name="BackButton.OnDarkBackground">
+		<item name="tint">?attr/colorOnSecondary</item>
+	</style>
+
 	<style name="DotSeparator">
 		<item name="android:layout_width">5dp</item>
 		<item name="android:layout_height">5dp</item>
@@ -97,14 +101,14 @@
 
 		<item name="android:src">@drawable/circle_dot</item>
 
-		<item name="tint">@color/md_theme_light_onPrimary</item>
+		<item name="tint">?attr/colorOnPrimary</item>
 	</style>
 
 	<style name="DetailHeaderText">
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
 
-		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+		<item name="android:textColor">?attr/colorOnPrimary</item>
 		<item name="autoSizeTextType">uniform</item>
 	</style>
 
@@ -153,14 +157,14 @@
 		<item name="android:layout_marginTop">8dp</item>
 		<item name="android:layout_marginBottom">8dp</item>
 
-		<item name="cardBackgroundColor">@color/md_theme_light_tertiary</item>
+		<item name="cardBackgroundColor">?attr/colorPrimary</item>
 	</style>
 
 	<style name="CardView.Box.Category">
 		<item name="cardMaxElevation">50dp</item>
 		<item name="cardCornerRadius">20dp</item>
 
-		<item name="cardBackgroundColor">@color/skin_bg_category_color</item>
+		<item name="cardBackgroundColor">@color/category_box_bg</item>
 	</style>
 
 	<style name="CardView.Box.Inside">
@@ -185,7 +189,7 @@
 		<item name="android:layout_marginTop">15dp</item>
 		<item name="android:layout_marginBottom">10dp</item>
 
-		<item name="cardBackgroundColor">@color/md_theme_light_primaryContainer</item>
+		<item name="cardBackgroundColor">?attr/colorPrimaryContainer</item>
 	</style>
 
 	<style name="CardView.Box.Chip">
@@ -194,7 +198,7 @@
 
 		<item name="cardCornerRadius">10dp</item>
 		<item name="cardElevation">15dp</item>
-		<item name="cardBackgroundColor">@color/md_theme_light_tertiaryContainer</item>
+		<item name="cardBackgroundColor">?attr/colorSecondary</item>
 	</style>
 
 	<style name="CardView.Box.Recommendation">
@@ -234,7 +238,7 @@
 
 		<item name="android:layout_marginEnd">15dp</item>
 
-		<item name="cardBackgroundColor">@color/md_theme_light_secondaryContainer</item>
+		<item name="cardBackgroundColor">@color/consultation_history_rv_yellow</item>
 		<item name="cornerRadius">15dp</item>
 	</style>
 
@@ -248,7 +252,7 @@
 		<item name="android:layout_marginBottom">10dp</item>
 
 		<item name="android:fontFamily">@font/poppins_semibold</item>
-		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+		<item name="android:textColor">?attr/colorOnPrimary</item>
 		<item name="android:textSize">16sp</item>
 	</style>
 
@@ -260,7 +264,7 @@
 
 		<item name="android:padding">3dp</item>
 
-		<item name="android:textColor">@color/md_theme_light_tertiary</item>
+		<item name="android:textColor">?attr/colorOnPrimary</item>
 	</style>
 
 	<style name="NotificationText">
@@ -270,7 +274,7 @@
 		<item name="android:layout_marginStart">15dp</item>
 		<item name="android:layout_marginEnd">5dp</item>
 
-		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+		<item name="android:textColor">?attr/colorOnPrimary</item>
 	</style>
 
 	<style name="NotificationText.Type">
@@ -318,12 +322,12 @@
 
 	<style name="RvText.Title">
 		<item name="android:fontFamily">@font/poppins_semibold</item>
-		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+		<item name="android:textColor">?attr/colorOnPrimaryContainer</item>
 	</style>
 
 	<style name="RvText.Category">
 		<item name="android:fontFamily">@font/poppins_bold</item>
-		<item name="android:textColor">@color/md_theme_light_secondaryContainer</item>
+		<item name="android:textColor">@color/md_theme_light_secondary</item>
 
 		<item name="android:textAllCaps">true</item>
 	</style>
@@ -390,7 +394,7 @@
 
 		<item name="android:textSize">12sp</item>
 
-		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+		<item name="android:textColor">?attr/colorOnPrimary</item>
 		<item name="android:textAlignment">center</item>
 	</style>
 
@@ -418,7 +422,7 @@
 		<item name="android:padding">10dp</item>
 		<item name="android:scaleType">centerCrop</item>
 
-		<item name="strokeColor">@color/md_theme_light_primary</item>
+		<item name="strokeColor">?attr/colorPrimaryContainer</item>
 		<item name="strokeWidth">3dp</item>
 
 		<item name="shapeAppearanceOverlay">@style/OnboardingPicShape</item>
@@ -426,13 +430,13 @@
 
 	<style name="OnboardingText">
 		<item name="android:layout_width">0dp</item>
-		<item name="android:layout_height">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
 
 		<item name="android:layout_marginTop">10dp</item>
 		<item name="android:layout_marginStart">15dp</item>
 		<item name="android:layout_marginBottom">10dp</item>
 
-		<item name="android:textColor">@color/md_theme_light_primary</item>
+		<item name="android:textColor">?attr/colorTertiary</item>
 		<item name="android:fontFamily">@font/poppins_semibold</item>
 	</style>
 
@@ -475,7 +479,7 @@
 
 		<item name="android:fontFamily">@font/poppins_semibold</item>
 
-		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+		<item name="android:textColor">?attr/colorOnPrimary</item>
 	</style>
 
 	<style name="SettingText.UserAccount">
@@ -501,7 +505,7 @@
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
 
-		<item name="android:textColor">@color/md_theme_light_onPrimary</item>
+		<item name="android:textColor">?attr/colorOnPrimary</item>
 		<item name="android:fontFamily">@font/poppins_bold</item>
 	</style>
 

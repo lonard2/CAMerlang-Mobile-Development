@@ -63,7 +63,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:tint="@color/md_theme_light_secondaryContainer"/>
+        app:tint="?attr/colorSecondaryContainer"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -132,7 +132,7 @@
 
         app:cardCornerRadius="8dp"
         app:cardElevation="20dp"
-        app:cardBackgroundColor="@color/md_theme_light_primaryContainer"
+        app:cardBackgroundColor="@color/primary_color_logo"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/onboarding_img_placeholder"
@@ -148,7 +148,7 @@
 
             android:contentDescription="@string/next_icon_desc"
 
-            app:tint="?attr/colorPrimary" />
+            app:tint="?attr/colorOnPrimary" />
 
     </androidx.cardview.widget.CardView>
 

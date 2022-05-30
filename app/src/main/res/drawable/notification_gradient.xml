@@ -6,7 +6,7 @@
         android:type="linear"
         android:angle="45"
 
-        android:startColor="@color/md_theme_light_onSurfaceVariant"
-        android:endColor="@color/md_theme_light_error"/>
+        android:startColor="?attr/colorOnSurfaceVariant"
+        android:endColor="@color/notification_gradient_end"/>
 
 </shape>

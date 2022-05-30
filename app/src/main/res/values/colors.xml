@@ -1,20 +1,20 @@
 <resources>
-	<color name="md_theme_light_primary">#999C4048</color>
+	<color name="md_theme_light_primary">#9C4048</color>
 	<color name="md_theme_light_onPrimary">#FFFFFF</color>
 	<color name="md_theme_light_primaryContainer">#FFDADC</color>
 	<color name="md_theme_light_onPrimaryContainer">#40000A</color>
 	
-	<color name="md_theme_light_secondary">#99106D34</color>
+	<color name="md_theme_light_secondary">#106D34</color>
 	<color name="md_theme_light_onSecondary">#FFFFFF</color>
 	<color name="md_theme_light_secondaryContainer">#999FF6AE</color>
 	<color name="md_theme_light_onSecondaryContainer">#002109</color>
 	
-	<color name="md_theme_light_tertiary">#99606200</color>
+	<color name="md_theme_light_tertiary">#606200</color>
 	<color name="md_theme_light_onTertiary">#FFFFFF</color>
 	<color name="md_theme_light_tertiaryContainer">#99E7EA57</color>
 	<color name="md_theme_light_onTertiaryContainer">#1C1D00</color>
 	
-	<color name="md_theme_light_error">#99B3261E</color>
+	<color name="md_theme_light_error">#B3261E</color>
 	<color name="md_theme_light_errorContainer">#F9DEDC</color>
 	<color name="md_theme_light_onError">#FFFFFF</color>
 	<color name="md_theme_light_onErrorContainer">#410E0B</color>
@@ -75,7 +75,10 @@
 	<color name="consultation">#FFCBFC</color>
 	<color name="article">#FCF0BA</color>
 
-	<color name="skin_bg_category_color">#FFBD59</color>
+	<color name="category_box_bg">#FFD18D</color>
+
+	<color name="consultation_history_rv_yellow">#FFEE96</color>
+	<color name="notification_gradient_end">#F98686</color>
 
 	<color name="settings_menu_1">#04FF4A</color>
 	<color name="settings_menu_2">#380A66</color>
@@ -87,11 +90,12 @@
 	<color name="settings_user_section_3">#FF6B00</color>
 	<color name="settings_user_section_4">#9E0269</color>
 
-	<color name="navbar_selected">#FD9800</color>
-
 	<color name="positive_button">#026A1F</color>
 	<color name="negative_button">#FF053F</color>
 
 	<color name="disclaimer_box">#8752F8</color>
-	<color name="primary_color_logo">#CF38C4</color>
+
+	<color name="primary_color_logo">#CD32C3</color>
+	<color name="secondary_color_logo">#21A89F</color>
+	<color name="tertiary_color_logo">#DFDC00</color>
 </resources>

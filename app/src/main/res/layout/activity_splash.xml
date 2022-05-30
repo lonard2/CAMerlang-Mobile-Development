@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimary"
+    android:background="?attr/colorPrimaryContainer"
     tools:context=".ui.SplashActivity">
 
     <TextView
@@ -19,7 +19,7 @@
 
         android:textAlignment="center"
         android:textSize="12sp"
-        android:textColor="@color/md_theme_light_primaryInverse"
+        android:textColor="?attr/colorPrimaryInverse"
 
         android:fontFamily="@font/poppins_light"
 
@@ -50,7 +50,7 @@
 
         android:textAlignment="center"
         android:textSize="22sp"
-        android:textColor="@color/md_theme_light_secondaryContainer"
+        android:textColor="?attr/colorTertiary"
 
         android:fontFamily="@font/poppins_regular"
 

@@ -25,8 +25,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
 
-            android:outlineAmbientShadowColor="@color/md_theme_light_secondaryContainer"
-            android:outlineSpotShadowColor="@color/md_theme_light_secondaryContainer"
+            android:outlineAmbientShadowColor="?attr/colorOnPrimaryContainer"
+            android:outlineSpotShadowColor="?attr/colorOnPrimaryContainer"
 
             app:cardElevation="30dp"
             app:cardCornerRadius="15dp">
@@ -81,7 +81,7 @@
                 android:layout_gravity="bottom|start"
                 android:text="@string/homepage_header_text"
 
-                android:textColor="@color/md_theme_light_secondaryContainer"
+                android:textColor="?attr/colorPrimaryContainer"
                 android:fontFamily="@font/poppins_black"
                 android:textSize="25sp" />
 
