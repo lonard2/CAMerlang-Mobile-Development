@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_light_secondary"
+    android:background="?attr/colorConsultationContainer"
     tools:context=".ui.ConsultationActivity">
 
     <ImageView
@@ -44,7 +44,7 @@
         android:text="@string/consultation_page_header"
         android:fontFamily="@font/poppins_semibold"
         android:textSize="22sp"
-        android:textColor="@color/md_theme_light_onPrimary"
+        android:textColor="?attr/colorSecondary"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -59,7 +59,7 @@
         android:layout_margin="15dp"
 
         app:cardElevation="20dp"
-        app:cardBackgroundColor="@color/md_theme_light_tertiary"
+        app:cardBackgroundColor="@color/disclaimer_box"
         app:cardCornerRadius="10dp"
 
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +84,7 @@
 
                 android:text="@string/important_note"
                 android:fontFamily="@font/poppins_black"
-                android:textColor="@color/md_theme_light_onPrimary"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="18sp"
 
                 app:layout_constraintTop_toTopOf="@id/disclaimer_header_emoji_icon"

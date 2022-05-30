@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
-    android:background="@color/md_theme_light_tertiaryContainer"
+    android:background="?attr/colorArticleContainer"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -61,7 +61,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toTopOf="@id/article_name"
 
-                    app:tint="@color/md_theme_light_onPrimary" />
+                    app:tint="?attr/colorOnPrimary" />
 
                 <TextView
                     android:id="@+id/article_datetime_published_info"

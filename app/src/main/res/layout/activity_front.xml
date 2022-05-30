@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_light_primary"
+    android:background="?attr/colorPrimaryContainer"
 
     tools:context=".ui.FrontActivity">
 
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:background="@color/md_theme_light_secondaryContainer"
+        android:background="?attr/colorSecondaryContainer"
 
         app:menu="@menu/bottom_navbar_menu"
         app:itemTextAppearanceActive="@style/BottomNavbarText"
@@ -28,6 +28,7 @@
 
         app:itemIconTint="@drawable/navbar_color"
         app:itemIconSize="33dp"
+        app:itemTextColor="@color/primary_color_logo"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,6 +39,8 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:contentDescription="@string/scanner_fab_icon_desc"
 
         style="?attr/floatingActionButtonLargePrimaryStyle"
 

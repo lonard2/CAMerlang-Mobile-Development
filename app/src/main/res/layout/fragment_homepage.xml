@@ -63,7 +63,7 @@
                 android:contentDescription="@string/notification_icon_desc"
 
                 android:src="@drawable/notification_icon"
-                app:tint="@color/md_theme_light_onPrimary" />
+                app:tint="?attr/colorOnPrimary" />
 
 
             <TextView

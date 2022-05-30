@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
-    android:background="@color/md_theme_light_onPrimaryContainer"
+    android:background="?attr/colorPrimaryInverse"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -99,7 +99,7 @@
 
             android:text="@string/lib_item_desc_sample"
 
-            android:textColor="@color/md_theme_light_primaryContainer"
+            android:textColor="?attr/colorOnPrimary"
 
             app:layout_constraintTop_toBottomOf="@id/library_detail_header_card"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -121,7 +121,7 @@
 
             android:text="@string/section_1"
 
-            android:textColor="@color/md_theme_light_onPrimary"
+            android:textColor="?attr/colorOnPrimary"
 
             app:layout_constraintTop_toTopOf="@id/more_images_emoji_icon"
             app:layout_constraintStart_toEndOf="@id/more_images_emoji_icon"
@@ -151,7 +151,7 @@
             style="@style/IntroSection"
 
             android:text="@string/section_2"
-            android:textColor="@color/md_theme_light_onPrimary"
+            android:textColor="?attr/colorOnPrimary"
 
             app:layout_constraintTop_toTopOf="@id/products_emoji_icon"
             app:layout_constraintStart_toEndOf="@id/products_emoji_icon"
@@ -181,7 +181,7 @@
             style="@style/IntroSection"
 
             android:text="@string/section_3"
-            android:textColor="@color/md_theme_light_onPrimary"
+            android:textColor="?attr/colorOnPrimary"
 
             app:layout_constraintTop_toTopOf="@id/other_entries_emoji_icon"
             app:layout_constraintStart_toEndOf="@id/other_entries_emoji_icon"

@@ -33,6 +33,25 @@
 		<item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
 		<item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
 		<item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
+
+
+		<item name="colorNotification">#006a68</item>
+		<item name="colorOnNotification">#ffffff</item>
+		<item name="colorNotificationContainer">#996ff7f4</item>
+		<item name="colorOnNotificationContainer">#99002020</item>
+		<item name="harmonizeNotification">true</item>
+
+		<item name="colorConsultation">#86458a</item>
+		<item name="colorOnConsultation">#ffffff</item>
+		<item name="colorConsultationContainer">#99ffd5fd</item>
+		<item name="colorOnConsultationContainer">#9936003e</item>
+		<item name="harmonizeConsultation">true</item>
+
+		<item name="colorArticle">#6c5e00</item>
+		<item name="colorOnArticle">#ffffff</item>
+		<item name="colorArticleContainer">#99f9e366</item>
+		<item name="colorOnArticleContainer">#99211b00</item>
+		<item name="harmonizeArticle">true</item>
 	</style>
 
 	<style name="BackgroundColor">
@@ -67,7 +86,7 @@
 
 		<item name="android:src">@drawable/back_btn_icon</item>
 
-		<item name="tint">@color/md_theme_light_onPrimary</item>
+		<item name="tint">?attr/colorSecondary</item>
 	</style>
 
 	<style name="DotSeparator">
@@ -205,7 +224,7 @@
 		<item name="android:layout_marginBottom">15dp</item>
 		<item name="android:layout_marginTop">20dp</item>
 
-		<item name="cardBackgroundColor">@color/md_theme_light_secondaryContainer</item>
+		<item name="cardBackgroundColor">?attr/colorPrimary</item>
 		<item name="cardCornerRadius">8dp</item>
 	</style>
 
@@ -466,7 +485,7 @@
 	</style>
 
 	<style name="Backdrop">
-		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_width">match_parent</item>
 		<item name="android:scaleType">centerCrop</item>
 	</style>
 

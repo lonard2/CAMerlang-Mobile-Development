@@ -38,7 +38,7 @@
 
         android:fontFamily="@font/poppins_semibold"
         android:text="@string/settings_user_page_intro_1"
-        android:textColor="@color/md_theme_light_onPrimary"
+        android:textColor="?attr/colorOnPrimary"
         android:textSize="16sp"
 
         app:layout_constraintBottom_toTopOf="@id/user_settings_page_intro_text_2"
@@ -55,7 +55,7 @@
         android:text="@string/settings_user_page_intro_2"
         android:fontFamily="@font/poppins_semibold"
         android:textSize="12sp"
-        android:textColor="@color/md_theme_light_onPrimary"
+        android:textColor="?attr/colorOnPrimary"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/user_settings_page_intro_text_1"
@@ -72,7 +72,7 @@
 
         app:layout_constraintTop_toBottomOf="@id/back_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/md_theme_light_onPrimary"/>
+        app:tint="?attr/colorOnPrimary"/>
 
     <TextView
         android:id="@+id/settings_user_section_1_intro_txt"
@@ -111,7 +111,7 @@
 
         app:layout_constraintTop_toBottomOf="@id/settings_user_section_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/md_theme_light_onPrimary"/>
+        app:tint="?attr/colorOnPrimary"/>
 
     <TextView
         android:id="@+id/settings_user_section_2_intro_txt"
@@ -152,7 +152,7 @@
 
         app:layout_constraintTop_toBottomOf="@id/settings_user_section_2"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/md_theme_light_onPrimary"/>
+        app:tint="?attr/colorOnPrimary"/>
 
     <TextView
         android:id="@+id/settings_user_section_3_intro_txt"
@@ -192,7 +192,7 @@
 
         app:layout_constraintTop_toBottomOf="@id/settings_user_section_3"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/md_theme_light_onPrimary" />
+        app:tint="?attr/colorOnPrimary" />
 
     <TextView
         android:id="@+id/settings_user_section_4_intro_txt"

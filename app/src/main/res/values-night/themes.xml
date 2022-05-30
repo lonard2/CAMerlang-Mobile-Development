@@ -33,6 +33,23 @@
 		<item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
 		<item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
 		<item name="colorPrimaryInverse">@color/md_theme_dark_primaryInverse</item>
+
+		<item name="colorNotification">#4ddad7</item>
+		<item name="colorOnNotification">#003736</item>
+		<item name="colorNotificationContainer">#00504f</item>
+		<item name="colorOnNotificationContainer">#6ff7f4</item>
+		<item name="harmonizeNotification">true</item>
+
+		<item name="colorConsultation">#f9acf9</item>
+		<item name="colorConsultationContainer">#6b2d70</item>
+		<item name="colorOnConsultationContainer">#ffd5fd</item>
+		<item name="harmonizeConsultation">true</item>
+
+		<item name="colorArticle">#dcc74d</item>
+		<item name="colorOnArticle">#383000</item>
+		<item name="colorArticleContainer">#524700</item>
+		<item name="colorOnArticleContainer">#f9e366</item>
+		<item name="harmonizeArticle">true</item>
 	</style>
 
 	<style name="BackgroundColor">

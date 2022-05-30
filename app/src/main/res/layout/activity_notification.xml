@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_light_tertiary"
+    android:background="?attr/colorNotificationContainer"
     tools:context=".ui.NotificationActivity">
 
     <ImageView
@@ -40,7 +40,7 @@
         android:text="@string/notification_menu_intro"
         android:fontFamily="@font/poppins_semibold"
         android:textSize="22sp"
-        android:textColor="@color/md_theme_light_onPrimary"
+        android:textColor="?attr/colorSecondary"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

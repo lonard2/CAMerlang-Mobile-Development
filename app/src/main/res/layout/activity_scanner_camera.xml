@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
 
         android:src="@drawable/back_btn_icon"
-        app:tint="@color/md_theme_light_onPrimary" />
+        app:tint="?attr/colorOnPrimary" />
 
     <TextView
         android:id="@+id/camera_intro"
@@ -38,7 +38,7 @@
 
         android:textAlignment="center"
         android:fontFamily="@font/poppins_light"
-        android:textColor="@color/md_theme_light_onPrimary"
+        android:textColor="?attr/colorOnPrimary"
 
         android:textSize="22sp"
 

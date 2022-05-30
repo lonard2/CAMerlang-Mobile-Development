@@ -36,7 +36,7 @@
         android:text="@string/library_section_intro_sample"
 
         android:fontFamily="@font/poppins_bold"
-        android:textColor="@color/md_theme_light_onPrimary"
+        android:textColor="?attr/colorOnPrimary"
         android:textSize="15sp"
 
         app:layout_constraintTop_toTopOf="@id/alphabet_emoji_icon"

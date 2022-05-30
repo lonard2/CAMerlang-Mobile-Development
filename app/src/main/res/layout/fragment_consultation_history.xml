@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/md_theme_light_primary"
+        android:background="?attr/colorPrimary"
         tools:context=".ui.ConsultationHistoryFragment">
 
         <ImageView
@@ -34,7 +34,7 @@
             android:text="@string/consultation_history_page_intro"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="22sp"
-            android:textColor="@color/md_theme_light_onPrimary"
+            android:textColor="?attr/colorOnPrimary"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>

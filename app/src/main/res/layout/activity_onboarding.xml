@@ -148,7 +148,7 @@
 
             android:contentDescription="@string/next_icon_desc"
 
-            app:tint="@color/md_theme_light_primary" />
+            app:tint="?attr/colorPrimary" />
 
     </androidx.cardview.widget.CardView>
 
