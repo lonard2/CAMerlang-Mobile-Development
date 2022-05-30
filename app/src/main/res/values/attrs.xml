@@ -1,0 +1,19 @@
+<resources>
+    <attr name="colorNotification" format="color"/>
+    <attr name="colorOnNotification" format="color"/>
+    <attr name="colorNotificationContainer" format="color"/>
+    <attr name="colorOnNotificationContainer" format="color"/>
+    <attr name="harmonizeNotification" format="boolean"/>
+
+    <attr name="colorConsultation" format="color"/>
+    <attr name="colorOnConsultation" format="color"/>
+    <attr name="colorConsultationContainer" format="color"/>
+    <attr name="colorOnConsultationContainer" format="color"/>
+    <attr name="harmonizeConsultation" format="boolean"/>
+
+    <attr name="colorArticle" format="color"/>
+    <attr name="colorOnArticle" format="color"/>
+    <attr name="colorArticleContainer" format="color"/>
+    <attr name="colorOnArticleContainer" format="color"/>
+    <attr name="harmonizeArticle" format="boolean"/>
+</resources>
