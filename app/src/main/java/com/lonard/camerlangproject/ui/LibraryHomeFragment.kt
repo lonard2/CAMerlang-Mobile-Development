@@ -20,7 +20,7 @@ class LibraryHomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _bind = FragmentLibraryHomeBinding.inflate(inflater, container, false)
         return bind.root
     }
@@ -36,7 +36,7 @@ class LibraryHomeFragment : Fragment() {
     }
 
     private fun showCategoryItem(categoryItems: List<CategoryItem>) {
-        bind.libAlphabetListRv.layoutManager = LinearLayoutManager(this,
+        bind.libAlphabetListRv.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.HORIZONTAL, false)
 
         val categoryAdapter = LibraryDetailMoreAdapter(categoryItems as ArrayList<LibraryResponseItem>)
@@ -44,7 +44,7 @@ class LibraryHomeFragment : Fragment() {
     }
 
     private fun showAlphabetItemContent(alphabetEntryItems: List<EntryItem>) {
-        bind.libAlphabetListRv.layoutManager = LinearLayoutManager(this,
+        bind.libAlphabetListRv.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.HORIZONTAL, false)
 
         val alphabetItemAdapter = LibraryDetailMoreAdapter(alphabetEntryItems as ArrayList<LibraryResponseItem>)
