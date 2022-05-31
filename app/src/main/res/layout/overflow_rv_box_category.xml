@@ -7,7 +7,7 @@
 
     android:id="@+id/content_list_card"
 
-    style="@style/CardView.Box.Category"
+    style="@style/Card.Box.Category"
 
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"

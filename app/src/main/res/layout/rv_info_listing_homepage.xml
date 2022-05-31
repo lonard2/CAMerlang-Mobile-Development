@@ -31,7 +31,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/detail_more_btn"
 
-        style="@style/CardView.More"
+        style="@style/Card.More"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

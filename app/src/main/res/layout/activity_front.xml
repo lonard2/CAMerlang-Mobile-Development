@@ -47,7 +47,7 @@
         android:src="@drawable/scanner_btn_icon"
         app:maxImageSize="65dp"
         app:rippleColor="@color/md_theme_light_tertiary"
-        app:backgroundTint="@color/md_theme_light_tertiaryContainer"
+        app:backgroundTint="@color/md_theme_light_tertiaryContainer_normal"
 
         app:layout_constraintBottom_toTopOf="@id/bottom_navbar"
         app:layout_constraintTop_toTopOf="@id/bottom_navbar"

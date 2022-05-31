@@ -8,7 +8,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/content_list_card"
 
-        style="@style/CardView.Box.Inside"
+        style="@style/Card.Box.Inside"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
-    android:background="?attr/colorPrimaryInverse"
+    android:background="@color/md_theme_light_inversePrimary"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,7 +16,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/library_detail_header_card"
 
-            style="@style/CardView.Header.LibraryDet"
+            style="@style/Card.Header.LibraryDet"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
                 <ImageView
                     android:id="@+id/back_btn"
 
-                    style="@style/BackButton"
+                    style="@style/BackButton.OnDarkBackground"
 
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

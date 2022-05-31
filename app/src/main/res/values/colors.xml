@@ -12,6 +12,7 @@
 	<color name="md_theme_light_tertiary">#606200</color>
 	<color name="md_theme_light_onTertiary">#FFFFFF</color>
 	<color name="md_theme_light_tertiaryContainer">#99E7EA57</color>
+	<color name="md_theme_light_tertiaryContainer_normal">#E7EA57</color>
 	<color name="md_theme_light_onTertiaryContainer">#1C1D00</color>
 	
 	<color name="md_theme_light_error">#B3261E</color>
@@ -98,4 +99,7 @@
 	<color name="primary_color_logo">#CD32C3</color>
 	<color name="secondary_color_logo">#21A89F</color>
 	<color name="tertiary_color_logo">#DFDC00</color>
+
+	<color name="credits_background">#FBFAA3</color>
+	<color name="cloud_color">#BCEFFF</color>
 </resources>

@@ -1,11 +1,24 @@
 package com.lonard.camerlangproject.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lonard.camerlangproject.R
+import com.lonard.camerlangproject.databinding.ActivityNotificationBinding
+import com.lonard.camerlangproject.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {
+
+    private lateinit var bind: ActivityOnboardingBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        bind = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_onboarding)
+
+        bind.goToHomeBtn.setOnClickListener {
+            val goToHomeIntent = Intent(this@OnboardingActivity, FrontActivity::class.java)
+            startActivity(goToHomeIntent)
+        }
     }
 }

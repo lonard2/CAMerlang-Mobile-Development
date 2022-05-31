@@ -10,7 +10,7 @@
 
         android:id="@+id/content_list_card"
 
-        style="@style/CardView.Box.InsideDetail"
+        style="@style/Card.Box.InsideDetail"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/content_list_image_seller"
 
-        style="@style/CardView.Box.Seller"
+        style="@style/Card.Box.Seller"
 
         app:layout_constraintBottom_toBottomOf="@id/content_list_card"
         app:layout_constraintStart_toStartOf="@id/content_list_card">

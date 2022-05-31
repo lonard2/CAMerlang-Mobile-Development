@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/notification_category_chip"
 
-        style="@style/CardView.Box.Chip"
+        style="@style/Card.Box.Chip"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

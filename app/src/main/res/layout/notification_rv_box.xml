@@ -7,7 +7,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/notification_card"
-        style="@style/CardView.Notification"
+        style="@style/Card.Notification"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

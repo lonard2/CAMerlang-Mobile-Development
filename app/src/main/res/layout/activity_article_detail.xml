@@ -17,7 +17,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/article_detail_header_card"
 
-            style="@style/CardView.Header.Article"
+            style="@style/Card.Header.Article"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
