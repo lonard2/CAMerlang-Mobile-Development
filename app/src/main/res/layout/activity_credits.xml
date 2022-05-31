@@ -1,9 +1,488 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.CreditsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:background="@color/credits_background"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        tools:context=".ui.CreditsActivity">
+
+        <ImageView
+            android:id="@+id/back_btn"
+
+            style="@style/BackButton"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:contentDescription="@string/back_btn_desc"/>
+
+        <ImageView
+            android:id="@+id/credits_page_intro_emoji_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+
+            app:layout_constraintEnd_toStartOf="@id/credits_page_intro_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/back_btn"
+
+            android:contentDescription="@string/credits_emoji_desc"
+
+            android:src="@drawable/credits_emoji_icon" />
+
+        <TextView
+            android:id="@+id/credits_page_intro_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+
+            android:text="@string/credits_page_header"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="22sp"
+            android:textColor="?attr/colorSecondary"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/back_btn"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/credits_part_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="25dp"
+
+            app:cardElevation="30dp"
+            app:cardCornerRadius="10dp"
+
+            app:cardBackgroundColor="@color/md_theme_light_primaryContainer"
+
+            app:layout_constraintTop_toBottomOf="@id/credits_page_intro_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/credits_part_1_intro"
+
+                android:padding="5dp"
+
+                android:fontFamily="@font/poppins_black"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/credits_text_1"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"
+
+            android:text="@string/credits_text_1"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textColor="?attr/colorPrimary"
+
+            app:layout_constraintTop_toBottomOf="@id/credits_part_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/credits_text_2"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"
+
+            android:text="@string/credits_text_2"
+            android:fontFamily="@font/poppins_black"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnPrimaryContainer"
+
+            app:layout_constraintTop_toBottomOf="@id/credits_text_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/team_member_1_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="25dp"
+
+            app:cardElevation="30dp"
+            app:cardCornerRadius="10dp"
+            android:alpha="0.99"
+
+            app:cardBackgroundColor="?attr/colorSecondaryContainer"
+
+            app:layout_constraintTop_toBottomOf="@id/credits_text_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/half_content_guideline">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/member_1_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/team_member_1"
+
+                    android:layout_margin="5dp"
+
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/member_1_text_jobdesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_regular"
+
+                    android:layout_margin="3dp"
+
+                    android:text="@string/md_learning_path"
+                    android:textAlignment="center"
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/team_member_2_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="25dp"
+
+            app:cardElevation="30dp"
+            app:cardCornerRadius="10dp"
+            android:alpha="0.99"
+
+            app:cardBackgroundColor="?attr/colorSecondaryContainer"
+
+            app:layout_constraintTop_toBottomOf="@id/credits_text_2"
+            app:layout_constraintStart_toEndOf="@id/half_content_guideline"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/member_2_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/team_member_2"
+
+                    android:layout_margin="5dp"
+
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/member_2_text_jobdesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_regular"
+
+                    android:layout_margin="3dp"
+
+                    android:text="@string/md_learning_path"
+                    android:textAlignment="center"
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/team_member_3_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="25dp"
+
+            app:cardElevation="30dp"
+            app:cardCornerRadius="10dp"
+            android:alpha="0.99"
+
+            app:cardBackgroundColor="@color/category_box_bg"
+
+            app:layout_constraintTop_toBottomOf="@id/team_member_1_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/half_content_guideline">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/member_3_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/team_member_3"
+
+                    android:layout_margin="5dp"
+
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/member_3_text_jobdesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_regular"
+
+                    android:layout_margin="3dp"
+
+                    android:text="@string/ml_learning_path"
+                    android:textAlignment="center"
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/team_member_4_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="25dp"
+
+            app:cardElevation="30dp"
+            app:cardCornerRadius="10dp"
+            android:alpha="0.99"
+
+            app:cardBackgroundColor="@color/category_box_bg"
+
+            app:layout_constraintTop_toBottomOf="@id/team_member_2_card"
+            app:layout_constraintStart_toEndOf="@id/half_content_guideline"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/member_4_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/team_member_4"
+
+                    android:layout_margin="5dp"
+
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/member_4_text_jobdesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_regular"
+
+                    android:layout_margin="3dp"
+
+                    android:text="@string/ml_learning_path"
+                    android:textAlignment="center"
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/team_member_5_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="25dp"
+
+            app:cardElevation="30dp"
+            app:cardCornerRadius="10dp"
+            android:alpha="0.99"
+
+            app:cardBackgroundColor="@color/cloud_color"
+
+            app:layout_constraintTop_toBottomOf="@id/team_member_3_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/half_content_guideline">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/member_5_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/team_member_5"
+
+                    android:layout_margin="5dp"
+
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/member_5_text_jobdesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_regular"
+
+                    android:layout_margin="3dp"
+
+                    android:text="@string/cc_learning_path"
+                    android:textAlignment="center"
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/team_member_6_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="25dp"
+
+            app:cardElevation="30dp"
+            app:cardCornerRadius="10dp"
+            android:alpha="0.99"
+
+            app:cardBackgroundColor="@color/cloud_color"
+
+            app:layout_constraintTop_toBottomOf="@id/team_member_4_card"
+            app:layout_constraintStart_toEndOf="@id/half_content_guideline"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/member_6_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/team_member_6"
+
+                    android:layout_margin="5dp"
+
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/member_6_text_jobdesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_regular"
+
+                    android:layout_margin="3dp"
+
+                    android:text="@string/cc_learning_path"
+                    android:textAlignment="center"
+                    android:textColor="@color/md_theme_light_onSecondaryContainer"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/half_content_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            app:layout_constraintGuide_percent="0.5"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+

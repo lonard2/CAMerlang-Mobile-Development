@@ -114,4 +114,19 @@
     <string name="chatbot_button_text">Consultation Chatbot</string>
     <string name="back_continue_btn_text">Lanjutkan scanning</string>
     <string name="back_home_btn_text">Kembali ke beranda</string>
+    <string name="credits_emoji_desc">Raising hands as a symbol of helping and supporting someone who already contributed to the project as a whole.</string>
+    <string name="credits_page_header">Credits</string>
+    <string name="scanner_fab_icon_desc">A scanner-like icon for indicating that the button is leading to camera scanning feature.</string>
+    <string name="credits_text_1">Aplikasi CAMerlang dicetuskan, dirancang, dan dibuat dengan hati dan semangat oleh:</string>
+    <string name="team_member_1">Lonard Steven</string>
+    <string name="team_member_2">Arya Fikryhuda Nurpatria</string>
+    <string name="team_member_4">Fadli Fadillah</string>
+    <string name="team_member_3">Muhammad Reza Azhar Priyadi</string>
+    <string name="ml_learning_path">Machine Learning</string>
+    <string name="md_learning_path">Mobile Development</string>
+    <string name="team_member_6">Aldycky Bagus Witjaksana</string>
+    <string name="team_member_5">Tomi Timutius</string>
+    <string name="cc_learning_path">Cloud Computing</string>
+    <string name="credits_text_2">C22-PS064 Team</string>
+    <string name="credits_part_1_intro">About us</string>
 </resources>
