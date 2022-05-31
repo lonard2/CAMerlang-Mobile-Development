@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.FragmentHomepageBinding
 import com.lonard.camerlangproject.databinding.FragmentLibraryHomeBinding
+import com.lonard.camerlangproject.mvvm.LibraryViewModel
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 
 class LibraryHomeFragment : Fragment() {
@@ -33,6 +34,26 @@ class LibraryHomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _bind = null
+    }
+
+    private fun searchLibrary() {
+        val query = bind.libSearchBox.query?.toString() ?: ""
+        if (query.isEmpty())
+            return
+
+        LibraryViewModel.searchLibrary(query).observe(requireActivity()) { //result ->
+//            when (result) {
+//                Loading -> {
+//
+//                }
+//                Success -> {
+//
+//                }
+//                Error -> {
+//
+//                }
+//            }
+        }
     }
 
     private fun showCategoryItem(categoryItems: List<CategoryItem>) {
