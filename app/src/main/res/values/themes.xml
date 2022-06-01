@@ -144,6 +144,10 @@
 		<item name="android:layout_height">350dp</item>
 	</style>
 
+	<style name="Card.Header.ConsultationDetail">
+		<item name="android:layout_height">400dp</item>
+	</style>
+
 	<style name="Card.Header.LibraryDet">
 		<item name="android:layout_height">250dp</item>
 	</style>

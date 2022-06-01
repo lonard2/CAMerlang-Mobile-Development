@@ -41,7 +41,7 @@
                 <ImageView
                     android:id="@+id/back_btn"
 
-                    style="@style/BackButton"
+                    style="@style/BackButton.OnDarkBackground"
 
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

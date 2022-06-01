@@ -1,5 +1,6 @@
 <resources>
 	<color name="md_theme_light_primary">#9C4048</color>
+	<color name="md_theme_light_primary_60">#809C4048</color>
 	<color name="md_theme_light_onPrimary">#FFFFFF</color>
 	<color name="md_theme_light_primaryContainer">#FFDADC</color>
 	<color name="md_theme_light_onPrimaryContainer">#40000A</color>
@@ -105,4 +106,12 @@
 
 	<color name="photographer_credit_color">#9AA4C1</color>
 	<color name="other_attribution_credit_color">#BAB1F1</color>
+
+	<color name="first_place">#C8AD00</color>
+	<color name="second_place">#9E9F94</color>
+	<color name="third_place">#8A612E</color>
+
+	<color name="first_place_percentage">#EDCE2E</color>
+	<color name="second_place_percentage">#B6B8AD</color>
+	<color name="third_place_percentage">#704F26</color>
 </resources>

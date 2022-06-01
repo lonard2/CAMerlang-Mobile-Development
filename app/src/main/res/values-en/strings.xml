@@ -151,4 +151,5 @@
     <string name="other_attribution_4">Airbnb</string>
     <string name="other_attribution_3">Henning Dodenhof (hdodenhof)</string>
     <string name="other_attribution_2">Square</string>
+    <string name="consultation_taken_image_desc">A place where a taken image from selected scanning ID or attempt is put inside.</string>
 </resources>
