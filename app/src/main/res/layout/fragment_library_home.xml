@@ -81,7 +81,7 @@
 
         <ImageView
             android:id="@+id/library_intro_emoji_icon"
-            style="@style/PageIntroEmoji"
+            style="@style/PageHeader.Emoji"
 
             android:contentDescription="@string/book_stack_icon_desc"
 
@@ -92,11 +92,7 @@
 
         <TextView
             android:id="@+id/library_intro_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            style="@style/PageHeader.Text"
 
             android:text="@string/library_menu_text"
             android:fontFamily="@font/poppins_semibold"

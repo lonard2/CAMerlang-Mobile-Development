@@ -135,6 +135,7 @@
     <string name="credits_part_2a_content_1_txt">Seluruh gambar dilisensi oleh lisensi Unsplash (Unsplash License) yang bebas guna.</string>
     <string name="credits_part_2a_content_2_txt">Silakan kunjungi unsplash.com/license untuk informasi lisensi lebih lanjut.</string>
     <string name="photographer_2">Muhammad Rudi Yaddin</string>
+    <string name="photographer_3">Ali Muhamad</string>
     <string name="credits_part_2_txt">Beberapa elemen pada aplikasi dapat terwujud berkat:</string>
     <string name="photographer_4">Paul Green</string>
     <string name="photographer_4_jobdesc">Sunflower photograph on settings</string>
@@ -142,4 +143,12 @@
     <string name="photographer_2_jobdesc">Photograph on onboarding (1)</string>
     <string name="photographer_3_onboarding">Photograph on onboarding (3)</string>
     <string name="credits_part_2b_text">Library and icons</string>
+    <string name="other_attribution_4_jobdesc">Lottie animation library</string>
+    <string name="other_attribution_3_jobdesc">CircleImageView library</string>
+    <string name="other_attribution_2_jobdesc">Picasso, OkHttp, and Retrofit library</string>
+    <string name="other_attribution_1_jobdesc">Shimmer loading library</string>
+    <string name="other_attribution_1">Meta</string>
+    <string name="other_attribution_4">Airbnb</string>
+    <string name="other_attribution_3">Henning Dodenhof (hdodenhof)</string>
+    <string name="other_attribution_2">Square</string>
 </resources>

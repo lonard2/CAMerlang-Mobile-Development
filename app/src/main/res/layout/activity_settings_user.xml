@@ -19,7 +19,7 @@
 
     <ImageView
         android:id="@+id/user_settings_intro_emoji_icon"
-        style="@style/PageIntroEmoji"
+        style="@style/PageHeader.Emoji"
 
         android:contentDescription="@string/user_emoji_desc"
         app:layout_constraintEnd_toStartOf="@id/user_settings_page_intro_text_2"

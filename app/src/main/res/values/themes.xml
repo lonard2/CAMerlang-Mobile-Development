@@ -148,6 +148,85 @@
 		<item name="android:layout_height">250dp</item>
 	</style>
 
+	<style name="Card.Credits">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:layout_marginStart">10dp</item>
+		<item name="android:layout_marginEnd">10dp</item>
+		<item name="android:layout_marginTop">25dp</item>
+		<item name="android:layout_marginBottom">15dp</item>
+
+		<item name="cardCornerRadius">10dp</item>
+	</style>
+
+	<style name="Card.Credits.PartIntro">
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="android:layout_marginEnd">15dp</item>
+		<item name="android:layout_marginTop">15dp</item>
+		<item name="android:layout_marginBottom">0dp</item>
+	</style>
+
+	<style name="Card.Credits.Creator">
+		<item name="android:layout_width">0dp</item>
+
+		<item name="android:alpha">0.99</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Left">
+		<item name="android:layout_marginStart">35dp</item>
+		<item name="android:layout_marginEnd">10dp</item>
+		<item name="android:layout_marginTop">25dp</item>
+		<item name="android:layout_marginBottom">15dp</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Right">
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="android:layout_marginEnd">30dp</item>
+		<item name="android:layout_marginTop">25dp</item>
+		<item name="android:layout_marginBottom">15dp</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Left.Android">
+		<item name="cardBackgroundColor">?attr/colorSecondaryContainer</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Left.Ai">
+		<item name="cardBackgroundColor">@color/category_box_bg</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Left.Cloud">
+		<item name="cardBackgroundColor">@color/cloud_color</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Left.Photograph">
+		<item name="cardBackgroundColor">@color/photographer_credit_color</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Left.Other">
+		<item name="cardBackgroundColor">@color/other_attribution_credit_color</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Right.Android">
+		<item name="cardBackgroundColor">?attr/colorSecondaryContainer</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Right.Ai">
+		<item name="cardBackgroundColor">@color/category_box_bg</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Right.Cloud">
+		<item name="cardBackgroundColor">@color/cloud_color</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Right.Photograph">
+		<item name="cardBackgroundColor">@color/photographer_credit_color</item>
+	</style>
+
+	<style name="Card.Credits.Creator.Right.Other">
+		<item name="cardBackgroundColor">@color/other_attribution_credit_color</item>
+	</style>
+
 	<style name="Card.Box">
 		<item name="cardMaxElevation">50dp</item>
 		<item name="cardCornerRadius">20dp</item>
@@ -254,6 +333,62 @@
 		<item name="android:fontFamily">@font/poppins_semibold</item>
 		<item name="android:textColor">?attr/colorOnPrimary</item>
 		<item name="android:textSize">16sp</item>
+	</style>
+
+	<style name="CardText.CreditsPart">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:layout_marginStart">0dp</item>
+		<item name="android:layout_marginEnd">0dp</item>
+		<item name="android:layout_marginTop">0dp</item>
+		<item name="android:layout_marginBottom">0dp</item>
+
+		<item name="android:paddingTop">5dp</item>
+		<item name="android:paddingBottom">5dp</item>
+		<item name="android:paddingStart">10dp</item>
+		<item name="android:paddingEnd">10dp</item>
+
+		<item name="android:fontFamily">@font/poppins_black</item>
+		<item name="android:textColor">?attr/colorOnPrimaryContainer</item>
+		<item name="android:textSize">24sp</item>
+		<item name="android:textAlignment">center</item>
+		<item name="android:layout_gravity">center</item>
+	</style>
+
+	<style name="CardText.CreditsPart.SmallText">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:fontFamily">@font/poppins_black</item>
+		<item name="android:textSize">20sp</item>
+	</style>
+
+	<style name="CardText.Credits">
+		<item name="android:layout_margin">5dp</item>
+		<item name="android:textColor">?attr/colorOnSecondaryContainer</item>
+
+		<item name="android:textSize">18sp</item>
+		<item name="android:textAlignment">center</item>
+		<item name="android:layout_gravity">center</item>
+	</style>
+
+	<style name="CardText.Credits.LowerText">
+		<item name="android:layout_margin">3dp</item>
+
+		<item name="android:fontFamily">@font/poppins_regular</item>
+		<item name="android:textSize">12sp</item>
+	</style>
+
+	<style name="CardText.Credits.DarkBg">
+		<item name="android:textColor">?attr/colorOnSecondary</item>
+	</style>
+
+	<style name="CardText.Credits.DarkBg.LowerText">
+		<item name="android:layout_margin">3dp</item>
+
+		<item name="android:fontFamily">@font/poppins_regular</item>
+		<item name="android:textSize">12sp</item>
 	</style>
 
 	<style name="CardText.Chip">
@@ -440,13 +575,6 @@
 		<item name="android:fontFamily">@font/poppins_semibold</item>
 	</style>
 
-	<style name="PageIntroEmoji">
-		<item name="android:layout_width">35dp</item>
-		<item name="android:layout_height">35dp</item>
-
-		<item name="android:layout_marginTop">20dp</item>
-		<item name="android:layout_marginEnd">15dp</item>
-	</style>
 
 	<style name="SettingBox">
 		<item name="android:background">@drawable/rounded_box_settings</item>
@@ -507,6 +635,55 @@
 
 		<item name="android:textColor">?attr/colorOnPrimary</item>
 		<item name="android:fontFamily">@font/poppins_bold</item>
+	</style>
+
+	<style name="PageHeader">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:layout_marginTop">20dp</item>
+		<item name="android:layout_marginEnd">15dp</item>
+	</style>
+
+	<style name="PageHeader.Emoji">
+		<item name="android:layout_width">35dp</item>
+		<item name="android:layout_height">35dp</item>
+	</style>
+
+	<style name="PageHeader.Text">
+		<item name="android:fontFamily">@font/poppins_semibold</item>
+		<item name="android:textSize">22sp</item>
+
+		<item name="android:textColor">?attr/colorSecondary</item>
+		<item name="android:layout_gravity">center_vertical</item>
+	</style>
+
+	<style name="CreditsText">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:textAlignment">center</item>
+		<item name="android:textColor">?attr/colorPrimary</item>
+	</style>
+
+	<style name="CreditsText.Header">
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="android:layout_marginEnd">15dp</item>
+		<item name="android:layout_marginTop">15dp</item>
+
+		<item name="android:fontFamily">@font/poppins_semibold</item>
+		<item name="android:textSize">20sp</item>
+	</style>
+
+	<style name="CreditsText.Small">
+		<item name="android:paddingTop">5dp</item>
+		<item name="android:paddingBottom">5dp</item>
+		<item name="android:paddingStart">10dp</item>
+		<item name="android:paddingEnd">10dp</item>
+
+		<item name="android:fontFamily">@font/poppins_medium</item>
+		<item name="android:textSize">14sp</item>
+		<item name="android:textColor">?attr/colorPrimary</item>
 	</style>
 
 
