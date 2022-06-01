@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,10 +47,20 @@ class LibraryHomeFragment : Fragment() {
     private fun searchLibrary() {
         searchBarText.typeface = searchBarFont
 
-        val query = bind.libSearchBox.query?.toString() ?: ""
+        val searchBar = bind.libSearchBox
 
-        if (query.isEmpty())
-            return
+        searchBar.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(q: String?): Boolean {
+                searchBar.clearFocus()
+                return true
+            }
+
+            override fun onQueryTextChange(q: String?): Boolean {
+                return false
+            }
+        })
+
+        val query = searchBar.query?.toString() ?: ""
 
         LibraryViewModel.searchLibrary(query).observe(requireActivity()) { //result ->
 //            when (result) {
