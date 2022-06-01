@@ -17,6 +17,9 @@
         android:theme="@style/CAMerlang_theme"
         tools:targetApi="31">
         <activity
+            android:name=".ui.ConsultationDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.CreditsActivity"
             android:exported="false" />
         <activity
