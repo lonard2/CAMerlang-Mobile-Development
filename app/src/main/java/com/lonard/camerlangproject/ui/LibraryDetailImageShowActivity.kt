@@ -19,7 +19,13 @@ class LibraryDetailImageShowActivity : AppCompatActivity() {
                 finish()
             }
 
-            Picasso.get().load(selectedImg).into(detailedImageClickContainer)
+            val pictureLink = intent.getParcelableExtra<String>()
+
+            Picasso.get().load(pictureLink).into(detailedImageClickContainer)
         }
+    }
+
+    companion object {
+        const val EXTRA_PIC = "picture_link_url"
     }
 }

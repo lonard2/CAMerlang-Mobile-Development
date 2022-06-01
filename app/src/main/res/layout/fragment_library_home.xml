@@ -104,29 +104,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lib_category_list_rv"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="25dp"
-            android:layout_marginStart="15dp"
-
-            app:layout_constraintTop_toBottomOf="@id/lib_search_box"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lib_alphabet_list_rv"
+        <RelativeLayout
+            android:id="@+id/library_home_container"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="15dp"
+            app:layout_constraintTop_toBottomOf="@id/library_intro_img_layer1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-            app:layout_constraintTop_toBottomOf="@id/lib_category_list_rv"
-            app:layout_constraintStart_toStartOf="parent"/>
+            <FrameLayout
+                android:id="@+id/library_home_container_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

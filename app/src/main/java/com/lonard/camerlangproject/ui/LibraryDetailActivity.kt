@@ -1,5 +1,6 @@
 package com.lonard.camerlangproject.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +33,15 @@ class LibraryDetailActivity : AppCompatActivity() {
             diseaseName.text = selectedLibItemName
 
             libItemShortDesc.text = selectedLibItemShortDesc
+
+            libDetailHeaderPic.setOnClickListener {
+                finish()
+            }
+
+            val showImageIntent = Intent(this@LibraryDetailActivity, LibraryDetailImageShowActivity::class.java)
+            showImageIntent.putExtra(LibraryDetailImageShowActivity.EXTRA_PIC, selectedItemImgUrl)
+
+            startActivity(showImageIntent)
         }
     }
 

@@ -599,7 +599,14 @@
 		<item name="strokeColor">?attr/colorPrimaryContainer</item>
 		<item name="strokeWidth">3dp</item>
 
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:layout_gravity">center_vertical</item>
+
 		<item name="shapeAppearanceOverlay">@style/OnboardingPicShape</item>
+	</style>
+
+	<style name="OnboardingImage.Transparent">
+		<item name="strokeColor">@android:color/transparent</item>
 	</style>
 
 	<style name="OnboardingText">

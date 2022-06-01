@@ -1,20 +1,17 @@
 package com.lonard.camerlangproject.ui
 
 import android.graphics.Typeface
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.lonard.camerlangproject.api.LibraryResponseItem
-import com.lonard.camerlangproject.databinding.FragmentHomepageBinding
+import androidx.fragment.app.commit
+import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.FragmentLibraryHomeBinding
 import com.lonard.camerlangproject.mvvm.LibraryViewModel
-import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 
 class LibraryHomeFragment : Fragment() {
     private var _bind: FragmentLibraryHomeBinding? = null
@@ -45,6 +42,10 @@ class LibraryHomeFragment : Fragment() {
     }
 
     private fun searchLibrary() {
+        val fragmentManager = parentFragmentManager
+        val myBundle = Bundle()
+        val mySearchFragment = LibraryHomeSearchFragment()
+
         searchBarText.typeface = searchBarFont
 
         val searchBar = bind.libSearchBox
@@ -52,6 +53,14 @@ class LibraryHomeFragment : Fragment() {
         searchBar.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(q: String?): Boolean {
                 searchBar.clearFocus()
+
+                myBundle.putString(LibraryHomeSearchFragment.EXTRA_QUERY, q)
+                mySearchFragment.arguments = myBundle
+
+                fragmentManager.commit {
+                    replace(R.id.fragment_container, mySearchFragment)
+                }
+
                 return true
             }
 
@@ -61,35 +70,7 @@ class LibraryHomeFragment : Fragment() {
         })
 
         val query = searchBar.query?.toString() ?: ""
-
-        LibraryViewModel.searchLibrary(query).observe(requireActivity()) { //result ->
-//            when (result) {
-//                Loading -> {
-//
-//                }
-//                Success -> {
-//
-//                }
-//                Error -> {
-//
-//                }
-//            }
-        }
     }
 
-    private fun showCategoryItem(categoryItems: List<CategoryItem>) {
-        bind.libAlphabetListRv.layoutManager = LinearLayoutManager(requireActivity(),
-            LinearLayoutManager.HORIZONTAL, false)
 
-        val categoryAdapter = LibraryDetailMoreAdapter(categoryItems as ArrayList<LibraryResponseItem>)
-        bind.libAlphabetListRv.adapter = categoryAdapter
-    }
-
-    private fun showAlphabetItemContent(alphabetEntryItems: List<EntryItem>) {
-        bind.libAlphabetListRv.layoutManager = LinearLayoutManager(requireActivity(),
-            LinearLayoutManager.HORIZONTAL, false)
-
-        val alphabetItemAdapter = LibraryDetailMoreAdapter(alphabetEntryItems as ArrayList<LibraryResponseItem>)
-        bind.libAlphabetListRv.adapter = alphabetItemAdapter
-    }
 }

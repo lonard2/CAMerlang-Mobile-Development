@@ -11,7 +11,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/onboarding_img_placeholder"
 
-        style="@style/OnboardingImage"
+        style="@style/OnboardingImage.Transparent"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
