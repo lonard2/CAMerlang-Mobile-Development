@@ -34,7 +34,7 @@ class SettingsUserActivity : AppCompatActivity() {
                 }
 
                 settingsUserSection1Column.setText(localUser.name)
-                settingsUserSection2Column.setText(localUser.age.toString())
+                settingsUserSection2Column.setText(localUser.age)
                 settingsUserSection3Column.setText(localUser.profession)
                 settingsUserSection4Column.setText(localUser.status)
 

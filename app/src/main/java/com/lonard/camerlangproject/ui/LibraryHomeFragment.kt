@@ -1,10 +1,12 @@
 package com.lonard.camerlangproject.ui
 
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lonard.camerlangproject.api.LibraryResponseItem
@@ -16,6 +18,11 @@ import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 class LibraryHomeFragment : Fragment() {
     private var _bind: FragmentLibraryHomeBinding? = null
     private val bind get() = _bind!!
+
+    private val searchBarTextId = bind.libSearchBox.context.resources.getIdentifier("android:id/search_src_text", null, null)
+    private val searchBarText: TextView = bind.libSearchBox.findViewById(searchBarTextId)
+
+    private val searchBarFont: Typeface = Typeface.createFromAsset(context?.assets, "app_fonts/poppins_regular.ttf")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +44,10 @@ class LibraryHomeFragment : Fragment() {
     }
 
     private fun searchLibrary() {
+        searchBarText.typeface = searchBarFont
+
         val query = bind.libSearchBox.query?.toString() ?: ""
+
         if (query.isEmpty())
             return
 

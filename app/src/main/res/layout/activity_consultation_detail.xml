@@ -235,6 +235,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent">
+
                     <TextView
                         android:id="@+id/second_problem_percentage_txt"
 
@@ -301,6 +302,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent">
+
                     <TextView
                         android:id="@+id/third_problem_percentage_txt"
                         style="@style/CardText.Percentage"

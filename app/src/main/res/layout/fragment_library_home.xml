@@ -75,9 +75,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
 
-            android:background="?attr/colorOnPrimarySurface"
-            app:queryHint="Search your skin-related keyword..."
-            app:iconifiedByDefault="true"/>
+            style="@style/SearchBox"
+
+            android:background="@drawable/rounded_box"
+            app:defaultQueryHint="Search your skin-related keyword..."
+            app:iconifiedByDefault="false"/>
 
         <ImageView
             android:id="@+id/library_intro_emoji_icon"
