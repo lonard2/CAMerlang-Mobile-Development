@@ -129,4 +129,17 @@
     <string name="cc_learning_path">Cloud Computing</string>
     <string name="credits_text_2">C22-PS064 Team</string>
     <string name="credits_part_1_intro">About us</string>
+    <string name="credits_part_2_intro">Attribusi</string>
+    <string name="credits_part_2a_context_text_1">Photographs</string>
+    <string name="photographer_1">Jernej Graj</string>
+    <string name="credits_part_2a_content_1_txt">Seluruh gambar dilisensi oleh lisensi Unsplash (Unsplash License) yang bebas guna.</string>
+    <string name="credits_part_2a_content_2_txt">Silakan kunjungi unsplash.com/license untuk informasi lisensi lebih lanjut.</string>
+    <string name="photographer_2">Muhammad Rudi Yaddin</string>
+    <string name="credits_part_2_txt">Beberapa elemen pada aplikasi dapat terwujud berkat:</string>
+    <string name="photographer_4">Paul Green</string>
+    <string name="photographer_4_jobdesc">Sunflower photograph on settings</string>
+    <string name="photographer_3_jobdesc">Photographs on onboarding (2 and 4)</string>
+    <string name="photographer_2_jobdesc">Photograph on onboarding (1)</string>
+    <string name="photographer_3_onboarding">Photograph on onboarding (3)</string>
+    <string name="credits_part_2b_text">Library and icons</string>
 </resources>

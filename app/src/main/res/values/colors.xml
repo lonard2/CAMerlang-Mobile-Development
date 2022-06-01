@@ -102,4 +102,7 @@
 
 	<color name="credits_background">#FBFAA3</color>
 	<color name="cloud_color">#BCEFFF</color>
+
+	<color name="photographer_credit_color">#9AA4C1</color>
+	<color name="other_attribution_credit_color">#BAB1F1</color>
 </resources>
