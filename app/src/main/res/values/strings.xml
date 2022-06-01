@@ -152,4 +152,13 @@
     <string name="other_attribution_1_jobdesc">Shimmer loading library</string>
     <string name="other_attribution_1">Meta</string>
     <string name="consultation_taken_image_desc">A place where a taken image from selected scanning ID or attempt is put inside.</string>
+    <string name="rank_1">1</string>
+    <string name="first_problem_txt_sample">Problem 1</string>
+    <string name="first_problem_percentage_sample">58,255%</string>
+    <string name="rank_2">2</string>
+    <string name="second_problem_txt_sample">Problem 2</string>
+    <string name="rank_3">3</string>
+    <string name="third_problem_txt_sample">Problem 3</string>
+    <string name="second_problem_percentage_sample">23,253%</string>
+    <string name="third_problem_percentage_sample">10,774%</string>
 </resources>
