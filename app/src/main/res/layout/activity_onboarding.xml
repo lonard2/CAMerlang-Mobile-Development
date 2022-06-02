@@ -23,8 +23,9 @@
 
         style="@style/OnboardingImage"
 
-        android:src="@drawable/onboarding_4"
+        android:layout_marginBottom="125dp"
 
+        android:src="@drawable/onboarding_4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,8 +35,9 @@
 
         style="@style/OnboardingImage"
 
-        android:src="@drawable/onboarding_2"
+        android:layout_marginBottom="125dp"
 
+        android:src="@drawable/onboarding_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,11 +47,12 @@
 
         style="@style/OnboardingImage"
 
-        android:src="@drawable/onboarding_3"
+        android:layout_marginBottom="125dp"
 
+        android:src="@drawable/onboarding_3_cropped"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/onboarding_img_d"
