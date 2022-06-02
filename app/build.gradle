@@ -18,9 +18,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    lintOptions {
-        abortOnError false
-    }
 
     buildTypes {
         release {
@@ -39,6 +36,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    lint {
+        abortOnError false
     }
 }
 
