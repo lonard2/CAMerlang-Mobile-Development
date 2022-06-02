@@ -1,4 +1,4 @@
 package com.lonard.camerlangproject.db.consultation
 
-class ConsultationItemEntity {
-}
+data class ConsultationItemEntity (
+)
