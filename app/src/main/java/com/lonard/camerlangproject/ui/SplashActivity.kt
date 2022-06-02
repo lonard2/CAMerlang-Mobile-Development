@@ -9,7 +9,10 @@ import android.os.Looper
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import com.lonard.camerlangproject.databinding.ActivitySplashBinding
+import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModel
+import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModelFactory
 import com.lonard.camerlangproject.db.user_datastore.LocalUser_pref
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "local_user_data")
@@ -24,11 +27,31 @@ class SplashActivity : AppCompatActivity() {
 
         val localUserStorage = LocalUser_pref.getLocalUserInstance(dataStore)
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            val splashIntent = Intent(this@SplashActivity, HomepageFragment::class.java)
-            startActivity(splashIntent)
-            finish()
-        }, SPLASH_DELAY)
+        val localViewModel = ViewModelProvider(
+            this,
+            LocalUserViewModelFactory(localUserStorage)
+        )[LocalUserViewModel::class.java]
+
+        localViewModel.getFirstRun().observe(this) { setting ->
+
+            if(!setting.firstRun) {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val splashIntent = Intent(this@SplashActivity, FrontActivity::class.java)
+                    startActivity(splashIntent)
+                    finish()
+                }, SPLASH_DELAY)
+            }
+            else {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val splashIntent = Intent(this@SplashActivity, OnboardingActivity::class.java)
+                    startActivity(splashIntent)
+
+                    localViewModel.disableFirstRun()
+
+                    finish()
+                }, SPLASH_DELAY)
+            }
+        }
     }
 
     companion object {

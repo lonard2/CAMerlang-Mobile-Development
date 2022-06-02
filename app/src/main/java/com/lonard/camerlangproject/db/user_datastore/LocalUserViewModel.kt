@@ -12,6 +12,28 @@ class LocalUserViewModel(private val localUserPref: LocalUser_pref): ViewModel()
         return localUserPref.getUserDataLocal().asLiveData()
     }
 
+    fun getFirstRun(): LiveData<AppSettingModel>  {
+        return localUserPref.getFirstRun().asLiveData()
+    }
+
+    fun saveLocalUser(userModel: UserModel) {
+        viewModelScope.launch {
+            localUserPref.saveLocalUserData(userModel)
+        }
+    }
+
+    fun setDarkTheme(darkThemeSet: Boolean) {
+        viewModelScope.launch {
+            localUserPref.saveDarkTheme(darkThemeSet)
+        }
+    }
+
+    fun disableFirstRun() {
+        viewModelScope.launch {
+            localUserPref.disableFirstRunInfo()
+        }
+    }
+
     fun modifyLocalUser(localUserAccount: UserModel) {
         viewModelScope.launch {
             localUserPref.saveUserDataLocal(localUserAccount)
