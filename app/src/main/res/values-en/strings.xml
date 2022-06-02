@@ -59,7 +59,7 @@
     <string name="consultation_page_emoji_desc">Chat bubbles as representatives of conversation.</string>
     <string name="information_box_desc">Information box for indicating information section.</string>
     <string name="notification_emoji_desc">A ring as a symbol of notification.</string>
-    <string name="scanner_use_how_to">Aim your camera to your facial skin to detect your skin problem!</string>
+    <string name="scanner_use_how_to">Aim your camera to your facial skin to detect your skin problem…\n and capture!</string>
     <string name="camera_mode_switch_icon_desc">An camera with switch icon to indicate camera mode switch (from landscape to portrait, and conversely.</string>
     <string name="user_emoji_desc">An person as an representative of an application user.</string>
     <string name="rename_icon_desc">A rename icon.</string>
