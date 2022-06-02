@@ -35,6 +35,9 @@ class HomepageFragment : Fragment() {
                 startActivity(notificationScreenIntent)
             }
         }
+
+        // viewmodel placed here
+        showSections(sectionList)
     }
 
     override fun onDestroyView() {

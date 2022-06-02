@@ -80,18 +80,32 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
-        android:id="@+id/camera_mode_switch"
+        android:id="@+id/picture_take_btn"
 
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_margin="60dp"
 
-        android:src="@drawable/camera_change_mode"
+        android:src="@drawable/take_picture_btn"
         android:contentDescription="@string/camera_mode_switch_icon_desc"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/camera_mode_switch"
+
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="70dp"
+
+        android:src="@drawable/camera_change_mode"
+        android:contentDescription="@string/camera_mode_switch_icon_desc"
+
+        app:layout_constraintBottom_toBottomOf="@id/scanner_viewfinder"
+        app:layout_constraintStart_toEndOf="@id/picture_take_btn"
+        app:layout_constraintEnd_toEndOf="@id/scanner_viewfinder"
 
         app:tint="?attr/colorSecondaryContainer"/>
 
