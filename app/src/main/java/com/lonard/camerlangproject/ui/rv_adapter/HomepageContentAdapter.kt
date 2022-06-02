@@ -11,6 +11,7 @@ import com.lonard.camerlangproject.api.ConsultationResponseItem
 import com.lonard.camerlangproject.api.HomepageResponseItem
 import com.lonard.camerlangproject.databinding.ConsultationHistoryRvBoxBinding
 import com.lonard.camerlangproject.databinding.RvInfoListingHomepageBinding
+import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.lonard.camerlangproject.ui.ArticleDetailActivity
 
 class HomepageContentAdapter(private val infoSectionList: ArrayList<HomepageResponseItem>): RecyclerView.Adapter<HomepageContentAdapter.ViewHolder>() {
@@ -46,9 +47,9 @@ class HomepageContentAdapter(private val infoSectionList: ArrayList<HomepageResp
         }
     }
 
-    private fun viewArticle(article: ArticleEntity) {
-        val article =
-            article.apply {
+    private fun viewArticle(articlesModel: ArticleEntity) {
+        val articles =
+            articlesModel.apply {
                 ArticleEntity(
                     articleImg,
                     articleName,
@@ -57,7 +58,7 @@ class HomepageContentAdapter(private val infoSectionList: ArrayList<HomepageResp
             }
 
         val articleIntent = Intent(context, ArticleDetailActivity::class.java)
-        articleIntent.putExtra(ArticleDetailActivity.EXTRA_ARTICLE, article)
+        articleIntent.putExtra(ArticleDetailActivity.EXTRA_ARTICLE, articles)
 
         startActivity(context, articleIntent, null)
     }

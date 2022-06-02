@@ -3,11 +3,14 @@ package com.lonard.camerlangproject.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lonard.camerlangproject.api.ConsultationResponseItem
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.ActivityConsultationHistoryBinding
 import com.lonard.camerlangproject.databinding.ActivityLibraryDetailBinding
+import com.lonard.camerlangproject.db.library.LibraryContentEntity
+import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
 import com.lonard.camerlangproject.ui.rv_adapter.ConsultationHistoryItemAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailProductAdapter
@@ -21,27 +24,28 @@ class LibraryDetailActivity : AppCompatActivity() {
         bind = ActivityLibraryDetailBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
+        val diseaseParcel = intent.getParcelableExtra<LibraryContentEntity>(EXTRA_DISEASE) as LibraryContentEntity
+
         bind.apply {
             backBtn.setOnClickListener {
                 finish()
             }
 
-            Picasso.get().load(selectedItemImgUrl).into(libDetailHeaderPic)
+            Picasso.get().load(diseaseParcel.selectedItemImgUrl).into(libDetailHeaderPic)
 
-            diseaseTypeInfo.text = selectedLibItemType
-            diseaseLevelInfo.text = selectedLibItemLevel
-            diseaseName.text = selectedLibItemName
+            diseaseTypeInfo.text = diseaseParcel.selectedLibItemType
+            diseaseLevelInfo.text = diseaseParcel.selectedLibItemLevel
+            diseaseName.text = diseaseParcel.selectedLibItemName
 
-            libItemShortDesc.text = selectedLibItemShortDesc
+            libItemShortDesc.text = diseaseParcel.selectedLibItemShortDesc
 
             libDetailHeaderPic.setOnClickListener {
-                finish()
+                val showImageIntent = Intent(this@LibraryDetailActivity, LibraryDetailImageShowActivity::class.java)
+                showImageIntent.putExtra(LibraryDetailImageShowActivity.EXTRA_PIC, diseaseParcel.selectedItemImgUrl)
+
+                startActivity(showImageIntent)
             }
 
-            val showImageIntent = Intent(this@LibraryDetailActivity, LibraryDetailImageShowActivity::class.java)
-            showImageIntent.putExtra(LibraryDetailImageShowActivity.EXTRA_PIC, selectedItemImgUrl)
-
-            startActivity(showImageIntent)
         }
     }
 
@@ -52,11 +56,26 @@ class LibraryDetailActivity : AppCompatActivity() {
         val moreImagesAdapter = LibraryDetailMoreAdapter(imageItem as ArrayList<LibraryResponseItem>)
         bind.moreImagesSectionRv.adapter = moreImagesAdapter
 
-        moreImagesAdapter.setOnItemClickCallback(object: ConsultationHistoryItemAdapter.OnItemClickCallback {
+        moreImagesAdapter.setOnItemClickCallback(object: LibraryDetailImgAdapter.OnItemClickCallback {
             override fun onItemClicked(data: ImageItem) {
-
+                seeZoomedImg(data)
             }
         })
+    }
+
+    private fun seeZoomedImg(images: LibraryDetailImgEntity) {
+        val imagesList =
+            images.apply {
+                LibraryDetailImgEntity(
+                    imageUrl,
+                    imageDesc
+                )
+            }
+
+        val zoomImgIntent = Intent(this@LibraryDetailActivity, ArticleDetailActivity::class.java)
+        zoomImgIntent.putExtra(LibraryDetailImageShowActivity.EXTRA_IMAGE, imagesList)
+
+        startActivity(zoomImgIntent)
     }
 
     private fun showOtherEntriesContent(entryItems: List<EntryItem>) {
@@ -73,18 +92,27 @@ class LibraryDetailActivity : AppCompatActivity() {
         })
     }
 
+    private fun seeZoomedImg(images: LibraryDetailImgEntity) {
+        val images =
+            images.apply {
+                LibraryDetailImgEntity(
+                    imageUrl,
+                    imageDesc
+                )
+            }
+
+        val zoomImgIntent = Intent(this@LibraryDetailActivity, ArticleDetailActivity::class.java)
+        zoomImgIntent.putExtra(LibraryDetailImageShowActivity.EXTRA_IMAGE, images)
+
+        startActivity(zoomImgIntent)
+    }
+
     private fun showProductsContent(productItems: List<ProductItem>) {
         bind.productsSectionRv.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.HORIZONTAL, false)
 
         val productsListAdapter = LibraryDetailProductAdapter(productItems as ArrayList<LibraryResponseItem>)
         bind.productsSectionRv.adapter = productsListAdapter
-
-        productsListAdapter.setOnItemClickCallback(object: LibraryDetailProductAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: ProductItem) {
-
-            }
-        })
     }
 
     companion object {

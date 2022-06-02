@@ -1,5 +1,6 @@
 package com.lonard.camerlangproject.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.lonard.camerlangproject.api.ConsultationResponseItem
 import com.lonard.camerlangproject.api.HomepageResponseItem
 import com.lonard.camerlangproject.databinding.FragmentConsultationHistoryBinding
+import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
+import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
 import com.lonard.camerlangproject.ui.rv_adapter.ConsultationHistoryItemAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageContentAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageContentListAdapter
@@ -49,5 +52,20 @@ class ConsultationHistoryFragment : Fragment() {
 
             }
         })
+    }
+
+    private fun seeConsultationDetail(consultations: ConsultationItemEntity) {
+        val consultationItems =
+            consultations.apply {
+                LibraryDetailImgEntity(
+                    imageUrl,
+                    imageDesc
+                )
+            }
+
+        val zoomImgIntent = Intent(activity, ConsultationDetailActivity::class.java)
+        zoomImgIntent.putExtra(ConsultationDetailActivity.EXTRA_CONSULTATION_DATA, consultationItems)
+
+        startActivity(zoomImgIntent)
     }
 }

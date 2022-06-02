@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lonard.camerlangproject.databinding.ActivityLibraryDetailImageShowBinding
 import com.lonard.camerlangproject.databinding.ActivityNotificationBinding
+import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
 import com.squareup.picasso.Picasso
 
 class LibraryDetailImageShowActivity : AppCompatActivity() {
@@ -19,9 +20,9 @@ class LibraryDetailImageShowActivity : AppCompatActivity() {
                 finish()
             }
 
-            val pictureLink = intent.getParcelableExtra<String>()
+            val imagePack = intent.getParcelableExtra<LibraryDetailImgEntity>(EXTRA_PIC) as LibraryDetailImgEntity
 
-            Picasso.get().load(pictureLink).into(detailedImageClickContainer)
+            Picasso.get().load(imagePack.pictureLink).into(detailedImageClickContainer)
         }
     }
 

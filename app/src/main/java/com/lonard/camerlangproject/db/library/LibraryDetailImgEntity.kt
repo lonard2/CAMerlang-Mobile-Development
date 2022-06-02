@@ -5,6 +5,6 @@ import androidx.room.Entity
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "library_contents")
-data class LibraryContentEntity (
+@Entity(tableName = "library_detail")
+data class LibraryDetailImgEntity (
 ): Parcelable

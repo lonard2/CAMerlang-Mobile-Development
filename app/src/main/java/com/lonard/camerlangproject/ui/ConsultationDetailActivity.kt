@@ -5,6 +5,8 @@ import android.os.Bundle
 import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityConsultationDetailBinding
 import com.lonard.camerlangproject.databinding.ActivityCreditsBinding
+import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
+import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.squareup.picasso.Picasso
 
 class ConsultationDetailActivity : AppCompatActivity() {
@@ -15,18 +17,18 @@ class ConsultationDetailActivity : AppCompatActivity() {
         bind = ActivityConsultationDetailBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
+        val consultationParcel = intent.getParcelableExtra<ConsultationItemEntity>(EXTRA_CONSULTATION_DATA) as ConsultationItemEntity
+
         bind.apply {
             backBtn.setOnClickListener {
                 finish()
             }
-        }
 
-        bind.apply {
-            Picasso.get().load(analyzedImg).into(consultationTakenImage)
+            Picasso.get().load(consultationParcel.analyzedImg).into(consultationTakenImage)
 
-            consultationIdDetail.text = analyzedConsultationId
-            consultationDatetimeDetail.text = analyzedConsultationDateTime
-            consultationOutcomeDetail.text = analyzedConsultationOutcome
+            consultationIdDetail.text = consultationParcel.analyzedConsultationId
+            consultationDatetimeDetail.text = consultationParcel.analyzedConsultationDateTime
+            consultationOutcomeDetail.text = consultationParcel.analyzedConsultationOutcome
 
             firstProblemShow.text = retrievedTfResultFirstProblem
             secondProblemShow.text = retrievedTfResultSecondProblem

@@ -5,6 +5,9 @@ import android.os.Bundle
 import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityArticleDetailBinding
 import com.lonard.camerlangproject.databinding.ActivityHomepageBinding
+import com.lonard.camerlangproject.db.homepage.ArticleEntity
+import com.lonard.camerlangproject.db.library.LibraryContentEntity
+import com.lonard.camerlangproject.ui.rv_adapter.HomepageContentAdapter
 import com.squareup.picasso.Picasso
 
 class ArticleDetailActivity : AppCompatActivity() {
@@ -15,15 +18,21 @@ class ArticleDetailActivity : AppCompatActivity() {
         bind = ActivityArticleDetailBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
+        val articleParcel = intent.getParcelableExtra<ArticleEntity>(EXTRA_ARTICLE) as ArticleEntity
+
         bind.apply {
-            Picasso.get().load(selectedArticleImgUrl).into(articleDetailHeaderPic)
+            backBtn.setOnClickListener {
+                finish()
+            }
 
-            articleDatetimePublishedInfo.text = selectedArticleDatetime
-            articleDurationReadApproxInfo.text = selectedArticleDurationApprox
-            articleName.text = selectedArticleName
+            Picasso.get().load(articleParcel.selectedArticleImgUrl).into(articleDetailHeaderPic)
 
-            articleHeader.text = selectedArticleHeader
-            articleContent.text = selectedArticleContent
+            articleDatetimePublishedInfo.text = articleParcel.selectedArticleDatetime
+            articleDurationReadApproxInfo.text = articleParcel.selectedArticleDurationApprox
+            articleName.text = articleParcel.selectedArticleName
+
+            articleHeader.text = articleParcel.selectedArticleHeader
+            articleContent.text = articleParcel.selectedArticleContent
         }
     }
 
