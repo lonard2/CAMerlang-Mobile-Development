@@ -1,9 +1,11 @@
 # CAMerlang
 
-![3](https://user-images.githubusercontent.com/86178738/168820192-342b7f6d-0572-48f8-84b7-5e95b0dcf200.png)
+<p align="center"> <img src="https://user-images.githubusercontent.com/86178738/171544543-61170e4e-dc04-4369-98ab-2ccc89c63017.png" width="250" height="250" /> </p>
 
-A quick &amp; efficient skin detection, diagnosis, and consultation application for Android.
+<p align="center"> <img src="https://user-images.githubusercontent.com/86178738/171544473-4275319c-7286-4079-9489-906d36feb97e.png"/> </p>
 
-Currently in development. Stay tuned in this repository for more information.
+<h3 align="center"><b> A quick &amp; efficient skin detection, diagnosis, and consultation application for Android. </b></h3>
+
+<h4 align="center"> Currently in development. Stay tuned in this repository very soon... </h4>
 
 
