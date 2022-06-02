@@ -33,6 +33,10 @@ class LibraryHomeCatAdapter(private val categoryList: ArrayList<LibraryResponseI
 
             categoryDataListText.text = catDesc
         }
+
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(categoryList[holder.bindingAdapterPosition])
+        }
     }
 
     override fun getItemCount(): Int = categoryList.size

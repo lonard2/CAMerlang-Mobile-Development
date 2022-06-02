@@ -31,10 +31,6 @@ class LibraryDetailProductAdapter(private val skinProductList: ArrayList<Library
 
             contentTitle.text = productDesc
         }
-
-        holder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClicked(skinProductList[holder.bindingAdapterPosition])
-        }
     }
 
     override fun getItemCount(): Int = skinProductList.size
