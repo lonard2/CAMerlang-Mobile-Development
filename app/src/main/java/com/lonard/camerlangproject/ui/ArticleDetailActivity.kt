@@ -26,4 +26,8 @@ class ArticleDetailActivity : AppCompatActivity() {
             articleContent.text = selectedArticleContent
         }
     }
+
+    companion object {
+        const val EXTRA_ARTICLE = "showed_article_information"
+    }
 }

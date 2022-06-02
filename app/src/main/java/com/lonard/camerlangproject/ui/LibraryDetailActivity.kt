@@ -86,4 +86,8 @@ class LibraryDetailActivity : AppCompatActivity() {
             }
         })
     }
+
+    companion object {
+        const val EXTRA_DISEASE = "an_showed_skin_disease"
+    }
 }
