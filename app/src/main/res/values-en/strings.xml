@@ -33,7 +33,7 @@
     <string name="sample_time">11.15 WIB</string>
     <string name="notification_content_sample">Don’t forget to apply your treatment product.</string>
     <string name="notification_detail_sample">You have passed two days of your determined treatment product usage. Please use it to minimalize your concern.</string>
-    <string name="next_icon_desc">Play-like button to indicate next or more info section.</string>
+    <string name="next_icon_desc">Play-like icon to indicate next or more info section.</string>
     <string name="lib_item_desc_sample">This is a problem test.</string>
     <string name="article_header_sample">This is a header.</string>
     <string name="article_content_desc">Header content.</string>
