@@ -1,6 +1,6 @@
 package com.lonard.camerlangproject.api
 
-import androidx.viewbinding.BuildConfig
+import com.lonard.camerlangproject.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -9,7 +9,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiConfig {
 
     companion object {
-        private const val BASE_URL = "https://camerlang-api-service-hgtivvbcdq-uc.a.run.app/"
 
         fun getApiProduct(): ApiInterface {
 
@@ -26,7 +25,7 @@ class ApiConfig {
 
             val rf = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL)
+                .baseUrl(BuildConfig.URL_BASE)
                 .client(okClient)
                 .build()
 

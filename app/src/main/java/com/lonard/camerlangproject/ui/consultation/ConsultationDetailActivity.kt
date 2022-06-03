@@ -1,10 +1,8 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.consultation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityConsultationDetailBinding
-import com.lonard.camerlangproject.databinding.ActivityCreditsBinding
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.squareup.picasso.Picasso
 
@@ -16,7 +14,9 @@ class ConsultationDetailActivity : AppCompatActivity() {
         bind = ActivityConsultationDetailBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
-        val consultationParcel = intent.getParcelableExtra<ConsultationItemEntity>(EXTRA_CONSULTATION_DATA) as ConsultationItemEntity
+        val consultationParcel = intent.getParcelableExtra<ConsultationItemEntity>(
+            EXTRA_CONSULTATION_DATA
+        ) as ConsultationItemEntity
 
         bind.apply {
             backBtn.setOnClickListener {

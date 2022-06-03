@@ -3,6 +3,7 @@ package com.lonard.camerlangproject.ui.homepage
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lonard.camerlangproject.databinding.ActivityArticleDetailBinding
+import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.squareup.picasso.Picasso
 
 class ArticleDetailActivity : AppCompatActivity() {
@@ -20,14 +21,14 @@ class ArticleDetailActivity : AppCompatActivity() {
                 finish()
             }
 
-            Picasso.get().load(articleParcel.selectedArticleImgUrl).into(articleDetailHeaderPic)
+            Picasso.get().load(articleParcel.thumbnailPic).into(articleDetailHeaderPic)
 
-            articleDatetimePublishedInfo.text = articleParcel.selectedArticleDatetime
-            articleDurationReadApproxInfo.text = articleParcel.selectedArticleDurationApprox
-            articleName.text = articleParcel.selectedArticleName
+            articleDatetimePublishedInfo.text = articleParcel.
+            articleDurationReadApproxInfo.text = articleParcel.readDuration
+            articleName.text = articleParcel.name
 
-            articleHeader.text = articleParcel.selectedArticleHeader
-            articleContent.text = articleParcel.selectedArticleContent
+            articleHeader.text = articleParcel.
+            articleContent.text = articleParcel.content
         }
     }
 
