@@ -162,4 +162,6 @@
     <string name="second_problem_percentage_sample">23,253%</string>
     <string name="third_problem_percentage_sample">10,774%</string>
     <string name="lib_item_content_sample">This is a description of the problem.</string>
+    <string name="light_mode_ask">Light mode</string>
+    <string name="dark_mode_ask">Dark mode</string>
 </resources>
