@@ -19,7 +19,7 @@ class HomepageRepository(private val db: AppDB, private val api: ApiInterface) {
     private val _articlesList = MutableLiveData<List<DataItem>?>()
     private val _load = MutableLiveData<Boolean>()
 
-    val articlesList: LiveData<List<DataItem>> = _articlesList
+    val articlesList: LiveData<List<DataItem>?> = _articlesList
 
     val load: LiveData<Boolean> = _load
 

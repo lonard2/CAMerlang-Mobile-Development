@@ -58,7 +58,7 @@ class HomepageFragment : Fragment() {
     }
 
     private fun showSections(sectionList: List<SectionItem>) {
-        bind.sectionContentHomepageRv.layoutManager = LinearLayoutManager(this,
+        bind.sectionContentHomepageRv.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.VERTICAL, false)
 
         val homeSectionAdapter = HomepageContentAdapter(sectionList as ArrayList<HomepageResponseItem>)
