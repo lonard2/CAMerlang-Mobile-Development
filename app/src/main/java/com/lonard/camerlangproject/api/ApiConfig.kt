@@ -9,6 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiConfig {
 
     companion object {
+        private const val BASE_URL = "https://camerlang-api-service-hgtivvbcdq-uc.a.run.app/"
 
         fun getApiProduct(): ApiInterface {
 
@@ -25,13 +26,13 @@ class ApiConfig {
 
             val rf = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(BASE_URL)
                 .client(okClient)
                 .build()
 
             return rf.create(ApiInterface::class.java)
 
         }
-
     }
 
 }
