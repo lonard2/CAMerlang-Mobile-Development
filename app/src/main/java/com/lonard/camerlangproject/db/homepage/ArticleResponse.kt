@@ -6,6 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ArticleResponse(
+
 	@field:SerializedName("data")
 	val data: List<DataItem>,
 
@@ -18,6 +19,15 @@ data class DataItem(
 
 	@field:SerializedName("thumbnail")
 	val thumbnail: String,
+
+	@field:SerializedName("updated_at")
+	val updatedAt: String,
+
+	@field:SerializedName("created_at")
+	val createdAt: String,
+
+	@field:SerializedName("content_header")
+	val contentHeader: String,
 
 	@field:SerializedName("id")
 	val id: Int,
