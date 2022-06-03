@@ -9,6 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiConfig {
 
     companion object {
+        // TODO(Move base URL to buildconfig so as to not get the url leaked easily)
         private const val BASE_URL = "https://camerlang-api-service-hgtivvbcdq-uc.a.run.app/"
 
         fun getApiProduct(): ApiInterface {
