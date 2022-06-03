@@ -22,12 +22,12 @@ class SettingsUserActivity : AppCompatActivity() {
 
         val localUserPref = LocalUser_pref.getLocalUserInstance(dataStore)
 
-        val localUserViewModel = ViewModelProvider(
+        val localViewModel = ViewModelProvider(
             this,
             LocalUserViewModelFactory(localUserPref)
         )[LocalUserViewModel::class.java]
 
-        localUserViewModel.getLocalUser().observe(this) { localUser ->
+        localViewModel.getLocalUser().observe(this) { localUser ->
             bind.apply {
                 backBtn.setOnClickListener {
                     finish()
@@ -43,7 +43,7 @@ class SettingsUserActivity : AppCompatActivity() {
                 val savedProfession = settingsUserSection3Column.text.toString()
                 val savedStatus = settingsUserSection4Column.text.toString()
 
-                localUserViewModel.modifyLocalUser(
+                localViewModel.modifyLocalUser(
                     UserModel(
                         savedName,
                         savedAge,

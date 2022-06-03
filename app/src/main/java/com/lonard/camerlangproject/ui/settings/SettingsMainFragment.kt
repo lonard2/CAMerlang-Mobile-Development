@@ -41,34 +41,63 @@ class SettingsMainFragment : Fragment() {
         )[LocalUserViewModel::class.java]
 
         localViewModel.getStartUp().observe(viewLifecycleOwner) { appSetting ->
-            bind.apply {
-                btnSettingsCard1.setOnClickListener {
-                    val userAccountIntent = Intent(requireActivity(), SettingsUserActivity::class.java)
-                    startActivity(userAccountIntent)
-                }
 
-                btnSettingsCard2.setOnClickListener {
-                    if(appSetting.darkMode) {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            localViewModel.getLocalUser().observe(viewLifecycleOwner) { localUser ->
+                bind.apply {
+                    settingsMainName.text = localUser.name
+                    settingsMainAge.text = localUser.age
+                    settingsMainProfession.text = localUser.profession
+                    settingsMainStatus.text = localUser.status
 
-                        bind.btnSettingsSelect2Text.text = getString(R.string.light_mode_ask)
-                        bind.btnSettingsSelect2.setImageResource(R.drawable.light_mode_icon)
-                    } else {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    bind.apply {
+                        btnSettingsCard1.setOnClickListener {
+                            val userAccountIntent =
+                                Intent(requireActivity(), SettingsUserActivity::class.java)
+                            startActivity(userAccountIntent)
+                        }
 
-                        bind.btnSettingsSelect2Text.text = getString(R.string.dark_mode_ask)
-                        bind.btnSettingsSelect2.setImageResource(R.drawable.night_icon)
+                        btnSettingsCard2.setOnClickListener {
+                            if (appSetting.darkMode) {
+                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
+                                bind.btnSettingsSelect2Text.text =
+                                    getString(R.string.light_mode_ask)
+                                bind.btnSettingsSelect2.setImageResource(R.drawable.light_mode_icon)
+
+                                localViewModel.setDarkTheme(true)
+
+                                bind.btnSettingsSelect2.resources.getColor(
+                                    R.color.md_theme_light_onPrimary,
+                                    null
+                                )
+                                bind.btnSettingsSelect2.setBackgroundResource(R.color.md_theme_light_tertiaryContainer)
+                            } else {
+                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
+                                bind.btnSettingsSelect2Text.text = getString(R.string.dark_mode_ask)
+                                bind.btnSettingsSelect2.setImageResource(R.drawable.night_icon)
+
+                                localViewModel.setDarkTheme(false)
+
+                                bind.btnSettingsSelect2.resources.getColor(
+                                    R.color.md_theme_light_onPrimary,
+                                    null
+                                )
+                                bind.btnSettingsSelect2.setBackgroundResource(R.color.settings_menu_2)
+                            }
+                        }
+
+                        btnSettingsCard3.setOnClickListener {
+                            val localizationMenuIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                            startActivity(localizationMenuIntent)
+                        }
+
+                        btnSettingsCard4.setOnClickListener {
+                            val creditIntent =
+                                Intent(requireActivity(), CreditsActivity::class.java)
+                            startActivity(creditIntent)
+                        }
                     }
-                }
-
-                btnSettingsCard3.setOnClickListener {
-                    val localizationMenuIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
-                    startActivity(localizationMenuIntent)
-                }
-
-                btnSettingsCard4.setOnClickListener {
-                    val creditIntent = Intent(requireActivity(), CreditsActivity::class.java)
-                    startActivity(creditIntent)
                 }
             }
         }
