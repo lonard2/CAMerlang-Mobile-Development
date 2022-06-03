@@ -33,6 +33,7 @@ android {
 
     buildFeatures {
         viewBinding true
+        mlModelBinding true
     }
     
     compileOptions {
@@ -96,6 +97,7 @@ dependencies {
     implementation 'androidx.datastore:datastore-preferences:1.0.0'
 
     implementation "androidx.room:room-ktx:$roomDbVer"
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
     kapt "androidx.room:room-compiler:$roomDbVer"
 
     testImplementation 'junit:junit:4.13.2'
