@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.lonard.camerlangproject.di.DI
 import java.lang.IllegalArgumentException
 
-class HomepageViewModelFactory private constructor(private val homepageRepo: HomepageRepository):
+class HomepageViewModelFactory (private val homepageRepo: HomepageRepository):
     ViewModelProvider.NewInstanceFactory(){
 
     @Suppress("UNCHECKED_CAST")
