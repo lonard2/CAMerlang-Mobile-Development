@@ -1,10 +1,10 @@
-package com.lonard.camerlangproject.db
+package com.lonard.camerlangproject.di
 
 import android.content.Context
 import com.lonard.camerlangproject.api.ApiConfig
+import com.lonard.camerlangproject.db.AppDB
 import com.lonard.camerlangproject.mvvm.ConsultationRepository
 import com.lonard.camerlangproject.mvvm.HomepageRepository
-import com.lonard.camerlangproject.mvvm.HomepageViewModel
 import com.lonard.camerlangproject.mvvm.LibraryRepository
 
 object DI {

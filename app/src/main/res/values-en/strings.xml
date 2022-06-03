@@ -161,4 +161,5 @@
     <string name="third_problem_txt_sample">Problem 3</string>
     <string name="second_problem_percentage_sample">23,253%</string>
     <string name="third_problem_percentage_sample">10,774%</string>
+    <string name="lib_item_content_sample">This is a description of the problem.</string>
 </resources>
