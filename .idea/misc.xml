@@ -15,45 +15,42 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_consultation_history.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_library_home.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/rv_info_listing_homepage.xml" value="0.12158054711246201" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_credits.xml" value="0.33" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_front.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_library_detail_image_show.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_onboarding.xml" value="0.22" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_scanner_camera.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_settings_user.xml" value="0.22" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_consultation_history.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_homepage.xml" value="0.25" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_library_home.xml" value="0.33" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_category.xml" value="0.25" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/rv_info_listing_homepage.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/rv_info_listing_library.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable-v24/rounded_box_settings.xml" value="0.112" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable-xxhdpi/camera_scan_rounded_outline.xml" value="0.196" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/camera_scan_rounded.xml" value="0.196" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/navbar_color.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/notification_gradient.xml" value="0.106" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/outline.xml" value="0.273" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/ranking_round_1.xml" value="0.132" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/ranking_round_2.xml" value="0.132" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/ranking_round_3.xml" value="0.132" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/rounded_box.xml" value="0.158" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/rounded_box_onboarding.xml" value="0.2385" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout-v28/activity_homepage.xml" value="0.5714285714285714" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_article_detail.xml" value="0.1" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_consultation.xml" value="0.25" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_article_detail.xml" value="0.18" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_consultation.xml" value="0.22" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_consultation_detail.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_consultation_history.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_front.xml" value="0.1766304347826087" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_credits.xml" value="0.18" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_front.xml" value="0.18" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_homepage.xml" value="0.22" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_library_detail.xml" value="0.1544943820224719" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_library_detail.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_library_detail_image_show.xml" value="0.20153985507246377" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_library_home.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_notification.xml" value="0.2" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_onboarding.xml" value="0.16" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_onboarding.xml" value="0.1834117144078666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_scanner.xml" value="0.35260416666666666" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_scanner_camera.xml" value="0.22" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_scanner_camera.xml" value="0.16" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_settings_main.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_settings_user.xml" value="0.18958333333333333" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_splash.xml" value="0.5" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/bottom_navbar_menu.xml" value="0.16032608695652173" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/consultation_history_rv_box.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/divert_dialog.xml" value="0.2" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/fragment_settings_main.xml" value="0.1" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/fragment_consultation_history.xml" value="0.1936725096194955" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/fragment_homepage.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/fragment_library_home.xml" value="0.16" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/fragment_settings_main.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/notification_rv_box.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_box_a_outside.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_box_category.xml" value="0.36666666666666664" />
@@ -62,7 +59,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_box_notification_list.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_box_outside.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_only_pic.xml" value="0.33" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/rv_info_listing_homepage.xml" value="0.22" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/rv_info_listing_homepage.xml" value="0.18" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/rv_info_listing_library.xml" value="0.3125" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/menu/bottom_navbar_menu.xml" value="0.1" />
       </map>
