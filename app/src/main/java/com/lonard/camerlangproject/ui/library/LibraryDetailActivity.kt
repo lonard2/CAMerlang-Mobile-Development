@@ -1,17 +1,14 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.library
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lonard.camerlangproject.api.ConsultationResponseItem
 import com.lonard.camerlangproject.api.LibraryResponseItem
-import com.lonard.camerlangproject.databinding.ActivityConsultationHistoryBinding
 import com.lonard.camerlangproject.databinding.ActivityLibraryDetailBinding
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
-import com.lonard.camerlangproject.ui.rv_adapter.ConsultationHistoryItemAdapter
+import com.lonard.camerlangproject.ui.homepage.ArticleDetailActivity
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailProductAdapter
 import com.squareup.picasso.Picasso

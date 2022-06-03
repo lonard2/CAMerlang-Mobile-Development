@@ -1,4 +1,4 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.homepage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

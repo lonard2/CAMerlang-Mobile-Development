@@ -14,6 +14,7 @@ import com.lonard.camerlangproject.databinding.ActivitySplashBinding
 import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModel
 import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModelFactory
 import com.lonard.camerlangproject.db.user_datastore.LocalUser_pref
+import com.lonard.camerlangproject.ui.homepage.OnboardingActivity
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "local_user_data")
 

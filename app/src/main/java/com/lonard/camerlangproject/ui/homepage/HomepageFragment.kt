@@ -1,4 +1,4 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.homepage
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lonard.camerlangproject.api.HomepageResponseItem
-import com.lonard.camerlangproject.databinding.FragmentConsultationHistoryBinding
 import com.lonard.camerlangproject.databinding.FragmentHomepageBinding
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageContentAdapter
 

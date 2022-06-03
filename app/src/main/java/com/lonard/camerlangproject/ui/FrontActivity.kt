@@ -8,11 +8,13 @@ import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityFrontBinding
+import com.lonard.camerlangproject.ui.consultation.ConsultationHistoryFragment
+import com.lonard.camerlangproject.ui.homepage.HomepageFragment
+import com.lonard.camerlangproject.ui.library.LibraryHomeFragment
 import com.lonard.camerlangproject.ui.settings.SettingsMainFragment
 import java.io.File
 import java.util.*

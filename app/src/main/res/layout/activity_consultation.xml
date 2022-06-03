@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorConsultationContainer"
-    tools:context=".ui.ConsultationActivity">
+    tools:context=".ui.consultation.ConsultationActivity">
 
     <ImageView
         android:id="@+id/back_btn"

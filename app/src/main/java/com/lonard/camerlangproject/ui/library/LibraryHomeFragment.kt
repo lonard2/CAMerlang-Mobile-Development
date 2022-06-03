@@ -1,4 +1,4 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.library
 
 import android.graphics.Typeface
 import android.os.Bundle
@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.FragmentLibraryHomeBinding
-import com.lonard.camerlangproject.mvvm.LibraryViewModel
 
 class LibraryHomeFragment : Fragment() {
     private var _bind: FragmentLibraryHomeBinding? = null

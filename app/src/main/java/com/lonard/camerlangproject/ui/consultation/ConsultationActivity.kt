@@ -1,10 +1,7 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.consultation
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.lonard.camerlangproject.R
-import com.lonard.camerlangproject.databinding.ActivityArticleDetailBinding
 import com.lonard.camerlangproject.databinding.ActivityConsultationBinding
 
 class ConsultationActivity : AppCompatActivity() {

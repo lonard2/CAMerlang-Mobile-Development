@@ -7,12 +7,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.lonard.camerlangproject.api.ConsultationResponseItem
 import com.lonard.camerlangproject.api.HomepageResponseItem
-import com.lonard.camerlangproject.databinding.ConsultationHistoryRvBoxBinding
 import com.lonard.camerlangproject.databinding.RvInfoListingHomepageBinding
-import com.lonard.camerlangproject.db.homepage.ArticleEntity
-import com.lonard.camerlangproject.ui.ArticleDetailActivity
+import com.lonard.camerlangproject.ui.homepage.ArticleDetailActivity
 
 class HomepageContentAdapter(private val infoSectionList: ArrayList<HomepageResponseItem>): RecyclerView.Adapter<HomepageContentAdapter.ViewHolder>() {
 

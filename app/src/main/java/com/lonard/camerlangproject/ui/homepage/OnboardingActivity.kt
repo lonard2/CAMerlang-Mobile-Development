@@ -1,11 +1,11 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.homepage
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lonard.camerlangproject.R
-import com.lonard.camerlangproject.databinding.ActivityNotificationBinding
 import com.lonard.camerlangproject.databinding.ActivityOnboardingBinding
+import com.lonard.camerlangproject.ui.FrontActivity
 
 class OnboardingActivity : AppCompatActivity() {
 

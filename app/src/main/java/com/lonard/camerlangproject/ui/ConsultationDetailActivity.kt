@@ -6,7 +6,6 @@ import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityConsultationDetailBinding
 import com.lonard.camerlangproject.databinding.ActivityCreditsBinding
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
-import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.squareup.picasso.Picasso
 
 class ConsultationDetailActivity : AppCompatActivity() {

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/colorPrimaryContainer"
-        tools:context=".ui.ConsultationHistoryFragment">
+        tools:context=".ui.consultation.ConsultationHistoryFragment">
 
         <ImageView
             android:id="@+id/consultation_history_intro_emoji_icon"

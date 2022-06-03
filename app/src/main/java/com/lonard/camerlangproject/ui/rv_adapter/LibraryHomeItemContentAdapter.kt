@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.RvInfoListingLibraryBinding
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
-import com.lonard.camerlangproject.ui.ArticleDetailActivity
-import com.lonard.camerlangproject.ui.LibraryDetailActivity
+import com.lonard.camerlangproject.ui.library.LibraryDetailActivity
 import com.squareup.picasso.Picasso
 
 class LibraryHomeItemContentAdapter(private val alphabetSectionList: ArrayList<LibraryResponseItem>): RecyclerView.Adapter<LibraryHomeItemContentAdapter.ViewHolder>() {

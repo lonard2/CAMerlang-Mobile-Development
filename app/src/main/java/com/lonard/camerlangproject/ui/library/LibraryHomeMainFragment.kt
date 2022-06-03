@@ -1,4 +1,4 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.library
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

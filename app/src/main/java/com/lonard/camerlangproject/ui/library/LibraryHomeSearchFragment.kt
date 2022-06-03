@@ -1,15 +1,12 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.library
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.StringRes
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.api.LibraryResponseItem
-import com.lonard.camerlangproject.databinding.FragmentLibraryHomeMainBinding
 import com.lonard.camerlangproject.databinding.FragmentLibraryHomeSearchBinding
 import com.lonard.camerlangproject.mvvm.LibraryViewModel
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter

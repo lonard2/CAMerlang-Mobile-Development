@@ -7,7 +7,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LibraryDetailActivity">
+    tools:context=".ui.library.LibraryDetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -104,6 +104,18 @@
             app:layout_constraintTop_toBottomOf="@id/library_detail_header_card"
             app:layout_constraintStart_toStartOf="parent"/>
 
+        <TextView
+            android:id="@+id/lib_item_content"
+
+            style="@style/DetailContent.Content"
+
+            android:text="@string/lib_item_content_sample"
+
+            android:textColor="?attr/colorOnPrimary"
+
+            app:layout_constraintTop_toBottomOf="@id/lib_item_short_desc"
+            app:layout_constraintStart_toStartOf="parent"/>
+
         <ImageView
             android:id="@+id/more_images_emoji_icon"
 
@@ -112,7 +124,7 @@
             android:src="@drawable/framed_picture_emoji_icon"
             android:contentDescription="@string/picture_emoji_desc"
 
-            app:layout_constraintTop_toBottomOf="@id/lib_item_short_desc"
+            app:layout_constraintTop_toBottomOf="@id/lib_item_content"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView

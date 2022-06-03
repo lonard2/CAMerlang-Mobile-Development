@@ -20,19 +20,19 @@
             android:name=".ui.ConsultationDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.CreditsActivity"
+            android:name=".ui.settings.CreditsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.LibraryDetailImageShowActivity"
+            android:name=".ui.library.LibraryDetailImageShowActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.OnboardingActivity"
+            android:name=".ui.homepage.OnboardingActivity"
             android:exported="false" />
         <activity
             android:name=".ui.FrontActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ArticleDetailActivity"
+            android:name=".ui.homepage.ArticleDetailActivity"
             android:exported="false" />
         <activity
             android:name=".ui.settings.SettingsUserActivity"
@@ -41,13 +41,13 @@
             android:name=".camera.ScannerCameraActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.LibraryDetailActivity"
+            android:name=".ui.library.LibraryDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ConsultationActivity"
+            android:name=".ui.consultation.ConsultationActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.NotificationActivity"
+            android:name=".ui.homepage.NotificationActivity"
             android:exported="false" />
         <activity
             android:name=".ui.SplashActivity"

@@ -1,9 +1,8 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.library
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lonard.camerlangproject.databinding.ActivityLibraryDetailImageShowBinding
-import com.lonard.camerlangproject.databinding.ActivityNotificationBinding
 import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
 import com.squareup.picasso.Picasso
 

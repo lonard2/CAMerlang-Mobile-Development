@@ -1,4 +1,4 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.consultation
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,13 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lonard.camerlangproject.api.ConsultationResponseItem
-import com.lonard.camerlangproject.api.HomepageResponseItem
 import com.lonard.camerlangproject.databinding.FragmentConsultationHistoryBinding
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
 import com.lonard.camerlangproject.ui.rv_adapter.ConsultationHistoryItemAdapter
-import com.lonard.camerlangproject.ui.rv_adapter.HomepageContentAdapter
-import com.lonard.camerlangproject.ui.rv_adapter.HomepageContentListAdapter
 
 class ConsultationHistoryFragment : Fragment() {
 

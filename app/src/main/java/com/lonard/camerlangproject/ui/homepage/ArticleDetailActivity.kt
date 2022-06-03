@@ -1,13 +1,8 @@
-package com.lonard.camerlangproject.ui
+package com.lonard.camerlangproject.ui.homepage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityArticleDetailBinding
-import com.lonard.camerlangproject.databinding.ActivityHomepageBinding
-import com.lonard.camerlangproject.db.homepage.ArticleEntity
-import com.lonard.camerlangproject.db.library.LibraryContentEntity
-import com.lonard.camerlangproject.ui.rv_adapter.HomepageContentAdapter
 import com.squareup.picasso.Picasso
 
 class ArticleDetailActivity : AppCompatActivity() {
