@@ -9,7 +9,7 @@ import androidx.room.Query
 interface HomepageDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addArticletoDb(articleItem: List<ArticleResponse>)
+    fun addArticletoDb(articleItem: List<ArticleEntity>?)
 
     @Query("SELECT * FROM articles")
     fun retrieveAllArticles(): LiveData<ArticleEntity>

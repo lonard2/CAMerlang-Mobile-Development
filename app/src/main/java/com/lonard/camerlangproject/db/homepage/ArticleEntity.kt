@@ -12,7 +12,7 @@ data class ArticleEntity (
 
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id")
-    var id: String,
+    var id: Int?,
 
     @ColumnInfo(name = "article_name")
     var name: String? = null,

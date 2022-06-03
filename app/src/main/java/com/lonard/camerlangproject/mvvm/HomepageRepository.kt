@@ -3,9 +3,11 @@ package com.lonard.camerlangproject.mvvm
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+
 import com.lonard.camerlangproject.api.ApiConfig
 import com.lonard.camerlangproject.api.ApiInterface
 import com.lonard.camerlangproject.db.AppDB
+import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.lonard.camerlangproject.db.homepage.ArticleResponse
 import com.lonard.camerlangproject.db.homepage.DataItem
 import retrofit2.Call
@@ -14,7 +16,7 @@ import retrofit2.Response
 
 class HomepageRepository(private val db: AppDB, private val api: ApiInterface) {
 
-    private val _articlesList = MutableLiveData<List<DataItem>>()
+    private val _articlesList = MutableLiveData<List<DataItem>?>()
     private val _load = MutableLiveData<Boolean>()
 
     val articlesList: LiveData<List<DataItem>> = _articlesList
@@ -34,7 +36,23 @@ class HomepageRepository(private val db: AppDB, private val api: ApiInterface) {
                 _load.value = false
 
                 if(response.isSuccessful) {
-                    _articlesList.value = response.body()?.data
+                    val respondedArticles = response.body()?.data
+
+                    _articlesList.value = respondedArticles
+
+                    val articlesListDb = respondedArticles?.map { article ->
+                        ArticleEntity(
+                            article.id,
+                            article.thumbnail,
+                            article.title,
+                            article.type,
+                            article.readDuration,
+                            article.content
+                        )
+                    }
+
+                    db.homepageDao().addArticletoDb(articlesListDb)
+
                 } else {
                     Log.e(TAG, "Terjadi gagal respon dari server API aplikasi.")
                 }
