@@ -126,131 +126,146 @@
             app:layout_constraintTop_toBottomOf="@id/settings_main_age"
             app:layout_constraintStart_toEndOf="@id/settings_user_icon"/>
 
-        <ImageButton
-            android:id="@+id/btn_settings_select_1"
-            style="@style/SettingBox.Main"
 
-            android:backgroundTint="@color/settings_menu_1"
-
-            android:src="@drawable/user_account_config_icon"
-            android:contentDescription="@string/user_settings_btn_desc"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_settings_card_1"
+            style="@style/SettingsMenuClickArea"
 
             app:layout_constraintTop_toBottomOf="@id/settings_main_img_layer2"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <TextView
-            android:id="@+id/btn_settings_select_1_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="15dp"
-
-            android:text="@string/btn_settings_1_text"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="24sp"
-            android:textColor="?attr/colorOnPrimaryContainer"
-
-            app:layout_constraintStart_toEndOf="@id/btn_settings_select_1"
-            app:layout_constraintTop_toTopOf="@id/btn_settings_select_1"
-            app:layout_constraintBottom_toBottomOf="@id/btn_settings_select_1"/>
-
-        <ImageButton
-            android:id="@+id/btn_settings_select_2"
-            style="@style/SettingBox.Main"
-
-            android:backgroundTint="@color/settings_menu_2"
-
-            android:src="@drawable/night_icon"
-            android:contentDescription="@string/dark_mode_btn_desc"
-
-            app:layout_constraintTop_toBottomOf="@id/btn_settings_select_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:tint="?attr/colorOnPrimary"/>
-
-        <TextView
-            android:id="@+id/btn_settings_select_2_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="15dp"
-
-            android:text="@string/btn_settings_2_text"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="24sp"
-            android:textColor="?attr/colorOnPrimaryContainer"
-
-            app:layout_constraintStart_toEndOf="@id/btn_settings_select_2"
-            app:layout_constraintTop_toTopOf="@id/btn_settings_select_2"
-            app:layout_constraintBottom_toBottomOf="@id/btn_settings_select_2"/>
-
-        <ImageButton
-            android:id="@+id/btn_settings_select_3"
-            style="@style/SettingBox.Main"
-
-            android:backgroundTint="@color/settings_menu_3"
-
-            android:src="@drawable/localization_icon"
-            android:contentDescription="@string/locale_btn_desc"
-
-            app:layout_constraintTop_toBottomOf="@id/btn_settings_select_2"
             app:layout_constraintStart_toStartOf="parent">
-        </ImageButton>
 
-        <TextView
-            android:id="@+id/btn_settings_select_3_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            android:layout_marginStart="15dp"
+                <ImageButton
+                    android:id="@+id/btn_settings_select_1"
+                    style="@style/SettingBox.Main"
 
-            android:text="@string/btn_settings_3_text"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="24sp"
-            android:textColor="?attr/colorOnPrimaryContainer"
+                    android:backgroundTint="@color/settings_menu_1"
 
-            app:layout_constraintStart_toEndOf="@id/btn_settings_select_3"
-            app:layout_constraintTop_toTopOf="@id/btn_settings_select_3"
-            app:layout_constraintBottom_toBottomOf="@id/btn_settings_select_3"/>
+                    android:src="@drawable/user_account_config_icon"
+                    android:contentDescription="@string/user_settings_btn_desc"/>
 
-        <ImageButton
-            android:id="@+id/btn_settings_select_4"
-            style="@style/SettingBox.Main"
+                <TextView
+                    android:id="@+id/btn_settings_select_1_text"
+                    style="@style/SettingsMenuClickArea.Text"
 
-            android:backgroundTint="@color/settings_menu_4"
+                    android:text="@string/btn_settings_1_text"/>
+            </LinearLayout>
 
-            android:src="@drawable/credits_icon"
-            android:contentDescription="@string/credits_btn_desc"
+        </androidx.cardview.widget.CardView>
 
-            app:layout_constraintTop_toBottomOf="@id/btn_settings_select_3"
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_settings_card_2"
+            style="@style/SettingsMenuClickArea"
+
+            app:layout_constraintTop_toBottomOf="@id/btn_settings_card_1"
             app:layout_constraintStart_toStartOf="parent">
-        </ImageButton>
 
-        <TextView
-            android:id="@+id/btn_settings_select_4_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            android:layout_marginStart="15dp"
+                <ImageButton
+                    android:id="@+id/btn_settings_select_2"
+                    style="@style/SettingBox.Main"
 
-            android:text="@string/btn_settings_4_text"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="24sp"
-            android:textColor="?attr/colorOnPrimaryContainer"
+                    android:backgroundTint="@color/settings_menu_2"
 
-            app:layout_constraintStart_toEndOf="@id/btn_settings_select_4"
-            app:layout_constraintTop_toTopOf="@id/btn_settings_select_4"
-            app:layout_constraintBottom_toBottomOf="@id/btn_settings_select_4"/>
+                    android:src="@drawable/night_icon"
+                    android:contentDescription="@string/dark_mode_btn_desc"
+
+                    app:tint="?attr/colorOnPrimary"/>
+
+                <TextView
+                    android:id="@+id/btn_settings_select_2_text"
+                    style="@style/SettingsMenuClickArea.Text"
+
+                    android:text="@string/btn_settings_2_text"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_settings_card_3"
+            style="@style/SettingsMenuClickArea"
+
+            app:layout_constraintTop_toBottomOf="@id/btn_settings_card_2"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_settings_select_3"
+                    style="@style/SettingBox.Main"
+
+                    android:backgroundTint="@color/settings_menu_3"
+
+                    android:src="@drawable/localization_icon"
+                    android:contentDescription="@string/locale_btn_desc"/>
+
+                <TextView
+                    android:id="@+id/btn_settings_select_3_text"
+                    style="@style/SettingsMenuClickArea.Text"
+
+                    android:text="@string/btn_settings_3_text"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_settings_card_4"
+            style="@style/SettingsMenuClickArea"
+
+            app:layout_constraintTop_toBottomOf="@id/btn_settings_card_3"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_settings_select_4"
+                    style="@style/SettingBox.Main"
+
+                    android:backgroundTint="@color/settings_menu_4"
+
+                    android:src="@drawable/credits_icon"
+                    android:contentDescription="@string/credits_btn_desc"/>
+
+                <TextView
+                    android:id="@+id/btn_settings_select_4_text"
+
+                    style="@style/SettingsMenuClickArea.Text"
+
+                    android:text="@string/btn_settings_4_text"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <ImageView
             android:id="@+id/brand_id_footer_1"
 
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+
+            android:layout_marginTop="10dp"
 
             android:src="@drawable/camerlang_logo_bw_transparent"
             android:contentDescription="@string/CAMerlang_bw_icon_desc"
 
-            app:layout_constraintTop_toBottomOf="@id/btn_settings_select_4"
+            app:layout_constraintTop_toBottomOf="@id/btn_settings_card_4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

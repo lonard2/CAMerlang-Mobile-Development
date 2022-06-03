@@ -644,9 +644,6 @@
 		<item name="android:layout_width">50dp</item>
 		<item name="android:layout_height">50dp</item>
 
-		<item name="android:layout_marginTop">20dp</item>
-		<item name="android:layout_marginStart">15dp</item>
-
 		<item name="android:padding">10dp</item>
 	</style>
 
@@ -760,6 +757,28 @@
 	<style name="SearchBox" parent="Widget.AppCompat.SearchView">
 		<item name="android:fontFamily">@font/poppins_regular</item>
 		<item name="android:textSize">14sp</item>
+	</style>
+
+	<style name="SettingsMenuClickArea">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+
+		<item name="android:layout_marginStart">15dp</item>
+		<item name="android:layout_marginTop">20dp</item>
+		<item name="android:layout_marginEnd">15dp</item>
+
+		<item name="cardElevation">0dp</item>
+		<item name="cardBackgroundColor">@android:color/transparent</item>
+	</style>
+
+	<style name="SettingsMenuClickArea.Text">
+		<item name="android:layout_width">wrap_content</item>
+
+		<item name="android:layout_marginTop">5dp</item>
+
+		<item name="android:fontFamily">@font/poppins_semibold</item>
+		<item name="android:textSize">24sp</item>
+		<item name="android:textColor">?attr/colorOnPrimaryContainer</item>
 	</style>
 
 </resources>

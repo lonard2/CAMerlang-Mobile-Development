@@ -12,8 +12,8 @@ class LocalUserViewModel(private val localUserPref: LocalUser_pref): ViewModel()
         return localUserPref.getUserDataLocal().asLiveData()
     }
 
-    fun getFirstRun(): LiveData<AppSettingModel>  {
-        return localUserPref.getFirstRun().asLiveData()
+    fun getStartUp(): LiveData<AppSettingModel>  {
+        return localUserPref.getStartUp().asLiveData()
     }
 
     fun saveLocalUser(userModel: UserModel) {

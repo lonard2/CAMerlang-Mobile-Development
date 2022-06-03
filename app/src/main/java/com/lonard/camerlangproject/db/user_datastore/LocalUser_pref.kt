@@ -18,7 +18,7 @@ class LocalUser_pref private constructor(private val ds: DataStore<Preferences>)
         }
     }
 
-    fun getFirstRun(): Flow<AppSettingModel> {
+    fun getStartUp(): Flow<AppSettingModel> {
         return ds.data.map { settingPref ->
             AppSettingModel(
                 settingPref[FIRST_RUN_PREF_KEY] ?: true,

@@ -33,7 +33,7 @@ class SplashActivity : AppCompatActivity() {
             LocalUserViewModelFactory(localUserStorage)
         )[LocalUserViewModel::class.java]
 
-        localViewModel.getFirstRun().observe(this) { setting ->
+        localViewModel.getStartUp().observe(this) { setting ->
 
             if(!setting.firstRun) {
                 Handler(Looper.getMainLooper()).postDelayed({
