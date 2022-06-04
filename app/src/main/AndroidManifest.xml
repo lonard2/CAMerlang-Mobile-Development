@@ -23,7 +23,7 @@
             android:name=".ui.settings.CreditsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.library.LibraryDetailImageShowActivity"
+            android:name=".ui.ImageShowActivity"
             android:exported="false" />
         <activity
             android:name=".ui.homepage.OnboardingActivity"

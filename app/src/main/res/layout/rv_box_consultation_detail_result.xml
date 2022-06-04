@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/result_card_1"
+
+        app:cardBackgroundColor="?attr/colorPrimaryContainer"
+        style="@style/Card.ConsultationDetail"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/first_ranking_number"
+
+                style="@style/DetectionCircle"
+
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
+                android:background="@drawable/detection_number"
+
+                android:text="@string/rank_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/first_problem_show"/>
+
+            <TextView
+                android:id="@+id/first_problem_show"
+
+                style="@style/ProblemDesc"
+
+                android:text="@string/first_problem_txt_sample"
+
+                android:textColor="@color/md_theme_light_primary_60"
+                android:textSize="20sp"
+
+                app:layout_constraintStart_toEndOf="@id/first_ranking_number"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/first_problem_percentage_card"
+
+                style="@style/Card.ConsultationDetail.Percentage"
+
+                app:cardBackgroundColor="@color/detection_percentage_card_color"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+                <TextView
+                    android:id="@+id/first_problem_percentage_txt"
+
+                    style="@style/CardText.Percentage"
+
+                    android:text="@string/first_problem_percentage_sample"
+                    android:textSize="24sp"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

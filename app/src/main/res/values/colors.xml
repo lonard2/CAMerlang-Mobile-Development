@@ -108,11 +108,6 @@
 	<color name="photographer_credit_color">#9AA4C1</color>
 	<color name="other_attribution_credit_color">#BAB1F1</color>
 
-	<color name="first_place">#C8AD00</color>
-	<color name="second_place">#9E9F94</color>
-	<color name="third_place">#8A612E</color>
-
-	<color name="first_place_percentage">#EDCE2E</color>
-	<color name="second_place_percentage">#B6B8AD</color>
-	<color name="third_place_percentage">#704F26</color>
+	<color name="detection_number_color">#B7886D</color>
+	<color name="detection_percentage_card_color">#CB6666</color>
 </resources>

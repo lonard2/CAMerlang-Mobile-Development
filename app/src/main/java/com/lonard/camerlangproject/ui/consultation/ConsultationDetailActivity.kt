@@ -1,9 +1,12 @@
 package com.lonard.camerlangproject.ui.consultation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lonard.camerlangproject.databinding.ActivityConsultationDetailBinding
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
+import com.lonard.camerlangproject.ui.ImageShowActivity
+import com.lonard.camerlangproject.ui.library.LibraryHomeSearchFragment
 import com.squareup.picasso.Picasso
 
 class ConsultationDetailActivity : AppCompatActivity() {
@@ -19,6 +22,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
         ) as ConsultationItemEntity
 
         bind.apply {
+
             backBtn.setOnClickListener {
                 finish()
             }
@@ -29,13 +33,12 @@ class ConsultationDetailActivity : AppCompatActivity() {
             consultationDatetimeDetail.text = consultationParcel.analyzedConsultationDateTime
             consultationOutcomeDetail.text = consultationParcel.analyzedConsultationOutcome
 
-            firstProblemShow.text = retrievedTfResultFirstProblem
-            secondProblemShow.text = retrievedTfResultSecondProblem
-            thirdProblemShow.text = retrievedTfResultThirdProblem
+            consultationTakenImage.setOnClickListener {
+                val viewZoomedImg = Intent(this@ConsultationDetailActivity, ImageShowActivity::class.java)
+                viewZoomedImg.putExtra(ImageShowActivity.EXTRA_PIC, consultationParcel.analyzedImg)
 
-            firstProblemPercentageTxt.text = retrievedTfResultFirstProblemPercentage
-            secondProblemPercentageTxt.text = retrievedTfResultSecondProblemPercentage
-            thirdProblemPercentageTxt.text = retrievedTfResultThirdProblemPercentage
+                startActivity(viewZoomedImg)
+            }
         }
     }
 

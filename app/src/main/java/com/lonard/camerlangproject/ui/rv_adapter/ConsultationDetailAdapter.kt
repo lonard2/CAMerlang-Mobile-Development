@@ -7,10 +7,11 @@ import com.lonard.camerlangproject.api.ConsultationResponseItem
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.ConsultationHistoryRvBoxBinding
 import com.lonard.camerlangproject.databinding.OverflowRvOnlyPicBinding
+import com.lonard.camerlangproject.databinding.RvBoxConsultationDetailResultBinding
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.squareup.picasso.Picasso
 
-class ConsultationHistoryItemAdapter(private val consultationList: ArrayList<ConsultationItemEntity>): RecyclerView.Adapter<ConsultationHistoryItemAdapter.ViewHolder>() {
+class ConsultationDetailAdapter(private val consultationList: ArrayList<ConsultationItemEntity>): RecyclerView.Adapter<ConsultationDetailAdapter.ViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -22,7 +23,7 @@ class ConsultationHistoryItemAdapter(private val consultationList: ArrayList<Con
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val bind = ConsultationHistoryRvBoxBinding.inflate(LayoutInflater.from(parent.context))
+        val bind = RvBoxConsultationDetailResultBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(bind)
     }
 
@@ -33,16 +34,14 @@ class ConsultationHistoryItemAdapter(private val consultationList: ArrayList<Con
             datetimeInfo.text = datetime
             diagnosisOutcomeInfo.text = outcome
             diagnosisId.text = id
-        }
 
-        holder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClicked(consultationList[holder.bindingAdapterPosition])
+
         }
     }
 
     override fun getItemCount(): Int = consultationList.size
 
-    class ViewHolder(var bind: ConsultationHistoryRvBoxBinding): RecyclerView.ViewHolder(bind.root)
+    class ViewHolder(var bind: RvBoxConsultationDetailResultBinding): RecyclerView.ViewHolder(bind.root)
 
     interface OnItemClickCallback {
         fun onItemClicked(data: ConsultationItemEntity)

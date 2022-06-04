@@ -42,7 +42,6 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginEnd="5dp"
 
@@ -52,26 +51,8 @@
                 android:textSize="16sp"
 
                 app:layout_constraintStart_toEndOf="@id/time_icon"
-                app:layout_constraintBottom_toTopOf="@id/diagnosis_outcome_info"/>
-
-            <TextView
-                android:id="@+id/diagnosis_outcome_info"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginEnd="5dp"
-
-                android:text="@string/diagnosis_result_sample"
-
-                android:fontFamily="@font/poppins_black"
-                android:textSize="20sp"
-                android:textColor="?attr/colorTertiary"
-
-                app:layout_constraintTop_toBottomOf="@id/time_icon"
-                app:layout_constraintStart_toStartOf="@id/time_icon"/>
+                app:layout_constraintTop_toTopOf="@id/time_icon"
+                app:layout_constraintBottom_toTopOf="@id/diagnosis_id"/>
 
             <TextView
                 android:id="@+id/diagnosis_id"
@@ -89,8 +70,8 @@
                 android:textSize="11sp"
                 android:textColor="?attr/colorOutline"
 
-                app:layout_constraintTop_toBottomOf="@id/diagnosis_outcome_info"
-                app:layout_constraintStart_toStartOf="@id/diagnosis_outcome_info"
+                app:layout_constraintTop_toBottomOf="@id/time_icon"
+                app:layout_constraintStart_toStartOf="@id/time_icon"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

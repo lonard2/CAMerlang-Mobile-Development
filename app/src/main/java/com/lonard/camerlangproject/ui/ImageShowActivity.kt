@@ -1,4 +1,4 @@
-package com.lonard.camerlangproject.ui.library
+package com.lonard.camerlangproject.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,7 @@ import com.lonard.camerlangproject.databinding.ActivityLibraryDetailImageShowBin
 import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
 import com.squareup.picasso.Picasso
 
-class LibraryDetailImageShowActivity : AppCompatActivity() {
+class ImageShowActivity : AppCompatActivity() {
     private lateinit var bind: ActivityLibraryDetailImageShowBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +19,7 @@ class LibraryDetailImageShowActivity : AppCompatActivity() {
                 finish()
             }
 
-            val imagePack = intent.getParcelableExtra<LibraryDetailImgEntity>(EXTRA_PIC) as LibraryDetailImgEntity
+            val imagePack = intent.getStringExtra(EXTRA_PIC)
 
             Picasso.get().load(imagePack.pictureLink).into(detailedImageClickContainer)
         }

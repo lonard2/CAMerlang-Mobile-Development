@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
-    <solid android:color="@color/third_place"/>
+    <solid android:color="@color/detection_number_color"/>
     <stroke android:color="?attr/colorOnPrimary" android:width="5px"/>
 </shape>
