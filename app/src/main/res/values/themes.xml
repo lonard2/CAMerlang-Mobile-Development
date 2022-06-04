@@ -367,6 +367,8 @@
 		<item name="android:fontFamily">@font/poppins_semibold</item>
 		<item name="android:textColor">?attr/colorOnPrimary</item>
 		<item name="android:textSize">16sp</item>
+
+		<item name="autoSizeTextType">uniform</item>
 	</style>
 
 	<style name="CardText.Small">

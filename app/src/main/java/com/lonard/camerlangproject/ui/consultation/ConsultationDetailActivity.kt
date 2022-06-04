@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lonard.camerlangproject.databinding.ActivityConsultationDetailBinding
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
-import com.lonard.camerlangproject.ui.ImageShowActivity
-import com.lonard.camerlangproject.ui.library.LibraryHomeSearchFragment
+import com.lonard.camerlangproject.ui.images.ImageShowActivity
 import com.squareup.picasso.Picasso
 
 class ConsultationDetailActivity : AppCompatActivity() {
