@@ -26,7 +26,7 @@ class HomepageRepository(private val db: AppDB, private val api: ApiInterface) {
     fun retrieveArticles() {
         _load.value = true
 
-        val api = ApiConfig.getApiProduct().retrieveArticles(null)
+        val api = this.api.retrieveArticles(null)
 
         api.enqueue(object: Callback<ArticleResponse> {
             override fun onResponse(

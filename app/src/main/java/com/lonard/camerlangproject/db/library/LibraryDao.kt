@@ -12,5 +12,4 @@ interface LibraryDao {
 
     @Query("SELECT * FROM library_contents")
     fun retrieveAllEntries(): LiveData<LibraryContentEntity>
-
 }
