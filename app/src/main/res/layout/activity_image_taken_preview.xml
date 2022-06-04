@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorOnBackground"
+    tools:context=".ui.images.ImageTakenPreviewActivity">
+
+    <ImageView
+        android:id="@+id/back_btn"
+
+        style="@style/BackButton"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:contentDescription="@string/back_btn_desc"/>
+
+    <ImageView
+        android:id="@+id/image_taken_preview_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:contentDescription="@string/image_taken_preview_container_desc"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/picture_send_btn"
+
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="60dp"
+
+        android:src="@drawable/send_picture_btn"
+        android:contentDescription="@string/send_btn_desc"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/retake_btn"
+
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:src="@drawable/picture_retake_btn"
+        android:contentDescription="@string/picture_retake_btn_desc"
+
+        app:layout_constraintTop_toTopOf="@id/picture_send_btn"
+        app:layout_constraintBottom_toBottomOf="@id/picture_send_btn"
+        app:layout_constraintStart_toEndOf="@id/picture_send_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:tint="?attr/colorOnTertiary"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
