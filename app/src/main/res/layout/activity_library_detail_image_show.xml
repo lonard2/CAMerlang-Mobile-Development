@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorOnBackground"
-    tools:context=".ui.library.LibraryDetailImageShowActivity">
+    tools:context=".ui.ImageShowActivity">
 
     <ImageView
         android:id="@+id/back_btn"

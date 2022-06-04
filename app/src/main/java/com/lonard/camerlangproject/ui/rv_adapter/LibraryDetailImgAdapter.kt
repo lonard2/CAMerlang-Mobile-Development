@@ -6,9 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideBinding
 import com.lonard.camerlangproject.databinding.OverflowRvOnlyPicBinding
+import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.squareup.picasso.Picasso
 
-class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryResponseItem>): RecyclerView.Adapter<LibraryDetailImgAdapter.ViewHolder>() {
+class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryContentEntity>): RecyclerView.Adapter<LibraryDetailImgAdapter.ViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -40,6 +41,6 @@ class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryRespons
     class ViewHolder(var bind: OverflowRvOnlyPicBinding): RecyclerView.ViewHolder(bind.root)
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: ImageItem)
+        fun onItemClicked(data: LibraryContentEntity)
     }
 }

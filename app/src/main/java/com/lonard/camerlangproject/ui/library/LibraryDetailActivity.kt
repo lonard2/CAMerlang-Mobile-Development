@@ -8,6 +8,7 @@ import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.ActivityLibraryDetailBinding
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
+import com.lonard.camerlangproject.ui.ImageShowActivity
 import com.lonard.camerlangproject.ui.homepage.ArticleDetailActivity
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailProductAdapter
@@ -37,8 +38,8 @@ class LibraryDetailActivity : AppCompatActivity() {
             libItemShortDesc.text = diseaseParcel.selectedLibItemShortDesc
 
             libDetailHeaderPic.setOnClickListener {
-                val showImageIntent = Intent(this@LibraryDetailActivity, LibraryDetailImageShowActivity::class.java)
-                showImageIntent.putExtra(LibraryDetailImageShowActivity.EXTRA_PIC, diseaseParcel.selectedItemImgUrl)
+                val showImageIntent = Intent(this@LibraryDetailActivity, ImageShowActivity::class.java)
+                showImageIntent.putExtra(ImageShowActivity.EXTRA_PIC, diseaseParcel.selectedItemImgUrl)
 
                 startActivity(showImageIntent)
             }
@@ -70,7 +71,7 @@ class LibraryDetailActivity : AppCompatActivity() {
             }
 
         val zoomImgIntent = Intent(this@LibraryDetailActivity, ArticleDetailActivity::class.java)
-        zoomImgIntent.putExtra(LibraryDetailImageShowActivity.EXTRA_IMAGE, imagesList)
+        zoomImgIntent.putExtra(ImageShowActivity.EXTRA_IMAGE, imagesList)
 
         startActivity(zoomImgIntent)
     }
@@ -99,7 +100,7 @@ class LibraryDetailActivity : AppCompatActivity() {
             }
 
         val zoomImgIntent = Intent(this@LibraryDetailActivity, ArticleDetailActivity::class.java)
-        zoomImgIntent.putExtra(LibraryDetailImageShowActivity.EXTRA_IMAGE, images)
+        zoomImgIntent.putExtra(ImageShowActivity.EXTRA_IMAGE, images)
 
         startActivity(zoomImgIntent)
     }
