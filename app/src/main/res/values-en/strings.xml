@@ -5,9 +5,9 @@
     <string name="logo_content_desc">CAMerlang logo in color form, transparent.</string>
     <string name="version_info">Version prototype A</string>
     <string name="homepage_intro_pic_desc">A woman feeling her skin in a bright place.</string>
-    <string name="content_title_rv_sample">Ini adalah judul.</string>
+    <string name="content_title_rv_sample">This is a title.</string>
     <string name="content_list_img_rv_sample">An image for library entry.</string>
-    <string name="content_list_image_rv_only_pic">An image for a library entry in the More Images section</string>
+    <string name="content_list_image_rv_only_pic">An image for a library entry in the More Images section.</string>
     <string name="category_rv_list_sample">Test Category</string>
     <string name="category_list_img_desc">An image or icon to represent categories in the library.</string>
     <string name="content_list_image_showcase_desc">An image for the library and homepage for showcasing skincare products.</string>
@@ -21,8 +21,8 @@
     <string name="product_head">Popular skin products</string>
     <string name="product_subhead">Trusted skincare products for your skin.</string>
     <string name="notification_icon_desc">Bell icon for indicating notification section.</string>
-    <string name="back_btn_desc">Ikon tanda panah untuk kembali ke menu sebelumnya.</string>
-    <string name="dot_separator_desc">Separator berbentuk lingkaran untuk memisahkan kedua belah konten.</string>
+    <string name="back_btn_desc">Arrow icon to navigate back to previous menu.</string>
+    <string name="dot_separator_desc">Circle-shaped separator to dividing two kinds of content.</string>
     <string name="article_name_desc">Article name</string>
     <string name="disease_name_desc">Disease name</string>
     <string name="risk_level_desc">Risk level</string>
@@ -30,7 +30,7 @@
     <string name="article_duration_desc">Approx. read duration</string>
     <string name="article_datetime_desc">Date/time</string>
     <string name="reminder_text">REMINDER</string>
-    <string name="sample_time">11.15 WIB</string>
+    <string name="sample_time">11.15 UTC +7</string>
     <string name="notification_content_sample">Don’t forget to apply your treatment product.</string>
     <string name="notification_detail_sample">You have passed two days of your determined treatment product usage. Please use it to minimalize your concern.</string>
     <string name="next_icon_desc">Play-like icon to indicate next or more info section.</string>
@@ -164,4 +164,11 @@
     <string name="lib_item_content_sample">This is a description of the problem.</string>
     <string name="light_mode_ask">Light mode</string>
     <string name="dark_mode_ask">Dark mode</string>
+    <string name="picture_retake_btn_desc">An retake icon, usually indicated by turn back icon.</string>
+    <string name="send_btn_desc">An paper message is flying, indicating sending activity.</string>
+    <string name="image_taken_preview_container_desc">A preview showcase for recently taken picture to be send to TFLite or retake.</string>
+    <string name="products_head">Popular skin products</string>
+    <string name="products_subhead">Trusted and popular skincare products for your skin.</string>
+    <string name="library_entries_head">Trending skin problems</string>
+    <string name="library_entries_subhead">Check what is happening in skin health world.</string>
 </resources>
