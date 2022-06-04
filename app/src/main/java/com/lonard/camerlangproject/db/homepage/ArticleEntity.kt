@@ -14,6 +14,9 @@ data class ArticleEntity (
     @ColumnInfo(name = "id")
     var id: Int?,
 
+    @ColumnInfo(name = "created_at")
+    var createdAt: String? = null,
+
     @ColumnInfo(name = "article_name")
     var name: String? = null,
 

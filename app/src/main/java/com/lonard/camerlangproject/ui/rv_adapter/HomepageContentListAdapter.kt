@@ -9,9 +9,12 @@ import com.lonard.camerlangproject.api.ConsultationResponseItem
 import com.lonard.camerlangproject.api.HomepageResponseItem
 import com.lonard.camerlangproject.databinding.OverflowRvBoxOutsideBinding
 import com.lonard.camerlangproject.databinding.RvInfoListingHomepageBinding
+import com.lonard.camerlangproject.db.homepage.ArticleEntity
+import com.lonard.camerlangproject.db.homepage.ArticleResponse
+import com.lonard.camerlangproject.db.homepage.DataItem
 import com.squareup.picasso.Picasso
 
-class HomepageContentListAdapter(private val itemList: ArrayList<HomepageResponseItem>): RecyclerView.Adapter<HomepageContentListAdapter.ViewHolder>() {
+class HomepageContentListAdapter(private val itemList: ArrayList<ArticleEntity>): RecyclerView.Adapter<HomepageContentListAdapter.ViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -28,13 +31,13 @@ class HomepageContentListAdapter(private val itemList: ArrayList<HomepageRespons
     }
 
     override fun onBindViewHolder(holder: HomepageContentListAdapter.ViewHolder, position: Int) {
-        val(itemPicUrl, itemName, itemCategory) = itemList[position]
+        val(_, _, itemName, itemThumbnail, itemType, _, _) = itemList[position]
 
         holder.bind.apply {
-            Picasso.get().load(itemPicUrl).into(contentListImage)
+            Picasso.get().load(itemThumbnail).into(contentListImage)
 
             contentTitle.text = itemName
-            contentCategory.text = itemCategory
+            contentCategory.text = itemType
         }
 
         holder.itemView.setOnClickListener {
@@ -47,6 +50,6 @@ class HomepageContentListAdapter(private val itemList: ArrayList<HomepageRespons
     class ViewHolder(var bind: OverflowRvBoxOutsideBinding): RecyclerView.ViewHolder(bind.root)
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: SectionItem)
+        fun onItemClicked(data: ArticleEntity)
     }
 }

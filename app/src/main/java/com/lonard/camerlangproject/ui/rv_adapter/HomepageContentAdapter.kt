@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.api.HomepageResponseItem
 import com.lonard.camerlangproject.databinding.RvInfoListingHomepageBinding
+import com.lonard.camerlangproject.db.homepage.ArticleEntity
+import com.lonard.camerlangproject.db.homepage.DataItem
 import com.lonard.camerlangproject.ui.homepage.ArticleDetailActivity
 
 class HomepageContentAdapter(private val infoSectionList: ArrayList<HomepageResponseItem>): RecyclerView.Adapter<HomepageContentAdapter.ViewHolder>() {
@@ -37,7 +39,7 @@ class HomepageContentAdapter(private val infoSectionList: ArrayList<HomepageResp
             articleOverflowRecyclerview.adapter = overflowRvAdapter
 
             overflowRvAdapter.setOnItemClickCallback(object: HomepageContentListAdapter.OnItemClickCallback {
-                override fun onItemClicked(data: SectionItem) {
+                override fun onItemClicked(data: ArticleEntity) {
                     viewArticle(data)
                 }
             })
@@ -48,9 +50,13 @@ class HomepageContentAdapter(private val infoSectionList: ArrayList<HomepageResp
         val articles =
             articlesModel.apply {
                 ArticleEntity(
-                    articleImg,
-                    articleName,
-                    articleCategory,
+                    id,
+                    createdAt,
+                    name,
+                    thumbnailPic,
+                    type,
+                    readDuration,
+                    content
                 )
             }
 

@@ -20,13 +20,13 @@ data class DataItem(
 	@field:SerializedName("thumbnail")
 	val thumbnail: String,
 
-	@field:SerializedName("updated_at")
+	@field:SerializedName("updatedAt")
 	val updatedAt: String,
 
-	@field:SerializedName("created_at")
+	@field:SerializedName("createdAt")
 	val createdAt: String,
 
-	@field:SerializedName("content_header")
+	@field:SerializedName("contentHeader")
 	val contentHeader: String,
 
 	@field:SerializedName("id")
@@ -43,4 +43,5 @@ data class DataItem(
 
 	@field:SerializedName("content")
 	val content: String
+
 ): Parcelable
