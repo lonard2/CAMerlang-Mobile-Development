@@ -10,22 +10,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.api.HomepageResponseItem
 import com.lonard.camerlangproject.databinding.RvInfoListingHomepageBinding
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
-import com.lonard.camerlangproject.db.homepage.DataItem
 import com.lonard.camerlangproject.ui.homepage.ArticleDetailActivity
 
-class HomepageContentAdapter(private val infoSectionList: ArrayList<HomepageResponseItem>): RecyclerView.Adapter<HomepageContentAdapter.ViewHolder>() {
+class `HomepageContentAdapter-deprecated`(private val infoSectionList: ArrayList<HomepageResponseItem>): RecyclerView.Adapter<`HomepageContentAdapter-deprecated`.ViewHolder>() {
 
     private lateinit var context: Context
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): HomepageContentAdapter.ViewHolder {
+    ): `HomepageContentAdapter-deprecated`.ViewHolder {
         val bind = RvInfoListingHomepageBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(bind)
     }
 
-    override fun onBindViewHolder(holder: HomepageContentAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: `HomepageContentAdapter-deprecated`.ViewHolder, position: Int) {
         val(sectionName, sectionDetail, rvData) = infoSectionList[position]
 
         holder.bind.apply {

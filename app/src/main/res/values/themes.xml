@@ -278,6 +278,13 @@
 		<item name="android:layout_height">150dp</item>
 	</style>
 
+	<style name="Card.Box.Inside.Small">
+		<item name="android:layout_width">170dp</item>
+		<item name="android:layout_height">100dp</item>
+
+		<item name="cardCornerRadius">10dp</item>
+	</style>
+
 	<style name="Card.Box.InsideDetail">
 		<item name="cardMaxElevation">15dp</item>
 		<item name="cardCornerRadius">15dp</item>
@@ -360,6 +367,10 @@
 		<item name="android:fontFamily">@font/poppins_semibold</item>
 		<item name="android:textColor">?attr/colorOnPrimary</item>
 		<item name="android:textSize">16sp</item>
+	</style>
+
+	<style name="CardText.Small">
+		<item name="android:textSize">12sp</item>
 	</style>
 
 	<style name="CardText.Percentage">

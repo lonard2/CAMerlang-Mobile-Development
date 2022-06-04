@@ -2,16 +2,17 @@ package com.lonard.camerlangproject.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lonard.camerlangproject.databinding.ActivityImageShowBinding
 import com.lonard.camerlangproject.databinding.ActivityLibraryDetailImageShowBinding
 import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
 import com.squareup.picasso.Picasso
 
 class ImageShowActivity : AppCompatActivity() {
-    private lateinit var bind: ActivityLibraryDetailImageShowBinding
+    private lateinit var bind: ActivityImageShowBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bind = ActivityLibraryDetailImageShowBinding.inflate(layoutInflater)
+        bind = ActivityImageShowBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
         bind.apply {

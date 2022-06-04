@@ -23,11 +23,11 @@ class ArticleDetailActivity : AppCompatActivity() {
 
             Picasso.get().load(articleParcel.thumbnailPic).into(articleDetailHeaderPic)
 
-            articleDatetimePublishedInfo.text = articleParcel.
+            articleDatetimePublishedInfo.text = articleParcel.createdAt
             articleDurationReadApproxInfo.text = articleParcel.readDuration
             articleName.text = articleParcel.name
 
-            articleHeader.text = articleParcel.
+            articleHeader.text = articleParcel.header
             articleContent.text = articleParcel.content
         }
     }

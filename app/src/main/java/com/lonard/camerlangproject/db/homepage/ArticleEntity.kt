@@ -29,6 +29,9 @@ data class ArticleEntity (
     @ColumnInfo(name = "article_duration")
     var readDuration: String? = null,
 
+    @ColumnInfo(name = "header")
+    var header: String? = null,
+
     @ColumnInfo(name = "article_content")
     var content: String? = null,
 

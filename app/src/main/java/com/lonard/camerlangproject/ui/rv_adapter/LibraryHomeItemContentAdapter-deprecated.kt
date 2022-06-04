@@ -13,7 +13,7 @@ import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.ui.library.LibraryDetailActivity
 import com.squareup.picasso.Picasso
 
-class LibraryHomeItemContentAdapter(private val alphabetSectionList: ArrayList<LibraryResponseItem>): RecyclerView.Adapter<LibraryHomeItemContentAdapter.ViewHolder>() {
+class LibraryHomeItemContentAdapter(private val alphabetSectionList: ArrayList<LibraryContentEntity>): RecyclerView.Adapter<LibraryHomeItemContentAdapter.ViewHolder>() {
     private lateinit var context: Context
 
     override fun onCreateViewHolder(
@@ -25,12 +25,12 @@ class LibraryHomeItemContentAdapter(private val alphabetSectionList: ArrayList<L
     }
 
     override fun onBindViewHolder(holder: LibraryHomeItemContentAdapter.ViewHolder, position: Int) {
-        val(alphabetIconUrl, alphabetSectionName, alphabetRvData) = alphabetSectionList[position]
+        val(_, _, entryName, entryThumbnail, _, _, _, _) = alphabetSectionList[position]
 
         holder.bind.apply {
-            Picasso.get().load(alphabetIconUrl).into(alphabetEmojiIcon)
+            Picasso.get().load(entryThumbnail).into(alphabetEmojiIcon)
 
-            librarySectionIntro.text = alphabetSectionName
+            librarySectionIntro.text = entryName
 
             libraryListingRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 

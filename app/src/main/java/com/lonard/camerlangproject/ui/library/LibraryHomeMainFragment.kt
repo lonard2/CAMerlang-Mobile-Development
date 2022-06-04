@@ -10,6 +10,7 @@ import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.FragmentLibraryHomeBinding
 import com.lonard.camerlangproject.databinding.FragmentLibraryHomeMainBinding
+import com.lonard.camerlangproject.db.library.LibraryDataItem
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 
 class LibraryHomeMainFragment : Fragment() {
@@ -29,20 +30,20 @@ class LibraryHomeMainFragment : Fragment() {
         _bind = null
     }
 
-    private fun showCategoryItem(categoryItems: List<CategoryItem>) {
-        bind.libCategoryListRv.layoutManager = LinearLayoutManager(requireActivity(),
+//    private fun showCategoryItem(categoryItems: List<CategoryItem>) {
+//        bind.libCategoryListRv.layoutManager = LinearLayoutManager(requireActivity(),
+//            LinearLayoutManager.HORIZONTAL, false)
+//
+//        val categoryAdapter = LibraryDetailMoreAdapter(categoryItems as ArrayList<LibraryResponseItem>)
+//        bind.libCategoryListRv.adapter = categoryAdapter
+//    }
+
+    private fun showAlphabetItemContent(alphabetEntryItems: List<LibraryDataItem>) {
+        bind.libContentListRv.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.HORIZONTAL, false)
 
-        val categoryAdapter = LibraryDetailMoreAdapter(categoryItems as ArrayList<LibraryResponseItem>)
-        bind.libCategoryListRv.adapter = categoryAdapter
-    }
-
-    private fun showAlphabetItemContent(alphabetEntryItems: List<EntryItem>) {
-        bind.libAlphabetListRv.layoutManager = LinearLayoutManager(requireActivity(),
-            LinearLayoutManager.HORIZONTAL, false)
-
-        val alphabetItemAdapter = LibraryDetailMoreAdapter(alphabetEntryItems as ArrayList<LibraryResponseItem>)
-        bind.libAlphabetListRv.adapter = alphabetItemAdapter
+        val alphabetItemAdapter = LibraryDetailMoreAdapter(alphabetEntryItems as ArrayList<LibraryDataItem>)
+        bind.libContentListRv.adapter = alphabetItemAdapter
     }
 
 }

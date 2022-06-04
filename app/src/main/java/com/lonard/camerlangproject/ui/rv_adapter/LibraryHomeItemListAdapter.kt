@@ -7,10 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.api.HomepageResponseItem
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideBinding
+import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideSmallBinding
 import com.lonard.camerlangproject.databinding.OverflowRvBoxOutsideBinding
+import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.squareup.picasso.Picasso
 
-class LibraryHomeItemListAdapter(private val alphabetItemList: ArrayList<LibraryResponseItem>): RecyclerView.Adapter<LibraryHomeItemListAdapter.ViewHolder>() {
+class LibraryHomeItemListAdapter(private val alphabetItemList: ArrayList<LibraryContentEntity>): RecyclerView.Adapter<LibraryHomeItemListAdapter.ViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -21,26 +23,27 @@ class LibraryHomeItemListAdapter(private val alphabetItemList: ArrayList<Library
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): LibraryHomeItemListAdapter.ViewHolder {
-        val bind = OverflowRvBoxInsideBinding.inflate(LayoutInflater.from(parent.context))
+    ): ViewHolder {
+        val bind = OverflowRvBoxInsideSmallBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(bind)
     }
 
-    override fun onBindViewHolder(holder: LibraryHomeItemListAdapter.ViewHolder, position: Int) {
-        val(itemPicUrl, itemName) = alphabetItemList[position]
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val(_, _, entryName, entryThumbnail, _, _, _, _) = alphabetItemList[position]
 
         holder.bind.apply {
-            Picasso.get().load(itemPicUrl).into(contentListImage)
+            Picasso.get().load(entryThumbnail).into(contentListImage)
 
-            contentTitle.text = itemName
+            contentTitle.text = entryName
+
         }
     }
 
     override fun getItemCount(): Int = alphabetItemList.size
 
-    class ViewHolder(var bind: OverflowRvBoxInsideBinding): RecyclerView.ViewHolder(bind.root)
+    class ViewHolder(var bind: OverflowRvBoxInsideSmallBinding): RecyclerView.ViewHolder(bind.root)
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: EntryItem)
+        fun onItemClicked(data: LibraryContentEntity)
     }
 }
