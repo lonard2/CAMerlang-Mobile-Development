@@ -32,28 +32,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="15dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
 
         android:text="@string/scanner_use_how_to"
 
-        android:textAlignment="center"
+        android:textAlignment="viewEnd"
         android:fontFamily="@font/poppins_light"
         android:textColor="?attr/colorOnPrimary"
 
-        android:textSize="22sp"
+        android:textSize="18sp"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
     <ImageView
         android:id="@+id/camera_scan_spotlight"
 
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_margin="60dp"
 
         android:src="@drawable/camera_scan_rounded"
@@ -67,8 +66,8 @@
     <ImageView
         android:id="@+id/camera_scan_spotlight_outline"
 
-        android:layout_width="225dp"
-        android:layout_height="225dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:layout_margin="60dp"
 
         android:src="@drawable/camera_scan_rounded_outline"
@@ -89,8 +88,9 @@
         android:src="@drawable/take_picture_btn"
         android:contentDescription="@string/camera_mode_switch_icon_desc"
 
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/camera_scan_spotlight_outline"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
@@ -102,10 +102,10 @@
         android:src="@drawable/camera_change_mode"
         android:contentDescription="@string/camera_mode_switch_icon_desc"
 
-        app:layout_constraintTop_toTopOf="@id/picture_take_btn"
-        app:layout_constraintBottom_toBottomOf="@id/picture_take_btn"
-        app:layout_constraintStart_toEndOf="@id/picture_take_btn"
-        app:layout_constraintEnd_toEndOf="@id/scanner_viewfinder"
+        app:layout_constraintBottom_toBottomOf="@id/scanner_viewfinder"
+        app:layout_constraintTop_toBottomOf="@id/picture_take_btn"
+        app:layout_constraintEnd_toEndOf="@id/picture_take_btn"
+        app:layout_constraintStart_toStartOf="@id/picture_take_btn"
 
         app:tint="?attr/colorSecondaryContainer"/>
 
