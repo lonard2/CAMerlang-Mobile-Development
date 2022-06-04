@@ -35,7 +35,6 @@ class LibraryHomeItemListAdapter(private val alphabetItemList: ArrayList<Library
             Picasso.get().load(entryThumbnail).into(contentListImage)
 
             contentTitle.text = entryName
-
         }
     }
 

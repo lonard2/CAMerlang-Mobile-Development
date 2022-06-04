@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.FragmentLibraryHomeBinding
@@ -39,8 +41,7 @@ class LibraryHomeMainFragment : Fragment() {
 //    }
 
     private fun showAlphabetItemContent(alphabetEntryItems: List<LibraryDataItem>) {
-        bind.libContentListRv.layoutManager = LinearLayoutManager(requireActivity(),
-            LinearLayoutManager.HORIZONTAL, false)
+        bind.libContentListRv.layoutManager = GridLayoutManager(requireActivity(),2)
 
         val alphabetItemAdapter = LibraryDetailMoreAdapter(alphabetEntryItems as ArrayList<LibraryDataItem>)
         bind.libContentListRv.adapter = alphabetItemAdapter

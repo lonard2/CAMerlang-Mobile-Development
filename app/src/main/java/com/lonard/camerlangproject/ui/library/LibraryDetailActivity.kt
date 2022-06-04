@@ -8,7 +8,7 @@ import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.ActivityLibraryDetailBinding
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
-import com.lonard.camerlangproject.ui.ImageShowActivity
+import com.lonard.camerlangproject.ui.images.ImageShowActivity
 import com.lonard.camerlangproject.ui.homepage.ArticleDetailActivity
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailProductAdapter

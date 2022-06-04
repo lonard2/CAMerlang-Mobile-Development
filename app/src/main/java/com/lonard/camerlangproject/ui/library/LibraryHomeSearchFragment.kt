@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.FragmentLibraryHomeSearchBinding
+import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.mvvm.LibraryViewModel
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 
@@ -30,10 +32,9 @@ class LibraryHomeSearchFragment : Fragment() {
     }
 
     private fun showResultsOnQuery(categoryItems: List<CategoryItem>) {
-        bind.libResultsListRv.layoutManager = LinearLayoutManager(requireActivity(),
-            LinearLayoutManager.HORIZONTAL, false)
+        bind.libResultsListRv.layoutManager = GridLayoutManager(requireActivity(), 2)
 
-        val categoryAdapter = LibraryDetailMoreAdapter(categoryItems as ArrayList<LibraryResponseItem>)
+        val categoryAdapter = LibraryDetailMoreAdapter(categoryItems as ArrayList<LibraryContentEntity>)
         bind.libResultsListRv.adapter = categoryAdapter
 
         val query = arguments?.getString(EXTRA_QUERY)

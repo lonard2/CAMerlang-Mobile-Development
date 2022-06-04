@@ -6,10 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideBinding
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideDetailBinding
+import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDataItem
 import com.squareup.picasso.Picasso
 
-class LibraryDetailMoreAdapter(private val diseaseEntriesList: ArrayList<LibraryDataItem>): RecyclerView.Adapter<LibraryDetailMoreAdapter.ViewHolder>() {
+class LibraryDetailMoreAdapter(private val diseaseEntriesList: ArrayList<LibraryContentEntity>): RecyclerView.Adapter<LibraryDetailMoreAdapter.ViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
