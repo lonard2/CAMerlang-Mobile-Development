@@ -64,4 +64,38 @@
         app:layout_constraintTop_toBottomOf="@id/notification_cat_list_rv"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <ImageView
+        android:id="@+id/load_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@android:color/transparent"
+
+        android:visibility="invisible"
+
+        android:contentDescription="@string/loading_frame"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/load_anim_lottie"
+
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+
+        android:layout_margin="5dp"
+
+        app:lottie_rawRes="@raw/loading_anim"
+        app:lottie_autoPlay="true"
+
+        android:visibility="invisible"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

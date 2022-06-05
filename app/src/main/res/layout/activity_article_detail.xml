@@ -1,132 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
-    android:background="?attr/colorArticleContainer"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
+        android:background="?attr/colorArticleContainer"
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent">
 
-        tools:context=".ui.library.LibraryDetailActivity">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/article_detail_header_card"
+            tools:context=".ui.library.LibraryDetailActivity">
 
-            style="@style/Card.Header.Article"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/article_detail_header_card"
 
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+                style="@style/Card.Header.Article"
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
-                <ImageView
-                    android:id="@+id/article_detail_header_pic"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                    style="@style/ImageContent.SectionHeader"
-                    android:contentDescription="@string/article_header_pic_desc"
+                    <ImageView
+                        android:id="@+id/article_detail_header_pic"
 
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                        style="@style/ImageContent.SectionHeader"
+                        android:contentDescription="@string/article_header_pic_desc"
 
-                <ImageView
-                    android:id="@+id/back_btn"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
 
-                    style="@style/BackButton.OnDarkBackground"
+                    <ImageView
+                        android:id="@+id/back_btn"
 
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                        style="@style/BackButton.OnDarkBackground"
 
-                    android:contentDescription="@string/back_btn_desc"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
 
-                <ImageView
-                    android:id="@+id/datetime_calendar_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                        android:contentDescription="@string/back_btn_desc"/>
 
-                    android:src="@drawable/calendar_icon"
-                    android:contentDescription="@string/calendar_icon_desc"
+                    <ImageView
+                        android:id="@+id/datetime_calendar_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
 
-                    android:layout_marginStart="15dp"
+                        android:src="@drawable/calendar_icon"
+                        android:contentDescription="@string/calendar_icon_desc"
 
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/article_name"
+                        android:layout_marginStart="15dp"
 
-                    app:tint="?attr/colorOnPrimary" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/article_name"
 
-                <TextView
-                    android:id="@+id/article_datetime_published_info"
+                        app:tint="?attr/colorOnPrimary" />
 
-                    style="@style/DetailHeaderText.Content"
+                    <TextView
+                        android:id="@+id/article_datetime_published_info"
 
-                    android:text="@string/article_datetime_desc"
+                        style="@style/DetailHeaderText.Content"
 
-                    app:layout_constraintBottom_toTopOf="@id/article_name"
-                    app:layout_constraintStart_toEndOf="@id/datetime_calendar_icon"/>
+                        android:text="@string/article_datetime_desc"
 
-                <ImageView
-                    android:id="@+id/dot_separator_article_detail"
+                        app:layout_constraintBottom_toTopOf="@id/article_name"
+                        app:layout_constraintStart_toEndOf="@id/datetime_calendar_icon"/>
 
-                    style="@style/DotSeparator"
+                    <ImageView
+                        android:id="@+id/dot_separator_article_detail"
 
-                    app:layout_constraintTop_toTopOf="@id/article_datetime_published_info"
-                    app:layout_constraintBottom_toBottomOf="@id/article_datetime_published_info"
-                    app:layout_constraintStart_toEndOf="@id/article_datetime_published_info"
+                        style="@style/DotSeparator"
 
-                    android:contentDescription="@string/dot_separator_desc" />
+                        app:layout_constraintTop_toTopOf="@id/article_datetime_published_info"
+                        app:layout_constraintBottom_toBottomOf="@id/article_datetime_published_info"
+                        app:layout_constraintStart_toEndOf="@id/article_datetime_published_info"
 
-                <TextView
-                    android:id="@+id/article_duration_read_approx_info"
+                        android:contentDescription="@string/dot_separator_desc" />
 
-                    style="@style/DetailHeaderText.Content"
+                    <TextView
+                        android:id="@+id/article_duration_read_approx_info"
 
-                    android:text="@string/article_duration_desc"
+                        style="@style/DetailHeaderText.Content"
 
-                    app:layout_constraintBottom_toTopOf="@id/article_name"
-                    app:layout_constraintStart_toEndOf="@id/dot_separator_article_detail"/>
+                        android:text="@string/article_duration_desc"
 
-                <TextView
-                    android:id="@+id/article_name"
+                        app:layout_constraintBottom_toTopOf="@id/article_name"
+                        app:layout_constraintStart_toEndOf="@id/dot_separator_article_detail"/>
 
-                    style="@style/DetailHeaderText.Title"
+                    <TextView
+                        android:id="@+id/article_name"
 
-                    android:text="@string/article_name_desc"
+                        style="@style/DetailHeaderText.Title"
 
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                        android:text="@string/article_name_desc"
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
-        </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/article_header"
+            </androidx.cardview.widget.CardView>
 
-            style="@style/DetailContent.Intro"
-            android:text="@string/article_header_sample"
+            <TextView
+                android:id="@+id/article_header"
 
-            app:layout_constraintTop_toBottomOf="@id/article_detail_header_card"
-            app:layout_constraintStart_toStartOf="parent" />
+                style="@style/DetailContent.Intro"
+                android:text="@string/article_header_sample"
 
-        <TextView
-            android:id="@+id/article_content"
+                app:layout_constraintTop_toBottomOf="@id/article_detail_header_card"
+                app:layout_constraintStart_toStartOf="parent" />
 
-            style="@style/DetailContent.Content"
+            <TextView
+                android:id="@+id/article_content"
 
-            android:text="@string/article_content_desc"
+                style="@style/DetailContent.Content"
 
-            app:layout_constraintTop_toBottomOf="@id/article_header"
-            app:layout_constraintStart_toStartOf="parent" />
+                android:text="@string/article_content_desc"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toBottomOf="@id/article_header"
+                app:layout_constraintStart_toStartOf="parent" />
 
-</ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/load_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@android:color/transparent"
+
+        android:visibility="invisible"
+
+        android:contentDescription="@string/loading_frame"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/load_anim_lottie"
+
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+
+        android:layout_margin="5dp"
+
+        app:lottie_rawRes="@raw/loading_anim"
+
+        app:lottie_autoPlay="true"
+
+        android:visibility="invisible"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

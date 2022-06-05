@@ -1,214 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
-    android:background="@color/md_theme_light_inversePrimary"
-
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.library.LibraryDetailActivity">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
+        android:background="@color/md_theme_light_inversePrimary"
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        tools:context=".ui.library.LibraryDetailActivity">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/library_detail_header_card"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            style="@style/Card.Header.LibraryDet"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/library_detail_header_card"
 
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+                style="@style/Card.Header.LibraryDet"
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
-                <ImageView
-                    android:id="@+id/lib_detail_header_pic"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                    style="@style/ImageContent.SectionHeader"
-                    android:contentDescription="@string/lib_detail_header_pic_desc"
+                    <ImageView
+                        android:id="@+id/lib_detail_header_pic"
 
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                        style="@style/ImageContent.SectionHeader"
+                        android:contentDescription="@string/lib_detail_header_pic_desc"
 
-                <ImageView
-                    android:id="@+id/back_btn"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
 
-                    style="@style/BackButton.OnDarkBackground"
+                    <ImageView
+                        android:id="@+id/back_btn"
 
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                        style="@style/BackButton.OnDarkBackground"
 
-                    android:contentDescription="@string/back_btn_desc"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
 
-                <TextView
-                    android:id="@+id/disease_type_info"
+                        android:contentDescription="@string/back_btn_desc"/>
 
-                    style="@style/DetailHeaderText.Content"
+                    <TextView
+                        android:id="@+id/disease_type_info"
 
-                    android:text="@string/loc_type_desc"
+                        style="@style/DetailHeaderText.Content"
 
-                    app:layout_constraintBottom_toTopOf="@id/disease_name"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                        android:text="@string/loc_type_desc"
 
-                <ImageView
-                    android:id="@+id/dot_separator_lib_detail"
+                        app:layout_constraintBottom_toTopOf="@id/disease_name"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
-                    style="@style/DotSeparator"
+                    <ImageView
+                        android:id="@+id/dot_separator_lib_detail"
 
-                    app:layout_constraintTop_toTopOf="@id/disease_type_info"
-                    app:layout_constraintBottom_toBottomOf="@id/disease_type_info"
-                    app:layout_constraintStart_toEndOf="@id/disease_type_info"
+                        style="@style/DotSeparator"
 
-                    android:contentDescription="@string/dot_separator_desc" />
+                        app:layout_constraintTop_toTopOf="@id/disease_type_info"
+                        app:layout_constraintBottom_toBottomOf="@id/disease_type_info"
+                        app:layout_constraintStart_toEndOf="@id/disease_type_info"
 
-                <TextView
-                    android:id="@+id/disease_level_info"
+                        android:contentDescription="@string/dot_separator_desc" />
 
-                    style="@style/DetailHeaderText.Content"
+                    <TextView
+                        android:id="@+id/disease_level_info"
 
-                    android:text="@string/risk_level_desc"
+                        style="@style/DetailHeaderText.Content"
 
-                    app:layout_constraintBottom_toTopOf="@id/disease_name"
-                    app:layout_constraintStart_toEndOf="@id/dot_separator_lib_detail"/>
+                        android:text="@string/risk_level_desc"
 
-                <TextView
-                    android:id="@+id/disease_name"
+                        app:layout_constraintBottom_toTopOf="@id/disease_name"
+                        app:layout_constraintStart_toEndOf="@id/dot_separator_lib_detail"/>
 
-                    style="@style/DetailHeaderText.Title"
+                    <TextView
+                        android:id="@+id/disease_name"
 
-                    android:text="@string/disease_name_desc"
+                        style="@style/DetailHeaderText.Title"
 
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                        android:text="@string/disease_name_desc"
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
-        </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/lib_item_short_desc"
+            </androidx.cardview.widget.CardView>
 
-            style="@style/DetailContent.Intro"
+            <TextView
+                android:id="@+id/lib_item_short_desc"
 
-            android:text="@string/lib_item_desc_sample"
+                style="@style/DetailContent.Intro"
 
-            android:textColor="?attr/colorOnPrimary"
+                android:text="@string/lib_item_desc_sample"
 
-            app:layout_constraintTop_toBottomOf="@id/library_detail_header_card"
-            app:layout_constraintStart_toStartOf="parent"/>
+                android:textColor="?attr/colorOnPrimary"
 
-        <TextView
-            android:id="@+id/lib_item_content"
+                app:layout_constraintTop_toBottomOf="@id/library_detail_header_card"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-            style="@style/DetailContent.Content"
+            <TextView
+                android:id="@+id/lib_item_content"
 
-            android:text="@string/lib_item_content_sample"
+                style="@style/DetailContent.Content"
 
-            android:textColor="?attr/colorOnPrimary"
+                android:text="@string/lib_item_content_sample"
 
-            app:layout_constraintTop_toBottomOf="@id/lib_item_short_desc"
-            app:layout_constraintStart_toStartOf="parent"/>
+                android:textColor="?attr/colorOnPrimary"
 
-        <ImageView
-            android:id="@+id/more_images_emoji_icon"
+                app:layout_constraintTop_toBottomOf="@id/lib_item_short_desc"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-            style="@style/DetailIcon"
+            <ImageView
+                android:id="@+id/more_images_emoji_icon"
 
-            android:src="@drawable/framed_picture_emoji_icon"
-            android:contentDescription="@string/picture_emoji_desc"
+                style="@style/DetailIcon"
 
-            app:layout_constraintTop_toBottomOf="@id/lib_item_content"
-            app:layout_constraintStart_toStartOf="parent"/>
+                android:src="@drawable/framed_picture_emoji_icon"
+                android:contentDescription="@string/picture_emoji_desc"
 
-        <TextView
-            android:id="@+id/more_images_intro_text"
-            style="@style/IntroSection"
+                app:layout_constraintTop_toBottomOf="@id/lib_item_content"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-            android:text="@string/section_1"
+            <TextView
+                android:id="@+id/more_images_intro_text"
+                style="@style/IntroSection"
 
-            android:textColor="?attr/colorOnPrimary"
+                android:text="@string/section_1"
 
-            app:layout_constraintTop_toTopOf="@id/more_images_emoji_icon"
-            app:layout_constraintStart_toEndOf="@id/more_images_emoji_icon"
-            app:layout_constraintBottom_toBottomOf="@id/more_images_emoji_icon"/>
+                android:textColor="?attr/colorOnPrimary"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/more_images_section_rv"
+                app:layout_constraintTop_toTopOf="@id/more_images_emoji_icon"
+                app:layout_constraintStart_toEndOf="@id/more_images_emoji_icon"
+                app:layout_constraintBottom_toBottomOf="@id/more_images_emoji_icon"/>
 
-            style="@style/DetailRv"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/more_images_section_rv"
 
-            app:layout_constraintTop_toBottomOf="@id/more_images_emoji_icon"
-            app:layout_constraintStart_toStartOf="parent"/>
+                style="@style/DetailRv"
 
-        <ImageView
-            android:id="@+id/products_emoji_icon"
+                app:layout_constraintTop_toBottomOf="@id/more_images_emoji_icon"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-            style="@style/DetailIcon"
+            <ImageView
+                android:id="@+id/products_emoji_icon"
 
-            android:src="@drawable/package_box_emoji_icon"
-            android:contentDescription="@string/product_emoji_desc"
+                style="@style/DetailIcon"
 
-            app:layout_constraintTop_toBottomOf="@id/more_images_section_rv"
-            app:layout_constraintStart_toStartOf="parent"/>
+                android:src="@drawable/package_box_emoji_icon"
+                android:contentDescription="@string/product_emoji_desc"
 
-        <TextView
-            android:id="@+id/products_intro_text"
-            style="@style/IntroSection"
+                app:layout_constraintTop_toBottomOf="@id/more_images_section_rv"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-            android:text="@string/section_2"
-            android:textColor="?attr/colorOnPrimary"
+            <TextView
+                android:id="@+id/products_intro_text"
+                style="@style/IntroSection"
 
-            app:layout_constraintTop_toTopOf="@id/products_emoji_icon"
-            app:layout_constraintStart_toEndOf="@id/products_emoji_icon"
-            app:layout_constraintBottom_toBottomOf="@id/products_emoji_icon"/>
+                android:text="@string/section_2"
+                android:textColor="?attr/colorOnPrimary"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/products_section_rv"
+                app:layout_constraintTop_toTopOf="@id/products_emoji_icon"
+                app:layout_constraintStart_toEndOf="@id/products_emoji_icon"
+                app:layout_constraintBottom_toBottomOf="@id/products_emoji_icon"/>
 
-            style="@style/DetailRv"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/products_section_rv"
 
-            app:layout_constraintTop_toBottomOf="@id/products_emoji_icon"
-            app:layout_constraintStart_toStartOf="parent"/>
+                style="@style/DetailRv"
 
-        <ImageView
-            android:id="@+id/other_entries_emoji_icon"
+                app:layout_constraintTop_toBottomOf="@id/products_emoji_icon"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-            style="@style/DetailIcon"
+            <ImageView
+                android:id="@+id/other_entries_emoji_icon"
 
-            android:src="@drawable/folder_emoji_icon"
-            android:contentDescription="@string/other_entries_emoji_desc"
+                style="@style/DetailIcon"
 
-            app:layout_constraintTop_toBottomOf="@id/products_section_rv"
-            app:layout_constraintStart_toStartOf="parent"/>
+                android:src="@drawable/folder_emoji_icon"
+                android:contentDescription="@string/other_entries_emoji_desc"
 
-        <TextView
-            android:id="@+id/other_entries_intro_text"
-            style="@style/IntroSection"
+                app:layout_constraintTop_toBottomOf="@id/products_section_rv"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-            android:text="@string/section_3"
-            android:textColor="?attr/colorOnPrimary"
+            <TextView
+                android:id="@+id/other_entries_intro_text"
+                style="@style/IntroSection"
 
-            app:layout_constraintTop_toTopOf="@id/other_entries_emoji_icon"
-            app:layout_constraintStart_toEndOf="@id/other_entries_emoji_icon"
-            app:layout_constraintBottom_toBottomOf="@id/other_entries_emoji_icon"/>
+                android:text="@string/section_3"
+                android:textColor="?attr/colorOnPrimary"
 
+                app:layout_constraintTop_toTopOf="@id/other_entries_emoji_icon"
+                app:layout_constraintStart_toEndOf="@id/other_entries_emoji_icon"
+                app:layout_constraintBottom_toBottomOf="@id/other_entries_emoji_icon"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/other_entries_section_rv"
 
-            style="@style/DetailRv"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/other_entries_section_rv"
 
-            app:layout_constraintTop_toBottomOf="@id/other_entries_emoji_icon"
-            app:layout_constraintStart_toStartOf="parent" />
+                style="@style/DetailRv"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toBottomOf="@id/other_entries_emoji_icon"
+                app:layout_constraintStart_toStartOf="parent" />
 
-</ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/load_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@android:color/transparent"
+
+        android:visibility="invisible"
+
+        android:contentDescription="@string/loading_frame"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/load_anim_lottie"
+
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+
+        android:layout_margin="5dp"
+
+        app:lottie_rawRes="@raw/loading_anim"
+        app:lottie_autoPlay="true"
+
+        android:visibility="invisible"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
 
