@@ -11,12 +11,4 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/content_list_image_rv_only_pic"/>
 
-    <ProgressBar
-        android:id="@+id/loading_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-
-        style="?android:attr/progressBarStyle"/>
-
 </androidx.cardview.widget.CardView>

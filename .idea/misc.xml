@@ -27,7 +27,6 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_inside_detail.xml" value="0.13489583333333333" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_inside_small.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_outside.xml" value="0.14878153056861906" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_only_pic.xml" value="0.11073108165882856" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/rv_box_consultation_detail_result.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/rv_info_listing_homepage.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/rv_info_listing_library.xml" value="0.13489583333333333" />
@@ -78,9 +77,11 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_box_category.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_box_inside.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_box_inside_detail.xml" value="0.22" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_box_inside_small.xml" value="0.151953125" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_box_notification_list.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_box_outside.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_only_pic.xml" value="0.33" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/rv_box_consultation_detail_result.xml" value="0.151953125" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/rv_info_listing_homepage.xml" value="0.22" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/rv_info_listing_library.xml" value="0.3125" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/menu/bottom_navbar_menu.xml" value="0.1" />
