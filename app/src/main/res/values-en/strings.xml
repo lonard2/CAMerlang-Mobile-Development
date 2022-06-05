@@ -171,4 +171,5 @@
     <string name="products_subhead">Trusted and popular skincare products for your skin.</string>
     <string name="library_entries_head">Trending skin problems</string>
     <string name="library_entries_subhead">Check what is happening in skin health world.</string>
+    <string name="loading_frame">Loading frame.</string>
 </resources>

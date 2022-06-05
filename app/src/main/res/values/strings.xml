@@ -171,4 +171,5 @@
     <string name="products_subhead">Produk-produk perawatan kulit yang terpercaya dan populer untuk kulitmu.</string>
     <string name="library_entries_head">Masalah kulit terhangat</string>
     <string name="library_entries_subhead">Cek apa yang sedang diperbincangkan di dunia kesehatan kulit.</string>
+    <string name="loading_frame">Loading frame.</string>
 </resources>

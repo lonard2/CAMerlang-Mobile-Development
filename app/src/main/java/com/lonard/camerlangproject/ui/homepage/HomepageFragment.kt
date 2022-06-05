@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lonard.camerlangproject.api.HomepageResponseItem
+import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.databinding.FragmentHomepageBinding
+import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
@@ -20,12 +20,15 @@ import com.lonard.camerlangproject.ui.library.LibraryDetailActivity
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageArticleContentListAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageLibraryContentListAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageProductContentListAdapter
-import com.lonard.camerlangproject.ui.rv_adapter.`HomepageContentAdapter-deprecated`
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HomepageFragment : Fragment() {
 
     private var _bind: FragmentHomepageBinding? = null
     private val bind get() = _bind!!
+
+    private val locale: String = Locale.getDefault().language
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,13 +52,117 @@ class HomepageFragment : Fragment() {
                 val notificationScreenIntent = Intent(context, NotificationActivity::class.java)
                 startActivity(notificationScreenIntent)
             }
-        }
 
-        homeViewModel.getSections().observe {
-            homeViewModel.getArticlesData()
-            showArticleSection(articleList)
-            showProductSection(productList)
-            showLibrarySection(libraryList)
+            homeViewModel.getArticlesData().observe(viewLifecycleOwner) { articleList ->
+                homeViewModel.getProductsData().observe(viewLifecycleOwner) { productList ->
+                    homeViewModel.getLibraryEntriesData().observer(viewLifecycleOwner) { libraryList ->
+                        if(articleList != null) {
+                            when (articleList) {
+                                is DataLoadResult.Loading -> {
+                                    loadFrame?.visibility = View.VISIBLE
+                                    loadAnimLottie?.visibility = View.VISIBLE
+                                }
+
+                                is DataLoadResult.Successful -> {
+                                    loadFrame?.visibility = View.GONE
+                                    loadAnimLottie?.visibility = View.GONE
+
+                                    showArticleSection(articleList)
+                                }
+
+                                is DataLoadResult.Failed -> {
+                                    loadFrame?.visibility = View.GONE
+                                    loadAnimLottie?.visibility = View.GONE
+
+                                    if (articleOverflowRecyclerview != null) {
+                                        Snackbar.make(
+                                            articleOverflowRecyclerview, when (locale) {
+                                                "in" -> {
+                                                    "Aduh, data artikel tidak bisa ditampilkan. Silakan coba lagi ya."
+                                                }
+                                                "en" -> {
+                                                    "Ouch, the articles data cannot be shown to you. Please try again."
+                                                }
+                                                else -> { "Error in articles data retrieval." }
+                                            }, Snackbar.LENGTH_LONG
+                                        ).show()
+                                    }
+                                }
+                            }
+                        }
+
+                        if(productList != null) {
+                            when (productList) {
+                                is DataLoadResult.Loading -> {
+                                    loadFrame?.visibility = View.VISIBLE
+                                    loadAnimLottie?.visibility = View.VISIBLE
+                                }
+
+                                is DataLoadResult.Successful -> {
+                                    loadFrame?.visibility = View.GONE
+                                    loadAnimLottie?.visibility = View.GONE
+
+                                    showProductSection(productList)
+                                }
+
+                                is DataLoadResult.Failed -> {
+                                    loadFrame?.visibility = View.GONE
+                                    loadAnimLottie?.visibility = View.GONE
+
+                                    if (productsOverflowRecyclerview != null) {
+                                        Snackbar.make(
+                                            productsOverflowRecyclerview, when (locale) {
+                                                "in" -> {
+                                                    "Aduh, data produk tidak bisa ditampilkan. Silakan coba lagi ya."
+                                                }
+                                                "en" -> {
+                                                    "Ouch, the products data cannot be shown to you. Please try again."
+                                                }
+                                                else -> { "Error in products data retrieval." } },
+                                            Snackbar.LENGTH_LONG
+                                        ).show()
+                                    }
+                                }
+                            }
+                        }
+
+                        if(libraryList != null) {
+                            when (libraryList) {
+                                is DataLoadResult.Loading -> {
+                                    loadFrame?.visibility = View.VISIBLE
+                                    loadAnimLottie?.visibility = View.VISIBLE
+                                }
+
+                                is DataLoadResult.Successful -> {
+                                    loadFrame?.visibility = View.GONE
+                                    loadAnimLottie?.visibility = View.GONE
+
+                                    showProductSection(libraryList)
+                                }
+
+                                is DataLoadResult.Failed -> {
+                                    loadFrame?.visibility = View.GONE
+                                    loadAnimLottie?.visibility = View.GONE
+
+                                    if (libraryEntriesOverflowRecyclerview != null) {
+                                        Snackbar.make(
+                                            libraryEntriesOverflowRecyclerview, when (locale) {
+                                                "in" -> {
+                                                    "Aduh, data entri pustaka tidak bisa ditampilkan. Silakan coba lagi ya."
+                                                }
+                                                "en" -> {
+                                                    "Ouch, the library entries data cannot be shown to you. Please try again."
+                                                }
+                                                else -> { "Error in library entries data retrieval." }
+                                            }, Snackbar.LENGTH_LONG
+                                        ).show()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -64,7 +171,7 @@ class HomepageFragment : Fragment() {
         _bind = null
     }
 
-    private fun showArticleSection(articleList: List<ArticleEntity>) {
+    private fun showArticleSection(articleList: DataLoadResult<List<ArticleEntity>>) {
         bind.articleOverflowRecyclerview?.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.HORIZONTAL, false)
 

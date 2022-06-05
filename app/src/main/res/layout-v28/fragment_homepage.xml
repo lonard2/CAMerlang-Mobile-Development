@@ -1,104 +1,283 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
 
-    style="@style/BackgroundColor"
-    tools:context=".ui.homepage.HomepageFragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/homepage_header_card"
+        style="@style/BackgroundColor"
+        tools:context=".ui.homepage.HomepageFragment"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content">
 
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="20dp"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-
-            android:outlineAmbientShadowColor="?attr/colorOnPrimaryContainer"
-            android:outlineSpotShadowColor="?attr/colorOnPrimaryContainer"
-
-            app:cardElevation="30dp"
-            app:cardCornerRadius="15dp">
-
-            <ImageView
-                android:id="@+id/homepage_header_content_pic"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/homepage_header_card"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="300dp"
 
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/homepage_intro_pic_desc"
-
-                android:src="@drawable/homepage_intro_pic"/>
-
-            <ImageView
-                android:id="@+id/header_logo"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-
-                android:layout_margin="10dp"
-                android:layout_gravity="top|center"
-
-                android:contentDescription="@string/logo_content_desc"
-
-                android:src="@drawable/camerlang_color_logo_transparent"/>
-
-            <ImageView
-                android:id="@+id/notification_btn_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-
-                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
+                android:layout_marginTop="20dp"
 
-                android:layout_gravity="end|top"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
 
-                android:contentDescription="@string/notification_icon_desc"
+                android:outlineAmbientShadowColor="?attr/colorOnPrimaryContainer"
+                android:outlineSpotShadowColor="?attr/colorOnPrimaryContainer"
 
-                android:src="@drawable/notification_icon"
-                app:tint="?attr/colorOnPrimary" />
+                app:cardElevation="30dp"
+                app:cardCornerRadius="15dp">
 
+                <ImageView
+                    android:id="@+id/homepage_header_content_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/homepage_intro_pic_desc"
+
+                    android:src="@drawable/homepage_intro_pic"/>
+
+                <ImageView
+                    android:id="@+id/header_logo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"
+                    android:layout_gravity="top|center"
+
+                    android:contentDescription="@string/logo_content_desc"
+
+                    android:src="@drawable/camerlang_color_logo_transparent"/>
+
+                <ImageView
+                    android:id="@+id/notification_btn_icon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+
+                    android:layout_gravity="end|top"
+
+                    android:contentDescription="@string/notification_icon_desc"
+
+                    android:src="@drawable/notification_icon"
+                    app:tint="?attr/colorOnPrimary" />
+
+                <TextView
+                    android:id="@+id/homepage_header_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginEnd="15dp"
+
+                    android:layout_gravity="bottom|start"
+                    android:text="@string/homepage_header_text"
+
+                    android:textColor="?attr/colorPrimaryContainer"
+                    android:fontFamily="@font/poppins_black"
+                    android:textSize="25sp" />
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/homepage_header_text"
+                android:id="@+id/article_section_head"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:layout_marginStart="25dp"
-                android:layout_marginBottom="25dp"
+                android:text="@string/article_head"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="?attr/colorOnPrimaryContainer"
+                android:textSize="24sp"
+
+                app:layout_constraintTop_toBottomOf="@id/homepage_header_card"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/article_section_subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/article_subhead"
+
+                android:layout_marginStart="20dp"
                 android:layout_marginEnd="15dp"
+                android:layout_marginTop="5dp"
 
-                android:layout_gravity="bottom|start"
-                android:text="@string/homepage_header_text"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="?attr/colorOnPrimaryContainer"
+                android:textSize="18sp"
 
-                android:textColor="?attr/colorPrimaryContainer"
-                android:fontFamily="@font/poppins_black"
-                android:textSize="25sp" />
+                app:layout_constraintTop_toBottomOf="@id/article_section_head"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-        </androidx.cardview.widget.CardView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/article_overflow_recyclerview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/section_content_homepage_rv"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="5dp"
 
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/article_section_subhead"
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="horizontal"/>
 
-            app:layout_constraintTop_toBottomOf="@id/homepage_header_card"
-            app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                android:id="@+id/products_section_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                android:text="@string/products_head"
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="?attr/colorOnPrimaryContainer"
+                android:textSize="24sp"
+
+                app:layout_constraintTop_toBottomOf="@id/article_overflow_recyclerview"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/products_section_subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/products_subhead"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="5dp"
+
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="?attr/colorOnPrimaryContainer"
+                android:textSize="18sp"
+
+                app:layout_constraintTop_toBottomOf="@id/products_section_head"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/products_overflow_recyclerview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="5dp"
+
+                app:layout_constraintTop_toBottomOf="@id/products_section_subhead"
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="horizontal"/>
+
+            <TextView
+                android:id="@+id/library_entries_section_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/library_entries_head"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="?attr/colorOnPrimaryContainer"
+                android:textSize="24sp"
+
+                app:layout_constraintTop_toBottomOf="@id/products_overflow_recyclerview"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/library_entries_section_subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/library_entries_subhead"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="5dp"
+
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="?attr/colorOnPrimaryContainer"
+                android:textSize="18sp"
+
+                app:layout_constraintTop_toBottomOf="@id/library_entries_section_head"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/library_entries_overflow_recyclerview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="5dp"
+
+                app:layout_constraintTop_toBottomOf="@id/library_entries_section_subhead"
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="horizontal"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/load_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@color/md_theme_light_secondaryContainer_50"
+
+        android:visibility="invisible"
+
+        android:contentDescription="@string/loading_frame"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/load_anim_lottie"
+
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+
+        android:layout_margin="5dp"
+
+        app:lottie_rawRes="@raw/loading_anim"
+
+        app:lottie_autoPlay="true"
+
+        android:visibility="invisible"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

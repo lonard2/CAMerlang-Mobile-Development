@@ -32,6 +32,12 @@ class LibraryHomeMainFragment : Fragment() {
         return bind.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        bind.
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _bind = null
