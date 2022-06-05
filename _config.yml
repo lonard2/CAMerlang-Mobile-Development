@@ -1,1 +1,10 @@
 remote_theme: just-the-docs/just-the-docs
+logo: "/camerlang_app_launcher_icon-playstore.png"
+search_enabled: true
+
+gh_edit_link: true
+gh_edit_link_text: "Improve this documentation to be 'CAMerlang' by contributing in our repository."
+gh_edit_repository: "https://github.com/lonard2/CAMerlang"
+gh_edit_branch: "gh-pages"
+
+footer_content: "This project is a Bangkit 2022 capstone project (out of many), which is held by Google, GoTo Group (Go-Jek and Tokopedia), and Traveloka."
