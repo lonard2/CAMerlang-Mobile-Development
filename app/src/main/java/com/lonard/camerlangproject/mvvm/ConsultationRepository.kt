@@ -5,6 +5,7 @@ import com.lonard.camerlangproject.db.AppDB
 
 class ConsultationRepository(private val db: AppDB, private val api: ApiInterface) {
 
+
     companion object {
         private const val TAG = "Consultation & Chatbot Repository"
 

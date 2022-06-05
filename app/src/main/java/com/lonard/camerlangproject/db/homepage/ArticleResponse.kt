@@ -8,14 +8,14 @@ import kotlinx.parcelize.Parcelize
 data class ArticleResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem>,
+	val data: List<ArticleDataItem>,
 
 	@field:SerializedName("status")
 	val status: String
 ): Parcelable
 
 @Parcelize
-data class DataItem(
+data class ArticleDataItem(
 
 	@field:SerializedName("thumbnail")
 	val thumbnail: String,

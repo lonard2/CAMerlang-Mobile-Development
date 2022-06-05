@@ -8,8 +8,11 @@ import androidx.room.Query
 interface LibraryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addEntryToDb(libraryItem: List<LibraryContentEntity>?)
+    suspend fun addEntryToDb(libraryItem: List<LibraryContentEntity>?)
+
+    @Query("DELETE * FROM library_contents")
+    suspend fun deleteAllLibraries()
 
     @Query("SELECT * FROM library_contents")
-    fun retrieveAllEntries(): LiveData<LibraryContentEntity>
+    fun retrieveAllEntries(): LiveData<List<LibraryContentEntity>>
 }

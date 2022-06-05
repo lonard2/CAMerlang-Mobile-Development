@@ -8,24 +8,22 @@ import com.lonard.camerlangproject.mvvm.HomepageRepository
 import com.lonard.camerlangproject.mvvm.LibraryRepository
 
 object DI {
+    private val api = ApiConfig.getApiProduct()
 
     fun provideRepositoryToHomepagePart(context: Context): HomepageRepository {
         val db = AppDB.getAppDatabase(context)
-        val api = ApiConfig.getApiProduct()
 
         return HomepageRepository.getRepoInstance(db, api)
     }
 
     fun provideRepositoryToConsultationPart(context: Context): ConsultationRepository {
         val db = AppDB.getAppDatabase(context)
-        val api = ApiConfig.getApiProduct()
 
         return ConsultationRepository.getRepoInstance(db, api)
     }
 
     fun provideRepositoryToLibraryPart(context: Context): LibraryRepository {
         val db = AppDB.getAppDatabase(context)
-        val api = ApiConfig.getApiProduct()
 
         return LibraryRepository.getRepoInstance(db, api)
     }

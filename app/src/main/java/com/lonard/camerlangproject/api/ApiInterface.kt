@@ -13,26 +13,26 @@ interface ApiInterface {
 
     // Endpoint 1. Retrieve articles (and products) information
     @GET("articles")
-    fun retrieveArticles(
+    suspend fun retrieveArticles(
         @Query("article_titles") articleTitle: String?,
-    ): Call<ArticleResponse>
+    ): ArticleResponse
 
-    // Endpoint 2. Search library
-    @GET("libraries/search")
-    fun getSearchLibrary(
-        @Query("q") q: String
-    ): Call<LibraryContentResponse>
+//    // Endpoint 2b. Search library
+//    @GET("libraries/search")
+//    suspend fun getLibrarySearch(
+//        @Query("q") q: String
+//    ): LibraryContentResponse
 
-    // Endpoint 3. Retrieve library
+    // Endpoint 2. Retrieve library
     @GET("libraries")
-    fun retrieveLibrary(
-        @Query("library_names") libraryTitles: String?,
-    ): Call<LibraryContentResponse>
+    suspend fun retrieveLibrary(
+        @Query("library_names") libraryEntryTitles: String?,
+    ): LibraryContentResponse
 
-    // Endpoint 4. Retrieve library details
+    // Endpoint 3. Retrieve library details
     @GET("libraries/{id}")
-    fun retrieveLibraryDetails(
+    suspend fun retrieveLibraryDetails(
         @Path("id") id: Int
-    ): Call<List<LibraryDataItem>>
+    ): LibraryDataItem
 
 }

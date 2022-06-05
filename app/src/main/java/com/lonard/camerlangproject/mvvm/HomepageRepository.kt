@@ -2,68 +2,58 @@ package com.lonard.camerlangproject.mvvm
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
+import androidx.lifecycle.map
 
-import com.lonard.camerlangproject.api.ApiConfig
 import com.lonard.camerlangproject.api.ApiInterface
 import com.lonard.camerlangproject.db.AppDB
+import com.lonard.camerlangproject.db.DataLoadResult
+import com.lonard.camerlangproject.db.consultation.ConsultationDao
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.lonard.camerlangproject.db.homepage.ArticleResponse
-import com.lonard.camerlangproject.db.homepage.DataItem
+import com.lonard.camerlangproject.db.homepage.ArticleDataItem
+import com.lonard.camerlangproject.db.homepage.HomepageDao
+import com.lonard.camerlangproject.db.library.LibraryDao
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomepageRepository(private val db: AppDB, private val api: ApiInterface) {
+class HomepageRepository(private val db: AppDB,
+                         private val api: ApiInterface) {
 
-    private val _articlesList = MutableLiveData<List<DataItem>?>()
-    private val _load = MutableLiveData<Boolean>()
+    private lateinit var homeDao: HomepageDao
 
-    val articlesList: LiveData<List<DataItem>?> = _articlesList
+    fun retrieveArticles(): LiveData<DataLoadResult<List<ArticleEntity>>> = liveData {
 
-    val load: LiveData<Boolean> = _load
+        emit(DataLoadResult.Loading)
 
-    fun retrieveArticles() {
-        _load.value = true
+        try {
+            val api = api.retrieveArticles(null)
+            val articles = api.data
 
-        val api = this.api.retrieveArticles(null)
-
-        api.enqueue(object: Callback<ArticleResponse> {
-            override fun onResponse(
-                call: Call<ArticleResponse>,
-                response: Response<ArticleResponse>
-            ) {
-                _load.value = false
-
-                if(response.isSuccessful) {
-                    val respondedArticles = response.body()?.data
-
-                    _articlesList.value = respondedArticles
-
-                    val articlesListDb = respondedArticles?.map { article ->
-                        ArticleEntity(
-                            article.id,
-                            article.thumbnail,
-                            article.title,
-                            article.type,
-                            article.readDuration,
-                            article.content
-                        )
-                    }
-
-                    db.homepageDao().addArticletoDb(articlesListDb)
-
-                } else {
-                    Log.e(TAG, "Terjadi gagal respon dari server API aplikasi.")
-                }
+            val articlesListDb = articles.map { article ->
+                ArticleEntity(
+                    article.id,
+                    article.thumbnail,
+                    article.title,
+                    article.type,
+                    article.readDuration,
+                    article.content
+                )
             }
 
-            override fun onFailure(call: Call<ArticleResponse>, t: Throwable) {
-                _load.value = false
-                Log.e(TAG, "Tidak dapat menerima data artikel dari server API aplikasi.")
-            }
+            db.homepageDao().deleteAllArticles()
+            db.homepageDao().addArticletoDb(articlesListDb)
+        } catch (exception: Exception) {
+            emit(DataLoadResult.Failed(exception.message.toString()))
+            Log.e(TAG, "Cannot retrieve articles information from application API server." +
+                    "Occurred error: ${exception.message.toString()}")
+        }
 
-        })
+        val savedData: LiveData<DataLoadResult<List<ArticleEntity>>> = homeDao.retrieveAllArticles().map { articleItem ->
+            DataLoadResult.Successful(articleItem)
+        }
+        emitSource(savedData)
     }
 
     companion object {

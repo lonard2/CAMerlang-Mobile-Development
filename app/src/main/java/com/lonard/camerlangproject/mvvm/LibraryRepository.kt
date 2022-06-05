@@ -2,95 +2,117 @@ package com.lonard.camerlangproject.mvvm
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.lonard.camerlangproject.api.ApiConfig
+import androidx.lifecycle.liveData
+import androidx.lifecycle.map
 import com.lonard.camerlangproject.api.ApiInterface
 import com.lonard.camerlangproject.db.AppDB
+import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
-import com.lonard.camerlangproject.db.library.LibraryContentResponse
-import com.lonard.camerlangproject.db.library.LibraryDataItem
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.lonard.camerlangproject.db.library.LibraryDao
 
-class LibraryRepository(private val db: AppDB, private val api: ApiInterface) {
+class LibraryRepository(private val db: AppDB,
+                        private val api: ApiInterface) {
 
-    private val _libraryItem = MutableLiveData<List<LibraryDataItem>?>()
-    val libraryItem: LiveData<List<LibraryDataItem>?> = _libraryItem
+    private lateinit var libraryDao: LibraryDao
 
-    private val _libraryDetails = MutableLiveData<LibraryContentEntity>()
-    private val libraryDetails: LiveData<LibraryContentEntity> = _libraryDetails
+    fun retrieveLibraryEntriesListWithSearchQuery(q: String): LiveData<DataLoadResult<List<LibraryContentEntity>>> = liveData {
+        emit(DataLoadResult.Loading)
 
-    private val _load = MutableLiveData<Boolean>()
-    val load: LiveData<Boolean> = _load
+        try {
+            val api = api.retrieveLibrary(q)
+            val libraryEntries = api.data
 
-    fun searchLibrary(query: String) {
-        _load.value = true
-
-        val api = this.api.getSearchLibrary(query)
-
-        api.enqueue(object: Callback<LibraryContentResponse> {
-            override fun onResponse(
-                call: Call<LibraryContentResponse>,
-                response: Response<LibraryContentResponse>
-            ) {
-                _load.value = false
-
-                if (response.isSuccessful) {
-                    val libraryList = response.body()?.data
-                    _libraryItem.value = libraryList
-                } else {
-                    Log.e(TAG, "Terjadi gagal respon dari server API aplikasi.")
-                }
+            val libraryItemDb = libraryEntries.map { library ->
+                LibraryContentEntity(
+                    library.id,
+                    library.createdAt,
+                    library.name,
+                    library.thumbnail,
+                    library.bodyType,
+                    library.problemSeverity,
+                    library.contentHeader,
+                    library.content
+                )
             }
 
-            override fun onFailure(call: Call<LibraryContentResponse>, t: Throwable) {
-                Log.e(TAG, "Tidak dapat menerima data library dari server API aplikasi.")
-            }
+            db.libraryDao().deleteAllLibraries()
+            db.libraryDao().addEntryToDb(libraryItemDb)
 
-        })
+        } catch (exception: Exception) {
+            emit(DataLoadResult.Failed(exception.message.toString()))
+            Log.e(TAG, "Cannot retrieve library entries information with search query from application API server." +
+                    "Occurred error: ${exception.message.toString()}")
+        }
+
+        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = libraryDao.retrieveAllEntries().map { articleItem ->
+            DataLoadResult.Successful(articleItem)
+        }
+        emitSource(savedData)
     }
 
-    fun retrieveLibrary() {
-        _load.value = true
-        val api = this.api.retrieveLibrary(null)
+    fun retrieveLibraryEntriesList(): LiveData<DataLoadResult<List<LibraryContentEntity>>> = liveData {
+        emit(DataLoadResult.Loading)
 
-        api.enqueue(object: Callback<LibraryContentResponse> {
-            override fun onResponse(
-                call: Call<LibraryContentResponse>,
-                response: Response<LibraryContentResponse>
-            ) {
-                _load.value = false
+        try {
+            val api = api.retrieveLibrary(null)
+            val libraryEntries = api.data
 
-                if (response.isSuccessful) {
-                    val libraryResponses = response.body()?.data
-                    _libraryItem.value = libraryResponses
-
-                    val libraryItemDb = libraryResponses?.map { library ->
-                        LibraryContentEntity(
-                            library.id,
-                            library.createdAt,
-                            library.name,
-                            library.thumbnail,
-                            library.bodyType,
-                            library.problemSeverity,
-                            library.contentHeader,
-                            library.content
-                        )
-                    }
-
-                    db.libraryDao().addEntryToDb(libraryItemDb)
-                } else {
-                    Log.e(TAG, "Terjadi gagal respon dari server API aplikasi.")
-                }
+            val libraryItemDb = libraryEntries.map { library ->
+                LibraryContentEntity(
+                    library.id,
+                    library.createdAt,
+                    library.name,
+                    library.thumbnail,
+                    library.bodyType,
+                    library.problemSeverity,
+                    library.contentHeader,
+                    library.content
+                )
             }
 
-            override fun onFailure(call: Call<LibraryContentResponse>, t: Throwable) {
-                _load.value = false
-                Log.e(TAG, "Tidak dapat menerima data library dari server API aplikasi.")
-            }
-        })
+            db.libraryDao().deleteAllLibraries()
+            db.libraryDao().addEntryToDb(libraryItemDb)
+
+        } catch (exception: Exception) {
+            emit(DataLoadResult.Failed(exception.message.toString()))
+            Log.e(TAG, "Cannot retrieve library entries information from application API server." +
+                    "Occurred error: ${exception.message.toString()}")
+        }
+
+        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = libraryDao.retrieveAllEntries().map { articleItem ->
+            DataLoadResult.Successful(articleItem)
+        }
+        emitSource(savedData)
     }
+
+//    fun retrieveLibraryEntriesList(): LiveData<DataLoadResult<List<LibraryContentEntity>>> = liveData {
+//        emit(DataLoadResult.Loading)
+//
+//        try {
+//            val api = api.retrieveLibrary(null)
+//            val libraryEntries = api.data
+//
+//            val libraryItemDb = libraryEntries.map { library ->
+//                LibraryContentEntity(
+//                    library.id,
+//                    library.createdAt,
+//                    library.name,
+//                    library.thumbnail,
+//                    library.bodyType,
+//                    library.problemSeverity,
+//                    library.contentHeader,
+//                    library.content
+//                )
+//            }
+//
+//        } catch (exception: Exception) {
+//            emit(DataLoadResult.Failed(exception.message.toString()))
+//            Log.e(TAG, "Cannot retrieve specific library entry from application API server." +
+//                    "Occurred error: ${exception.message.toString()}")
+//        }
+//
+//        DataLoadResult.Successful(articleItem)
+//    }
 
     companion object {
         private const val TAG = "Library Repository"

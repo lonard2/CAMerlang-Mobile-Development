@@ -2,6 +2,7 @@ package com.lonard.camerlangproject.db.homepage
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagingSource
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -9,9 +10,12 @@ import androidx.room.Query
 interface HomepageDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addArticletoDb(articleItem: List<ArticleEntity>?)
+    suspend fun addArticletoDb(articleItem: List<ArticleEntity>?)
+
+    @Query("DELETE * FROM articles")
+    suspend fun deleteAllArticles()
 
     @Query("SELECT * FROM articles")
-    fun retrieveAllArticles(): LiveData<ArticleEntity>
+    fun retrieveAllArticles(): LiveData<List<ArticleEntity>>
 
 }
