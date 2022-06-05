@@ -59,34 +59,34 @@ class HomepageFragment : Fragment() {
                         if(articleList != null) {
                             when (articleList) {
                                 is DataLoadResult.Loading -> {
-                                    loadFrame?.visibility = View.VISIBLE
-                                    loadAnimLottie?.visibility = View.VISIBLE
+                                    loadFrame.visibility = View.VISIBLE
+                                    loadAnimLottie.visibility = View.VISIBLE
                                 }
 
                                 is DataLoadResult.Successful -> {
-                                    loadFrame?.visibility = View.GONE
-                                    loadAnimLottie?.visibility = View.GONE
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
 
-                                    showArticleSection(articleList)
+                                    val articles = articleList.data
+
+                                    showArticleSection(articles)
                                 }
 
                                 is DataLoadResult.Failed -> {
-                                    loadFrame?.visibility = View.GONE
-                                    loadAnimLottie?.visibility = View.GONE
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
 
-                                    if (articleOverflowRecyclerview != null) {
-                                        Snackbar.make(
-                                            articleOverflowRecyclerview, when (locale) {
-                                                "in" -> {
-                                                    "Aduh, data artikel tidak bisa ditampilkan. Silakan coba lagi ya."
-                                                }
-                                                "en" -> {
-                                                    "Ouch, the articles data cannot be shown to you. Please try again."
-                                                }
-                                                else -> { "Error in articles data retrieval." }
-                                            }, Snackbar.LENGTH_LONG
-                                        ).show()
-                                    }
+                                    Snackbar.make(
+                                        articleOverflowRecyclerview, when (locale) {
+                                            "in" -> {
+                                                "Aduh, data artikel tidak bisa ditampilkan. Silakan coba lagi ya."
+                                            }
+                                            "en" -> {
+                                                "Ouch, the articles data cannot be shown to you. Please try again."
+                                            }
+                                            else -> { "Error in articles data retrieval." }
+                                        }, Snackbar.LENGTH_LONG
+                                    ).show()
                                 }
                             }
                         }
@@ -94,34 +94,33 @@ class HomepageFragment : Fragment() {
                         if(productList != null) {
                             when (productList) {
                                 is DataLoadResult.Loading -> {
-                                    loadFrame?.visibility = View.VISIBLE
-                                    loadAnimLottie?.visibility = View.VISIBLE
+                                    loadFrame.visibility = View.VISIBLE
+                                    loadAnimLottie.visibility = View.VISIBLE
                                 }
 
                                 is DataLoadResult.Successful -> {
-                                    loadFrame?.visibility = View.GONE
-                                    loadAnimLottie?.visibility = View.GONE
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
+                                    val products = productList.data
 
-                                    showProductSection(productList)
+                                    showProductSection(products)
                                 }
 
                                 is DataLoadResult.Failed -> {
-                                    loadFrame?.visibility = View.GONE
-                                    loadAnimLottie?.visibility = View.GONE
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
 
-                                    if (productsOverflowRecyclerview != null) {
-                                        Snackbar.make(
-                                            productsOverflowRecyclerview, when (locale) {
-                                                "in" -> {
-                                                    "Aduh, data produk tidak bisa ditampilkan. Silakan coba lagi ya."
-                                                }
-                                                "en" -> {
-                                                    "Ouch, the products data cannot be shown to you. Please try again."
-                                                }
-                                                else -> { "Error in products data retrieval." } },
-                                            Snackbar.LENGTH_LONG
-                                        ).show()
-                                    }
+                                    Snackbar.make(
+                                        productsOverflowRecyclerview, when (locale) {
+                                            "in" -> {
+                                                "Aduh, data produk tidak bisa ditampilkan. Silakan coba lagi ya."
+                                            }
+                                            "en" -> {
+                                                "Ouch, the products data cannot be shown to you. Please try again."
+                                            }
+                                            else -> { "Error in products data retrieval." } },
+                                        Snackbar.LENGTH_LONG
+                                    ).show()
                                 }
                             }
                         }
@@ -129,34 +128,33 @@ class HomepageFragment : Fragment() {
                         if(libraryList != null) {
                             when (libraryList) {
                                 is DataLoadResult.Loading -> {
-                                    loadFrame?.visibility = View.VISIBLE
-                                    loadAnimLottie?.visibility = View.VISIBLE
+                                    loadFrame.visibility = View.VISIBLE
+                                    loadAnimLottie.visibility = View.VISIBLE
                                 }
 
                                 is DataLoadResult.Successful -> {
-                                    loadFrame?.visibility = View.GONE
-                                    loadAnimLottie?.visibility = View.GONE
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
+                                    val entries = productList.data
 
-                                    showProductSection(libraryList)
+                                    showLibrarySection(entries)
                                 }
 
                                 is DataLoadResult.Failed -> {
-                                    loadFrame?.visibility = View.GONE
-                                    loadAnimLottie?.visibility = View.GONE
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
 
-                                    if (libraryEntriesOverflowRecyclerview != null) {
-                                        Snackbar.make(
-                                            libraryEntriesOverflowRecyclerview, when (locale) {
-                                                "in" -> {
-                                                    "Aduh, data entri pustaka tidak bisa ditampilkan. Silakan coba lagi ya."
-                                                }
-                                                "en" -> {
-                                                    "Ouch, the library entries data cannot be shown to you. Please try again."
-                                                }
-                                                else -> { "Error in library entries data retrieval." }
-                                            }, Snackbar.LENGTH_LONG
-                                        ).show()
-                                    }
+                                    Snackbar.make(
+                                        libraryEntriesOverflowRecyclerview, when (locale) {
+                                            "in" -> {
+                                                "Aduh, data entri pustaka tidak bisa ditampilkan. Silakan coba lagi ya."
+                                            }
+                                            "en" -> {
+                                                "Ouch, the library entries data cannot be shown to you. Please try again."
+                                            }
+                                            else -> { "Error in library entries data retrieval." }
+                                        }, Snackbar.LENGTH_LONG
+                                    ).show()
                                 }
                             }
                         }
@@ -171,12 +169,12 @@ class HomepageFragment : Fragment() {
         _bind = null
     }
 
-    private fun showArticleSection(articleList: DataLoadResult<List<ArticleEntity>>) {
-        bind.articleOverflowRecyclerview?.layoutManager = LinearLayoutManager(requireActivity(),
+    private fun showArticleSection(articleList: List<ArticleEntity>) {
+        bind.articleOverflowRecyclerview.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.HORIZONTAL, false)
 
         val articleOverflowRvAdapter = HomepageArticleContentListAdapter(articleList as ArrayList<ArticleEntity>)
-        bind.articleOverflowRecyclerview?.adapter = articleOverflowRvAdapter
+        bind.articleOverflowRecyclerview.adapter = articleOverflowRvAdapter
 
         articleOverflowRvAdapter.setOnItemClickCallback(object: HomepageArticleContentListAdapter.OnItemClickCallback {
             override fun onItemClicked(data: ArticleEntity) {
@@ -206,19 +204,19 @@ class HomepageFragment : Fragment() {
     }
 
     private fun showProductSection(productList: List<ProductEntity>) {
-        bind.productsOverflowRecyclerview?.layoutManager = LinearLayoutManager(requireActivity(),
+        bind.productsOverflowRecyclerview.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.HORIZONTAL, false)
 
         val productsOverflowRecyclerview = HomepageProductContentListAdapter(productList as ArrayList<ProductEntity>)
-        bind.articleOverflowRecyclerview?.adapter = productsOverflowRecyclerview
+        bind.articleOverflowRecyclerview.adapter = productsOverflowRecyclerview
     }
 
     private fun showLibrarySection(entryList: List<LibraryContentEntity>) {
-        bind.libraryEntriesOverflowRecyclerview?.layoutManager = LinearLayoutManager(requireActivity(),
+        bind.libraryEntriesOverflowRecyclerview.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.HORIZONTAL, false)
 
         val libraryOverflowRvAdapter = HomepageLibraryContentListAdapter(entryList as ArrayList<LibraryContentEntity>)
-        bind.libraryEntriesOverflowRecyclerview?.adapter = libraryOverflowRvAdapter
+        bind.libraryEntriesOverflowRecyclerview.adapter = libraryOverflowRvAdapter
 
         libraryOverflowRvAdapter.setOnItemClickCallback(object: HomepageLibraryContentListAdapter.OnItemClickCallback {
             override fun onItemClicked(data: LibraryContentEntity) {

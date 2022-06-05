@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.R
+import com.lonard.camerlangproject.camera.ScannerCameraActivity
 import com.lonard.camerlangproject.databinding.ActivityFrontBinding
 import com.lonard.camerlangproject.ui.consultation.ConsultationHistoryFragment
 import com.lonard.camerlangproject.ui.homepage.HomepageFragment
@@ -92,7 +93,7 @@ class FrontActivity : AppCompatActivity() {
     }
 
     private fun initCamera() {
-        val intent = Intent(this, CameraXActivity::class.java)
+        val intent = Intent(this, ScannerCameraActivity::class.java)
         cameraLauncher.launch(intent)
     }
 

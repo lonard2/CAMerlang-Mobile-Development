@@ -27,6 +27,8 @@ class LibraryHomeFragment : Fragment() {
 
     private val searchBarFont: Typeface = Typeface.createFromAsset(context?.assets, "app_fonts/poppins_regular.ttf")
 
+    private val fragmentManagerVar = parentFragmentManager
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,20 +41,9 @@ class LibraryHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val libraryFactory: LibraryViewModelFactory = LibraryViewModelFactory.getFactory(requireContext())
-        val libraryViewModel: LibraryViewModel by viewModels {
-            libraryFactory
+        fragmentManagerVar.commit {
+            replace(R.id.fragment_container, LibraryHomeMainFragment())
         }
-
-        libraryViewModel.retrieveLibraryEntriesList().observe() { entriesList ->
-            if(entriesList != null) {
-                when (entriesList) {
-                    is DataLoadResult.Loading -> {
-
-                    }
-
-        }
-
     }
 
     override fun onDestroyView() {
@@ -61,7 +52,6 @@ class LibraryHomeFragment : Fragment() {
     }
 
     private fun searchLibrary() {
-        val fragmentManager = parentFragmentManager
         val myBundle = Bundle()
         val mySearchFragment = LibraryHomeSearchFragment()
 
@@ -76,7 +66,7 @@ class LibraryHomeFragment : Fragment() {
                 myBundle.putString(LibraryHomeSearchFragment.EXTRA_QUERY, q)
                 mySearchFragment.arguments = myBundle
 
-                fragmentManager.commit {
+                fragmentManagerVar.commit {
                     replace(R.id.fragment_container, mySearchFragment)
                 }
 
@@ -88,7 +78,7 @@ class LibraryHomeFragment : Fragment() {
             }
         })
 
-        val query = searchBar.query?.toString() ?: ""
+//        val query = searchBar.query?.toString() ?: ""
     }
 
 
