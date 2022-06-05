@@ -1,128 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/md_theme_light_primary_60"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
+        android:background="@color/md_theme_light_primary_60"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".ui.consultation.ConsultationDetailActivity">
+        android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/consultation_taken_image_card"
-
-            style="@style/Card.Header.ConsultationDetail"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/consultation_taken_image"
-
-                    style="@style/ImageContent.SectionHeader"
-                    android:contentDescription="@string/consultation_taken_image_desc"
-
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <ImageView
-                    android:id="@+id/back_btn"
-
-                    style="@style/BackButton.OnDarkBackground"
-
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-
-                    android:contentDescription="@string/back_btn_desc"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/consultation_id_detail"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/diagnosis_id_sample"
-
-            android:layout_marginTop="25dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-
-            android:textAlignment="center"
-            android:fontFamily="@font/poppins_light"
-            android:textColor="?attr/colorOnPrimary"
-            android:textSize="14sp"
-
-            app:layout_constraintTop_toBottomOf="@id/consultation_taken_image_card"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-            android:id="@+id/consultation_datetime_detail"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sample_datetime_consultation_history"
-
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-
-            android:textAlignment="center"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="?attr/colorOnPrimary"
-            android:textSize="18sp"
-
-            app:layout_constraintTop_toBottomOf="@id/consultation_id_detail"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-            android:id="@+id/consultation_outcome_detail"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/diagnosis_result_sample"
-
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-
-            android:textAlignment="center"
-            android:fontFamily="@font/poppins_bold"
-            android:textColor="?attr/colorOnPrimary"
-            android:textSize="20sp"
-
-            app:layout_constraintTop_toBottomOf="@id/consultation_datetime_detail"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/consultation_outcome_card"
-
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            tools:context=".ui.consultation.ConsultationDetailActivity">
 
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/consultation_taken_image_card"
 
-            app:layout_constraintTop_toBottomOf="@id/consultation_outcome_detail"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+                style="@style/Card.Header.ConsultationDetail"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
-</ScrollView>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/consultation_taken_image"
+
+                        style="@style/ImageContent.SectionHeader"
+                        android:contentDescription="@string/consultation_taken_image_desc"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/back_btn"
+
+                        style="@style/BackButton.OnDarkBackground"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        android:contentDescription="@string/back_btn_desc"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/consultation_id_detail"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/diagnosis_id_sample"
+
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_light"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="14sp"
+
+                app:layout_constraintTop_toBottomOf="@id/consultation_taken_image_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/consultation_datetime_detail"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sample_datetime_consultation_history"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="18sp"
+
+                app:layout_constraintTop_toBottomOf="@id/consultation_id_detail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/consultation_outcome_detail"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/diagnosis_result_sample"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="20sp"
+
+                app:layout_constraintTop_toBottomOf="@id/consultation_datetime_detail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/consultation_outcome_card"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="10dp"
+
+                app:layout_constraintTop_toBottomOf="@id/consultation_outcome_detail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/load_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@android:color/transparent"
+
+        android:visibility="invisible"
+
+        android:contentDescription="@string/loading_frame"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/load_anim_lottie"
+
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+
+        android:layout_margin="5dp"
+
+        app:lottie_rawRes="@raw/loading_anim"
+        app:lottie_autoPlay="true"
+
+        android:visibility="invisible"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
