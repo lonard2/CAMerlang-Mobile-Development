@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.RvInfoListingLibraryBinding
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
+import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.lonard.camerlangproject.ui.library.LibraryDetailActivity
 import com.squareup.picasso.Picasso
 
@@ -28,7 +29,7 @@ class LibraryHomeItemContentAdapter(private val alphabetSectionList: ArrayList<L
         val(_, _, entryName, entryThumbnail, _, _, _, _) = alphabetSectionList[position]
 
         holder.bind.apply {
-            Picasso.get().load(entryThumbnail).into(alphabetEmojiIcon)
+            Picasso.get().load(entryThumbnail).placeholder(ShimmerPlaceHolder.active()).into(alphabetEmojiIcon)
 
             librarySectionIntro.text = entryName
 

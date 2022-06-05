@@ -8,6 +8,7 @@ import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideSmallBinding
 import com.lonard.camerlangproject.databinding.OverflowRvBoxOutsideBinding
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
+import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso
 
 class HomepageLibraryContentListAdapter(private val itemList: ArrayList<LibraryContentEntity>): RecyclerView.Adapter<HomepageLibraryContentListAdapter.ViewHolder>() {
@@ -30,7 +31,7 @@ class HomepageLibraryContentListAdapter(private val itemList: ArrayList<LibraryC
         val(_, _, itemName, itemThumbnail, itemType, _, _) = itemList[position]
 
         holder.bind.apply {
-            Picasso.get().load(itemThumbnail).into(contentListImage)
+            Picasso.get().load(itemThumbnail).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
 
             contentTitle.text = itemName
             contentCategory.text = itemType

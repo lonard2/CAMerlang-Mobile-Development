@@ -7,6 +7,7 @@ import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideBinding
 import com.lonard.camerlangproject.databinding.OverflowRvOnlyPicBinding
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
+import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso
 
 class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryContentEntity>): RecyclerView.Adapter<LibraryDetailImgAdapter.ViewHolder>() {
@@ -28,7 +29,7 @@ class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryContent
         val(entryPicUrl) = otherPicList[position]
 
         holder.bind.apply {
-            Picasso.get().load(entryPicUrl).into(contentListImage)
+            Picasso.get().load(entryPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
         }
 
         holder.itemView.setOnClickListener {

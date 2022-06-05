@@ -8,6 +8,7 @@ import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideBinding
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideDetailBinding
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDataItem
+import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso
 
 class LibraryDetailMoreAdapter(private val diseaseEntriesList: ArrayList<LibraryContentEntity>): RecyclerView.Adapter<LibraryDetailMoreAdapter.ViewHolder>() {
@@ -29,7 +30,7 @@ class LibraryDetailMoreAdapter(private val diseaseEntriesList: ArrayList<Library
         val(entryPicUrl, entryDesc) = diseaseEntriesList[position]
 
         holder.bind.apply {
-            Picasso.get().load(entryPicUrl).into(contentListImage)
+            Picasso.get().load(entryPicUrl).placeholder(ShimmerPlaceHolder.active()).(contentListImage)
 
             contentTitle.text = entryDesc
         }

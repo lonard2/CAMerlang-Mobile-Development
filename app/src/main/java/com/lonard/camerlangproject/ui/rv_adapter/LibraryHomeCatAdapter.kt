@@ -7,6 +7,7 @@ import com.lonard.camerlangproject.api.ConsultationResponseItem
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.ConsultationHistoryRvBoxBinding
 import com.lonard.camerlangproject.databinding.OverflowRvBoxCategoryBinding
+import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso
 
 class LibraryHomeCatAdapter(private val categoryList: ArrayList<LibraryResponseItem>): RecyclerView.Adapter<LibraryHomeCatAdapter.ViewHolder>() {
@@ -29,7 +30,7 @@ class LibraryHomeCatAdapter(private val categoryList: ArrayList<LibraryResponseI
         val(iconUrl, catDesc) = categoryList[position]
 
         holder.bind.apply {
-            Picasso.get().load(iconUrl).into(categoryDataListImage)
+            Picasso.get().load(iconUrl).placeholder(ShimmerPlaceHolder.active()).into(categoryDataListImage)
 
             categoryDataListText.text = catDesc
         }

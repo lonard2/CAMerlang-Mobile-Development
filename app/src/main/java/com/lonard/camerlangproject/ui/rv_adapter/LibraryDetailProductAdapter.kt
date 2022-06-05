@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideDetailBinding
+import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso
 
 class LibraryDetailProductAdapter(private val skinProductList: ArrayList<LibraryResponseItem>): RecyclerView.Adapter<LibraryDetailProductAdapter.ViewHolder>() {
@@ -26,8 +27,8 @@ class LibraryDetailProductAdapter(private val skinProductList: ArrayList<Library
         val(productPicUrl, sellerPicUrl, productDesc) = skinProductList[position]
 
         holder.bind.apply {
-            Picasso.get().load(productPicUrl).into(contentListImage)
-            Picasso.get().load(sellerPicUrl).into(contentListImage)
+            Picasso.get().load(productPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
+            Picasso.get().load(sellerPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
 
             contentTitle.text = productDesc
         }
