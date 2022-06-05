@@ -49,19 +49,20 @@ android {
 }
 
 ext {
-    tfLiteVer = '2.8.0'
+    tfLiteVer = '2.9.0'
+    tfLiteMinorVer = '0.4.1'
     rfVer = '2.9.0'
     okHttpVer = '5.0.0-alpha.7'
-    generalKtxVer = '2.4.1'
-    cameraXVer = '1.2.0-alpha01'
-    roomDbVer = '2.5.0-alpha01'
+    generalKtxVer = '2.5.0-rc01'
+    cameraXVer = '1.2.0-alpha02'
+    roomDbVer = '2.5.0-alpha02'
 }
 
 dependencies {
 
 
     implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
@@ -71,7 +72,8 @@ dependencies {
 
     implementation "org.tensorflow:tensorflow-lite:$tfLiteVer"
     implementation "org.tensorflow:tensorflow-lite-gpu:$tfLiteVer"
-    implementation 'org.tensorflow:tensorflow-lite-support:0.4.0'
+    implementation "org.tensorflow:tensorflow-lite-support:$tfLiteMinorVer"
+    implementation "org.tensorflow:tensorflow-lite-task-vision:$tfLiteMinorVer"
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
@@ -84,8 +86,8 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$generalKtxVer"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$generalKtxVer"
-    implementation 'androidx.activity:activity-ktx:1.4.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
+    implementation 'androidx.activity:activity-ktx:1.6.0-alpha04'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.0-rc01'
 
     implementation "androidx.camera:camera-camera2:$cameraXVer"
     implementation "androidx.camera:camera-lifecycle:$cameraXVer"
