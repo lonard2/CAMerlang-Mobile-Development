@@ -1,20 +1,15 @@
 package com.lonard.camerlangproject.ui.rv_adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.lonard.camerlangproject.api.ConsultationResponseItem
-import com.lonard.camerlangproject.api.HomepageResponseItem
+import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideDetailBinding
 import com.lonard.camerlangproject.databinding.OverflowRvBoxOutsideBinding
-import com.lonard.camerlangproject.databinding.RvInfoListingHomepageBinding
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
-import com.lonard.camerlangproject.db.homepage.ArticleResponse
-import com.lonard.camerlangproject.db.homepage.DataItem
+import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.squareup.picasso.Picasso
 
-class HomepageContentListAdapter(private val itemList: ArrayList<ArticleEntity>): RecyclerView.Adapter<HomepageContentListAdapter.ViewHolder>() {
+class HomepageProductContentListAdapter(private val itemList: ArrayList<ProductEntity>): RecyclerView.Adapter<HomepageProductContentListAdapter.ViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -25,12 +20,12 @@ class HomepageContentListAdapter(private val itemList: ArrayList<ArticleEntity>)
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): HomepageContentListAdapter.ViewHolder {
-        val bind = OverflowRvBoxOutsideBinding.inflate(LayoutInflater.from(parent.context))
+    ): ViewHolder {
+        val bind = OverflowRvBoxInsideDetailBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(bind)
     }
 
-    override fun onBindViewHolder(holder: HomepageContentListAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val(_, _, itemName, itemThumbnail, itemType, _, _) = itemList[position]
 
         holder.bind.apply {
@@ -47,9 +42,9 @@ class HomepageContentListAdapter(private val itemList: ArrayList<ArticleEntity>)
 
     override fun getItemCount(): Int = itemList.size
 
-    class ViewHolder(var bind: OverflowRvBoxOutsideBinding): RecyclerView.ViewHolder(bind.root)
+    class ViewHolder(var bind: OverflowRvBoxInsideDetailBinding): RecyclerView.ViewHolder(bind.root)
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: ArticleEntity)
+        fun onItemClicked(data: ProductEntity)
     }
 }

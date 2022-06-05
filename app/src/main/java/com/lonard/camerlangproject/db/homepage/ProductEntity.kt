@@ -5,7 +5,7 @@ import androidx.room.Entity
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "products")
+@Entity(tableName = "skincare_products")
 data class ProductEntity (
 
 ): Parcelable

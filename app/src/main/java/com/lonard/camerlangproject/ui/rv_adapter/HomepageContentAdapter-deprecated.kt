@@ -34,35 +34,9 @@ class `HomepageContentAdapter-deprecated`(private val infoSectionList: ArrayList
             articleOverflowRecyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             articleOverflowRecyclerview.setHasFixedSize(true)
 
-            val overflowRvAdapter = HomepageContentListAdapter(rvData)
+            val overflowRvAdapter = HomepageArticleContentListAdapter(rvData)
             articleOverflowRecyclerview.adapter = overflowRvAdapter
-
-            overflowRvAdapter.setOnItemClickCallback(object: HomepageContentListAdapter.OnItemClickCallback {
-                override fun onItemClicked(data: ArticleEntity) {
-                    viewArticle(data)
-                }
-            })
         }
-    }
-
-    private fun viewArticle(articlesModel: ArticleEntity) {
-        val articles =
-            articlesModel.apply {
-                ArticleEntity(
-                    id,
-                    createdAt,
-                    name,
-                    thumbnailPic,
-                    type,
-                    readDuration,
-                    content
-                )
-            }
-
-        val articleIntent = Intent(context, ArticleDetailActivity::class.java)
-        articleIntent.putExtra(ArticleDetailActivity.EXTRA_ARTICLE, articles)
-
-        startActivity(context, articleIntent, null)
     }
 
     override fun getItemCount(): Int = infoSectionList.size

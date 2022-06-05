@@ -24,7 +24,7 @@ data class LibraryContentEntity (
     var thumbnailPic: String? = null,
 
     @ColumnInfo(name = "entry_type")
-    var body_type: String? = null,
+    var bodyType: String? = null,
 
     @ColumnInfo(name = "problem_severity")
     var problemSeverity: String? = null,
