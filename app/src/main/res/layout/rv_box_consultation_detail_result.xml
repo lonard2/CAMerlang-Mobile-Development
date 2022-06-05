@@ -20,7 +20,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/first_ranking_number"
+                android:id="@+id/problem_number"
 
                 style="@style/DetectionCircle"
 
@@ -33,10 +33,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/first_problem_show"/>
+                app:layout_constraintEnd_toStartOf="@id/problem_show"/>
 
             <TextView
-                android:id="@+id/first_problem_show"
+                android:id="@+id/problem_show"
 
                 style="@style/ProblemDesc"
 
@@ -45,12 +45,12 @@
                 android:textColor="@color/md_theme_light_primary_60"
                 android:textSize="20sp"
 
-                app:layout_constraintStart_toEndOf="@id/first_ranking_number"
+                app:layout_constraintStart_toEndOf="@id/problem_number"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/first_problem_percentage_card"
+                android:id="@+id/problem_percentage_card"
 
                 style="@style/Card.ConsultationDetail.Percentage"
 

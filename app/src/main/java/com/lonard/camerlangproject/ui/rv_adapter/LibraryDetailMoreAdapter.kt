@@ -21,16 +21,16 @@ class LibraryDetailMoreAdapter(private val diseaseEntriesList: ArrayList<Library
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): LibraryDetailMoreAdapter.ViewHolder {
+    ): ViewHolder {
         val bind = OverflowRvBoxInsideBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(bind)
     }
 
-    override fun onBindViewHolder(holder: LibraryDetailMoreAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val(entryPicUrl, entryDesc) = diseaseEntriesList[position]
 
         holder.bind.apply {
-            Picasso.get().load(entryPicUrl).placeholder(ShimmerPlaceHolder.active()).(contentListImage)
+            Picasso.get().load(entryPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
 
             contentTitle.text = entryDesc
         }

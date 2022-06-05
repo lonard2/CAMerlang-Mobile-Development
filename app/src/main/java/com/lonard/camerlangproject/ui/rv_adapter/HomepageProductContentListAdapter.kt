@@ -27,13 +27,13 @@ class HomepageProductContentListAdapter(private val itemList: ArrayList<ProductE
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(_, _, itemName, itemThumbnail, itemType, _, _) = itemList[position]
+        val(_, _, itemName, itemThumbnail, _, _, _) = itemList[position]
 
         holder.bind.apply {
             Picasso.get().load(itemThumbnail).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
+            Picasso.get().load(itemSellerPic).placeholder(ShimmerPlaceHolder.active()).into(contentListImageSellerPic)
 
             contentTitle.text = itemName
-            contentCategory.text = itemType
         }
 
         holder.itemView.setOnClickListener {
