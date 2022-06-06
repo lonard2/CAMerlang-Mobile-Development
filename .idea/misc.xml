@@ -52,6 +52,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/outline.xml" value="0.273" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/rounded_box.xml" value="0.158" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/rounded_box_onboarding.xml" value="0.2385" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout-land/activity_scanner_camera.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout-v28/activity_homepage.xml" value="0.5714285714285714" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_article_detail.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_consultation.xml" value="0.25" />
@@ -59,6 +60,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_front.xml" value="0.1766304347826087" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_homepage.xml" value="0.22" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_image_show.xml" value="0.151953125" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_image_taken_preview.xml" value="0.15778688524590165" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_library_detail.xml" value="0.1544943820224719" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_library_detail_image_show.xml" value="0.20153985507246377" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_library_home.xml" value="0.25" />

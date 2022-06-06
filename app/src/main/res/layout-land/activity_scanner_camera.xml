@@ -38,14 +38,14 @@
 
         android:text="@string/scanner_use_how_to"
 
-        android:textAlignment="viewEnd"
+        android:textAlignment="viewStart"
         android:fontFamily="@font/poppins_light"
         android:textColor="?attr/colorOnPrimary"
 
-        android:textSize="18sp"
+        android:textSize="16sp"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/back_btn"
         />
 
     <ImageView
@@ -92,6 +92,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/camera_scan_spotlight_outline"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/gallery_get_btn"
+
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:src="@drawable/gallery_icon"
+        android:contentDescription="@string/gallery_btn_desc"
+
+        app:layout_constraintTop_toTopOf="@id/scanner_viewfinder"
+        app:layout_constraintBottom_toTopOf="@id/picture_take_btn"
+        app:layout_constraintStart_toStartOf="@id/picture_take_btn"
+        app:layout_constraintEnd_toEndOf="@id/picture_take_btn"
+
+        app:tint="?attr/colorSecondaryContainer"/>
 
     <ImageView
         android:id="@+id/camera_mode_switch"

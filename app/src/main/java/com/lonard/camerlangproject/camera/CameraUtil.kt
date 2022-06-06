@@ -27,6 +27,12 @@ class CameraUtil {
             return File.createTempFile(timeStamp, ".jpg", storageDir)
         }
 
+        fun fileRotateFromBitmap(bitmap: Bitmap, image: File): File {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, FileOutputStream(image))
+
+            return image
+        }
+
         fun createFile(application: Application): File {
             val mediaDir = application.externalMediaDirs.firstOrNull()?.let {
                 File(it, application.resources.getString(R.string.app_name)).apply { mkdirs() }
@@ -36,7 +42,7 @@ class CameraUtil {
                 mediaDir != null && mediaDir.exists()
             ) mediaDir else application.filesDir
 
-            return File(outputDirectory, "$timeStamp.jpg")
+            return File(outputDirectory, "CAMerlang-consultation-scan-img-$timeStamp.jpg")
         }
 
         fun rotateBitmap(bitmap: Bitmap, isBackCamera: Boolean = false): Bitmap {
