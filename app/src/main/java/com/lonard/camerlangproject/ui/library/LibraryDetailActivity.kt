@@ -10,6 +10,7 @@ import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
 import com.lonard.camerlangproject.ui.images.ImageShowActivity
 import com.lonard.camerlangproject.ui.homepage.ArticleDetailActivity
+import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailImgAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailProductAdapter
 import com.squareup.picasso.Picasso
@@ -47,21 +48,23 @@ class LibraryDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun showMoreImagesContent(imagesItems: List<ImageItem>) {
+    private fun showMoreImagesContent(imagesItems: List<LibraryContentEntity>) {
         bind.moreImagesSectionRv.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.HORIZONTAL, false)
 
-        val moreImagesAdapter = LibraryDetailMoreAdapter(imageItem as ArrayList<LibraryResponseItem>)
+        val moreImagesAdapter = LibraryDetailImgAdapter(imagesItems as ArrayList<LibraryContentEntity>)
         bind.moreImagesSectionRv.adapter = moreImagesAdapter
 
         moreImagesAdapter.setOnItemClickCallback(object: LibraryDetailImgAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: ImageItem) {
-                seeZoomedImg(data)
+            override fun onItemClicked(data: LibraryContentEntity, animBundle: Bundle?) {
+                if (animBundle != null) {
+                    seeZoomedImg(data, animBundle)
+                }
             }
         })
     }
 
-    private fun seeZoomedImg(images: LibraryDetailImgEntity) {
+    private fun seeZoomedImg(images: LibraryContentEntity, bundle: Bundle) {
         val imagesList =
             images.apply {
                 LibraryDetailImgEntity(
@@ -70,39 +73,47 @@ class LibraryDetailActivity : AppCompatActivity() {
                 )
             }
 
-        val zoomImgIntent = Intent(this@LibraryDetailActivity, ArticleDetailActivity::class.java)
-        zoomImgIntent.putExtra(ImageShowActivity.EXTRA_IMAGE, imagesList)
+        val zoomImgIntent = Intent(this@LibraryDetailActivity, ImageShowActivity::class.java)
+        zoomImgIntent.putExtra(ImageShowActivity.EXTRA_PIC, imagesList)
 
-        startActivity(zoomImgIntent)
+        startActivity(zoomImgIntent, bundle)
     }
 
-    private fun showOtherEntriesContent(entryItems: List<EntryItem>) {
+    private fun showOtherEntriesContent(entryItems: List<LibraryContentEntity>) {
         bind.otherEntriesSectionRv.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.HORIZONTAL, false)
 
-        val entriesListAdapter = LibraryDetailMoreAdapter(entryItems as ArrayList<LibraryResponseItem>)
+        val entriesListAdapter = LibraryDetailMoreAdapter(entryItems as ArrayList<LibraryContentEntity>)
         bind.otherEntriesSectionRv.adapter = entriesListAdapter
 
         entriesListAdapter.setOnItemClickCallback(object: LibraryDetailMoreAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: EntryItem) {
-
+            override fun onItemClicked(data: LibraryContentEntity, animBundle: Bundle?) {
+                if (animBundle != null) {
+                    viewOtherEntry(data, animBundle)
+                }
             }
         })
     }
 
-    private fun seeZoomedImg(images: LibraryDetailImgEntity) {
-        val images =
-            images.apply {
-                LibraryDetailImgEntity(
-                    imageUrl,
-                    imageDesc
+    private fun viewOtherEntry(entryModel: LibraryContentEntity, bundle: Bundle) {
+        val libraryEntries =
+            entryModel.apply {
+                LibraryContentEntity(
+                    id,
+                    createdAt,
+                    name,
+                    thumbnailPic,
+                    bodyType,
+                    problemSeverity,
+                    contentHeader,
+                    content
                 )
             }
 
-        val zoomImgIntent = Intent(this@LibraryDetailActivity, ArticleDetailActivity::class.java)
-        zoomImgIntent.putExtra(ImageShowActivity.EXTRA_IMAGE, images)
+        val switchToOtherEntryIntent = Intent(this@LibraryDetailActivity, LibraryDetailActivity::class.java)
+        switchToOtherEntryIntent.putExtra(EXTRA_DISEASE, libraryEntries)
 
-        startActivity(zoomImgIntent)
+        startActivity(switchToOtherEntryIntent, bundle)
     }
 
     private fun showProductsContent(productItems: List<ProductItem>) {

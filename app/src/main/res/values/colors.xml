@@ -111,4 +111,6 @@
 
 	<color name="detection_number_color">#B7886D</color>
 	<color name="detection_percentage_card_color">#CB6666</color>
+
+	<color name="splash_wordmark_logo">#99FF8585</color>
 </resources>

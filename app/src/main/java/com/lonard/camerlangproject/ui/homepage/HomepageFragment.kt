@@ -177,13 +177,15 @@ class HomepageFragment : Fragment() {
         bind.articleOverflowRecyclerview.adapter = articleOverflowRvAdapter
 
         articleOverflowRvAdapter.setOnItemClickCallback(object: HomepageArticleContentListAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: ArticleEntity) {
-                viewArticle(data)
+            override fun onItemClicked(data: ArticleEntity, animBundle: Bundle?) {
+                if (animBundle != null) {
+                    viewArticle(data, animBundle)
+                }
             }
         })
     }
 
-    private fun viewArticle(articlesModel: ArticleEntity) {
+    private fun viewArticle(articlesModel: ArticleEntity, bundle: Bundle) {
         val articles =
             articlesModel.apply {
                 ArticleEntity(
@@ -200,7 +202,7 @@ class HomepageFragment : Fragment() {
         val articleIntent = Intent(context, ArticleDetailActivity::class.java)
         articleIntent.putExtra(ArticleDetailActivity.EXTRA_ARTICLE, articles)
 
-        startActivity(articleIntent)
+        startActivity(articleIntent, bundle)
     }
 
     private fun showProductSection(productList: List<ProductEntity>) {
@@ -219,13 +221,15 @@ class HomepageFragment : Fragment() {
         bind.libraryEntriesOverflowRecyclerview.adapter = libraryOverflowRvAdapter
 
         libraryOverflowRvAdapter.setOnItemClickCallback(object: HomepageLibraryContentListAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: LibraryContentEntity) {
-                viewEntry(data)
+            override fun onItemClicked(data: LibraryContentEntity, animBundle: Bundle?) {
+                if (animBundle != null) {
+                    viewEntry(data, animBundle)
+                }
             }
         })
     }
 
-    private fun viewEntry(entryModel: LibraryContentEntity) {
+    private fun viewEntry(entryModel: LibraryContentEntity, bundle: Bundle) {
         val libraryEntries =
             entryModel.apply {
                 LibraryContentEntity(
@@ -243,7 +247,7 @@ class HomepageFragment : Fragment() {
         val libraryEntryDetailIntent = Intent(context, LibraryDetailActivity::class.java)
         libraryEntryDetailIntent.putExtra(LibraryDetailActivity.EXTRA_DISEASE, libraryEntries)
 
-        startActivity(libraryEntryDetailIntent)
+        startActivity(libraryEntryDetailIntent, bundle)
     }
 
 }

@@ -52,6 +52,11 @@
 		<item name="colorArticleContainer">#99f9e366</item>
 		<item name="colorOnArticleContainer">#99211b00</item>
 		<item name="harmonizeArticle">true</item>
+
+		<item name="android:windowActivityTransitions">true</item>
+
+		<item name="android:windowEnterAnimation">@android:transition/fade</item>
+		<item name="android:windowExitAnimation">@android:transition/fade</item>
 	</style>
 
 	<style name="BackgroundColor">
@@ -608,9 +613,6 @@
 
 		<item name="android:padding">10dp</item>
 		<item name="android:scaleType">centerCrop</item>
-
-		<item name="strokeColor">?attr/colorPrimaryContainer</item>
-		<item name="strokeWidth">3dp</item>
 
 		<item name="android:gravity">center_vertical</item>
 		<item name="android:layout_gravity">center_vertical</item>

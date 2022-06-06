@@ -1,5 +1,6 @@
 package com.lonard.camerlangproject.ui.homepage
 
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,7 +19,7 @@ class OnboardingActivity : AppCompatActivity() {
 
         bind.goToHomeBtn.setOnClickListener {
             val goToHomeIntent = Intent(this@OnboardingActivity, FrontActivity::class.java)
-            startActivity(goToHomeIntent)
+            startActivity(goToHomeIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
         }
     }
 }

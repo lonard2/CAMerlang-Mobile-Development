@@ -1,7 +1,11 @@
 package com.lonard.camerlangproject.ui.rv_adapter
 
+import android.app.Activity
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideBinding
@@ -36,8 +40,15 @@ class LibraryDetailMoreAdapter(private val diseaseEntriesList: ArrayList<Library
         }
 
         holder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClicked(diseaseEntriesList[holder.bindingAdapterPosition])
+            val sharedAnim = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                holder.itemView.context as Activity,
+                Pair(holder.bind.contentListImage, "disease_pic"),
+                Pair(holder.bind.contentTitle, "disease_name"),
+            )
+
+            onItemClickCallback.onItemClicked(diseaseEntriesList[holder.bindingAdapterPosition], sharedAnim.toBundle())
         }
+
     }
 
     override fun getItemCount(): Int = diseaseEntriesList.size
@@ -45,6 +56,6 @@ class LibraryDetailMoreAdapter(private val diseaseEntriesList: ArrayList<Library
     class ViewHolder(var bind: OverflowRvBoxInsideBinding): RecyclerView.ViewHolder(bind.root)
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: EntryItem)
+        fun onItemClicked(data: LibraryContentEntity, animBundle: Bundle?)
     }
 }

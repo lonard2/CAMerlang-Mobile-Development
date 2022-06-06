@@ -1,10 +1,13 @@
 package com.lonard.camerlangproject.ui
 
 import android.Manifest
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -27,12 +30,16 @@ class FrontActivity : AppCompatActivity() {
     private var getImageFile: File? = null
     private val locale: String = Locale.getDefault().country
 
+    private val animation = AnimatorSet()
+
     var fragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = ActivityFrontBinding.inflate(layoutInflater)
         setContentView(bind.root)
+
+        showAnimation()
 
         if(!checkAllCameraPermissionsGranted()) {
             ActivityCompat.requestPermissions(
@@ -107,6 +114,15 @@ class FrontActivity : AppCompatActivity() {
 
     private fun checkAllCameraPermissionsGranted() = CAMERA_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun showAnimation() {
+        val navbar = ObjectAnimator.ofFloat(bind.bottomNavbar, View.ALPHA, 1f).setDuration(600)
+        val fab = ObjectAnimator.ofFloat(bind.scannerToActionFab, View.ALPHA, 1f).setDuration(600)
+
+        animation.apply {
+            playTogether(navbar, fab)
+        }
     }
 
     companion object {

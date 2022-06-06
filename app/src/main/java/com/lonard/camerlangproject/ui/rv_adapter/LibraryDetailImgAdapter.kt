@@ -1,7 +1,11 @@
 package com.lonard.camerlangproject.ui.rv_adapter
 
+import android.app.Activity
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideBinding
@@ -20,20 +24,28 @@ class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryContent
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): LibraryDetailImgAdapter.ViewHolder {
+    ): ViewHolder {
         val bind = OverflowRvOnlyPicBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(bind)
     }
 
-    override fun onBindViewHolder(holder: LibraryDetailImgAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val(entryPicUrl) = otherPicList[position]
 
         holder.bind.apply {
-            Picasso.get().load(entryPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
+            if (entryPicUrl != null) {
+                Picasso.get().load(entryPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
+            }
         }
 
         holder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClicked(otherPicList[holder.bindingAdapterPosition])
+            val sharedAnim: ActivityOptionsCompat =
+                ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    holder.itemView.context as Activity,
+                    Pair(holder.bind.contentListImage, "zoomed_image"),
+                )
+
+            onItemClickCallback.onItemClicked(otherPicList[holder.bindingAdapterPosition], sharedAnim.toBundle())
         }
     }
 
@@ -42,6 +54,6 @@ class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryContent
     class ViewHolder(var bind: OverflowRvOnlyPicBinding): RecyclerView.ViewHolder(bind.root)
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: LibraryContentEntity)
+        fun onItemClicked(data: LibraryContentEntity, animBundle: Bundle?)
     }
 }

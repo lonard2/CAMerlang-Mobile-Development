@@ -37,6 +37,8 @@
                         style="@style/ImageContent.SectionHeader"
                         android:contentDescription="@string/article_header_pic_desc"
 
+                        android:transitionName="article_pic"
+
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,6 +106,7 @@
                         style="@style/DetailHeaderText.Title"
 
                         android:text="@string/article_name_desc"
+                        android:transitionName="article_name"
 
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"/>

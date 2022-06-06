@@ -102,13 +102,15 @@ class LibraryHomeSearchFragment : Fragment() {
 
         searchedAdapter.setOnItemClickCallback(object :
             LibraryHomeItemListAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: LibraryContentEntity) {
-                viewEntry(data)
+            override fun onItemClicked(data: LibraryContentEntity, animBundle: Bundle?) {
+                if (animBundle != null) {
+                    viewEntry(data, animBundle)
+                }
             }
         })
     }
 
-    private fun viewEntry(entryModel: LibraryContentEntity) {
+    private fun viewEntry(entryModel: LibraryContentEntity, bundle: Bundle) {
         val libraryEntries =
             entryModel.apply {
                 LibraryContentEntity(
@@ -126,7 +128,7 @@ class LibraryHomeSearchFragment : Fragment() {
         val libraryEntryDetailIntent = Intent(context, LibraryDetailActivity::class.java)
         libraryEntryDetailIntent.putExtra(LibraryDetailActivity.EXTRA_DISEASE, libraryEntries)
 
-        startActivity(libraryEntryDetailIntent)
+        startActivity(libraryEntryDetailIntent, bundle)
     }
 
     companion object {

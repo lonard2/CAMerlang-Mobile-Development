@@ -1,7 +1,11 @@
 package com.lonard.camerlangproject.ui.rv_adapter
 
+import android.app.Activity
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.databinding.OverflowRvBoxOutsideBinding
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
@@ -20,7 +24,7 @@ class HomepageArticleContentListAdapter(private val itemList: ArrayList<ArticleE
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): HomepageArticleContentListAdapter.ViewHolder {
+    ): ViewHolder {
         val bind = OverflowRvBoxOutsideBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(bind)
     }
@@ -36,7 +40,14 @@ class HomepageArticleContentListAdapter(private val itemList: ArrayList<ArticleE
         }
 
         holder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClicked(itemList[holder.bindingAdapterPosition])
+            val sharedAnim: ActivityOptionsCompat =
+                ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    holder.itemView.context as Activity,
+                    Pair(holder.bind.contentListImage, "article_pic"),
+                    Pair(holder.bind.contentTitle, "article_name"),
+                )
+
+            onItemClickCallback.onItemClicked(itemList[holder.bindingAdapterPosition], sharedAnim.toBundle())
         }
     }
 
@@ -45,6 +56,6 @@ class HomepageArticleContentListAdapter(private val itemList: ArrayList<ArticleE
     class ViewHolder(var bind: OverflowRvBoxOutsideBinding): RecyclerView.ViewHolder(bind.root)
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: ArticleEntity)
+        fun onItemClicked(data: ArticleEntity, animBundle: Bundle?)
     }
 }

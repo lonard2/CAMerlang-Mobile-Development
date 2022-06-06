@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
 
         android:contentDescription="@string/detailed_img_container_library_desc"
+        android:transitionName="zoomed_image"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
