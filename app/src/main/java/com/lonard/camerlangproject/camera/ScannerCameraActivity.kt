@@ -114,8 +114,8 @@ class ScannerCameraActivity : AppCompatActivity() {
 
                     val previewIntent = Intent(this@ScannerCameraActivity, ImageTakenPreviewActivity::class.java)
 
-                    previewIntent.putExtra("image", imgFile)
-                    previewIntent.putExtra("isBackCamera", modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
+                    previewIntent.putExtra("imageCameraTaken", imgFile)
+                    previewIntent.putExtra("isSetBackCam", modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
                     setResult(ImageTakenPreviewActivity.CAMERAX_RESPONSE_CODE, intent)
 
                     startActivity(previewIntent)
@@ -131,29 +131,6 @@ class ScannerCameraActivity : AppCompatActivity() {
 
             }
         )
-    }
-
-    private val processImage = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        when(result.resultCode) {
-            ImageTakenPreviewActivity.CAMERAX_RESPONSE_CODE -> processImageCameraX(result)
-            else -> Log.e(TAG, "Image processing error!")
-        }
-    }
-
-    private fun processImageCameraX(result: ActivityResult) {
-        val takenImageFile = result.data?.getSerializableExtra("image") as File
-        val cameraType = result.data?.getBooleanExtra("isBackCamera", true) as Boolean
-
-        val rotatedBitmap: Bitmap = rotateBitmap(BitmapFactory.decodeFile(takenImageFile.path), cameraType)
-
-        retrievedImgFile = CameraUtil.fileRotateFromBitmap(rotatedBitmap, takenImageFile)
-
-        val sendIntent = Intent(this@ScannerCameraActivity, ImageTakenPreviewActivity::class.java)
-
-        sendIntent.putExtra("image_camera_taken", takenImageFile)
-        startActivity(sendIntent)
     }
 
     private fun goToGallery() {

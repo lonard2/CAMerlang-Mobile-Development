@@ -1,4 +1,6 @@
 package com.lonard.camerlangproject.mvvm
 
-class ConsultationViewModel {
+import androidx.lifecycle.ViewModel
+
+class ConsultationViewModel(private val consultRepo: ConsultationRepository): ViewModel() {
 }
