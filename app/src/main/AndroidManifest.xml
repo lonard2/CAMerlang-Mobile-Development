@@ -5,56 +5,69 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/camerlang_app_launcher_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/camerlang_app_launcher_icon_round"
         android:supportsRtl="true"
         android:theme="@style/CAMerlang_theme"
         tools:targetApi="31" >
         <activity
             android:name=".ui.images.ImageTakenPreviewActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ui.consultation.ConsultationDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ui.settings.CreditsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ui.images.ImageShowActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ui.homepage.OnboardingActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ui.FrontActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ui.homepage.ArticleDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ui.settings.SettingsUserActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".camera.ScannerCameraActivity"
             android:exported="false" />
         <activity
             android:name=".ui.library.LibraryDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ui.consultation.ConsultationActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ui.homepage.NotificationActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ui.SplashActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:screenOrientation="sensorPortrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

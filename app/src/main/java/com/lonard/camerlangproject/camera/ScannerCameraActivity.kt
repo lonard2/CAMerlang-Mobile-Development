@@ -1,10 +1,14 @@
 package com.lonard.camerlangproject.camera
 
 import android.content.Intent
+import android.content.Intent.ACTION_GET_CONTENT
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -15,9 +19,11 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.camera.CameraUtil.Companion.createFile
 import com.lonard.camerlangproject.camera.CameraUtil.Companion.rotateBitmap
+import com.lonard.camerlangproject.camera.CameraUtil.Companion.uriToFile
 import com.lonard.camerlangproject.databinding.ActivityScannerCameraBinding
-import com.lonard.camerlangproject.ui.FrontActivity.Companion.CAMERAX_RESPONSE_CODE
+import com.lonard.camerlangproject.ui.images.ImageTakenPreviewActivity
 import java.io.File
+import java.util.*
 
 class ScannerCameraActivity : AppCompatActivity() {
 
@@ -26,18 +32,27 @@ class ScannerCameraActivity : AppCompatActivity() {
     private var imgCapture: ImageCapture? = null
     private var modeSelect: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
+    private var retrievedImgFile: File? = null
+    private val locale: String = Locale.getDefault().country
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = ActivityScannerCameraBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
-        bind.cameraModeSwitch.setOnClickListener {
-            modeSelect = if (modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
-                CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
-        }
+        bind.apply {
+            cameraModeSwitch.setOnClickListener {
+                modeSelect = if (modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
+                    CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
+            }
 
-        bind.pictureTakeBtn.setOnClickListener {
-            takePicture()
+            pictureTakeBtn.setOnClickListener {
+                takePicture()
+            }
+
+            galleryGetBtn.setOnClickListener {
+                goToGallery()
+            }
         }
 
     }
@@ -92,41 +107,70 @@ class ScannerCameraActivity : AppCompatActivity() {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     Snackbar.make(
                         bind.scannerViewfinder,
-                        "Bagus, gambarmu telah diperoleh dan akan segera dianalisis kecenderungan permasalahan kulitnya.",
+                        "Gambarmu telah berhasil diperoleh! Silakan cek fotomu untuk pengecekan. " +
+                                "Jika kamu memilih untuk mengirimkannya, kamu bisa .",
                         Snackbar.LENGTH_LONG
                     ).show()
 
-                    val intent = Intent()
+                    val previewIntent = Intent(this@ScannerCameraActivity, ImageTakenPreviewActivity::class.java)
 
-                    intent.putExtra("image", imgFile)
-                    intent.putExtra("isBackCamera", modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
-                    setResult(StoryAddActivity.CAMERAX_RESPONSE_CODE, intent)
-                    finish()
+                    previewIntent.putExtra("imageCameraTaken", imgFile)
+                    previewIntent.putExtra("isSetBackCam", modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
+                    setResult(ImageTakenPreviewActivity.CAMERAX_RESPONSE_CODE, intent)
+
+                    startActivity(previewIntent)
                 }
 
                 override fun onError(exception: ImageCaptureException) {
-
+                    Snackbar.make(
+                        bind.scannerViewfinder,
+                        "Gambarmu gagal diambil :( Silakan coba lagi ya. ",
+                        Snackbar.LENGTH_LONG
+                    ).show()
                 }
 
             }
         )
-
     }
 
-    private val cameraLauncher = registerForActivityResult(
+    private fun goToGallery() {
+        val galleryIntent = Intent()
+
+        galleryIntent.action = ACTION_GET_CONTENT
+        galleryIntent.type = "image/*"
+
+        val chooserMenu = Intent.createChooser(galleryIntent,
+            when (locale) {
+                "id" -> "Pilihlah sebuah foto yang ingin dianalisis..."
+                "en" -> "Select a photograph to be analyzed..."
+                else -> "Photo selection"
+            }
+        )
+
+        launchGallery.launch(chooserMenu)
+    }
+
+    private val launchGallery = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        if(result.resultCode == CAMERAX_RESPONSE_CODE) {
-            val imageFile = result.data?.getSerializableExtra("image") as File
-            val cameraTypeCheck = result.data?.getBooleanExtra("isBackCamera", true) as Boolean
+        if(result.resultCode == RESULT_OK) {
+            val selectedImg: Uri = result.data?.data as Uri
+            val convertedFile = uriToFile(selectedImg, this@ScannerCameraActivity)
 
-            val bitmapResult: Bitmap = rotateBitmap(BitmapFactory.decodeFile(imageFile.path), cameraTypeCheck)
+            retrievedImgFile = convertedFile
 
-            bind.setImageBitmap(bitmapResult)
+            val sendIntent = Intent(this@ScannerCameraActivity, ImageTakenPreviewActivity::class.java)
+            sendIntent.putExtra("image_gallery", selectedImg)
 
-            getImageFile = rotateBitmap(bitmapResult, imageFile)
+            setResult(ImageTakenPreviewActivity.GALLERY_RESPONSE_CODE, sendIntent)
+            startActivity(sendIntent)
         }
     }
+
+    companion object {
+        const val TAG = "Camera scanner activity"
+    }
+
 
 
 }

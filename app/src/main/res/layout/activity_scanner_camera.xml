@@ -36,6 +36,8 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
 
+        android:padding="10dp"
+
         android:text="@string/scanner_use_how_to"
 
         android:textAlignment="center"
@@ -92,6 +94,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/gallery_get_btn"
+
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:src="@drawable/gallery_icon"
+        android:contentDescription="@string/gallery_btn_desc"
+
+        app:layout_constraintTop_toTopOf="@id/picture_take_btn"
+        app:layout_constraintBottom_toBottomOf="@id/picture_take_btn"
+        app:layout_constraintStart_toStartOf="@id/scanner_viewfinder"
+        app:layout_constraintEnd_toStartOf="@id/picture_take_btn"
+
+        app:tint="?attr/colorSecondaryContainer"/>
 
     <ImageView
         android:id="@+id/camera_mode_switch"
