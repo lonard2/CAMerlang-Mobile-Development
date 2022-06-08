@@ -18,6 +18,7 @@ import com.lonard.camerlangproject.mvvm.HomepageViewModel
 import com.lonard.camerlangproject.mvvm.HomepageViewModelFactory
 import com.lonard.camerlangproject.ui.library.LibraryDetailActivity
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageArticleContentListAdapter
+import com.lonard.camerlangproject.ui.rv_adapter.HomepageExpertContentListAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageLibraryContentListAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageProductContentListAdapter
 import java.util.*
@@ -56,105 +57,150 @@ class HomepageFragment : Fragment() {
             homeViewModel.getArticlesData().observe(viewLifecycleOwner) { articleList ->
                 homeViewModel.getProductsData().observe(viewLifecycleOwner) { productList ->
                     homeViewModel.getLibraryEntriesData().observer(viewLifecycleOwner) { libraryList ->
-                        if(articleList != null) {
-                            when (articleList) {
-                                is DataLoadResult.Loading -> {
-                                    loadFrame.visibility = View.VISIBLE
-                                    loadAnimLottie.visibility = View.VISIBLE
-                                }
+                        homeViewModel.getExpertData().observer(viewLifecycleOwner) { expertList ->
+                            if (articleList != null) {
+                                when (articleList) {
+                                    is DataLoadResult.Loading -> {
+                                        loadFrame.visibility = View.VISIBLE
+                                        loadAnimLottie.visibility = View.VISIBLE
+                                    }
 
-                                is DataLoadResult.Successful -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
+                                    is DataLoadResult.Successful -> {
+                                        loadFrame.visibility = View.GONE
+                                        loadAnimLottie.visibility = View.GONE
 
-                                    val articles = articleList.data
+                                        val articles = articleList.data
 
-                                    showArticleSection(articles)
-                                }
+                                        showArticleSection(articles)
+                                    }
 
-                                is DataLoadResult.Failed -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
+                                    is DataLoadResult.Failed -> {
+                                        loadFrame.visibility = View.GONE
+                                        loadAnimLottie.visibility = View.GONE
 
-                                    Snackbar.make(
-                                        articleOverflowRecyclerview, when (locale) {
-                                            "in" -> {
-                                                "Aduh, data artikel tidak bisa ditampilkan. Silakan coba lagi ya."
-                                            }
-                                            "en" -> {
-                                                "Ouch, the articles data cannot be shown to you. Please try again."
-                                            }
-                                            else -> { "Error in articles data retrieval." }
-                                        }, Snackbar.LENGTH_LONG
-                                    ).show()
-                                }
-                            }
-                        }
-
-                        if(productList != null) {
-                            when (productList) {
-                                is DataLoadResult.Loading -> {
-                                    loadFrame.visibility = View.VISIBLE
-                                    loadAnimLottie.visibility = View.VISIBLE
-                                }
-
-                                is DataLoadResult.Successful -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
-                                    val products = productList.data
-
-                                    showProductSection(products)
-                                }
-
-                                is DataLoadResult.Failed -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
-
-                                    Snackbar.make(
-                                        productsOverflowRecyclerview, when (locale) {
-                                            "in" -> {
-                                                "Aduh, data produk tidak bisa ditampilkan. Silakan coba lagi ya."
-                                            }
-                                            "en" -> {
-                                                "Ouch, the products data cannot be shown to you. Please try again."
-                                            }
-                                            else -> { "Error in products data retrieval." } },
-                                        Snackbar.LENGTH_LONG
-                                    ).show()
+                                        Snackbar.make(
+                                            articleOverflowRecyclerview, when (locale) {
+                                                "in" -> {
+                                                    "Aduh, data artikel tidak bisa ditampilkan. Silakan coba lagi ya."
+                                                }
+                                                "en" -> {
+                                                    "Ouch, the articles data cannot be shown to you. Please try again."
+                                                }
+                                                else -> {
+                                                    "Error in articles data retrieval."
+                                                }
+                                            }, Snackbar.LENGTH_LONG
+                                        ).show()
+                                    }
                                 }
                             }
-                        }
 
-                        if(libraryList != null) {
-                            when (libraryList) {
-                                is DataLoadResult.Loading -> {
-                                    loadFrame.visibility = View.VISIBLE
-                                    loadAnimLottie.visibility = View.VISIBLE
+                            if (productList != null) {
+                                when (productList) {
+                                    is DataLoadResult.Loading -> {
+                                        loadFrame.visibility = View.VISIBLE
+                                        loadAnimLottie.visibility = View.VISIBLE
+                                    }
+
+                                    is DataLoadResult.Successful -> {
+                                        loadFrame.visibility = View.GONE
+                                        loadAnimLottie.visibility = View.GONE
+                                        val products = productList.data
+
+                                        showProductSection(products)
+                                    }
+
+                                    is DataLoadResult.Failed -> {
+                                        loadFrame.visibility = View.GONE
+                                        loadAnimLottie.visibility = View.GONE
+
+                                        Snackbar.make(
+                                            productsOverflowRecyclerview, when (locale) {
+                                                "in" -> {
+                                                    "Aduh, data produk tidak bisa ditampilkan. Silakan coba lagi ya."
+                                                }
+                                                "en" -> {
+                                                    "Ouch, the products data cannot be shown to you. Please try again."
+                                                }
+                                                else -> {
+                                                    "Error in products data retrieval."
+                                                }
+                                            },
+                                            Snackbar.LENGTH_LONG
+                                        ).show()
+                                    }
                                 }
+                            }
 
-                                is DataLoadResult.Successful -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
-                                    val entries = productList.data
+                            if (libraryList != null) {
+                                when (libraryList) {
+                                    is DataLoadResult.Loading -> {
+                                        loadFrame.visibility = View.VISIBLE
+                                        loadAnimLottie.visibility = View.VISIBLE
+                                    }
 
-                                    showLibrarySection(entries)
+                                    is DataLoadResult.Successful -> {
+                                        loadFrame.visibility = View.GONE
+                                        loadAnimLottie.visibility = View.GONE
+                                        val entries = productList.data
+
+                                        showLibrarySection(entries)
+                                    }
+
+                                    is DataLoadResult.Failed -> {
+                                        loadFrame.visibility = View.GONE
+                                        loadAnimLottie.visibility = View.GONE
+
+                                        Snackbar.make(
+                                            libraryEntriesOverflowRecyclerview, when (locale) {
+                                                "in" -> {
+                                                    "Aduh, data entri pustaka tidak bisa ditampilkan. Silakan coba lagi ya."
+                                                }
+                                                "en" -> {
+                                                    "Ouch, the library entries data cannot be shown to you. Please try again."
+                                                }
+                                                else -> {
+                                                    "Error in library entries data retrieval."
+                                                }
+                                            }, Snackbar.LENGTH_LONG
+                                        ).show()
+                                    }
                                 }
+                            }
 
-                                is DataLoadResult.Failed -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
+                            if (expertList != null) {
+                                when (expertList) {
+                                    is DataLoadResult.Loading -> {
+                                        loadFrame.visibility = View.VISIBLE
+                                        loadAnimLottie.visibility = View.VISIBLE
+                                    }
 
-                                    Snackbar.make(
-                                        libraryEntriesOverflowRecyclerview, when (locale) {
-                                            "in" -> {
-                                                "Aduh, data entri pustaka tidak bisa ditampilkan. Silakan coba lagi ya."
-                                            }
-                                            "en" -> {
-                                                "Ouch, the library entries data cannot be shown to you. Please try again."
-                                            }
-                                            else -> { "Error in library entries data retrieval." }
-                                        }, Snackbar.LENGTH_LONG
-                                    ).show()
+                                    is DataLoadResult.Successful -> {
+                                        loadFrame.visibility = View.GONE
+                                        loadAnimLottie.visibility = View.GONE
+                                        val entries = productList.data
+
+                                        showLibrarySection(entries)
+                                    }
+
+                                    is DataLoadResult.Failed -> {
+                                        loadFrame.visibility = View.GONE
+                                        loadAnimLottie.visibility = View.GONE
+
+                                        Snackbar.make(
+                                            libraryEntriesOverflowRecyclerview, when (locale) {
+                                                "in" -> {
+                                                    "Aduh, data para ahli kulit tidak bisa ditampilkan. Silakan coba lagi ya."
+                                                }
+                                                "en" -> {
+                                                    "Ouch, the skin experts data cannot be shown to you. Please try again."
+                                                }
+                                                else -> {
+                                                    "Error in skin experts data retrieval."
+                                                }
+                                            }, Snackbar.LENGTH_LONG
+                                        ).show()
+                                    }
                                 }
                             }
                         }
@@ -227,6 +273,14 @@ class HomepageFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun showExpertSection(expertList: List<ExpertEntity>) {
+        bind.expertsOverflowRecyclerview.layoutManager = LinearLayoutManager(requireActivity(),
+            LinearLayoutManager.HORIZONTAL, false)
+
+        val expertsOverflowAdapter = HomepageExpertContentListAdapter(expertList as ArrayList<ExpertEntity>)
+        bind.expertsOverflowRecyclerview.adapter = expertsOverflowAdapter
     }
 
     private fun viewEntry(entryModel: LibraryContentEntity, bundle: Bundle) {
