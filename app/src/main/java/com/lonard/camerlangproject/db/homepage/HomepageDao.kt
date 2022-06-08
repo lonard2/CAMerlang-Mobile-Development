@@ -12,7 +12,7 @@ interface HomepageDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addArticletoDb(articleItem: List<ArticleEntity>?)
 
-    @Query("DELETE * FROM articles")
+    @Query("DELETE FROM articles")
     suspend fun deleteAllArticles()
 
     @Query("SELECT * FROM articles")
@@ -23,7 +23,7 @@ interface HomepageDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addProductstoDb(productList: List<ProductEntity>?)
 
-    @Query("DELETE * FROM skincare_products")
+    @Query("DELETE FROM skincare_products")
     suspend fun deleteAllProducts()
 
     @Query("SELECT * FROM skincare_products WHERE is_popular = true")

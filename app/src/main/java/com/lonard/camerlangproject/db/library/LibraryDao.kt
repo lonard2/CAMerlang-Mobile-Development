@@ -13,7 +13,7 @@ interface LibraryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addEntryToDb(libraryItem: List<LibraryContentEntity>?)
 
-    @Query("DELETE * FROM library_contents")
+    @Query("DELETE FROM library_contents")
     suspend fun deleteAllLibraries()
 
     @Query("SELECT * FROM library_contents")
