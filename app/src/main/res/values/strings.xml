@@ -171,7 +171,7 @@
     <string name="products_subhead">Produk-produk perawatan kulit yang terpercaya dan populer untuk kulitmu.</string>
     <string name="library_entries_head">Masalah kulit terhangat</string>
     <string name="library_entries_subhead">Cek apa yang sedang diperbincangkan di dunia kesehatan kulit.</string>
-    <string name="loading_frame">Loading frame.</string>
+    <string name="loading_frame">Frame untuk loading.</string>
     <string name="gallery_btn_desc">Sebuah gambar, untuk menandakan icon galeri.</string>
     <string name="expert_pic_desc">Sebuah gambar suatu ahli yang melakukan supervisi terhadap konten ini.</string>
     <string name="expert_word">EXPERT</string>
@@ -181,11 +181,13 @@
     <string name="expert_verified_date">Diverifikasi pada 22 Juni 2022</string>
     <string name="experts_section_head">Ahli pilihan untuk konsultasi</string>
     <string name="experts_section_subhead">Konsultasikan masalah kulitmu secara langsung dan aman melalui para ahli terverifikasi berikut</string>
-    <string name="article_emoji_icon_desc">A newspaper which contains articles.</string>
-    <string name="products_emoji_icon_desc">A lotion bottle which can be described as one of skincare products.</string>
-    <string name="library_entries_emoji_icon_desc">Documents, like papers, which can be collected in libraries.</string>
-    <string name="experts_emoji_icon_desc">A certified doctor, who is one of skin experts.</string>
-    <string name="star_icon_desc">A star for indicating rating or score.</string>
+    <string name="article_emoji_icon_desc">Sebuah koran yang dapat berisikan banyak artikel.</string>
+    <string name="products_emoji_icon_desc">Sebuah botol lotion yang bisa dikatakan sebagai produk skincare.</string>
+    <string name="library_entries_emoji_icon_desc">Dokumen-dokumen, seperti kertas-kertas, yang bisa disimpan di perpustakaan.</string>
+    <string name="experts_emoji_icon_desc">Seorang dokter tersertifikasi, yang merupakan salah satu ahli kulit.</string>
+    <string name="star_icon_desc">Sebuah bintang yang bisa menandakan penilaian atau skor.</string>
     <string name="verified_homepage_txt">VERIFIED</string>
     <string name="sample_rating">0.0</string>
+
+    <string name="expert_verifed_date_format">diverifikasi pada %1$s</string>
 </resources>

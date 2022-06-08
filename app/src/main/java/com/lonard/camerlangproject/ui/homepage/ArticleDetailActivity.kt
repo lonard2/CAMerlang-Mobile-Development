@@ -2,8 +2,10 @@ package com.lonard.camerlangproject.ui.homepage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityArticleDetailBinding
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
+import com.lonard.camerlangproject.formatDateTime
 import com.squareup.picasso.Picasso
 
 class ArticleDetailActivity : AppCompatActivity() {
@@ -26,6 +28,12 @@ class ArticleDetailActivity : AppCompatActivity() {
             articleDatetimePublishedInfo.text = articleParcel.createdAt
             articleDurationReadApproxInfo.text = articleParcel.readDuration
             articleName.text = articleParcel.name
+
+            Picasso.get().load(articleParcel.expertImage).into(expertPic)
+
+            expertName.text = articleParcel.expertName
+            expertSpecialization.text = articleParcel.expertSpecialization
+            expertVerifiedDate.text = getString(R.string.expert_verifed_date_format, articleParcel.expertVerificationDate.formatDateTime())
 
             articleHeader.text = articleParcel.header
             articleContent.text = articleParcel.content

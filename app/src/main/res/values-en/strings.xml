@@ -188,4 +188,6 @@
     <string name="star_icon_desc">A star for indicating rating or score.</string>
     <string name="verified_homepage_txt">VERIFIED</string>
     <string name="sample_rating">0.0</string>
+
+    <string name="expert_verifed_date_format">verified on %1$s</string>
 </resources>

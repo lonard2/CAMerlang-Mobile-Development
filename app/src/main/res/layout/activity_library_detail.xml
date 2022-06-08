@@ -107,7 +107,7 @@
                 android:layout_marginStart="25dp"
 
                 android:src="@color/md_theme_light_secondaryContainer_50"
-                android:scaleType="center"
+                android:scaleType="centerCrop"
 
                 android:contentDescription="@string/expert_pic_desc"
 

@@ -20,7 +20,7 @@ data class ProductEntity (
     @ColumnInfo(name = "product_img")
     var thumbnail: String? = null,
 
-    @ColumnInfo(name = "isPopular")
+    @ColumnInfo(name = "is_popular")
     var isPopular: Boolean? = null,
 
     @ColumnInfo(name = "brand_image")

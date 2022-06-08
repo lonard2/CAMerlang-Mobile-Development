@@ -31,7 +31,7 @@ class LibraryDetailMoreAdapter(private val diseaseEntriesList: ArrayList<Library
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(entryPicUrl, entryDesc) = diseaseEntriesList[position]
+        val(_, _, entryDesc, entryPicUrl, _, _, _, _) = diseaseEntriesList[position]
 
         holder.bind.apply {
             Picasso.get().load(entryPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)

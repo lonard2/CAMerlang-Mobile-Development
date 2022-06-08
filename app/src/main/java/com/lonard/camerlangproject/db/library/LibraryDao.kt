@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.lonard.camerlangproject.db.homepage.ProductEntity
 
 interface LibraryDao {
 
@@ -15,4 +16,7 @@ interface LibraryDao {
 
     @Query("SELECT * FROM library_contents")
     fun retrieveAllEntries(): LiveData<List<LibraryContentEntity>>
+
+    @Query("SELECT * FROM skincare_products")
+    fun retrieveProducts(): LiveData<List<ProductEntity>>
 }

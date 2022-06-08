@@ -1,6 +1,8 @@
 package com.lonard.camerlangproject.api
 
 import com.lonard.camerlangproject.db.homepage.ArticleResponse
+import com.lonard.camerlangproject.db.homepage.NotificationContentResponse
+import com.lonard.camerlangproject.db.homepage.ProductResponse
 import com.lonard.camerlangproject.db.library.LibraryContentResponse
 import com.lonard.camerlangproject.db.library.LibraryDataItem
 import retrofit2.Call
@@ -11,7 +13,7 @@ import retrofit2.http.Query
 
 interface ApiInterface {
 
-    // Endpoint 1. Retrieve articles (and products) information
+    // Endpoint 1. Retrieve articles information
     @GET("articles")
     suspend fun retrieveArticles(
         @Query("article_titles") articleTitle: String?,
@@ -34,5 +36,16 @@ interface ApiInterface {
     suspend fun retrieveLibraryDetails(
         @Path("id") id: Int
     ): LibraryDataItem
+
+    // Endpoint 4. Retrieve skincare products information
+    @GET("skincare_products")
+    suspend fun retrieveProductsInformation(
+        @Query("product_names") product: String?,
+    ): ProductResponse
+
+    // Endpoint 5. Retrieve notification data
+    @GET("notifications")
+    suspend fun retrieveNotificationContent(): NotificationContentResponse
+
 
 }

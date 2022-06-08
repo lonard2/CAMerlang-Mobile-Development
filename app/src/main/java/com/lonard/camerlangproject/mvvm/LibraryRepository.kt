@@ -7,6 +7,7 @@ import androidx.lifecycle.map
 import com.lonard.camerlangproject.api.ApiInterface
 import com.lonard.camerlangproject.db.AppDB
 import com.lonard.camerlangproject.db.DataLoadResult
+import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDao
 
@@ -85,34 +86,39 @@ class LibraryRepository(private val db: AppDB,
         emitSource(savedData)
     }
 
-//    fun retrieveLibraryEntriesList(): LiveData<DataLoadResult<List<LibraryContentEntity>>> = liveData {
-//        emit(DataLoadResult.Loading)
-//
-//        try {
-//            val api = api.retrieveLibrary(null)
-//            val libraryEntries = api.data
-//
-//            val libraryItemDb = libraryEntries.map { library ->
-//                LibraryContentEntity(
-//                    library.id,
-//                    library.createdAt,
-//                    library.name,
-//                    library.thumbnail,
-//                    library.bodyType,
-//                    library.problemSeverity,
-//                    library.contentHeader,
-//                    library.content
-//                )
-//            }
-//
-//        } catch (exception: Exception) {
-//            emit(DataLoadResult.Failed(exception.message.toString()))
-//            Log.e(TAG, "Cannot retrieve specific library entry from application API server." +
-//                    "Occurred error: ${exception.message.toString()}")
-//        }
-//
-//        DataLoadResult.Successful(articleItem)
-//    }
+    fun retrieveProductsInfo(): LiveData<DataLoadResult<List<ProductEntity>>> = liveData {
+
+        emit(DataLoadResult.Loading)
+
+        try {
+            val api = api.retrieveProductsInformation(null)
+            val products = api.data
+
+            val productsListDb = products.map { product ->
+                ProductEntity(
+                    product.id,
+                    product.name,
+                    product.image,
+                    product.isPopular,
+                    product.brand,
+                )
+            }
+
+            db.homepageDao().deleteAllProducts()
+            db.homepageDao().addProductstoDb(productsListDb)
+        } catch (exception: Exception) {
+            emit(DataLoadResult.Failed(exception.message.toString()))
+            Log.e(
+                TAG, "Cannot retrieve products information from application API server." +
+                    "Occurred error: ${exception.message.toString()}")
+        }
+
+        val savedData: LiveData<DataLoadResult<List<ProductEntity>>> = libraryDao.retrieveProducts().map { productItem ->
+            DataLoadResult.Successful(productItem)
+        }
+        emitSource(savedData)
+    }
+
 
     companion object {
         private const val TAG = "Library Repository"

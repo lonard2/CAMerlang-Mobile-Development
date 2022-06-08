@@ -7,6 +7,6 @@ class LibraryViewModel(private val libraryRepo: LibraryRepository): ViewModel() 
     fun searchLibrary(query: String) = libraryRepo.retrieveLibraryEntriesListWithSearchQuery(query)
 
     fun retrieveLibraryEntriesList() = libraryRepo.retrieveLibraryEntriesList()
-//
-//    fun retrieveSpecificLibraryEntry() = libraryRepo.retrieveSpecificLibraryEntry()
+
+    fun retrieveProductsInfo() = libraryRepo.retrieveProductsInfo()
 }

@@ -6,5 +6,7 @@ import androidx.lifecycle.ViewModel
 class HomepageViewModel(private val homeRepo: HomepageRepository): ViewModel() {
 
     fun getArticlesData() = homeRepo.retrieveArticles()
+    fun getPopularProducts() = homeRepo.retrievePopularProducts()
+    fun getNotificationContent() = homeRepo.retrieveNotificationContent()
 
 }

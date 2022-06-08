@@ -12,12 +12,6 @@ import com.squareup.picasso.Picasso
 
 class HomepageProductContentListAdapter(private val itemList: ArrayList<ProductEntity>): RecyclerView.Adapter<HomepageProductContentListAdapter.ViewHolder>() {
 
-    private lateinit var onItemClickCallback: OnItemClickCallback
-
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
-    }
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -27,17 +21,13 @@ class HomepageProductContentListAdapter(private val itemList: ArrayList<ProductE
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(_, _, itemName, itemThumbnail, itemSellerPic, _, _) = itemList[position]
+        val(_, productName, productPicUrl, _, sellerPicUrl) = itemList[position]
 
         holder.bind.apply {
-            Picasso.get().load(itemThumbnail).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
-            Picasso.get().load(itemSellerPic).placeholder(ShimmerPlaceHolder.active()).into(contentListImageSellerPic)
+            Picasso.get().load(productPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
+            Picasso.get().load(sellerPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImageSellerPic)
 
-            contentTitle.text = itemName
-        }
-
-        holder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClicked(itemList[holder.bindingAdapterPosition])
+            contentTitle.text = productName
         }
     }
 
@@ -45,7 +35,4 @@ class HomepageProductContentListAdapter(private val itemList: ArrayList<ProductE
 
     class ViewHolder(var bind: OverflowRvBoxInsideDetailBinding): RecyclerView.ViewHolder(bind.root)
 
-    interface OnItemClickCallback {
-        fun onItemClicked(data: ProductEntity)
-    }
 }

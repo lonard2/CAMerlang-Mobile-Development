@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "skincare_products")
+@Entity(tableName = "notification_categories")
 data class NotificationCatEntity (
 
     @PrimaryKey(autoGenerate = false)
@@ -19,5 +19,4 @@ data class NotificationCatEntity (
 
     @ColumnInfo(name = "notification_cat_desc")
     var description: String? = null,
-
-    ): Parcelable
+): Parcelable

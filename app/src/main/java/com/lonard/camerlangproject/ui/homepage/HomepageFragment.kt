@@ -55,7 +55,7 @@ class HomepageFragment : Fragment() {
             }
 
             homeViewModel.getArticlesData().observe(viewLifecycleOwner) { articleList ->
-                homeViewModel.getProductsData().observe(viewLifecycleOwner) { productList ->
+                homeViewModel.getPopularProducts().observe(viewLifecycleOwner) { productList ->
                     homeViewModel.getLibraryEntriesData().observer(viewLifecycleOwner) { libraryList ->
                         homeViewModel.getExpertData().observer(viewLifecycleOwner) { expertList ->
                             if (articleList != null) {
@@ -117,13 +117,13 @@ class HomepageFragment : Fragment() {
                                         Snackbar.make(
                                             productsOverflowRecyclerview, when (locale) {
                                                 "in" -> {
-                                                    "Aduh, data produk tidak bisa ditampilkan. Silakan coba lagi ya."
+                                                    "Aduh, data produk populer tidak bisa ditampilkan. Silakan coba lagi ya."
                                                 }
                                                 "en" -> {
-                                                    "Ouch, the products data cannot be shown to you. Please try again."
+                                                    "Ouch, the popular products data cannot be shown to you. Please try again."
                                                 }
                                                 else -> {
-                                                    "Error in products data retrieval."
+                                                    "Error in popular products data retrieval."
                                                 }
                                             },
                                             Snackbar.LENGTH_LONG
@@ -241,7 +241,12 @@ class HomepageFragment : Fragment() {
                     thumbnailPic,
                     type,
                     readDuration,
-                    content
+                    expertName,
+                    expertSpecialization,
+                    expertVerificationDate,
+                    expertImage,
+                    header,
+                    content,
                 )
             }
 

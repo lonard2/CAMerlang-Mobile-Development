@@ -12,6 +12,8 @@ import com.lonard.camerlangproject.api.NotificationResponseItem
 import com.lonard.camerlangproject.databinding.ActivityLibraryHomeBinding
 import com.lonard.camerlangproject.databinding.ActivityNotificationBinding
 import com.lonard.camerlangproject.db.DataLoadResult
+import com.lonard.camerlangproject.db.homepage.NotificationCatEntity
+import com.lonard.camerlangproject.db.homepage.NotificationContentEntity
 import com.lonard.camerlangproject.mvvm.HomepageViewModel
 import com.lonard.camerlangproject.mvvm.HomepageViewModelFactory
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
@@ -37,7 +39,7 @@ class NotificationActivity : AppCompatActivity() {
 
         bind.apply {
             homeViewModel.getNotificationCategories().observe() { notificationCatList ->
-                homeViewModel.getNotificationList.observe() { notificationList ->
+                homeViewModel.getNotificationContent().observe(this@NotificationActivity) { notificationList ->
                     if (notificationList != null) {
                         when (notificationList) {
                             is DataLoadResult.Loading -> {
@@ -118,19 +120,19 @@ class NotificationActivity : AppCompatActivity() {
         }
     }
 
-    private fun showCategories(categoryItems: List<NotificationCategoryItem>) {
+    private fun showCategories(categoryItems: List<NotificationCatEntity>) {
         bind.notificationCatListRv.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.HORIZONTAL, false)
 
-        val categoryAdapter = NotificationCatAdapter(categoryItems as ArrayList<NotificationResponseItem>)
+        val categoryAdapter = NotificationCatAdapter(categoryItems as ArrayList<NotificationCatEntity>)
         bind.notificationCatListRv.adapter = categoryAdapter
     }
 
-    private fun showNotificationList(notificationItems: List<NotificationItem>) {
+    private fun showNotificationList(notificationItems: List<NotificationContentEntity>) {
         bind.notificationDataListRv.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.HORIZONTAL, false)
 
-        val notificationAdapter = NotificationListAdapter(notificationItems as ArrayList<NotificationResponseItem>)
+        val notificationAdapter = NotificationListAdapter(notificationItems as ArrayList<NotificationContentEntity>)
         bind.notificationDataListRv.adapter = notificationAdapter
     }
 }

@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "skincare_products")
+@Entity(tableName = "notifications")
 data class NotificationContentEntity (
 
     @PrimaryKey(autoGenerate = false)
