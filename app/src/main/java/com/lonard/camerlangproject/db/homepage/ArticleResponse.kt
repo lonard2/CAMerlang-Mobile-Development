@@ -20,17 +20,14 @@ data class ArticleDataItem(
 	@field:SerializedName("thumbnail")
 	val thumbnail: String,
 
-	@field:SerializedName("updatedAt")
-	val updatedAt: String,
-
-	@field:SerializedName("createdAt")
+	@field:SerializedName("created_at")
 	val createdAt: String,
 
-	@field:SerializedName("contentHeader")
+	@field:SerializedName("content_header")
 	val contentHeader: String,
 
-	@field:SerializedName("id")
-	val id: Int,
+	@field:SerializedName("expert_specialization")
+	val expertSpecialization: String,
 
 	@field:SerializedName("title")
 	val title: String,
@@ -42,6 +39,20 @@ data class ArticleDataItem(
 	val readDuration: String,
 
 	@field:SerializedName("content")
-	val content: String
+	val content: String,
 
+	@field:SerializedName("expert_verification_date")
+	val expertVerificationDate: String,
+
+	@field:SerializedName("updated_at")
+	val updatedAt: String,
+
+	@field:SerializedName("expert_name")
+	val expertName: String,
+
+	@field:SerializedName("id")
+	val id: Int,
+
+	@field:SerializedName("expert_image")
+	val expertImage: String
 ): Parcelable
