@@ -46,7 +46,7 @@ interface HomepageDao {
     suspend fun addNotificationCategoriestoDb(notificationCatList: List<NotificationCatEntity>?)
 
     @Query("DELETE FROM notification_categories")
-    suspend fun deleteAllNotificationCategories(): LiveData<List<NotificationCatEntity>>
+    suspend fun deleteAllNotificationCategories()
 
     @Query("SELECT * FROM notification_categories")
     fun retrieveNotificationCategories(): LiveData<List<NotificationCatEntity>>
