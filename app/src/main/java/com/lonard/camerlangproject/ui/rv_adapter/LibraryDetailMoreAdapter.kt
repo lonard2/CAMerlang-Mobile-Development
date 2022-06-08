@@ -7,11 +7,8 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
-import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideBinding
-import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideDetailBinding
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
-import com.lonard.camerlangproject.db.library.LibraryDataItem
 import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso
 
@@ -31,7 +28,7 @@ class LibraryDetailMoreAdapter(private val diseaseEntriesList: ArrayList<Library
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(_, _, entryDesc, entryPicUrl, _, _, _, _) = diseaseEntriesList[position]
+        val(_, entryDesc, entryPicUrl, _, _, _, _, _, _, _, _, _, _) = diseaseEntriesList[position]
 
         holder.bind.apply {
             Picasso.get().load(entryPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)

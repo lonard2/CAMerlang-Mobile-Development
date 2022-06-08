@@ -56,23 +56,24 @@ class LibraryDetailActivity : AppCompatActivity() {
                 finish()
             }
 
-            Picasso.get().load(diseaseParcel.selectedItemImgUrl).into(libDetailHeaderPic)
+            Picasso.get().load(diseaseParcel.thumbnailPic).into(libDetailHeaderPic)
 
-            diseaseTypeInfo.text = diseaseParcel.selectedLibItemType
-            diseaseLevelInfo.text = diseaseParcel.selectedLibItemLevel
-            diseaseName.text = diseaseParcel.selectedLibItemName
+            diseaseTypeInfo.text = diseaseParcel.bodyType
+            diseaseLevelInfo.text = diseaseParcel.problemSeverity
+            diseaseName.text = diseaseParcel.name
 
             Picasso.get().load(diseaseParcel.expertImage).into(expertPic)
 
             expertName.text = diseaseParcel.expertName
             expertSpecialization.text = diseaseParcel.expertSpecialization
-            expertVerifiedDate.text = getString(R.string.expert_verifed_date_format, diseaseParcel.expertVerificationDate.formatDateTime())
+            expertVerifiedDate.text = getString(R.string.expert_verifed_date_format, diseaseParcel.verifiedAt?.formatDateTime())
 
-            libItemShortDesc.text = diseaseParcel.selectedLibItemShortDesc
+            libItemShortDesc.text = diseaseParcel.contentHeader
+            libItemContent.text = diseaseParcel.content
 
             libDetailHeaderPic.setOnClickListener {
                 val showImageIntent = Intent(this@LibraryDetailActivity, ImageShowActivity::class.java)
-                showImageIntent.putExtra(ImageShowActivity.EXTRA_PIC, diseaseParcel.selectedItemImgUrl)
+                showImageIntent.putExtra(ImageShowActivity.EXTRA_PIC, diseaseParcel.thumbnailPic)
 
                 val sharedAnim =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(

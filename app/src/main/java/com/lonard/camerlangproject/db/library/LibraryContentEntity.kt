@@ -14,9 +14,6 @@ data class LibraryContentEntity (
     @ColumnInfo(name = "id")
     var id: Int?,
 
-    @ColumnInfo(name = "created_at")
-    var createdAt: String? = null,
-
     @ColumnInfo(name = "entry_name")
     var name: String? = null,
 
@@ -29,10 +26,28 @@ data class LibraryContentEntity (
     @ColumnInfo(name = "problem_severity")
     var problemSeverity: String? = null,
 
+    @ColumnInfo(name = "expert_name")
+    var expertName: String? = null,
+
+    @ColumnInfo(name = "expert_specialization")
+    var expertSpecialization: String? = null,
+
+    @ColumnInfo(name = "expert_verification_date")
+    var verifiedAt: String? = null,
+
+    @ColumnInfo(name = "expert_image")
+    var expertImage: String? = null,
+
+    @ColumnInfo(name = "body_parts")
+    var bodyParts: String? = null,
+
     @ColumnInfo(name = "entry_header")
     var contentHeader: String? = null,
 
     @ColumnInfo(name = "entry_content")
     var content: String? = null,
+
+    @ColumnInfo(name = "created_at")
+    var createdAt: String? = null,
 
 ): Parcelable

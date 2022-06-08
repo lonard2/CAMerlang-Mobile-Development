@@ -6,18 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideDetailBinding
 import com.lonard.camerlangproject.databinding.OverflowRvBoxOutsideBinding
 import com.lonard.camerlangproject.databinding.RvExpertListsHomepageBinding
+import com.lonard.camerlangproject.db.consultation.ExpertEntity
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso
 
-class HomepageExpertContentListAdapter(private val itemList: ArrayList<ExpertEntity>): RecyclerView.Adapter<HomepageExpertContentListAdapter.ViewHolder>() {
-
-    private lateinit var onItemClickCallback: OnItemClickCallback
-
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
-    }
+class HomepageExpertContentListAdapter(private val peopleList: ArrayList<ExpertEntity>): RecyclerView.Adapter<HomepageExpertContentListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -28,22 +23,18 @@ class HomepageExpertContentListAdapter(private val itemList: ArrayList<ExpertEnt
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(_, _, itemName, itemThumbnail, itemSellerPic, _, _) = peopleList[position]
+        val(_, expertShownName, expertPicUrl, expertRole, expertScore, _) = peopleList[position]
 
         holder.bind.apply {
-            Picasso.get().load(expertDataPic).placeholder(ShimmerPlaceHolder.active()).into(expertImage)
+            Picasso.get().load(expertPicUrl).placeholder(ShimmerPlaceHolder.active()).into(expertImage)
 
-            expertName.text = expertDataName
-            expertSpecialization.text = expertDataSpecialization
-            ratingValue.text = expertDataRating
+            expertName.text = expertShownName
+            expertSpecialization.text = expertRole
+            ratingValue.text = expertScore.toString()
         }
     }
 
-    override fun getItemCount(): Int = itemList.size
+    override fun getItemCount(): Int = peopleList.size
 
     class ViewHolder(var bind: RvExpertListsHomepageBinding): RecyclerView.ViewHolder(bind.root)
-
-    interface OnItemClickCallback {
-        fun onItemClicked(data: ExpertEntity)
-    }
 }

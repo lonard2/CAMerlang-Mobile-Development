@@ -1,14 +1,13 @@
 package com.lonard.camerlangproject.api
 
+import com.lonard.camerlangproject.db.consultation.ExpertResponse
 import com.lonard.camerlangproject.db.homepage.ArticleResponse
 import com.lonard.camerlangproject.db.homepage.NotificationCatResponse
 import com.lonard.camerlangproject.db.homepage.NotificationContentResponse
 import com.lonard.camerlangproject.db.homepage.ProductResponse
+import com.lonard.camerlangproject.db.library.LibraryContentDataItem
 import com.lonard.camerlangproject.db.library.LibraryContentResponse
-import com.lonard.camerlangproject.db.library.LibraryDataItem
-import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -36,7 +35,7 @@ interface ApiInterface {
     @GET("libraries/{id}")
     suspend fun retrieveLibraryDetails(
         @Path("id") id: Int
-    ): LibraryDataItem
+    ): LibraryContentDataItem
 
     // Endpoint 4. Retrieve skincare products information
     @GET("skincare_products")
@@ -51,5 +50,11 @@ interface ApiInterface {
     // Endpoint 6. Retrieve notification categories
     @GET("notification_categories")
     suspend fun retrieveNotificationCategories(): NotificationCatResponse
+
+    // Endpoint 7. Retrieve expert informations
+    @GET("experts")
+    suspend fun retrieveExpertsInfo(
+        @Query("name") expertName: String?,
+    ): ExpertResponse
 
 }

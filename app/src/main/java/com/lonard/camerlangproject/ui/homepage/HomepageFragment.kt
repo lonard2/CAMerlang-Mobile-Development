@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.databinding.FragmentHomepageBinding
 import com.lonard.camerlangproject.db.DataLoadResult
+import com.lonard.camerlangproject.db.consultation.ExpertEntity
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
-import com.lonard.camerlangproject.mvvm.HomepageViewModel
-import com.lonard.camerlangproject.mvvm.HomepageViewModelFactory
+import com.lonard.camerlangproject.mvvm.*
 import com.lonard.camerlangproject.ui.library.LibraryDetailActivity
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageArticleContentListAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageExpertContentListAdapter
@@ -48,6 +48,16 @@ class HomepageFragment : Fragment() {
             homeFactory
         }
 
+        val consultFactory: ConsultationViewModelFactory = ConsultationViewModelFactory.getFactory(requireContext())
+        val consultViewModel: ConsultationViewModel by viewModels {
+            consultFactory
+        }
+
+        val libraryFactory: LibraryViewModelFactory = LibraryViewModelFactory.getFactory(requireContext())
+        val libraryViewModel: LibraryViewModel by viewModels {
+            libraryFactory
+        }
+
         bind.apply {
             notificationBtnIcon.setOnClickListener {
                 val notificationScreenIntent = Intent(context, NotificationActivity::class.java)
@@ -56,8 +66,8 @@ class HomepageFragment : Fragment() {
 
             homeViewModel.getArticlesData().observe(viewLifecycleOwner) { articleList ->
                 homeViewModel.getPopularProducts().observe(viewLifecycleOwner) { productList ->
-                    homeViewModel.getLibraryEntriesData().observer(viewLifecycleOwner) { libraryList ->
-                        homeViewModel.getExpertData().observer(viewLifecycleOwner) { expertList ->
+                    libraryViewModel.retrieveLibraryEntriesList().observe(viewLifecycleOwner) { libraryList ->
+                        consultViewModel.retrieveExpertsData().observe(viewLifecycleOwner) { expertList ->
                             if (articleList != null) {
                                 when (articleList) {
                                     is DataLoadResult.Loading -> {
@@ -142,7 +152,7 @@ class HomepageFragment : Fragment() {
                                     is DataLoadResult.Successful -> {
                                         loadFrame.visibility = View.GONE
                                         loadAnimLottie.visibility = View.GONE
-                                        val entries = productList.data
+                                        val entries = libraryList.data
 
                                         showLibrarySection(entries)
                                     }
@@ -178,9 +188,9 @@ class HomepageFragment : Fragment() {
                                     is DataLoadResult.Successful -> {
                                         loadFrame.visibility = View.GONE
                                         loadAnimLottie.visibility = View.GONE
-                                        val entries = productList.data
+                                        val expertPeople = expertList.data
 
-                                        showLibrarySection(entries)
+                                        showExpertSection(expertPeople)
                                     }
 
                                     is DataLoadResult.Failed -> {
@@ -281,11 +291,11 @@ class HomepageFragment : Fragment() {
     }
 
     private fun showExpertSection(expertList: List<ExpertEntity>) {
-        bind.expertsOverflowRecyclerview.layoutManager = LinearLayoutManager(requireActivity(),
+        bind.expertsOverflowRecyclerview?.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.HORIZONTAL, false)
 
         val expertsOverflowAdapter = HomepageExpertContentListAdapter(expertList as ArrayList<ExpertEntity>)
-        bind.expertsOverflowRecyclerview.adapter = expertsOverflowAdapter
+        bind.expertsOverflowRecyclerview?.adapter = expertsOverflowAdapter
     }
 
     private fun viewEntry(entryModel: LibraryContentEntity, bundle: Bundle) {
