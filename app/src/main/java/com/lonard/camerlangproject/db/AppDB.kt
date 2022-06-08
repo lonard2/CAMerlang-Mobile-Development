@@ -6,16 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.lonard.camerlangproject.db.consultation.ConsultationDao
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
-import com.lonard.camerlangproject.db.homepage.ArticleEntity
-import com.lonard.camerlangproject.db.homepage.HomepageDao
-import com.lonard.camerlangproject.db.homepage.ProductEntity
+import com.lonard.camerlangproject.db.homepage.*
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDao
 import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
 
 @Database(entities = [LibraryContentEntity::class, ArticleEntity::class,
-                     ProductEntity::class, ConsultationItemEntity::class, LibraryDetailImgEntity::class],
-    version = 1)
+    ProductEntity::class, ConsultationItemEntity::class, LibraryDetailImgEntity::class,
+    NotificationContentEntity::class, NotificationCatEntity::class],
+    version = 1, exportSchema = false)
 abstract class AppDB: RoomDatabase() {
 
     abstract fun libraryDao(): LibraryDao
