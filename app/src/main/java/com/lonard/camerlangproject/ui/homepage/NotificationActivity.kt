@@ -38,7 +38,7 @@ class NotificationActivity : AppCompatActivity() {
         }
 
         bind.apply {
-            homeViewModel.getNotificationCategories().observe() { notificationCatList ->
+            homeViewModel.getNotificationCategories().observe(this@NotificationActivity) { notificationCatList ->
                 homeViewModel.getNotificationContent().observe(this@NotificationActivity) { notificationList ->
                     if (notificationList != null) {
                         when (notificationList) {

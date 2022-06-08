@@ -91,6 +91,36 @@ class HomepageRepository(private val db: AppDB,
         emitSource(savedData)
     }
 
+    fun retrieveNotificationCategories(): LiveData<DataLoadResult<List<NotificationCatEntity>>> = liveData {
+
+        emit(DataLoadResult.Loading)
+
+        try {
+            val api = api.retrieveNotificationCategories()
+            val notificationCategory = api.data
+
+            val notificationCategoryDb = notificationCategory.map { notification_category ->
+                NotificationCatEntity(
+                    notification_category.id,
+                    notification_category.name,
+                    notification_category.description
+                )
+            }
+
+            db.homepageDao().deleteAllNotificationCategories()
+            db.homepageDao().addNotificationCategoriestoDb(notificationCategoryDb)
+        } catch (exception: Exception) {
+            emit(DataLoadResult.Failed(exception.message.toString()))
+            Log.e(TAG, "Cannot retrieve notification content information from application API server." +
+                    "Occurred error: ${exception.message.toString()}")
+        }
+
+        val savedData: LiveData<DataLoadResult<List<NotificationCatEntity>>> = homeDao.retrieveNotificationCategories().map { notificationCategories ->
+            DataLoadResult.Successful(notificationCategories)
+        }
+        emitSource(savedData)
+    }
+
     fun retrieveNotificationContent(): LiveData<DataLoadResult<List<NotificationContentEntity>>> = liveData {
 
         emit(DataLoadResult.Loading)

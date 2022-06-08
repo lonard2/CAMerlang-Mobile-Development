@@ -1,6 +1,7 @@
 package com.lonard.camerlangproject.api
 
 import com.lonard.camerlangproject.db.homepage.ArticleResponse
+import com.lonard.camerlangproject.db.homepage.NotificationCatResponse
 import com.lonard.camerlangproject.db.homepage.NotificationContentResponse
 import com.lonard.camerlangproject.db.homepage.ProductResponse
 import com.lonard.camerlangproject.db.library.LibraryContentResponse
@@ -47,5 +48,8 @@ interface ApiInterface {
     @GET("notifications")
     suspend fun retrieveNotificationContent(): NotificationContentResponse
 
+    // Endpoint 6. Retrieve notification categories
+    @GET("notification_categories")
+    suspend fun retrieveNotificationCategories(): NotificationCatResponse
 
 }

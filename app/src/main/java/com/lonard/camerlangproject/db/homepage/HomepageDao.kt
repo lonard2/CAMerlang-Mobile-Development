@@ -32,12 +32,21 @@ interface HomepageDao {
     // notification content-related CRUD functions
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addNotificationtoDb(productList: List<NotificationContentEntity>?)
+    suspend fun addNotificationtoDb(notificationList: List<NotificationContentEntity>?)
 
-    @Query("DELETE * FROM notifications")
+    @Query("DELETE FROM notifications")
     suspend fun deleteAllNotifications()
 
     @Query("SELECT * FROM notifications")
     fun retrieveNotificationContents(): LiveData<List<NotificationContentEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addNotificationCategoriestoDb(notificationCatList: List<NotificationCatEntity>?)
+
+    @Query("DELETE FROM notification_categories")
+    suspend fun deleteAllNotificationCategories(): LiveData<List<NotificationCatEntity>>
+
+    @Query("SELECT * FROM notification_categories")
+    fun retrieveNotificationCategories(): LiveData<List<NotificationCatEntity>>
 
 }
