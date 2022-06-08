@@ -40,6 +40,8 @@ interface HomepageDao {
     @Query("SELECT * FROM notifications")
     fun retrieveNotificationContents(): LiveData<List<NotificationContentEntity>>
 
+    // notification category-related CRUD operations
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addNotificationCategoriestoDb(notificationCatList: List<NotificationCatEntity>?)
 

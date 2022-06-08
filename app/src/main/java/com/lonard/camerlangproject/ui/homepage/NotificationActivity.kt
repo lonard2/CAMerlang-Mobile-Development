@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.api.NotificationResponseItem
-import com.lonard.camerlangproject.databinding.ActivityLibraryHomeBinding
 import com.lonard.camerlangproject.databinding.ActivityNotificationBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.homepage.NotificationCatEntity
