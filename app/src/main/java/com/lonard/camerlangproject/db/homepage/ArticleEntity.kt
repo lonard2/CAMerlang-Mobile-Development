@@ -4,6 +4,7 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -28,6 +29,18 @@ data class ArticleEntity (
 
     @ColumnInfo(name = "article_duration")
     var readDuration: String? = null,
+
+    @ColumnInfo("expert_name")
+    val expertName: String,
+
+    @ColumnInfo("expert_specialization")
+    val expertSpecialization: String,
+
+    @ColumnInfo("expert_verification_date")
+    val expertVerificationDate: String,
+
+    @ColumnInfo("expert_image")
+    val expertImage: String,
 
     @ColumnInfo(name = "header")
     var header: String? = null,

@@ -8,22 +8,16 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity(tableName = "skincare_products")
-data class ProductEntity (
+data class NotificationCatEntity (
 
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id")
     var id: Int?,
 
-    @ColumnInfo(name = "product_name")
+    @ColumnInfo(name = "notification_cat_name")
     var name: String? = null,
 
-    @ColumnInfo(name = "product_img")
-    var thumbnail: String? = null,
+    @ColumnInfo(name = "notification_cat_desc")
+    var description: String? = null,
 
-    @ColumnInfo(name = "isPopular")
-    var isPopular: Boolean? = null,
-
-    @ColumnInfo(name = "brand_image")
-    var brandImg: String? = null,
-
-): Parcelable
+    ): Parcelable
