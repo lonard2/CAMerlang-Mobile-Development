@@ -2,11 +2,9 @@ package com.lonard.camerlangproject.db.homepage
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagingSource
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
+@Dao
 interface HomepageDao {
 
     // articles-related CRUD functions
