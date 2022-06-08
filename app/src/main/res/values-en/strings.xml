@@ -173,4 +173,10 @@
     <string name="library_entries_subhead">Check what is happening in skin health world.</string>
     <string name="loading_frame">Loading frame.</string>
     <string name="gallery_btn_desc">A picture for indicating gallery icon.</string>
+    <string name="expert_pic_desc">Image of a expert overseeing this content.</string>
+    <string name="expert_word">EXPERT</string>
+    <string name="verified_word">VERIFIED</string>
+    <string name="expert_name">Nama ahli</string>
+    <string name="expert_specialization">Spesialisasi ahli di institusi kesehatan</string>
+    <string name="expert_verified_date">Diverifikasi pada 22 Juni 2022</string>
 </resources>

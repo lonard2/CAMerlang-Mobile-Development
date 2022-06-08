@@ -13,7 +13,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_credits.xml" value="0.2125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_image_show.xml" value="0.18125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_image_taken_preview.xml" value="0.18125" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_library_detail.xml" value="0.13489583333333333" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_library_detail.xml" value="0.18805309734513273" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_notification.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_scanner.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_scanner_camera.xml" value="0.11756756756756757" />
@@ -23,6 +23,8 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_homepage.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_library_home.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_library_home_main.xml" value="0.13489583333333333" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_settings_main.xml" value="0.1586147926464301" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/layout_expert_lists_homepage.xml" value="0.144140625" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_inside.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_inside_detail.xml" value="0.13489583333333333" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_inside_small.xml" value="0.264" />
