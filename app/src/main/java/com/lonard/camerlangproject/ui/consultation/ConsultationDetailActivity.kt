@@ -43,7 +43,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
             Picasso.get().load(consultationParcel.consultationImg).into(consultationTakenImage)
 
-            consultationIdDetail.text = getString(R.string.consultation_id_format, consultationParcel.id)
+            consultationIdDetail.text = getString(R.string.consultation_id_format, consultationParcel.id.toString())
             consultationDatetimeDetail.text = consultationParcel.processedAt
 
             consultationTakenImage.setOnClickListener {
@@ -59,7 +59,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
                 startActivity(viewZoomedImg, sharedAnim.toBundle())
             }
 
-            val consultFactory: ConsultationViewModelFactory = ConsultationViewModelFactory.getFactory(requireContext())
+            val consultFactory: ConsultationViewModelFactory = ConsultationViewModelFactory.getFactory(this@ConsultationDetailActivity)
             val consultViewModel: ConsultationViewModel by viewModels {
                 consultFactory
             }
