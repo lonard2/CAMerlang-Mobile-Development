@@ -8,10 +8,11 @@ import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.ConsultationHistoryRvBoxBinding
 import com.lonard.camerlangproject.databinding.OverflowRvOnlyPicBinding
 import com.lonard.camerlangproject.databinding.RvBoxConsultationDetailResultBinding
+import com.lonard.camerlangproject.db.consultation.ConsultationDetectionItemEntity
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.squareup.picasso.Picasso
 
-class ConsultationDetailAdapter(private val consultationList: ArrayList<ConsultationItemEntity>): RecyclerView.Adapter<ConsultationDetailAdapter.ViewHolder>() {
+class ConsultationDetailAdapter(private val consultationList: ArrayList<ConsultationDetectionItemEntity>): RecyclerView.Adapter<ConsultationDetailAdapter.ViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -28,11 +29,12 @@ class ConsultationDetailAdapter(private val consultationList: ArrayList<Consulta
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(datetime, outcome, id) = consultationList[position]
+        val(outcomeId, outcomeName, outcomePercent) = consultationList[position]
 
         holder.bind.apply {
-            diagnosisId.text = id
-            datetimeInfo.text = datetime
+            problemNumber.text = outcomeId.toString()
+            problemShow.text = outcomeName
+            problemPercentageTxt.text = outcomePercent
         }
     }
 

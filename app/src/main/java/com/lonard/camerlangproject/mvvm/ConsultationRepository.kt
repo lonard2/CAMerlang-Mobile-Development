@@ -8,6 +8,7 @@ import com.lonard.camerlangproject.api.ApiInterface
 import com.lonard.camerlangproject.db.AppDB
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.consultation.ConsultationDao
+import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.lonard.camerlangproject.db.consultation.ExpertEntity
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.lonard.camerlangproject.db.homepage.HomepageDao
@@ -48,6 +49,18 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
             DataLoadResult.Successful(expertItem)
         }
         emitSource(savedData)
+    }
+
+    fun retrieveConsultationHistories() {
+
+        db.consultationDao().addNewConsultationToDb(
+            ConsultationItemEntity(
+                id,
+                consultationImg,
+                processedAt,
+                consultationDetections
+            )
+        )
     }
 
     companion object {

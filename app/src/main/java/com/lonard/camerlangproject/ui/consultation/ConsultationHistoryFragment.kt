@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lonard.camerlangproject.api.ConsultationResponseItem
 import com.lonard.camerlangproject.databinding.FragmentConsultationHistoryBinding
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
+import com.lonard.camerlangproject.mvvm.ConsultationViewModel
+import com.lonard.camerlangproject.mvvm.ConsultationViewModelFactory
 import com.lonard.camerlangproject.ui.rv_adapter.ConsultationHistoryItemAdapter
 
 class ConsultationHistoryFragment : Fragment() {
@@ -22,7 +25,7 @@ class ConsultationHistoryFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _bind = FragmentConsultationHistoryBinding.inflate(inflater, container, false)
         return bind.root
     }
@@ -30,6 +33,14 @@ class ConsultationHistoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val consultFactory: ConsultationViewModelFactory = ConsultationViewModelFactory.getFactory(requireContext())
+        val consultViewModel: ConsultationViewModel by viewModels {
+            consultFactory
+        }
+
+        consultViewModel.retrieveConsultationHistories().observe(requireActivity()) { consultation ->
+            showSections(consultation)
+        }
     }
 
     override fun onDestroyView() {
@@ -46,7 +57,7 @@ class ConsultationHistoryFragment : Fragment() {
 
         consultHistoryAdapter.setOnItemClickCallback(object: ConsultationHistoryItemAdapter.OnItemClickCallback {
             override fun onItemClicked(data: ConsultationItemEntity) {
-
+                seeConsultationDetail(data)
             }
         })
     }
@@ -55,8 +66,10 @@ class ConsultationHistoryFragment : Fragment() {
         val consultationItems =
             consultations.apply {
                 ConsultationItemEntity(
-                    imageUrl,
-                    imageDesc
+                    id,
+                    consultationImg,
+                    processedAt,
+                    consultationDetections
                 )
             }
 

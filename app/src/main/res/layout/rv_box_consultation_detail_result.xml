@@ -60,7 +60,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
                 <TextView
-                    android:id="@+id/first_problem_percentage_txt"
+                    android:id="@+id/problem_percentage_txt"
 
                     style="@style/CardText.Percentage"
 
