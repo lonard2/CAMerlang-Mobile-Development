@@ -37,6 +37,10 @@ class NotificationActivity : AppCompatActivity() {
         }
 
         bind.apply {
+            backBtn.setOnClickListener {
+                finishAfterTransition()
+            }
+
             homeViewModel.getNotificationCategories().observe(this@NotificationActivity) { notificationCatList ->
                 homeViewModel.getNotificationContent().observe(this@NotificationActivity) { notificationList ->
                     if (notificationList != null) {

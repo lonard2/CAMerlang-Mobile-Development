@@ -1,5 +1,6 @@
 package com.lonard.camerlangproject.ui.settings
 
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -53,7 +54,7 @@ class SettingsMainFragment : Fragment() {
                         btnSettingsCard1.setOnClickListener {
                             val userAccountIntent =
                                 Intent(requireActivity(), SettingsUserActivity::class.java)
-                            startActivity(userAccountIntent)
+                            startActivity(userAccountIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
                         }
 
                         btnSettingsCard2.setOnClickListener {
@@ -89,13 +90,13 @@ class SettingsMainFragment : Fragment() {
 
                         btnSettingsCard3.setOnClickListener {
                             val localizationMenuIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
-                            startActivity(localizationMenuIntent)
+                            startActivity(localizationMenuIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
                         }
 
                         btnSettingsCard4.setOnClickListener {
                             val creditIntent =
                                 Intent(requireActivity(), CreditsActivity::class.java)
-                            startActivity(creditIntent)
+                            startActivity(creditIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
                         }
                     }
                 }

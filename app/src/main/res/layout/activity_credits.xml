@@ -270,7 +270,7 @@
             android:id="@+id/credits_part_2"
             style="@style/Card.Credits"
 
-            app:cardBackgroundColor="@color/md_theme_light_tertiaryContainer_normal"
+            app:cardBackgroundColor="@color/credits_part_two_intro"
 
             app:layout_constraintTop_toBottomOf="@id/team_member_5_card"
             app:layout_constraintStart_toStartOf="parent"
@@ -542,12 +542,9 @@
             android:id="@+id/other_attribution_3_card"
             style="@style/Card.Credits.Creator.Left.Other"
 
-            android:layout_marginBottom="30dp"
-
             app:layout_constraintTop_toBottomOf="@id/other_attribution_1_card"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/half_content_guideline"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintEnd_toStartOf="@id/half_content_guideline">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -573,12 +570,9 @@
             android:id="@+id/other_attribution_4_card"
             style="@style/Card.Credits.Creator.Right.Other"
 
-            android:layout_marginBottom="30dp"
-
             app:layout_constraintTop_toBottomOf="@id/other_attribution_2_card"
             app:layout_constraintStart_toEndOf="@id/half_content_guideline"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintEnd_toEndOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -597,6 +591,99 @@
                     style="@style/CardText.Credits.DarkBg.LowerText"
 
                     android:text="@string/other_attribution_4_jobdesc"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/other_attribution_5_card"
+            style="@style/Card.Credits.Creator.Left.Other"
+
+            android:layout_marginBottom="30dp"
+
+            app:layout_constraintTop_toBottomOf="@id/other_attribution_3_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/half_content_guideline"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/other_attribution_5_card_txt"
+                    style="@style/CardText.Credits.DarkBg"
+
+                    android:text="@string/other_attribution_5"/>
+
+                <TextView
+                    android:id="@+id/other_attribution_5_jobdesc"
+                    style="@style/CardText.Credits.DarkBg.LowerText"
+
+                    android:text="@string/other_attribution_5_jobdesc" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/other_attribution_6_card"
+            style="@style/Card.Credits.Creator.Right.Other"
+
+            app:layout_constraintTop_toBottomOf="@id/other_attribution_4_card"
+            app:layout_constraintStart_toEndOf="@id/half_content_guideline"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/other_attribution_6_txt"
+
+                    style="@style/CardText.Credits.DarkBg"
+
+                    android:text="@string/other_attribution_6"/>
+
+                <TextView
+                    android:id="@+id/other_attribution_6_jobdesc"
+                    style="@style/CardText.Credits.DarkBg.LowerText"
+
+                    android:text="@string/other_attribution_6_jobdesc"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/other_attribution_7_card"
+            style="@style/Card.Credits.Creator.Right.Other"
+
+            android:layout_marginBottom="30dp"
+
+            app:layout_constraintTop_toBottomOf="@id/other_attribution_6_card"
+            app:layout_constraintStart_toEndOf="@id/half_content_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/other_attribution_7_txt"
+
+                    style="@style/CardText.Credits.DarkBg"
+
+                    android:text="@string/other_attribution_7"/>
+
+                <TextView
+                    android:id="@+id/other_attribution_7_jobdesc"
+                    style="@style/CardText.Credits.DarkBg.LowerText"
+
+                    android:text="@string/other_attribution_7_jobdesc"/>
 
             </LinearLayout>
 

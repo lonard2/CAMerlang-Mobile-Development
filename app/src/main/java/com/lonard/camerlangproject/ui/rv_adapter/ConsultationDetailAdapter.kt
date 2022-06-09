@@ -31,11 +31,8 @@ class ConsultationDetailAdapter(private val consultationList: ArrayList<Consulta
         val(datetime, outcome, id) = consultationList[position]
 
         holder.bind.apply {
-            datetimeInfo.text = datetime
-            diagnosisOutcomeInfo.text = outcome
             diagnosisId.text = id
-
-
+            datetimeInfo.text = datetime
         }
     }
 

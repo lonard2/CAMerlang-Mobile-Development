@@ -13,5 +13,9 @@ class CreditsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bind = ActivityCreditsBinding.inflate(layoutInflater)
         setContentView(bind.root)
+
+        bind.apply {
+            finishAfterTransition()
+        }
     }
 }

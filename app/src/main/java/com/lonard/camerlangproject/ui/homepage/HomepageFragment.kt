@@ -1,5 +1,6 @@
 package com.lonard.camerlangproject.ui.homepage
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -61,7 +62,7 @@ class HomepageFragment : Fragment() {
         bind.apply {
             notificationBtnIcon.setOnClickListener {
                 val notificationScreenIntent = Intent(context, NotificationActivity::class.java)
-                startActivity(notificationScreenIntent)
+                startActivity(notificationScreenIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
             }
 
             homeViewModel.getArticlesData().observe(viewLifecycleOwner) { articleList ->

@@ -190,4 +190,10 @@
     <string name="sample_rating">0.0</string>
 
     <string name="expert_verifed_date_format">verified on %1$s</string>
+    <string name="other_attribution_5">Weifeng</string>
+    <string name="other_attribution_5_jobdesc">Lottie animation for loading \n\n from LottieFiles.com - published under Lottie Simple License (https://lottiefiles.com/page/license)</string>
+    <string name="other_attribution_6_jobdesc">Emoji-based icons</string>
+    <string name="other_attribution_6">JoyPixels</string>
+    <string name="other_attribution_7_jobdesc">Building and maintaining the Android operating system, Google Cloud, and TensorFlow</string>
+    <string name="other_attribution_7">Google</string>
 </resources>

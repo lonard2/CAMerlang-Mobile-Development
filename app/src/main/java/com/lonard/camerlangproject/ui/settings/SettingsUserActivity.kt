@@ -30,7 +30,7 @@ class SettingsUserActivity : AppCompatActivity() {
         localViewModel.getLocalUser().observe(this) { localUser ->
             bind.apply {
                 backBtn.setOnClickListener {
-                    finish()
+                    finishAfterTransition()
                 }
 
                 settingsUserSection1Column.setText(localUser.name)

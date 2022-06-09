@@ -53,7 +53,7 @@ class LibraryDetailActivity : AppCompatActivity() {
 
         bind.apply {
             backBtn.setOnClickListener {
-                finish()
+                finishAfterTransition()
             }
 
             Picasso.get().load(diseaseParcel.thumbnailPic).into(libDetailHeaderPic)
