@@ -9,17 +9,27 @@ import kotlinx.parcelize.Parcelize
 data class LibraryContentResponse(
 
 	@field:SerializedName("data")
-	val data: List<LibraryContentDataItem>,
+	val data: List<LibraryHomepageContentDataItem>,
 
 	@field:SerializedName("status")
 	val status: String
+
+): Parcelable
+
+@Parcelize
+data class LibraryHomepageContentDataItem(
+	@field:SerializedName("thumbnail")
+	val thumbnail: String,
+
+	@field:SerializedName("name")
+	val name: String,
+
+	@field:SerializedName("library_item_content")
+	val content: List<LibraryContentDataItem>
 ): Parcelable
 
 @Parcelize
 data class LibraryContentDataItem(
-
-	@field:SerializedName("thumbnail")
-	val thumbnail: String,
 
 	@field:SerializedName("created_at")
 	val createdAt: String,
@@ -44,9 +54,6 @@ data class LibraryContentDataItem(
 
 	@field:SerializedName("expert_name")
 	val expertName: String,
-
-	@field:SerializedName("name")
-	val name: String,
 
 	@field:SerializedName("body_type")
 	val bodyType: String,
