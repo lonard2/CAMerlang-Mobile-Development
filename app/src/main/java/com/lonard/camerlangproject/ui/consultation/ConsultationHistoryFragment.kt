@@ -37,15 +37,15 @@ class ConsultationHistoryFragment : Fragment() {
         _bind = null
     }
 
-    private fun showSections(consultHistoryItem: List<HistoryItem>) {
-        bind.consultationHistoryListRv.layoutManager = LinearLayoutManager(this,
+    private fun showSections(consultHistoryItem: List<ConsultationItemEntity>) {
+        bind.consultationHistoryListRv.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.VERTICAL, false)
 
-        val consultHistoryAdapter = ConsultationHistoryItemAdapter(consultHistoryItem as ArrayList<ConsultationResponseItem>)
+        val consultHistoryAdapter = ConsultationHistoryItemAdapter(consultHistoryItem as ArrayList<ConsultationItemEntity>)
         bind.consultationHistoryListRv.adapter = consultHistoryAdapter
 
         consultHistoryAdapter.setOnItemClickCallback(object: ConsultationHistoryItemAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: HistoryItem) {
+            override fun onItemClicked(data: ConsultationItemEntity) {
 
             }
         })
@@ -54,7 +54,7 @@ class ConsultationHistoryFragment : Fragment() {
     private fun seeConsultationDetail(consultations: ConsultationItemEntity) {
         val consultationItems =
             consultations.apply {
-                LibraryDetailImgEntity(
+                ConsultationItemEntity(
                     imageUrl,
                     imageDesc
                 )

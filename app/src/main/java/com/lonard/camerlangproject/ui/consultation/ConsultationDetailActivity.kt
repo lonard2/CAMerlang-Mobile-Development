@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityConsultationDetailBinding
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.lonard.camerlangproject.ui.images.ImageShowActivity
@@ -34,7 +35,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
             Picasso.get().load(consultationParcel.analyzedImg).into(consultationTakenImage)
 
-            consultationIdDetail.text = consultationParcel.analyzedConsultationId
+            consultationIdDetail.text = getString(R.string.consultation_id_format, consultationParcel.analyzedConsultationId)
             consultationDatetimeDetail.text = consultationParcel.analyzedConsultationDateTime
             consultationOutcomeDetail.text = consultationParcel.analyzedConsultationOutcome
 

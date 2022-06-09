@@ -190,6 +190,8 @@
     <string name="sample_rating">0.0</string>
 
     <string name="expert_verifed_date_format">diverifikasi pada %1$s</string>
+    <string name="consultation_id_format">consultation-scan-clrg%1$s</string>
+
     <string name="other_attribution_5">Weifeng</string>
     <string name="other_attribution_5_jobdesc">Animasi Lottie untuk loading \n\n dari LottieFiles.com - dipublikasikan dengan Lottie Simple License (https://lottiefiles.com/page/license)</string>
     <string name="other_attribution_6_jobdesc">Ikon-ikon berbasis emoji</string>
