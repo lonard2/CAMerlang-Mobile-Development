@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_light_onSurface"
+    android:background="@color/md_theme_light_primaryInverse"
     tools:context=".ui.settings.SettingsUserActivity">
 
     <ImageView
@@ -34,7 +34,6 @@
 
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="5dp"
 
         android:fontFamily="@font/poppins_semibold"
         android:text="@string/settings_user_page_intro_1"

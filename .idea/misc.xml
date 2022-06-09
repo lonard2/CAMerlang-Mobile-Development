@@ -11,18 +11,21 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_article_detail.xml" value="0.13489583333333333" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_consultation_detail.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_credits.xml" value="0.2125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_front.xml" value="0.1526293287729799" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_image_show.xml" value="0.18125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_image_taken_preview.xml" value="0.18125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_library_detail.xml" value="0.18805309734513273" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_notification.xml" value="0.12158054711246201" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_notification.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_scanner.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_scanner_camera.xml" value="0.11756756756756757" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_settings_user.xml" value="0.2768595041322314" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_settings_user.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_splash.xml" value="0.1526293287729799" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/consultation_history_rv_box.xml" value="0.176" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_consultation_history.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_homepage.xml" value="0.23696248856358645" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_library_home.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_library_home_main.xml" value="0.13489583333333333" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_library_home_search.xml" value="0.1526293287729799" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_settings_main.xml" value="0.1586147926464301" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/layout_expert_lists_homepage.xml" value="0.144140625" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_inside.xml" value="0.4" />

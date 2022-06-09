@@ -198,4 +198,5 @@
     <string name="other_attribution_6">JoyPixels</string>
     <string name="other_attribution_7_jobdesc">Membangun dan merawat sistem operasi Android, Google Cloud, dan TensorFlow</string>
     <string name="other_attribution_7">Google</string>
+    <string name="expert_verified_icon_desc">Sebuah boks centang untuk menandakan status terverifikasi konten dari suatu profesional kesehatan atau ahli.</string>
 </resources>
