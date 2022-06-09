@@ -4,11 +4,12 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity(tableName = "library_contents")
-data class LibraryContentEntity (
+data class LibraryContentEntity(
 
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id")
@@ -38,9 +39,6 @@ data class LibraryContentEntity (
     @ColumnInfo(name = "expert_image")
     var expertImage: String? = null,
 
-    @ColumnInfo(name = "body_parts")
-    var bodyParts: String? = null,
-
     @ColumnInfo(name = "entry_header")
     var contentHeader: String? = null,
 
@@ -50,4 +48,6 @@ data class LibraryContentEntity (
     @ColumnInfo(name = "created_at")
     var createdAt: String? = null,
 
+    @ColumnInfo("more_images_list")
+    val moreImagesList: List<MappedProblemImageItem>,
 ): Parcelable

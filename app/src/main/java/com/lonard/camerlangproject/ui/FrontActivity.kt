@@ -76,7 +76,7 @@ class FrontActivity : AppCompatActivity() {
                 )
             }
 
-            initCamera()
+            launchCamera()
         }
     }
 

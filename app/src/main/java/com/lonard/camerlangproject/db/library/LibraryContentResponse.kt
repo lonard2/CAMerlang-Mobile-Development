@@ -1,6 +1,7 @@
 package com.lonard.camerlangproject.db.library
 
 import android.os.Parcelable
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
@@ -54,5 +55,21 @@ data class LibraryContentDataItem(
 	val id: Int,
 
 	@field:SerializedName("expert_image")
-	val expertImage: String
+	val expertImage: String,
+
+	@field:SerializedName("mappedProblemImage")
+	val mappedProblemImage: List<MappedProblemImageItem>,
+
+): Parcelable
+
+@Parcelize
+@Entity(tableName = "library_contents_images")
+data class MappedProblemImageItem(
+
+	@field:SerializedName("id")
+	val id: Int,
+
+	@field:SerializedName("image")
+	val imageUrl: String,
+
 ): Parcelable

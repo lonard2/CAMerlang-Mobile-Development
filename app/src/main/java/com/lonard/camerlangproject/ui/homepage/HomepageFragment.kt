@@ -62,7 +62,8 @@ class HomepageFragment : Fragment() {
         bind.apply {
             notificationBtnIcon.setOnClickListener {
                 val notificationScreenIntent = Intent(context, NotificationActivity::class.java)
-                startActivity(notificationScreenIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+                startActivity(notificationScreenIntent, ActivityOptions.
+                makeSceneTransitionAnimation(requireActivity()).toBundle())
             }
 
             homeViewModel.getArticlesData().observe(viewLifecycleOwner) { articleList ->
@@ -304,13 +305,18 @@ class HomepageFragment : Fragment() {
             entryModel.apply {
                 LibraryContentEntity(
                     id,
-                    createdAt,
                     name,
                     thumbnailPic,
                     bodyType,
                     problemSeverity,
+                    expertName,
+                    expertSpecialization,
+                    verifiedAt,
+                    expertImage,
                     contentHeader,
-                    content
+                    content,
+                    createdAt,
+                    moreImagesList,
                 )
             }
 

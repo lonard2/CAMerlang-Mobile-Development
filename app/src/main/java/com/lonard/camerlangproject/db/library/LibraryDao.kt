@@ -10,14 +10,23 @@ import com.lonard.camerlangproject.db.homepage.ProductEntity
 @Dao
 interface LibraryDao {
 
+    // individual library entries CRUD operations
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addEntryToDb(libraryItem: List<LibraryContentEntity>?)
 
-    @Query("DELETE FROM library_contents")
-    suspend fun deleteAllLibraries()
-
     @Query("SELECT * FROM library_contents")
     fun retrieveAllEntries(): LiveData<List<LibraryContentEntity>>
+
+    // library entry images (more images) CRUD operations
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addImagesToDb(imageItem: List<List<MappedProblemImageItem>>)
+
+    @Query("SELECT * FROM library_contents_images")
+    fun retrieveAllImagesForIndividualLibEntry(): LiveData<List<MappedProblemImageItem>>
+
+    // skincare products CRUD operations
 
     @Query("SELECT * FROM skincare_products")
     fun retrieveProducts(): LiveData<List<ProductEntity>>

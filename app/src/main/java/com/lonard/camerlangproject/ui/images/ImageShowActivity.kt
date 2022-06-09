@@ -20,7 +20,7 @@ class ImageShowActivity : AppCompatActivity() {
 
             val imagePack = intent.getStringExtra(EXTRA_PIC)
 
-            Picasso.get().load(imagePack.pictureLink).into(detailedImageClickContainer)
+            Picasso.get().load(imagePack).into(detailedImageClickContainer)
         }
     }
 

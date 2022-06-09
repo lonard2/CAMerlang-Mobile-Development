@@ -119,13 +119,18 @@ class LibraryHomeMainFragment : Fragment() {
                 entryModel.apply {
                     LibraryContentEntity(
                         id,
-                        createdAt,
                         name,
                         thumbnailPic,
                         bodyType,
                         problemSeverity,
+                        expertName,
+                        expertSpecialization,
+                        verifiedAt,
+                        expertImage,
                         contentHeader,
-                        content
+                        content,
+                        createdAt,
+                        moreImagesList,
                     )
                 }
 

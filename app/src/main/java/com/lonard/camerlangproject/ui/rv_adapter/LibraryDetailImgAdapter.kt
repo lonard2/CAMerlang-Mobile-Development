@@ -7,14 +7,12 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
-import com.lonard.camerlangproject.api.LibraryResponseItem
-import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideBinding
 import com.lonard.camerlangproject.databinding.OverflowRvOnlyPicBinding
-import com.lonard.camerlangproject.db.library.LibraryContentEntity
+import com.lonard.camerlangproject.db.library.MappedProblemImageItem
 import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso
 
-class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryContentEntity>): RecyclerView.Adapter<LibraryDetailImgAdapter.ViewHolder>() {
+class LibraryDetailImgAdapter(private val otherPicList: ArrayList<MappedProblemImageItem>): RecyclerView.Adapter<LibraryDetailImgAdapter.ViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -30,12 +28,10 @@ class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryContent
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(entryPicUrl) = otherPicList[position]
+        val(_, imageUrl) = otherPicList[position]
 
         holder.bind.apply {
-            if (entryPicUrl != null) {
-                Picasso.get().load(entryPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
-            }
+            Picasso.get().load(imageUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
         }
 
         holder.itemView.setOnClickListener {
@@ -54,6 +50,6 @@ class LibraryDetailImgAdapter(private val otherPicList: ArrayList<LibraryContent
     class ViewHolder(var bind: OverflowRvOnlyPicBinding): RecyclerView.ViewHolder(bind.root)
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: LibraryContentEntity, animBundle: Bundle?)
+        fun onItemClicked(data: MappedProblemImageItem, animBundle: Bundle?)
     }
 }

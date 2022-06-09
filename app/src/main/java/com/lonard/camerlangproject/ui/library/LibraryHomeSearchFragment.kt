@@ -8,15 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.FragmentLibraryHomeSearchBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.mvvm.LibraryViewModel
 import com.lonard.camerlangproject.mvvm.LibraryViewModelFactory
-import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryHomeItemListAdapter
 import java.util.*
 import kotlin.collections.ArrayList
@@ -115,13 +112,18 @@ class LibraryHomeSearchFragment : Fragment() {
             entryModel.apply {
                 LibraryContentEntity(
                     id,
-                    createdAt,
                     name,
                     thumbnailPic,
                     bodyType,
                     problemSeverity,
+                    expertName,
+                    expertSpecialization,
+                    verifiedAt,
+                    expertImage,
                     contentHeader,
-                    content
+                    content,
+                    createdAt,
+                    moreImagesList,
                 )
             }
 

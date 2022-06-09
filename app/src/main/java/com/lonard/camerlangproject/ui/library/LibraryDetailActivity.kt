@@ -9,23 +9,18 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.R
-import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.ActivityLibraryDetailBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
-import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
+import com.lonard.camerlangproject.db.library.MappedProblemImageItem
 import com.lonard.camerlangproject.formatDateTime
-import com.lonard.camerlangproject.mvvm.HomepageViewModel
-import com.lonard.camerlangproject.mvvm.HomepageViewModelFactory
 import com.lonard.camerlangproject.mvvm.LibraryViewModel
 import com.lonard.camerlangproject.mvvm.LibraryViewModelFactory
 import com.lonard.camerlangproject.ui.images.ImageShowActivity
-import com.lonard.camerlangproject.ui.homepage.ArticleDetailActivity
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailImgAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailProductAdapter
@@ -71,6 +66,8 @@ class LibraryDetailActivity : AppCompatActivity() {
             libItemShortDesc.text = diseaseParcel.contentHeader
             libItemContent.text = diseaseParcel.content
 
+            showMoreImagesContent(diseaseParcel.moreImagesList)
+
             libDetailHeaderPic.setOnClickListener {
                 val showImageIntent = Intent(this@LibraryDetailActivity, ImageShowActivity::class.java)
                 showImageIntent.putExtra(ImageShowActivity.EXTRA_PIC, diseaseParcel.thumbnailPic)
@@ -84,80 +81,78 @@ class LibraryDetailActivity : AppCompatActivity() {
                 startActivity(showImageIntent, sharedAnim.toBundle())
             }
 
-            libraryViewModel.retrieveImagesData().observe() { imagesList ->
-                libraryViewModel.retrieveLibraryEntriesList().observe(this@LibraryDetailActivity) { entriesList ->
-                    libraryViewModel.retrieveProductsInfo().observe(this@LibraryDetailActivity) { productList ->
-                        if(productList != null) {
-                            when (productList) {
-                                is DataLoadResult.Loading -> {
-                                    loadFrame.visibility = View.VISIBLE
-                                    loadAnimLottie.visibility = View.VISIBLE
-                                }
+            libraryViewModel.retrieveLibraryEntriesList().observe(this@LibraryDetailActivity) { entriesList ->
+                libraryViewModel.retrieveProductsInfo().observe(this@LibraryDetailActivity) { productList ->
+                    if(productList != null) {
+                        when (productList) {
+                            is DataLoadResult.Loading -> {
+                                loadFrame.visibility = View.VISIBLE
+                                loadAnimLottie.visibility = View.VISIBLE
+                            }
 
-                                is DataLoadResult.Successful -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
+                            is DataLoadResult.Successful -> {
+                                loadFrame.visibility = View.GONE
+                                loadAnimLottie.visibility = View.GONE
 
-                                    val products = productList.data
+                                val products = productList.data
 
-                                    showProductsContent(products)
-                                }
+                                showProductsContent(products)
+                            }
 
-                                is DataLoadResult.Failed -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
+                            is DataLoadResult.Failed -> {
+                                loadFrame.visibility = View.GONE
+                                loadAnimLottie.visibility = View.GONE
 
-                                    Snackbar.make(
-                                        productsSectionRv, when (locale) {
-                                            "in" -> {
-                                                "Data produk terkait item masalah ini tidak bisa ditampilkan. Silakan coba lagi ya."
-                                            }
-                                            "en" -> {
-                                                "Ouch, the products data regarding this problem item cannot be shown to you. Please try again."
-                                            }
-                                            else -> {
-                                                "Error in products retrieval for a specific item."
-                                            }
-                                        }, Snackbar.LENGTH_LONG
-                                    ).show()
-                                }
+                                Snackbar.make(
+                                    productsSectionRv, when (locale) {
+                                        "in" -> {
+                                            "Data produk terkait item masalah ini tidak bisa ditampilkan. Silakan coba lagi ya."
+                                        }
+                                        "en" -> {
+                                            "Ouch, the products data regarding this problem item cannot be shown to you. Please try again."
+                                        }
+                                        else -> {
+                                            "Error in products retrieval for a specific item."
+                                        }
+                                    }, Snackbar.LENGTH_LONG
+                                ).show()
                             }
                         }
+                    }
 
-                        if (entriesList != null) {
-                            when (entriesList) {
-                                is DataLoadResult.Loading -> {
-                                    loadFrame.visibility = View.VISIBLE
-                                    loadAnimLottie.visibility = View.VISIBLE
-                                }
+                    if (entriesList != null) {
+                        when (entriesList) {
+                            is DataLoadResult.Loading -> {
+                                loadFrame.visibility = View.VISIBLE
+                                loadAnimLottie.visibility = View.VISIBLE
+                            }
 
-                                is DataLoadResult.Successful -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
+                            is DataLoadResult.Successful -> {
+                                loadFrame.visibility = View.GONE
+                                loadAnimLottie.visibility = View.GONE
 
-                                    val libraryEntries = entriesList.data
+                                val libraryEntries = entriesList.data
 
-                                    showOtherEntriesContent(libraryEntries)
-                                }
+                                showOtherEntriesContent(libraryEntries)
+                            }
 
-                                is DataLoadResult.Failed -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
+                            is DataLoadResult.Failed -> {
+                                loadFrame.visibility = View.GONE
+                                loadAnimLottie.visibility = View.GONE
 
-                                    Snackbar.make(
-                                        productsSectionRv, when (locale) {
-                                            "in" -> {
-                                                "Data entri pustaka terkait item masalah ini tidak bisa ditampilkan. Silakan coba lagi ya."
-                                            }
-                                            "en" -> {
-                                                "Ouch, the library entries data regarding this problem item cannot be shown to you. Please try again."
-                                            }
-                                            else -> {
-                                                "Error in library entries retrieval for a specific item."
-                                            }
-                                        }, Snackbar.LENGTH_LONG
-                                    ).show()
-                                }
+                                Snackbar.make(
+                                    productsSectionRv, when (locale) {
+                                        "in" -> {
+                                            "Data entri pustaka terkait item masalah ini tidak bisa ditampilkan. Silakan coba lagi ya."
+                                        }
+                                        "en" -> {
+                                            "Ouch, the library entries data regarding this problem item cannot be shown to you. Please try again."
+                                        }
+                                        else -> {
+                                            "Error in library entries retrieval for a specific item."
+                                        }
+                                    }, Snackbar.LENGTH_LONG
+                                ).show()
                             }
                         }
                     }
@@ -166,15 +161,15 @@ class LibraryDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun showMoreImagesContent(imagesItems: List<LibraryContentEntity>) {
+    private fun showMoreImagesContent(imagesItems: List<MappedProblemImageItem>) {
         bind.moreImagesSectionRv.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.HORIZONTAL, false)
 
-        val moreImagesAdapter = LibraryDetailImgAdapter(imagesItems as ArrayList<LibraryContentEntity>)
+        val moreImagesAdapter = LibraryDetailImgAdapter(imagesItems as ArrayList<MappedProblemImageItem>)
         bind.moreImagesSectionRv.adapter = moreImagesAdapter
 
         moreImagesAdapter.setOnItemClickCallback(object: LibraryDetailImgAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: LibraryContentEntity, animBundle: Bundle?) {
+            override fun onItemClicked(data: MappedProblemImageItem, animBundle: Bundle?) {
                 if (animBundle != null) {
                     seeZoomedImg(data, animBundle)
                 }
@@ -182,12 +177,12 @@ class LibraryDetailActivity : AppCompatActivity() {
         })
     }
 
-    private fun seeZoomedImg(images: LibraryContentEntity, bundle: Bundle) {
+    private fun seeZoomedImg(images: MappedProblemImageItem, bundle: Bundle) {
         val imagesList =
             images.apply {
-                LibraryDetailImgEntity(
-                    imageUrl,
-                    imageDesc
+                MappedProblemImageItem(
+                    id,
+                    imageUrl
                 )
             }
 
@@ -218,13 +213,18 @@ class LibraryDetailActivity : AppCompatActivity() {
             entryModel.apply {
                 LibraryContentEntity(
                     id,
-                    createdAt,
                     name,
                     thumbnailPic,
                     bodyType,
                     problemSeverity,
+                    expertName,
+                    expertSpecialization,
+                    verifiedAt,
+                    expertImage,
                     contentHeader,
-                    content
+                    content,
+                    createdAt,
+                    moreImagesList,
                 )
             }
 

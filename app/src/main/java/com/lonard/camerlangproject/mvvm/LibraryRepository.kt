@@ -10,6 +10,7 @@ import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDao
+import com.lonard.camerlangproject.db.library.MappedProblemImageItem
 
 class LibraryRepository(private val db: AppDB,
                         private val api: ApiInterface) {
@@ -26,18 +27,33 @@ class LibraryRepository(private val db: AppDB,
             val libraryItemDb = libraryEntries.map { library ->
                 LibraryContentEntity(
                     library.id,
-                    library.createdAt,
                     library.name,
                     library.thumbnail,
                     library.bodyType,
                     library.problemSeverity,
+                    library.expertName,
+                    library.expertSpecialization,
+                    library.expertVerificationDate,
+                    library.expertImage,
                     library.contentHeader,
-                    library.content
+                    library.content,
+                    library.createdAt,
+                    library.mappedProblemImage,
                 )
             }
 
-            db.libraryDao().deleteAllLibraries()
+            val libraryImgDb = libraryEntries.map { entry ->
+                entry.mappedProblemImage.map { image ->
+                    MappedProblemImageItem(
+                        image.id,
+                        image.imageUrl,
+                    )
+                }
+            }
+
             db.libraryDao().addEntryToDb(libraryItemDb)
+
+            db.libraryDao().addImagesToDb(libraryImgDb)
 
         } catch (exception: Exception) {
             emit(DataLoadResult.Failed(exception.message.toString()))
@@ -45,8 +61,8 @@ class LibraryRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = libraryDao.retrieveAllEntries().map { articleItem ->
-            DataLoadResult.Successful(articleItem)
+        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = libraryDao.retrieveAllEntries().map { entryItem ->
+            DataLoadResult.Successful(entryItem)
         }
         emitSource(savedData)
     }
@@ -61,18 +77,33 @@ class LibraryRepository(private val db: AppDB,
             val libraryItemDb = libraryEntries.map { library ->
                 LibraryContentEntity(
                     library.id,
-                    library.createdAt,
                     library.name,
                     library.thumbnail,
                     library.bodyType,
                     library.problemSeverity,
+                    library.expertName,
+                    library.expertSpecialization,
+                    library.expertVerificationDate,
+                    library.expertImage,
                     library.contentHeader,
-                    library.content
+                    library.content,
+                    library.createdAt,
+                    library.mappedProblemImage,
                 )
             }
 
-            db.libraryDao().deleteAllLibraries()
+            val libraryImgDb = libraryEntries.map { entry ->
+                entry.mappedProblemImage.map { image ->
+                    MappedProblemImageItem(
+                        image.id,
+                        image.imageUrl,
+                    )
+                }
+            }
+
             db.libraryDao().addEntryToDb(libraryItemDb)
+
+            db.libraryDao().addImagesToDb(libraryImgDb)
 
         } catch (exception: Exception) {
             emit(DataLoadResult.Failed(exception.message.toString()))
@@ -80,8 +111,8 @@ class LibraryRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = libraryDao.retrieveAllEntries().map { articleItem ->
-            DataLoadResult.Successful(articleItem)
+        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = libraryDao.retrieveAllEntries().map { entryItem ->
+            DataLoadResult.Successful(entryItem)
         }
         emitSource(savedData)
     }
