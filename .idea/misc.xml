@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/drawable-v24/rounded_box_edt.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/drawable/camera_scan_rounded.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/drawable/camera_scan_rounded_outline.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/drawable/ranking_round_1.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/drawable/rounded_box_edt.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CAMerlang/app/src/main/res/layout-land/activity_scanner_camera.xml" value="0.10400000000000001" />
@@ -42,7 +44,6 @@
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_consultation_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_credits.xml" value="0.33" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_front.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_image_show.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_library_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_library_detail_image_show.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_onboarding.xml" value="0.22" />

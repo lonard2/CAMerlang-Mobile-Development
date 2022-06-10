@@ -1,8 +1,6 @@
 <resources>
 	<color name="md_theme_light_primary">#9C4048</color>
-	<color name="md_theme_light_primary_60">#809C4048</color>
 	<color name="md_theme_light_onPrimary">#FFFFFF</color>
-	<color name="md_theme_light_onPrimary_30">#4DFFFFFF</color>
 	<color name="md_theme_light_primaryContainer">#FFDADC</color>
 	<color name="md_theme_light_onPrimaryContainer">#40000A</color>
 	
@@ -117,4 +115,6 @@
 	<color name="rating_card_color">#FFCB15</color>
 
 	<color name="credits_part_two_intro">#F8BB92</color>
+
+	<color name="scanner_lens_main_color">#4DFFFFFF</color>
 </resources>
