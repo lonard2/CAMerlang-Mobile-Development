@@ -42,6 +42,7 @@
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_consultation_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_credits.xml" value="0.33" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_front.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_library_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_library_detail_image_show.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_onboarding.xml" value="0.22" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/activity_scanner_camera.xml" value="0.20416666666666666" />
@@ -50,12 +51,14 @@
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_consultation_history.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_homepage.xml" value="0.25" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_library_home.xml" value="0.33" />
+        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_library_home_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_library_home_search.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/fragment_settings_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_category.xml" value="0.25" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/overflow_rv_box_notification_list.xml" value="0.22" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/rv_info_listing_homepage.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/layout/rv_info_listing_library.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/AryaFikri/AndroidStudioProjects/CAMerlang/app/src/main/res/menu/bottom_navbar_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable-v24/rounded_box_settings.xml" value="0.112" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/navbar_color.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/drawable/notification_gradient.xml" value="0.106" />
