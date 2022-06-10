@@ -27,11 +27,11 @@ class ConsultationHistoryItemAdapter(private val consultationList: ArrayList<Con
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(datetime, id) = consultationList[position]
+        val(consultDatetime, consultId) = consultationList[position]
 
         holder.bind.apply {
-            datetimeInfo.text = datetime
-            diagnosisId.text = id
+            datetimeInfo.text = consultDatetime.toString()
+            diagnosisId.text = consultId
         }
 
         holder.itemView.setOnClickListener {

@@ -6,6 +6,11 @@ class ConsultationViewModel(private val consultRepo: ConsultationRepository): Vi
 
     fun retrieveExpertsData() = consultRepo.retrieveExpertsInfo()
 
-    fun retrieveConsultationHistories() = consultRepo.
+    fun retrieveAllConsultations() = consultRepo.retrieveAllConsultations()
+
+    fun addConsultationEntry(
+        image: String,
+        dateTime: String,
+    ) = consultRepo.addNewConsultationEntry(image, dateTime)
 
 }

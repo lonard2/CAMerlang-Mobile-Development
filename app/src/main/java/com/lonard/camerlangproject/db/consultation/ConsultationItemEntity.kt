@@ -20,23 +20,4 @@ data class ConsultationItemEntity (
     @ColumnInfo(name = "processed_at")
     var processedAt: String? = null,
 
-    @ColumnInfo("consultation_detections")
-    val consultationDetections: List<ConsultationDetectionItemEntity>?,
-
-): Parcelable
-
-@Parcelize
-@Entity(tableName = "consultation_detection_items")
-data class ConsultationDetectionItemEntity (
-
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "detection_id")
-    var id: Int?,
-
-    @ColumnInfo("detection_name")
-    val detectionName: String?,
-
-    @ColumnInfo("detection_percentage")
-    val detectionPercentage: String?,
-
 ): Parcelable

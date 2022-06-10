@@ -1,5 +1,6 @@
 package com.lonard.camerlangproject.ui.images
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -7,6 +8,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -17,14 +19,19 @@ import com.lonard.camerlangproject.camera.CameraUtil.Companion.reduceFileImage
 import com.lonard.camerlangproject.camera.ScannerCameraActivity
 import com.lonard.camerlangproject.databinding.ActivityImageShowBinding
 import com.lonard.camerlangproject.databinding.ActivityImageTakenPreviewBinding
+import com.lonard.camerlangproject.db.DataLoadResult
+import com.lonard.camerlangproject.formatDateTime
 import com.lonard.camerlangproject.mvvm.ConsultationViewModel
 import com.lonard.camerlangproject.mvvm.ConsultationViewModelFactory
 import com.lonard.camerlangproject.ui.FrontActivity
+import com.lonard.camerlangproject.ui.consultation.ConsultationDetailActivity
 import com.squareup.picasso.Picasso
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
+import java.net.URI
+import java.time.LocalDateTime
 import java.util.*
 
 class ImageTakenPreviewActivity : AppCompatActivity() {
@@ -65,7 +72,7 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
             }
 
             pictureSendBtn.setOnClickListener {
-                retrievedImgFile?.let { it1 -> uploadPictureToApi(it1) }
+                retrievedImgFile?.let { it1 -> saveConsultationToDb(it1) }
             }
 
         }
@@ -108,7 +115,7 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
         bind.imageTakenPreviewContainer.setImageURI(galleryImage)
     }
 
-    private fun uploadPictureToApi(acceptedImageFile: File) {
+    private fun saveConsultationToDb(acceptedImageFile: File) {
         if(retrievedImgFile != null) {
             val acceptedImage = reduceFileImage(acceptedImageFile)
 
@@ -119,18 +126,67 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
                 consultFactory
             }
 
-            val requestImage = acceptedImage.asRequestBody("image/*".toMediaTypeOrNull())
-            val imageMultipart: MultipartBody.Part =
-                MultipartBody.Part.createFormData(
-                    "acceptedPhoto", // check again, in the API maybe (acceptedPhoto???)
-                    acceptedImage.name,
-                    requestImage
-                )
+            val fileToUri = Uri.fromFile(acceptedImage)
+            val currentDateTime = LocalDateTime.now().toString()
+            val formattedCurrentDateTime = currentDateTime.formatDateTime()
 
-            consultViewModel.uploadStatus.observe(this) {
+            bind.apply {
+                consultViewModel.addConsultationEntry(fileToUri.toString(), formattedCurrentDateTime)
+                    .observe(this@ImageTakenPreviewActivity) { inclusionStatus ->
 
-                finish()
-                finish()
+
+                    if (inclusionStatus != null) {
+                        when (inclusionStatus) {
+                            is DataLoadResult.Loading -> {
+                                loadAnimLottie.visibility = View.VISIBLE
+                            }
+
+                            is DataLoadResult.Successful -> {
+                                loadAnimLottie.visibility = View.GONE
+
+                                val containedData = inclusionStatus.data
+
+                                Snackbar.make(
+                                    pictureSendBtn, when (locale) {
+                                        "in" -> {
+                                            "Kerja bagus! Fotomu berhasil disimpan, kamu akan dibawa ke halaman detail konsultasi."
+                                        }
+                                        "en" -> {
+                                            "Great job! Your photo successfully saved in the database. You will be brought to the consultation detail page."
+                                        }
+                                        else -> {
+                                            "Photo saving on database successfully done!."
+                                        }
+                                    }, Snackbar.LENGTH_LONG
+                                ).show()
+
+                                val consultationIntent = Intent(this@ImageTakenPreviewActivity, ConsultationDetailActivity::class.java)
+                                consultationIntent.putExtra(ConsultationDetailActivity.EXTRA_CONSULTATION_DATA, containedData)
+
+                                startActivity(consultationIntent,
+                                    ActivityOptions.makeSceneTransitionAnimation(this@ImageTakenPreviewActivity).toBundle())
+                            }
+
+                            is DataLoadResult.Failed -> {
+                                loadAnimLottie.visibility = View.GONE
+
+                                Snackbar.make(
+                                    pictureSendBtn, when (locale) {
+                                        "in" -> {
+                                            "Aduh, fotomu gagal disimpan di database... Silakan coba lagi ya."
+                                        }
+                                        "en" -> {
+                                            "Ouch, your photo cannot be saved in the database. Please try again."
+                                        }
+                                        else -> {
+                                            "Error in photo saving on database."
+                                        }
+                                    }, Snackbar.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                    }
+                }
             }
         } else {
             Log.e(TAG, "Photo is missing!")

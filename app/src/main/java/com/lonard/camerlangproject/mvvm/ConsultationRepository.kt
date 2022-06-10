@@ -51,16 +51,53 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
         emitSource(savedData)
     }
 
-    fun retrieveConsultationHistories() {
+    fun addNewConsultationEntry(
+        consultationImg: String,
+        processedAt: String?,
+    ): LiveData<DataLoadResult<ConsultationItemEntity>> = liveData {
+        emit(DataLoadResult.Loading)
 
-        db.consultationDao().addNewConsultationToDb(
-            ConsultationItemEntity(
-                id,
-                consultationImg,
-                processedAt,
-                consultationDetections
+        try {
+            db.consultationDao().addNewConsultationToDb(
+                ConsultationItemEntity(
+                    0,
+                    consultationImg,
+                    processedAt,
+                )
             )
-        )
+        } catch (exception: Exception) {
+            emit(DataLoadResult.Failed(exception.message.toString()))
+            Log.e(
+                TAG, "Cannot save pictures to Room DB." +
+                        "Occurred error: ${exception.message.toString()}")
+        }
+
+        val savedData: LiveData<DataLoadResult<ConsultationItemEntity>> = consultDao.retrieveSpecificConsultationData().map {
+            DataLoadResult.Successful(it)
+        }
+
+        emitSource(savedData)
+
+    }
+
+    fun retrieveAllConsultations(): LiveData<DataLoadResult<List<ConsultationItemEntity>>> = liveData {
+        emit(DataLoadResult.Loading)
+
+        try {
+            db.consultationDao().retrieveAllConsultationData()
+        } catch (exception: Exception) {
+            emit(DataLoadResult.Failed(exception.message.toString()))
+            Log.e(
+                TAG, "Cannot show consultation lists in the Room DB." +
+                        "Occurred error: ${exception.message.toString()}")
+        }
+
+        val savedData: LiveData<DataLoadResult<List<ConsultationItemEntity>>> = consultDao.retrieveAllConsultationData().map { consultItem ->
+            DataLoadResult.Successful(consultItem)
+        }
+
+        emitSource(savedData)
+
     }
 
     companion object {

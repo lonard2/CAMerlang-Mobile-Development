@@ -8,16 +8,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.databinding.FragmentConsultationHistoryBinding
+import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.lonard.camerlangproject.mvvm.ConsultationViewModel
 import com.lonard.camerlangproject.mvvm.ConsultationViewModelFactory
 import com.lonard.camerlangproject.ui.rv_adapter.ConsultationHistoryItemAdapter
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ConsultationHistoryFragment : Fragment() {
 
     private var _bind: FragmentConsultationHistoryBinding? = null
     private val bind get() = _bind!!
+
+    private val locale: String = Locale.getDefault().language
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,8 +42,47 @@ class ConsultationHistoryFragment : Fragment() {
             consultFactory
         }
 
-        consultViewModel.retrieveConsultationHistories().observe(requireActivity()) { consultation ->
-            showSections(consultation)
+        bind.apply {
+            consultViewModel.retrieveAllConsultations().observe(requireActivity()) { consultationList ->
+                if (consultationList != null) {
+                    when (consultationList) {
+                        is DataLoadResult.Loading -> {
+                            loadFrame.visibility = View.VISIBLE
+                            loadAnimLottie.visibility = View.VISIBLE
+                        }
+
+                        is DataLoadResult.Successful -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+
+                            val consultations = consultationList.data
+
+                            showConsultations(consultations)
+                        }
+
+                        is DataLoadResult.Failed -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+
+                            Snackbar.make(
+                                consultationHistoryListRv, when (locale) {
+                                    "in" -> {
+                                        "Aduh, data kategori notifikasi tidak dapat ditampilkan. " +
+                                                "Silakan coba lagi ya."
+                                    }
+                                    "en" -> {
+                                        "Ouch, the notification categories data cannot be shown to you. " +
+                                                "Please try again."
+                                    }
+                                    else -> {
+                                        "Error in notification categories data retrieval."
+                                    }
+                                }, Snackbar.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -46,7 +91,7 @@ class ConsultationHistoryFragment : Fragment() {
         _bind = null
     }
 
-    private fun showSections(consultHistoryItem: List<ConsultationItemEntity>) {
+    private fun showConsultations(consultHistoryItem: List<ConsultationItemEntity>) {
         bind.consultationHistoryListRv.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.VERTICAL, false)
 
@@ -67,7 +112,6 @@ class ConsultationHistoryFragment : Fragment() {
                     id,
                     consultationImg,
                     processedAt,
-                    consultationDetections
                 )
             }
 

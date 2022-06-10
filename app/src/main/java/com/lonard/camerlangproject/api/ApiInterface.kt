@@ -20,12 +20,6 @@ interface ApiInterface {
         @Query("article_titles") articleTitle: String?,
     ): ArticleResponse
 
-//    // Endpoint 2b. Search library
-//    @GET("libraries/search")
-//    suspend fun getLibrarySearch(
-//        @Query("q") q: String
-//    ): LibraryContentResponse
-
     // Endpoint 2. Retrieve library
     @GET("libraries")
     suspend fun retrieveLibrary(
