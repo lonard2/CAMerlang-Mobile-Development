@@ -316,7 +316,6 @@ class HomepageFragment : Fragment() {
                     contentHeader,
                     content,
                     createdAt,
-                    moreImagesList,
                 )
             }
 

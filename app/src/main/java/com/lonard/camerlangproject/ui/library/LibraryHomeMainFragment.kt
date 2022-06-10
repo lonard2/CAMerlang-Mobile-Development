@@ -130,7 +130,6 @@ class LibraryHomeMainFragment : Fragment() {
                         contentHeader,
                         content,
                         createdAt,
-                        moreImagesList,
                     )
                 }
 

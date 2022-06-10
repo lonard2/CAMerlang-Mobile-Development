@@ -3,8 +3,6 @@ package com.lonard.camerlangproject.ui.settings
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.lonard.camerlangproject.R
-import com.lonard.camerlangproject.databinding.ActivityConsultationBinding
 import com.lonard.camerlangproject.databinding.ActivitySettingsUserBinding
 import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModel
 import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModelFactory

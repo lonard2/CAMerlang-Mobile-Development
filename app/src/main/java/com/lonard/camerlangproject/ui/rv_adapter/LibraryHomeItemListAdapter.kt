@@ -34,7 +34,7 @@ class LibraryHomeItemListAdapter(private val alphabetItemList: ArrayList<Library
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(_, entryName, entryThumbnail, _, _, _, _, _, _, _, _, _, _) = alphabetItemList[position]
+        val(_, entryName, entryThumbnail, _, _, _, _, _, _, _, _, _) = alphabetItemList[position]
 
         holder.bind.apply {
             Picasso.get().load(entryThumbnail).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)

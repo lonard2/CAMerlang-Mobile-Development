@@ -8,11 +8,11 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.databinding.OverflowRvOnlyPicBinding
-import com.lonard.camerlangproject.db.library.MappedProblemImageItem
+import com.lonard.camerlangproject.db.library.ProblemImagesEntity
 import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso
 
-class LibraryDetailImgAdapter(private val otherPicList: ArrayList<MappedProblemImageItem>): RecyclerView.Adapter<LibraryDetailImgAdapter.ViewHolder>() {
+class LibraryDetailImgAdapter(private val otherPicList: ArrayList<ProblemImagesEntity>): RecyclerView.Adapter<LibraryDetailImgAdapter.ViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -50,6 +50,6 @@ class LibraryDetailImgAdapter(private val otherPicList: ArrayList<MappedProblemI
     class ViewHolder(var bind: OverflowRvOnlyPicBinding): RecyclerView.ViewHolder(bind.root)
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: MappedProblemImageItem, animBundle: Bundle?)
+        fun onItemClicked(data: ProblemImagesEntity, animBundle: Bundle?)
     }
 }

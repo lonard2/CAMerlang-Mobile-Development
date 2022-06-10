@@ -123,7 +123,6 @@ class LibraryHomeSearchFragment : Fragment() {
                     contentHeader,
                     content,
                     createdAt,
-                    moreImagesList,
                 )
             }
 
