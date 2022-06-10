@@ -5,11 +5,9 @@ import com.lonard.camerlangproject.db.homepage.ArticleResponse
 import com.lonard.camerlangproject.db.homepage.NotificationCatResponse
 import com.lonard.camerlangproject.db.homepage.NotificationContentResponse
 import com.lonard.camerlangproject.db.homepage.ProductResponse
-import com.lonard.camerlangproject.db.library.LibraryContentDataItem
 import com.lonard.camerlangproject.db.library.LibraryContentResponse
 import com.lonard.camerlangproject.db.library.ProblemImagesResponse
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiInterface {

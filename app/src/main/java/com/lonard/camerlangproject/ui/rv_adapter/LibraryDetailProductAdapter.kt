@@ -3,7 +3,6 @@ package com.lonard.camerlangproject.ui.rv_adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideDetailBinding
 import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.ui.ShimmerPlaceHolder

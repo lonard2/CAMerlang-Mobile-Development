@@ -5,18 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
 import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import androidx.fragment.app.viewModels
 import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.FragmentLibraryHomeBinding
-import com.lonard.camerlangproject.db.DataLoadResult
-import com.lonard.camerlangproject.mvvm.HomepageViewModel
-import com.lonard.camerlangproject.mvvm.HomepageViewModelFactory
-import com.lonard.camerlangproject.mvvm.LibraryViewModel
-import com.lonard.camerlangproject.mvvm.LibraryViewModelFactory
 
 class LibraryHomeFragment : Fragment() {
     private var _bind: FragmentLibraryHomeBinding? = null

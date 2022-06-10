@@ -3,12 +3,8 @@ package com.lonard.camerlangproject.ui.rv_adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideDetailBinding
-import com.lonard.camerlangproject.databinding.OverflowRvBoxOutsideBinding
 import com.lonard.camerlangproject.databinding.RvExpertListsHomepageBinding
 import com.lonard.camerlangproject.db.consultation.ExpertEntity
-import com.lonard.camerlangproject.db.homepage.ArticleEntity
-import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso
 

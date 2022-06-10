@@ -3,7 +3,6 @@ package com.lonard.camerlangproject.ui.settings
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lonard.camerlangproject.databinding.ActivityCreditsBinding
-import com.lonard.camerlangproject.databinding.ActivityFrontBinding
 
 class CreditsActivity : AppCompatActivity() {
 

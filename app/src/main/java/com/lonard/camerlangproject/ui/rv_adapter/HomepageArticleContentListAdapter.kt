@@ -9,7 +9,6 @@ import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.databinding.OverflowRvBoxOutsideBinding
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
-import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso
 

@@ -5,7 +5,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.lonard.camerlangproject.db.homepage.ArticleEntity
 
 @Dao
 interface ConsultationDao {
@@ -30,7 +29,7 @@ interface ConsultationDao {
     @Query("SELECT * FROM consultation_items")
     fun retrieveAllConsultationData(): LiveData<List<ConsultationItemEntity>>
 
-    @Query("SELECT * FROM consultation_items WHERE id = :id")
-    fun retrieveSpecificConsultationData(): LiveData<ConsultationItemEntity>
+    @Query("SELECT * FROM consultation_items WHERE consultation_id = :id")
+    fun retrieveSpecificConsultationData(id: Int): LiveData<ConsultationItemEntity>
 
 }

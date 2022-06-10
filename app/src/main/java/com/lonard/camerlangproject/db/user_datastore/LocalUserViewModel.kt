@@ -16,12 +16,6 @@ class LocalUserViewModel(private val localUserPref: LocalUser_pref): ViewModel()
         return localUserPref.getStartUp().asLiveData()
     }
 
-    fun saveLocalUser(userModel: UserModel) {
-        viewModelScope.launch {
-            localUserPref.saveLocalUserData(userModel)
-        }
-    }
-
     fun setDarkTheme(darkThemeSet: Boolean) {
         viewModelScope.launch {
             localUserPref.saveDarkTheme(darkThemeSet)

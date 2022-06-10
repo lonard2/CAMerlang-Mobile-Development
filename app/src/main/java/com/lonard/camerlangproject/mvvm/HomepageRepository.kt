@@ -4,16 +4,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
-
 import com.lonard.camerlangproject.api.ApiInterface
 import com.lonard.camerlangproject.db.AppDB
 import com.lonard.camerlangproject.db.DataLoadResult
-import com.lonard.camerlangproject.db.consultation.ConsultationDao
 import com.lonard.camerlangproject.db.homepage.*
-import com.lonard.camerlangproject.db.library.LibraryDao
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class HomepageRepository(private val db: AppDB,
                          private val api: ApiInterface) {

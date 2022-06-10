@@ -10,8 +10,6 @@ import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.consultation.ConsultationDao
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.lonard.camerlangproject.db.consultation.ExpertEntity
-import com.lonard.camerlangproject.db.homepage.ArticleEntity
-import com.lonard.camerlangproject.db.homepage.HomepageDao
 
 class ConsultationRepository(private val db: AppDB, private val api: ApiInterface) {
 
@@ -72,7 +70,7 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
                         "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<ConsultationItemEntity>> = consultDao.retrieveSpecificConsultationData().map {
+        val savedData: LiveData<DataLoadResult<ConsultationItemEntity>> = consultDao.retrieveSpecificConsultationData(0).map {
             DataLoadResult.Successful(it)
         }
 

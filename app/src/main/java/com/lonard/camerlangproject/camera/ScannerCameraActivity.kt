@@ -2,14 +2,10 @@ package com.lonard.camerlangproject.camera
 
 import android.content.Intent
 import android.content.Intent.ACTION_GET_CONTENT
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -18,7 +14,6 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.camera.CameraUtil.Companion.createFile
-import com.lonard.camerlangproject.camera.CameraUtil.Companion.rotateBitmap
 import com.lonard.camerlangproject.camera.CameraUtil.Companion.uriToFile
 import com.lonard.camerlangproject.databinding.ActivityScannerCameraBinding
 import com.lonard.camerlangproject.ui.images.ImageTakenPreviewActivity

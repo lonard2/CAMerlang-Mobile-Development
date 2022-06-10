@@ -3,12 +3,8 @@ package com.lonard.camerlangproject.ui.rv_adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.lonard.camerlangproject.api.ConsultationResponseItem
-import com.lonard.camerlangproject.api.LibraryResponseItem
 import com.lonard.camerlangproject.databinding.ConsultationHistoryRvBoxBinding
-import com.lonard.camerlangproject.databinding.OverflowRvOnlyPicBinding
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
-import com.squareup.picasso.Picasso
 
 class ConsultationHistoryItemAdapter(private val consultationList: ArrayList<ConsultationItemEntity>): RecyclerView.Adapter<ConsultationHistoryItemAdapter.ViewHolder>() {
 

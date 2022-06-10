@@ -1,18 +1,13 @@
 package com.lonard.camerlangproject.ui.rv_adapter
 
 import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
-import com.lonard.camerlangproject.api.HomepageResponseItem
-import com.lonard.camerlangproject.api.LibraryResponseItem
-import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideBinding
 import com.lonard.camerlangproject.databinding.OverflowRvBoxInsideSmallBinding
-import com.lonard.camerlangproject.databinding.OverflowRvBoxOutsideBinding
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
 import com.squareup.picasso.Picasso

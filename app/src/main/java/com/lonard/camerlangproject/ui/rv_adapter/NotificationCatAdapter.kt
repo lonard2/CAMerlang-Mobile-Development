@@ -3,7 +3,6 @@ package com.lonard.camerlangproject.ui.rv_adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.lonard.camerlangproject.api.NotificationResponseItem
 import com.lonard.camerlangproject.databinding.OverflowRvBoxNotificationListBinding
 import com.lonard.camerlangproject.db.homepage.NotificationCatEntity
 

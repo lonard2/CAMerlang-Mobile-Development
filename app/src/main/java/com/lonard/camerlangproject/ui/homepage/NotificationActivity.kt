@@ -1,25 +1,20 @@
 package com.lonard.camerlangproject.ui.homepage
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.lonard.camerlangproject.api.LibraryResponseItem
-import com.lonard.camerlangproject.api.NotificationResponseItem
 import com.lonard.camerlangproject.databinding.ActivityNotificationBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.homepage.NotificationCatEntity
 import com.lonard.camerlangproject.db.homepage.NotificationContentEntity
 import com.lonard.camerlangproject.mvvm.HomepageViewModel
 import com.lonard.camerlangproject.mvvm.HomepageViewModelFactory
-import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.NotificationCatAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.NotificationListAdapter
 import java.util.*
-import kotlin.collections.ArrayList
 
 class NotificationActivity : AppCompatActivity() {
     private lateinit var bind: ActivityNotificationBinding

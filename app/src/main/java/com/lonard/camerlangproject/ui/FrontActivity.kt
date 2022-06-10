@@ -5,32 +5,22 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.R
-import com.lonard.camerlangproject.camera.CameraUtil
-import com.lonard.camerlangproject.camera.CameraUtil.Companion.fileRotateFromBitmap
-import com.lonard.camerlangproject.camera.CameraUtil.Companion.rotateBitmap
 import com.lonard.camerlangproject.camera.ScannerCameraActivity
 import com.lonard.camerlangproject.databinding.ActivityFrontBinding
 import com.lonard.camerlangproject.ui.consultation.ConsultationHistoryFragment
 import com.lonard.camerlangproject.ui.homepage.HomepageFragment
-import com.lonard.camerlangproject.ui.images.ImageTakenPreviewActivity
 import com.lonard.camerlangproject.ui.images.ImageTakenPreviewActivity.Companion.CAMERAX_RESPONSE_CODE
 import com.lonard.camerlangproject.ui.library.LibraryHomeFragment
 import com.lonard.camerlangproject.ui.settings.SettingsMainFragment
-import java.io.File
 import java.util.*
 
 class FrontActivity : AppCompatActivity() {
@@ -41,7 +31,7 @@ class FrontActivity : AppCompatActivity() {
 
     private val animation = AnimatorSet()
 
-    var fragmentManager = supportFragmentManager
+    private var fragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

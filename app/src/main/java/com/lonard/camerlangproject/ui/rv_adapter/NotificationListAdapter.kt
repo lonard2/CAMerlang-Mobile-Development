@@ -3,9 +3,7 @@ package com.lonard.camerlangproject.ui.rv_adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.lonard.camerlangproject.api.NotificationResponseItem
 import com.lonard.camerlangproject.databinding.NotificationRvBoxBinding
-import com.lonard.camerlangproject.databinding.OverflowRvBoxNotificationListBinding
 import com.lonard.camerlangproject.db.homepage.NotificationContentEntity
 
 class NotificationListAdapter(private val notificationList: ArrayList<NotificationContentEntity>): RecyclerView.Adapter<NotificationListAdapter.ViewHolder>() {

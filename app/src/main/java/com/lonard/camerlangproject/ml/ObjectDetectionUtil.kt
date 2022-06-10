@@ -8,11 +8,8 @@ import android.os.Build
 import android.provider.MediaStore
 import androidx.core.content.ContextCompat
 import com.lonard.camerlangproject.R
-import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.TensorImage
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
-import java.io.File
 
 class ObjectDetectionUtil {
 

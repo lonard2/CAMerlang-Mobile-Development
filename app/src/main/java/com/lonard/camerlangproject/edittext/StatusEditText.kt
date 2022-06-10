@@ -101,7 +101,19 @@ class StatusEditText: AppCompatEditText, View.OnTouchListener {
             }
 
             override fun afterTextChanged(seq: Editable) {
-
+                if(seq.isEmpty()) {
+                    error = when(locale) {
+                        "in" -> {
+                            "Kolom ini kosong. Ayo isi dengan informasi yang sesuai!"
+                        }
+                        "en" -> {
+                            "This column is empty. Let's fill with relevant information!"
+                        }
+                        else -> {
+                            "COLUMN EMPTY!"
+                        }
+                    }
+                }
             }
         })
     }
