@@ -14,7 +14,7 @@ class ConsultationActivity : AppCompatActivity() {
 
         bind.apply {
             backBtn.setOnClickListener {
-                finishAfterTransition()
+                finish()
             }
         }
     }
