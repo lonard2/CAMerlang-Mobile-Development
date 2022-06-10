@@ -3,22 +3,19 @@ package com.lonard.camerlangproject.ui.consultation
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
-import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityConsultationDetailBinding
-import com.lonard.camerlangproject.db.consultation.ConsultationDetectionItemEntity
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
+import com.lonard.camerlangproject.ml.ObjectDetectionUtil
 import com.lonard.camerlangproject.mvvm.ConsultationViewModel
 import com.lonard.camerlangproject.mvvm.ConsultationViewModelFactory
 import com.lonard.camerlangproject.ui.images.ImageShowActivity
-import com.lonard.camerlangproject.ui.rv_adapter.ConsultationDetailAdapter
-import com.lonard.camerlangproject.ui.rv_adapter.ConsultationHistoryItemAdapter
 import com.squareup.picasso.Picasso
 
 class ConsultationDetailActivity : AppCompatActivity() {
@@ -46,6 +43,14 @@ class ConsultationDetailActivity : AppCompatActivity() {
             consultationIdDetail.text = getString(R.string.consultation_id_format, consultationParcel.id.toString())
             consultationDatetimeDetail.text = consultationParcel.processedAt
 
+            val consultationTakenImageOnUri = Uri.parse(consultationParcel.consultationImg)
+
+            val detectionResult = ObjectDetectionUtil.objectDetection(consultationTakenImageOnUri)
+
+            runOnUiThread {
+                consultationTakenImage.setImageBitmap(detectionResult)
+            }
+
             consultationTakenImage.setOnClickListener {
                 val sharedAnim =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(
@@ -64,19 +69,19 @@ class ConsultationDetailActivity : AppCompatActivity() {
                 consultFactory
             }
 
-            consultViewModel.retrieveConsultationDetections().observe(this@ConsultationDetailActivity) { detections ->
-                showDetectionResults(detections)
-            }
+//            consultViewModel.retrieveConsultationDetections().observe(this@ConsultationDetailActivity) { detections ->
+//                showDetectionResults(detections)
+//            }
         }
     }
 
-    private fun showDetectionResults(detectionItems: List<ConsultationDetectionItemEntity>) {
-        bind.consultationOutcomeCard.layoutManager = LinearLayoutManager(this@ConsultationDetailActivity,
-            LinearLayoutManager.VERTICAL, false)
-
-        val consultHistoryAdapter = ConsultationDetailAdapter(detectionItems as ArrayList<ConsultationDetectionItemEntity>)
-        bind.consultationOutcomeCard.adapter = consultHistoryAdapter
-    }
+//    private fun showDetectionResults(detectionItems: List<ConsultationDetectionItemEntity>) {
+//        bind.consultationOutcomeCard.layoutManager = LinearLayoutManager(this@ConsultationDetailActivity,
+//            LinearLayoutManager.VERTICAL, false)
+//
+//        val consultHistoryAdapter = ConsultationDetailAdapter(detectionItems as ArrayList<ConsultationDetectionItemEntity>)
+//        bind.consultationOutcomeCard.adapter = consultHistoryAdapter
+//    }
 
     companion object {
         const val EXTRA_CONSULTATION_DATA = "captured_consultation_information"
