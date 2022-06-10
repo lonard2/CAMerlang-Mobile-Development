@@ -29,7 +29,7 @@ class LibraryHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val fragmentManagerVar = parentFragmentManager
+        val fragmentManagerVar = childFragmentManager
         val searchBar = bind.libSearchBox
 
         val searchBarTextId = searchBar.context.resources.getIdentifier(androidx.appcompat.R.id.search_src_text.toString(), null, null)
@@ -38,7 +38,7 @@ class LibraryHomeFragment : Fragment() {
         val searchBarFont: Typeface = Typeface.createFromAsset(context?.assets, "poppins_regular.ttf")
 
         fragmentManagerVar.commit {
-            replace(R.id.fragment_container, LibraryHomeMainFragment())
+            replace(R.id.library_home_container, LibraryHomeMainFragment())
         }
 
         searchLibrary(searchBarText, searchBarFont, fragmentManagerVar, searchBar)
@@ -64,7 +64,7 @@ class LibraryHomeFragment : Fragment() {
                 mySearchFragment.arguments = myBundle
 
                 parentFm.commit {
-                    replace(R.id.fragment_container, mySearchFragment)
+                    replace(R.id.library_home_container, mySearchFragment)
                 }
 
                 return true

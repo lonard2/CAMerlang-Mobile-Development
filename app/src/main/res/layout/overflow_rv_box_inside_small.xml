@@ -16,6 +16,9 @@
         <ImageView
             android:id="@+id/content_list_image"
             android:contentDescription="@string/content_list_img_rv_sample"
+
+            android:scaleType="centerCrop"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
