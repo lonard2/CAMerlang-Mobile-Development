@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.FragmentLibraryHomeBinding
@@ -15,13 +16,6 @@ import com.lonard.camerlangproject.databinding.FragmentLibraryHomeBinding
 class LibraryHomeFragment : Fragment() {
     private var _bind: FragmentLibraryHomeBinding? = null
     private val bind get() = _bind!!
-
-    private val searchBarTextId = bind.libSearchBox.context.resources.getIdentifier("android:id/search_src_text", null, null)
-    private val searchBarText: TextView = bind.libSearchBox.findViewById(searchBarTextId)
-
-    private val searchBarFont: Typeface = Typeface.createFromAsset(context?.assets, "app_fonts/poppins_regular.ttf")
-
-    private val fragmentManagerVar = parentFragmentManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,11 +29,19 @@ class LibraryHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val fragmentManagerVar = parentFragmentManager
+        val searchBar = bind.libSearchBox
+
+        val searchBarTextId = searchBar.context.resources.getIdentifier(androidx.appcompat.R.id.search_src_text.toString(), null, null)
+        val searchBarText: TextView = searchBar.findViewById(searchBarTextId)
+
+        val searchBarFont: Typeface = Typeface.createFromAsset(context?.assets, "poppins_regular.ttf")
+
         fragmentManagerVar.commit {
             replace(R.id.fragment_container, LibraryHomeMainFragment())
         }
 
-        searchLibrary()
+        searchLibrary(searchBarText, searchBarFont, fragmentManagerVar, searchBar)
     }
 
     override fun onDestroyView() {
@@ -47,13 +49,12 @@ class LibraryHomeFragment : Fragment() {
         _bind = null
     }
 
-    private fun searchLibrary() {
+    private fun searchLibrary(searchBarText: TextView, searchBarFont: Typeface,
+                              parentFm: FragmentManager, searchBar: SearchView) {
         val myBundle = Bundle()
         val mySearchFragment = LibraryHomeSearchFragment()
 
         searchBarText.typeface = searchBarFont
-
-        val searchBar = bind.libSearchBox
 
         searchBar.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(q: String?): Boolean {
@@ -62,7 +63,7 @@ class LibraryHomeFragment : Fragment() {
                 myBundle.putString(LibraryHomeSearchFragment.EXTRA_QUERY, q)
                 mySearchFragment.arguments = myBundle
 
-                fragmentManagerVar.commit {
+                parentFm.commit {
                     replace(R.id.fragment_container, mySearchFragment)
                 }
 
@@ -74,7 +75,6 @@ class LibraryHomeFragment : Fragment() {
             }
         })
 
-//        val query = searchBar.query?.toString() ?: ""
     }
 
 
