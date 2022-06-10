@@ -47,7 +47,5 @@ data class LibraryContentEntity(
 
     @ColumnInfo(name = "created_at")
     var createdAt: String? = null,
-
-    @ColumnInfo("more_images_list")
-    val moreImagesList: List<MappedProblemImageItem>,
 ): Parcelable
+

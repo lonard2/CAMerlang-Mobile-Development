@@ -21,10 +21,10 @@ interface LibraryDao {
     // library entry images (more images) CRUD operations
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addImagesToDb(imageItem: List<List<MappedProblemImageItem>>)
+    suspend fun addImagesToDb(imageItem: List<ProblemImagesEntity>)
 
     @Query("SELECT * FROM library_contents_images")
-    fun retrieveAllImagesForIndividualLibEntry(): LiveData<List<MappedProblemImageItem>>
+    fun retrieveAllImagesForIndividualLibEntry(): LiveData<List<ProblemImagesEntity>>
 
     // skincare products CRUD operations
 

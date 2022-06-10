@@ -9,10 +9,10 @@ import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.lonard.camerlangproject.db.homepage.*
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDao
-import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
+import com.lonard.camerlangproject.db.library.ProblemImagesEntity
 
 @Database(entities = [LibraryContentEntity::class, ArticleEntity::class,
-    ProductEntity::class, ConsultationItemEntity::class, LibraryDetailImgEntity::class,
+    ProductEntity::class, ConsultationItemEntity::class, ProblemImagesEntity::class,
     NotificationContentEntity::class, NotificationCatEntity::class],
     version = 1, exportSchema = false)
 abstract class AppDB: RoomDatabase() {

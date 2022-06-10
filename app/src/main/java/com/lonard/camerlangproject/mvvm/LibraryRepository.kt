@@ -10,7 +10,7 @@ import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDao
-import com.lonard.camerlangproject.db.library.MappedProblemImageItem
+import com.lonard.camerlangproject.db.library.ProblemImagesEntity
 
 class LibraryRepository(private val db: AppDB,
                         private val api: ApiInterface) {
@@ -38,22 +38,10 @@ class LibraryRepository(private val db: AppDB,
                     library.contentHeader,
                     library.content,
                     library.createdAt,
-                    library.mappedProblemImage,
                 )
             }
 
-            val libraryImgDb = libraryEntries.map { entry ->
-                entry.mappedProblemImage.map { image ->
-                    MappedProblemImageItem(
-                        image.id,
-                        image.imageUrl,
-                    )
-                }
-            }
-
             db.libraryDao().addEntryToDb(libraryItemDb)
-
-            db.libraryDao().addImagesToDb(libraryImgDb)
 
         } catch (exception: Exception) {
             emit(DataLoadResult.Failed(exception.message.toString()))
@@ -88,22 +76,10 @@ class LibraryRepository(private val db: AppDB,
                     library.contentHeader,
                     library.content,
                     library.createdAt,
-                    library.mappedProblemImage,
                 )
             }
 
-            val libraryImgDb = libraryEntries.map { entry ->
-                entry.mappedProblemImage.map { image ->
-                    MappedProblemImageItem(
-                        image.id,
-                        image.imageUrl,
-                    )
-                }
-            }
-
             db.libraryDao().addEntryToDb(libraryItemDb)
-
-            db.libraryDao().addImagesToDb(libraryImgDb)
 
         } catch (exception: Exception) {
             emit(DataLoadResult.Failed(exception.message.toString()))
@@ -117,8 +93,35 @@ class LibraryRepository(private val db: AppDB,
         emitSource(savedData)
     }
 
-    fun retrieveLibraryDetails(id: Int): LiveData<DataLoadResult<LibraryContentEntity>> = liveData {
+    fun retrieveLibraryProblemImages(problemType: String): LiveData<DataLoadResult<List<ProblemImagesEntity>>> = liveData {
         emit(DataLoadResult.Loading)
+
+        try {
+            val api = api.retrieveLibraryProblemImage(problemType)
+            val libraryEntries = api.data
+
+            val libraryImgDb = libraryEntries.map { img ->
+                ProblemImagesEntity(
+                    img.id,
+                    img.description,
+                    img.image,
+                    img.type,
+                    img.createdAt
+                )
+            }
+
+            db.libraryDao().addImagesToDb(libraryImgDb)
+
+        } catch (exception: Exception) {
+            emit(DataLoadResult.Failed(exception.message.toString()))
+            Log.e(TAG, "Cannot retrievea a problem's images information from application API server." +
+                    "Occurred error: ${exception.message.toString()}")
+        }
+
+        val savedData: LiveData<DataLoadResult<List<ProblemImagesEntity>>> = libraryDao.retrieveAllImagesForIndividualLibEntry().map { imagesItem ->
+            DataLoadResult.Successful(imagesItem)
+        }
+        emitSource(savedData)
 
     }
 

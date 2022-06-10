@@ -9,4 +9,6 @@ class LibraryViewModel(private val libraryRepo: LibraryRepository): ViewModel() 
     fun retrieveLibraryEntriesList() = libraryRepo.retrieveLibraryEntriesList()
 
     fun retrieveProductsInfo() = libraryRepo.retrieveProductsInfo()
+
+    fun retrieveProblemImages(problemType: String) = libraryRepo.retrieveLibraryProblemImages(problemType)
 }

@@ -57,18 +57,4 @@ data class LibraryContentDataItem(
 	@field:SerializedName("expert_image")
 	val expertImage: String,
 
-	@field:SerializedName("mappedProblemImage")
-	val mappedProblemImage: List<MappedProblemImageItem>,
-
-): Parcelable
-
-@Parcelize
-data class MappedProblemImageItem(
-
-	@field:SerializedName("id")
-	val id: Int,
-
-	@field:SerializedName("image")
-	val imageUrl: String,
-
 ): Parcelable

@@ -16,7 +16,7 @@ import com.lonard.camerlangproject.databinding.ActivityLibraryDetailBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
-import com.lonard.camerlangproject.db.library.MappedProblemImageItem
+import com.lonard.camerlangproject.db.library.ProblemImagesEntity
 import com.lonard.camerlangproject.formatDateTime
 import com.lonard.camerlangproject.mvvm.LibraryViewModel
 import com.lonard.camerlangproject.mvvm.LibraryViewModelFactory
@@ -66,7 +66,46 @@ class LibraryDetailActivity : AppCompatActivity() {
             libItemShortDesc.text = diseaseParcel.contentHeader
             libItemContent.text = diseaseParcel.content
 
-            showMoreImagesContent(diseaseParcel.moreImagesList)
+            diseaseParcel.name?.let {
+                libraryViewModel.retrieveProblemImages(it).observe(this@LibraryDetailActivity) { imageList ->
+                    if(imageList != null) {
+                        when (imageList) {
+                            is DataLoadResult.Loading -> {
+                                loadFrame.visibility = View.VISIBLE
+                                loadAnimLottie.visibility = View.VISIBLE
+                            }
+
+                            is DataLoadResult.Successful -> {
+                                loadFrame.visibility = View.GONE
+                                loadAnimLottie.visibility = View.GONE
+
+                                val images = imageList.data
+
+                                showMoreImagesContent(images)
+                            }
+
+                            is DataLoadResult.Failed -> {
+                                loadFrame.visibility = View.GONE
+                                loadAnimLottie.visibility = View.GONE
+
+                                Snackbar.make(
+                                    productsSectionRv, when (locale) {
+                                        "in" -> {
+                                            "Data produk terkait item masalah ini tidak bisa ditampilkan. Silakan coba lagi ya."
+                                        }
+                                        "en" -> {
+                                            "Ouch, the products data regarding this problem item cannot be shown to you. Please try again."
+                                        }
+                                        else -> {
+                                            "Error in products retrieval for a specific item."
+                                        }
+                                    }, Snackbar.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                    }
+                }
+            }
 
             libDetailHeaderPic.setOnClickListener {
                 val showImageIntent = Intent(this@LibraryDetailActivity, ImageShowActivity::class.java)
@@ -161,15 +200,15 @@ class LibraryDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun showMoreImagesContent(imagesItems: List<MappedProblemImageItem>) {
+    private fun showMoreImagesContent(imagesItems: List<ProblemImagesEntity>) {
         bind.moreImagesSectionRv.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.HORIZONTAL, false)
 
-        val moreImagesAdapter = LibraryDetailImgAdapter(imagesItems as ArrayList<MappedProblemImageItem>)
+        val moreImagesAdapter = LibraryDetailImgAdapter(imagesItems as ArrayList<ProblemImagesEntity>)
         bind.moreImagesSectionRv.adapter = moreImagesAdapter
 
         moreImagesAdapter.setOnItemClickCallback(object: LibraryDetailImgAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: MappedProblemImageItem, animBundle: Bundle?) {
+            override fun onItemClicked(data: ProblemImagesEntity, animBundle: Bundle?) {
                 if (animBundle != null) {
                     seeZoomedImg(data, animBundle)
                 }
@@ -177,12 +216,15 @@ class LibraryDetailActivity : AppCompatActivity() {
         })
     }
 
-    private fun seeZoomedImg(images: MappedProblemImageItem, bundle: Bundle) {
+    private fun seeZoomedImg(images: ProblemImagesEntity, bundle: Bundle) {
         val imagesList =
             images.apply {
-                MappedProblemImageItem(
+                ProblemImagesEntity(
                     id,
-                    imageUrl
+                    description,
+                    imagePic,
+                    problemType,
+                    createdAt
                 )
             }
 
@@ -224,7 +266,6 @@ class LibraryDetailActivity : AppCompatActivity() {
                     contentHeader,
                     content,
                     createdAt,
-                    moreImagesList,
                 )
             }
 

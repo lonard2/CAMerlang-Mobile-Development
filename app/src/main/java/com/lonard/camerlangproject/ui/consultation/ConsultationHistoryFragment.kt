@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lonard.camerlangproject.api.ConsultationResponseItem
 import com.lonard.camerlangproject.databinding.FragmentConsultationHistoryBinding
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
-import com.lonard.camerlangproject.db.library.LibraryDetailImgEntity
 import com.lonard.camerlangproject.mvvm.ConsultationViewModel
 import com.lonard.camerlangproject.mvvm.ConsultationViewModelFactory
 import com.lonard.camerlangproject.ui.rv_adapter.ConsultationHistoryItemAdapter

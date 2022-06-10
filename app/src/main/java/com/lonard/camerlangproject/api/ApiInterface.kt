@@ -7,6 +7,7 @@ import com.lonard.camerlangproject.db.homepage.NotificationContentResponse
 import com.lonard.camerlangproject.db.homepage.ProductResponse
 import com.lonard.camerlangproject.db.library.LibraryContentDataItem
 import com.lonard.camerlangproject.db.library.LibraryContentResponse
+import com.lonard.camerlangproject.db.library.ProblemImagesResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -31,11 +32,11 @@ interface ApiInterface {
         @Query("library_names") libraryEntryTitles: String?,
     ): LibraryContentResponse
 
-    // Endpoint 3. Retrieve library details
-    @GET("libraries/{id}")
-    suspend fun retrieveLibraryDetails(
-        @Path("id") id: Int
-    ): LibraryContentDataItem
+    // Endpoint 3. Retrieve a library's problem images
+    @GET("problem_images")
+    suspend fun retrieveLibraryProblemImage(
+        @Query("problemImageTypes") problemType: String
+    ): ProblemImagesResponse
 
     // Endpoint 4. Retrieve skincare products information
     @GET("skincare_products")
