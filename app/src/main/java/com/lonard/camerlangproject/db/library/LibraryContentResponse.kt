@@ -63,7 +63,6 @@ data class LibraryContentDataItem(
 ): Parcelable
 
 @Parcelize
-@Entity(tableName = "library_contents_images")
 data class MappedProblemImageItem(
 
 	@field:SerializedName("id")

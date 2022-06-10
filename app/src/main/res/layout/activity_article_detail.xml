@@ -160,6 +160,8 @@
                         android:layout_margin="3dp"
                         android:layout_gravity="center"
 
+                        android:contentDescription="@string/expert_verified_icon_desc"
+
                         android:src="@drawable/verified_icon"
                         app:tint="@color/md_theme_light_onPrimary" />
 
@@ -251,10 +253,13 @@
 
                 style="@style/DetailContent.Content"
 
+                android:layout_marginBottom="30dp"
+
                 android:text="@string/article_content_desc"
 
                 app:layout_constraintTop_toBottomOf="@id/article_header"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

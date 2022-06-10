@@ -143,6 +143,8 @@
                         android:layout_margin="3dp"
                         android:layout_gravity="center"
 
+                        android:contentDescription="@string/expert_verified_icon_desc"
+
                         android:src="@drawable/verified_icon"
                         app:tint="@color/md_theme_light_onPrimary" />
 
@@ -273,7 +275,7 @@
                 style="@style/DetailRv"
 
                 app:layout_constraintTop_toBottomOf="@id/more_images_emoji_icon"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
                 android:id="@+id/products_emoji_icon"
@@ -333,8 +335,11 @@
 
                 style="@style/DetailRv"
 
+                android:layout_marginBottom="30dp"
+
                 app:layout_constraintTop_toBottomOf="@id/other_entries_emoji_icon"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

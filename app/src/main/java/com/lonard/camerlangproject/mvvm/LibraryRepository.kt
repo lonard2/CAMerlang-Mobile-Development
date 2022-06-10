@@ -117,6 +117,11 @@ class LibraryRepository(private val db: AppDB,
         emitSource(savedData)
     }
 
+    fun retrieveLibraryDetails(id: Int): LiveData<DataLoadResult<LibraryContentEntity>> = liveData {
+        emit(DataLoadResult.Loading)
+
+    }
+
     fun retrieveProductsInfo(): LiveData<DataLoadResult<List<ProductEntity>>> = liveData {
 
         emit(DataLoadResult.Loading)
