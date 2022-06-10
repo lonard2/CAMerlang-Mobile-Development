@@ -37,44 +37,6 @@ class NotificationActivity : AppCompatActivity() {
             }
 
             homeViewModel.getNotificationCategories().observe(this@NotificationActivity) { notificationCatList ->
-                homeViewModel.getNotificationContent().observe(this@NotificationActivity) { notificationList ->
-                    if (notificationList != null) {
-                        when (notificationList) {
-                            is DataLoadResult.Loading -> {
-                                loadFrame.visibility = View.VISIBLE
-                                loadAnimLottie.visibility = View.VISIBLE
-                            }
-
-                            is DataLoadResult.Successful -> {
-                                loadFrame.visibility = View.GONE
-                                loadAnimLottie.visibility = View.GONE
-
-                                val notifications = notificationList.data
-
-                                showNotificationList(notifications)
-                            }
-
-                            is DataLoadResult.Failed -> {
-                                loadFrame.visibility = View.GONE
-                                loadAnimLottie.visibility = View.GONE
-
-                                Snackbar.make(
-                                    notificationDataListRv, when (locale) {
-                                        "in" -> {
-                                            "Aduh, data notifikasi tidak dapat ditampilkan. Silakan coba lagi ya."
-                                        }
-                                        "en" -> {
-                                            "Ouch, the notification data cannot be shown to you. Please try again."
-                                        }
-                                        else -> {
-                                            "Error in notification data retrieval."
-                                        }
-                                    }, Snackbar.LENGTH_LONG
-                                ).show()
-                            }
-                        }
-                    }
-
                     if (notificationCatList != null) {
                         when (notificationCatList) {
                             is DataLoadResult.Loading -> {
@@ -111,6 +73,44 @@ class NotificationActivity : AppCompatActivity() {
                                     }, Snackbar.LENGTH_LONG
                                 ).show()
                             }
+                        }
+                    }
+                }
+
+            homeViewModel.getNotificationContent().observe(this@NotificationActivity) { notificationList ->
+                if (notificationList != null) {
+                    when (notificationList) {
+                        is DataLoadResult.Loading -> {
+                            loadFrame.visibility = View.VISIBLE
+                            loadAnimLottie.visibility = View.VISIBLE
+                        }
+
+                        is DataLoadResult.Successful -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+
+                            val notifications = notificationList.data
+
+                            showNotificationList(notifications)
+                        }
+
+                        is DataLoadResult.Failed -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+
+                            Snackbar.make(
+                                notificationDataListRv, when (locale) {
+                                    "in" -> {
+                                        "Aduh, data notifikasi tidak dapat ditampilkan. Silakan coba lagi ya."
+                                    }
+                                    "en" -> {
+                                        "Ouch, the notification data cannot be shown to you. Please try again."
+                                    }
+                                    else -> {
+                                        "Error in notification data retrieval."
+                                    }
+                                }, Snackbar.LENGTH_LONG
+                            ).show()
                         }
                     }
                 }

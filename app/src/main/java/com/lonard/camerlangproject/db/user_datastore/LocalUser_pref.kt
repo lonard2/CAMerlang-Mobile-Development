@@ -10,7 +10,7 @@ class LocalUser_pref private constructor(private val ds: DataStore<Preferences>)
     fun getUserDataLocal(): Flow<UserModel> {
         return ds.data.map { userPref ->
             UserModel(
-                userPref[NAME_PREF_KEY] ?: "Anonymous",
+                userPref[NAME_PREF_KEY] ?: "John Doe",
                 userPref[AGE_PREF_KEY] ?: "0",
                 userPref[PROFESSION_PREF_KEY] ?: "None",
                 userPref[STATUS_PREF_KEY] ?: "",
@@ -24,15 +24,6 @@ class LocalUser_pref private constructor(private val ds: DataStore<Preferences>)
                 settingPref[FIRST_RUN_PREF_KEY] ?: true,
                 settingPref[DARK_THEME] ?: false
             )
-        }
-    }
-
-    suspend fun saveLocalUserData(userModel: UserModel) {
-        ds.edit { userPref ->
-            userPref[NAME_PREF_KEY] = userModel.name
-            userPref[AGE_PREF_KEY] ?: userModel.age
-            userPref[PROFESSION_PREF_KEY] ?: userModel.profession
-            userPref[STATUS_PREF_KEY] ?: userModel.status
         }
     }
 

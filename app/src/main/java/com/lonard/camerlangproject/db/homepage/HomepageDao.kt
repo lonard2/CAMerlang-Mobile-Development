@@ -28,7 +28,7 @@ interface HomepageDao {
     @Query("DELETE FROM skincare_products")
     suspend fun deleteAllProducts()
 
-    @Query("SELECT * FROM skincare_products WHERE is_popular = true")
+    @Query("SELECT * FROM skincare_products WHERE is_popular = 1")
     fun retrievePopularProducts(): LiveData<List<ProductEntity>>
 
     // notification content-related CRUD functions

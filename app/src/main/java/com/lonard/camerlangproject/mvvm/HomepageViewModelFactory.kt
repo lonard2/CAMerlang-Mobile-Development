@@ -11,8 +11,8 @@ class HomepageViewModelFactory (private val homepageRepo: HomepageRepository):
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(HomepageViewModelFactory::class.java)) {
-            return HomepageViewModelFactory(homepageRepo) as T
+        if(modelClass.isAssignableFrom(HomepageViewModel::class.java)) {
+            return HomepageViewModel(homepageRepo) as T
         }
 
         throw IllegalArgumentException("HomepageViewModel can't be found on this application instance!")

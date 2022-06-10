@@ -13,8 +13,6 @@ import com.lonard.camerlangproject.db.consultation.ExpertEntity
 
 class ConsultationRepository(private val db: AppDB, private val api: ApiInterface) {
 
-    private lateinit var consultDao: ConsultationDao
-
     fun retrieveExpertsInfo(): LiveData<DataLoadResult<List<ExpertEntity>>> = liveData {
 
         emit(DataLoadResult.Loading)
@@ -43,7 +41,7 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<ExpertEntity>>> = consultDao.retrieveAllExperts().map { expertItem ->
+        val savedData: LiveData<DataLoadResult<List<ExpertEntity>>> = db.consultationDao().retrieveAllExperts().map { expertItem ->
             DataLoadResult.Successful(expertItem)
         }
         emitSource(savedData)
@@ -70,7 +68,7 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
                         "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<ConsultationItemEntity>> = consultDao.retrieveSpecificConsultationData(0).map {
+        val savedData: LiveData<DataLoadResult<ConsultationItemEntity>> = db.consultationDao().retrieveSpecificConsultationData(0).map {
             DataLoadResult.Successful(it)
         }
 
@@ -90,7 +88,7 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
                         "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<ConsultationItemEntity>>> = consultDao.retrieveAllConsultationData().map { consultItem ->
+        val savedData: LiveData<DataLoadResult<List<ConsultationItemEntity>>> = db.consultationDao().retrieveAllConsultationData().map { consultItem ->
             DataLoadResult.Successful(consultItem)
         }
 

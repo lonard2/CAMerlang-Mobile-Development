@@ -42,7 +42,7 @@
 
                 android:text="@string/first_problem_txt_sample"
 
-                android:textColor="@color/md_theme_light_primary_60"
+                android:textColor="@color/dark_red_color"
                 android:textSize="20sp"
 
                 app:layout_constraintStart_toEndOf="@id/problem_number"

@@ -52,12 +52,12 @@ class SplashActivity : AppCompatActivity() {
             }
             else {
                 Handler(Looper.getMainLooper()).postDelayed({
-                    val splashIntent = Intent(this@SplashActivity, OnboardingActivity::class.java)
-                    startActivity(splashIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
-
-                    localViewModel.disableFirstRun()
+                    val onboardingIntent = Intent(this@SplashActivity, OnboardingActivity::class.java)
+                    startActivity(onboardingIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
 
                     finish()
+
+                    localViewModel.disableFirstRun()
                 }, SPLASH_DELAY)
             }
         }
@@ -80,7 +80,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val SPLASH_DELAY = 5000L
+        const val SPLASH_DELAY = 3500L
     }
 
 }

@@ -15,8 +15,6 @@ import com.lonard.camerlangproject.db.library.ProblemImagesEntity
 class LibraryRepository(private val db: AppDB,
                         private val api: ApiInterface) {
 
-    private lateinit var libraryDao: LibraryDao
-
     fun retrieveLibraryEntriesListWithSearchQuery(q: String): LiveData<DataLoadResult<List<LibraryContentEntity>>> = liveData {
         emit(DataLoadResult.Loading)
 
@@ -49,7 +47,7 @@ class LibraryRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = libraryDao.retrieveAllEntries().map { entryItem ->
+        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = db.libraryDao().retrieveAllEntries().map { entryItem ->
             DataLoadResult.Successful(entryItem)
         }
         emitSource(savedData)
@@ -87,7 +85,7 @@ class LibraryRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = libraryDao.retrieveAllEntries().map { entryItem ->
+        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = db.libraryDao().retrieveAllEntries().map { entryItem ->
             DataLoadResult.Successful(entryItem)
         }
         emitSource(savedData)
@@ -118,7 +116,7 @@ class LibraryRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<ProblemImagesEntity>>> = libraryDao.retrieveAllImagesForIndividualLibEntry().map { imagesItem ->
+        val savedData: LiveData<DataLoadResult<List<ProblemImagesEntity>>> = db.libraryDao().retrieveAllImagesForIndividualLibEntry().map { imagesItem ->
             DataLoadResult.Successful(imagesItem)
         }
         emitSource(savedData)
@@ -152,7 +150,7 @@ class LibraryRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<ProductEntity>>> = libraryDao.retrieveProducts().map { productItem ->
+        val savedData: LiveData<DataLoadResult<List<ProductEntity>>> = db.libraryDao().retrieveProducts().map { productItem ->
             DataLoadResult.Successful(productItem)
         }
         emitSource(savedData)

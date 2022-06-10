@@ -9,7 +9,7 @@ class LocalUserViewModelFactory (private val localUserPref: LocalUser_pref):
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(localUserPref::class.java)) {
+        if(modelClass.isAssignableFrom(LocalUserViewModel::class.java)) {
             return LocalUserViewModel(localUserPref) as T
         }
 

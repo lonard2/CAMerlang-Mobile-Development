@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CamerlangProject</string>
+    <string name="app_name">CAMerlang</string>
     <string name="app_slogan">Cemerlangkan hidupmu.</string>
     <string name="logo_content_desc">Logo CAMerlang dalam format warna-warni dan transparan.</string>
     <string name="version_info">Versi prototype A</string>
@@ -107,7 +107,7 @@
     <string name="history_navbar_menu">Histori</string>
     <string name="detect_navbar_menu">Deteksi</string>
     <string name="library_navbar_menu">Pustaka</string>
-    <string name="settings_navbar_menu">Pengaturan</string>
+    <string name="settings_navbar_menu">Setelan</string>
     <string name="dialog_menu_header">Oops! Chat ya!</string>
     <string name="dialog_menu_content_a_text">Untuk saat ini, fitur ini hanya bisa dilakukan untuk keluhan jerawat saja.</string>
     <string name="dialog_menu_content_b_text">Bagimu yang memiliki masalah lainnya, bisa cek melalui chatbot konsultasi di bawah ini!</string>

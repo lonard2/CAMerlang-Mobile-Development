@@ -24,6 +24,7 @@ import com.lonard.camerlangproject.ui.rv_adapter.HomepageLibraryContentListAdapt
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageProductContentListAdapter
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.math.exp
 
 class HomepageFragment : Fragment() {
 
@@ -65,156 +66,155 @@ class HomepageFragment : Fragment() {
                 startActivity(notificationScreenIntent, ActivityOptions.
                 makeSceneTransitionAnimation(requireActivity()).toBundle())
             }
-
             homeViewModel.getArticlesData().observe(viewLifecycleOwner) { articleList ->
-                homeViewModel.getPopularProducts().observe(viewLifecycleOwner) { productList ->
-                    libraryViewModel.retrieveLibraryEntriesList().observe(viewLifecycleOwner) { libraryList ->
-                        consultViewModel.retrieveExpertsData().observe(viewLifecycleOwner) { expertList ->
-                            if (articleList != null) {
-                                when (articleList) {
-                                    is DataLoadResult.Loading -> {
-                                        loadFrame.visibility = View.VISIBLE
-                                        loadAnimLottie.visibility = View.VISIBLE
+                if (articleList != null) {
+                    when (articleList) {
+                        is DataLoadResult.Loading -> {
+                            loadFrame.visibility = View.VISIBLE
+                            loadAnimLottie.visibility = View.VISIBLE
+                        }
+
+                        is DataLoadResult.Successful -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+
+                            val articles = articleList.data
+
+                            showArticleSection(articles)
+                        }
+
+                        is DataLoadResult.Failed -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+
+                            Snackbar.make(
+                                articleOverflowRecyclerview, when (locale) {
+                                    "in" -> {
+                                        "Aduh, data artikel tidak bisa ditampilkan. Silakan coba lagi ya."
                                     }
-
-                                    is DataLoadResult.Successful -> {
-                                        loadFrame.visibility = View.GONE
-                                        loadAnimLottie.visibility = View.GONE
-
-                                        val articles = articleList.data
-
-                                        showArticleSection(articles)
+                                    "en" -> {
+                                        "Ouch, the articles data cannot be shown to you. Please try again."
                                     }
-
-                                    is DataLoadResult.Failed -> {
-                                        loadFrame.visibility = View.GONE
-                                        loadAnimLottie.visibility = View.GONE
-
-                                        Snackbar.make(
-                                            articleOverflowRecyclerview, when (locale) {
-                                                "in" -> {
-                                                    "Aduh, data artikel tidak bisa ditampilkan. Silakan coba lagi ya."
-                                                }
-                                                "en" -> {
-                                                    "Ouch, the articles data cannot be shown to you. Please try again."
-                                                }
-                                                else -> {
-                                                    "Error in articles data retrieval."
-                                                }
-                                            }, Snackbar.LENGTH_LONG
-                                        ).show()
+                                    else -> {
+                                        "Error in articles data retrieval."
                                     }
-                                }
-                            }
+                                }, Snackbar.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                }
+            }
 
-                            if (productList != null) {
-                                when (productList) {
-                                    is DataLoadResult.Loading -> {
-                                        loadFrame.visibility = View.VISIBLE
-                                        loadAnimLottie.visibility = View.VISIBLE
+            homeViewModel.getPopularProducts().observe(viewLifecycleOwner) { productList ->
+                if (productList != null) {
+                    when (productList) {
+                        is DataLoadResult.Loading -> {
+                            loadFrame.visibility = View.VISIBLE
+                            loadAnimLottie.visibility = View.VISIBLE
+                        }
+
+                        is DataLoadResult.Successful -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+                            val products = productList.data
+
+                            showProductSection(products)
+                        }
+
+                        is DataLoadResult.Failed -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+
+                            Snackbar.make(
+                                productsOverflowRecyclerview, when (locale) {
+                                    "in" -> {
+                                        "Aduh, data produk populer tidak bisa ditampilkan. Silakan coba lagi ya."
                                     }
-
-                                    is DataLoadResult.Successful -> {
-                                        loadFrame.visibility = View.GONE
-                                        loadAnimLottie.visibility = View.GONE
-                                        val products = productList.data
-
-                                        showProductSection(products)
+                                    "en" -> {
+                                        "Ouch, the popular products data cannot be shown to you. Please try again."
                                     }
-
-                                    is DataLoadResult.Failed -> {
-                                        loadFrame.visibility = View.GONE
-                                        loadAnimLottie.visibility = View.GONE
-
-                                        Snackbar.make(
-                                            productsOverflowRecyclerview, when (locale) {
-                                                "in" -> {
-                                                    "Aduh, data produk populer tidak bisa ditampilkan. Silakan coba lagi ya."
-                                                }
-                                                "en" -> {
-                                                    "Ouch, the popular products data cannot be shown to you. Please try again."
-                                                }
-                                                else -> {
-                                                    "Error in popular products data retrieval."
-                                                }
-                                            },
-                                            Snackbar.LENGTH_LONG
-                                        ).show()
+                                    else -> {
+                                        "Error in popular products data retrieval."
                                     }
-                                }
-                            }
+                                },
+                                Snackbar.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                }
+            }
 
-                            if (libraryList != null) {
-                                when (libraryList) {
-                                    is DataLoadResult.Loading -> {
-                                        loadFrame.visibility = View.VISIBLE
-                                        loadAnimLottie.visibility = View.VISIBLE
+            libraryViewModel.retrieveLibraryEntriesList().observe(viewLifecycleOwner) { libraryList ->
+                if (libraryList != null) {
+                    when (libraryList) {
+                        is DataLoadResult.Loading -> {
+                            loadFrame.visibility = View.VISIBLE
+                            loadAnimLottie.visibility = View.VISIBLE
+                        }
+
+                        is DataLoadResult.Successful -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+                            val entries = libraryList.data
+
+                            showLibrarySection(entries)
+                        }
+
+                        is DataLoadResult.Failed -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+
+                            Snackbar.make(
+                                libraryEntriesOverflowRecyclerview, when (locale) {
+                                    "in" -> {
+                                        "Aduh, data entri pustaka tidak bisa ditampilkan. Silakan coba lagi ya."
                                     }
-
-                                    is DataLoadResult.Successful -> {
-                                        loadFrame.visibility = View.GONE
-                                        loadAnimLottie.visibility = View.GONE
-                                        val entries = libraryList.data
-
-                                        showLibrarySection(entries)
+                                    "en" -> {
+                                        "Ouch, the library entries data cannot be shown to you. Please try again."
                                     }
-
-                                    is DataLoadResult.Failed -> {
-                                        loadFrame.visibility = View.GONE
-                                        loadAnimLottie.visibility = View.GONE
-
-                                        Snackbar.make(
-                                            libraryEntriesOverflowRecyclerview, when (locale) {
-                                                "in" -> {
-                                                    "Aduh, data entri pustaka tidak bisa ditampilkan. Silakan coba lagi ya."
-                                                }
-                                                "en" -> {
-                                                    "Ouch, the library entries data cannot be shown to you. Please try again."
-                                                }
-                                                else -> {
-                                                    "Error in library entries data retrieval."
-                                                }
-                                            }, Snackbar.LENGTH_LONG
-                                        ).show()
+                                    else -> {
+                                        "Error in library entries data retrieval."
                                     }
-                                }
-                            }
+                                }, Snackbar.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                }
+            }
 
-                            if (expertList != null) {
-                                when (expertList) {
-                                    is DataLoadResult.Loading -> {
-                                        loadFrame.visibility = View.VISIBLE
-                                        loadAnimLottie.visibility = View.VISIBLE
+            consultViewModel.retrieveExpertsData().observe(viewLifecycleOwner) { expertList ->
+                if (expertList != null) {
+                    when (expertList) {
+                        is DataLoadResult.Loading -> {
+                            loadFrame.visibility = View.VISIBLE
+                            loadAnimLottie.visibility = View.VISIBLE
+                        }
+
+                        is DataLoadResult.Successful -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+                            val expertPeople = expertList.data
+
+                            showExpertSection(expertPeople)
+                        }
+
+                        is DataLoadResult.Failed -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+
+                            Snackbar.make(
+                                libraryEntriesOverflowRecyclerview, when (locale) {
+                                    "in" -> {
+                                        "Aduh, data para ahli kulit tidak bisa ditampilkan. Silakan coba lagi ya."
                                     }
-
-                                    is DataLoadResult.Successful -> {
-                                        loadFrame.visibility = View.GONE
-                                        loadAnimLottie.visibility = View.GONE
-                                        val expertPeople = expertList.data
-
-                                        showExpertSection(expertPeople)
+                                    "en" -> {
+                                        "Ouch, the skin experts data cannot be shown to you. Please try again."
                                     }
-
-                                    is DataLoadResult.Failed -> {
-                                        loadFrame.visibility = View.GONE
-                                        loadAnimLottie.visibility = View.GONE
-
-                                        Snackbar.make(
-                                            libraryEntriesOverflowRecyclerview, when (locale) {
-                                                "in" -> {
-                                                    "Aduh, data para ahli kulit tidak bisa ditampilkan. Silakan coba lagi ya."
-                                                }
-                                                "en" -> {
-                                                    "Ouch, the skin experts data cannot be shown to you. Please try again."
-                                                }
-                                                else -> {
-                                                    "Error in skin experts data retrieval."
-                                                }
-                                            }, Snackbar.LENGTH_LONG
-                                        ).show()
+                                    else -> {
+                                        "Error in skin experts data retrieval."
                                     }
-                                }
-                            }
+                                }, Snackbar.LENGTH_LONG
+                            ).show()
                         }
                     }
                 }
@@ -293,11 +293,11 @@ class HomepageFragment : Fragment() {
     }
 
     private fun showExpertSection(expertList: List<ExpertEntity>) {
-        bind.expertsOverflowRecyclerview?.layoutManager = LinearLayoutManager(requireActivity(),
+        bind.expertsOverflowRecyclerview.layoutManager = LinearLayoutManager(requireActivity(),
             LinearLayoutManager.HORIZONTAL, false)
 
         val expertsOverflowAdapter = HomepageExpertContentListAdapter(expertList as ArrayList<ExpertEntity>)
-        bind.expertsOverflowRecyclerview?.adapter = expertsOverflowAdapter
+        bind.expertsOverflowRecyclerview.adapter = expertsOverflowAdapter
     }
 
     private fun viewEntry(entryModel: LibraryContentEntity, bundle: Bundle) {

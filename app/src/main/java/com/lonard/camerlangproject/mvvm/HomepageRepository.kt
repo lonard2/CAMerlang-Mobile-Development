@@ -12,8 +12,6 @@ import com.lonard.camerlangproject.db.homepage.*
 class HomepageRepository(private val db: AppDB,
                          private val api: ApiInterface) {
 
-    private lateinit var homeDao: HomepageDao
-
     fun retrieveArticles(): LiveData<DataLoadResult<List<ArticleEntity>>> = liveData {
 
         emit(DataLoadResult.Loading)
@@ -47,7 +45,7 @@ class HomepageRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<ArticleEntity>>> = homeDao.retrieveAllArticles().map { articleItem ->
+        val savedData: LiveData<DataLoadResult<List<ArticleEntity>>> = db.homepageDao().retrieveAllArticles().map { articleItem ->
             DataLoadResult.Successful(articleItem)
         }
         emitSource(savedData)
@@ -79,7 +77,7 @@ class HomepageRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<ProductEntity>>> = homeDao.retrievePopularProducts().map { productItem ->
+        val savedData: LiveData<DataLoadResult<List<ProductEntity>>> = db.homepageDao().retrievePopularProducts().map { productItem ->
             DataLoadResult.Successful(productItem)
         }
         emitSource(savedData)
@@ -109,7 +107,7 @@ class HomepageRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<NotificationCatEntity>>> = homeDao.retrieveNotificationCategories().map { notificationCategories ->
+        val savedData: LiveData<DataLoadResult<List<NotificationCatEntity>>> = db.homepageDao().retrieveNotificationCategories().map { notificationCategories ->
             DataLoadResult.Successful(notificationCategories)
         }
         emitSource(savedData)
@@ -142,7 +140,7 @@ class HomepageRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<NotificationContentEntity>>> = homeDao.retrieveNotificationContents().map { notificationContent ->
+        val savedData: LiveData<DataLoadResult<List<NotificationContentEntity>>> = db.homepageDao().retrieveNotificationContents().map { notificationContent ->
             DataLoadResult.Successful(notificationContent)
         }
         emitSource(savedData)

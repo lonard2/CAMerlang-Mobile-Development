@@ -25,7 +25,7 @@ class ArticleDetailActivity : AppCompatActivity() {
 
             Picasso.get().load(articleParcel.thumbnailPic).into(articleDetailHeaderPic)
 
-            articleDatetimePublishedInfo.text = articleParcel.createdAt
+            articleDatetimePublishedInfo.text = articleParcel.createdAt?.formatDateTime()
             articleDurationReadApproxInfo.text = articleParcel.readDuration
             articleName.text = articleParcel.name
 
@@ -33,7 +33,7 @@ class ArticleDetailActivity : AppCompatActivity() {
 
             expertName.text = articleParcel.expertName
             expertSpecialization.text = articleParcel.expertSpecialization
-            expertVerifiedDate.text = getString(R.string.expert_verifed_date_format, articleParcel.expertVerificationDate.formatDateTime())
+            expertVerifiedDate.text = articleParcel.expertVerificationDate
 
             articleHeader.text = articleParcel.header
             articleContent.text = articleParcel.content

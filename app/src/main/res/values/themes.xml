@@ -361,7 +361,7 @@
 	</style>
 
 	<style name="CardText">
-		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_width">0dp</item>
 		<item name="android:layout_height">wrap_content</item>
 
 		<item name="android:layout_marginStart">15dp</item>
@@ -371,9 +371,9 @@
 
 		<item name="android:fontFamily">@font/poppins_semibold</item>
 		<item name="android:textColor">?attr/colorOnPrimary</item>
-		<item name="android:textSize">16sp</item>
+		<item name="android:textSize">14sp</item>
 
-		<item name="autoSizeTextType">uniform</item>
+		<item name="android:ellipsize">end</item>
 	</style>
 
 	<style name="CardText.Small">
@@ -502,7 +502,7 @@
 	</style>
 
 	<style name="RvText">
-		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
 
 		<item name="android:layout_marginStart">15dp</item>
@@ -510,6 +510,7 @@
 		<item name="android:layout_marginTop">5dp</item>
 
 		<item name="android:textSize">14sp</item>
+		<item name="android:ellipsize">end</item>
 	</style>
 
 	<style name="RvText.Title">
@@ -525,12 +526,12 @@
 	</style>
 
 	<style name="DetailContent">
-		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_width">0dp</item>
 		<item name="android:layout_height">wrap_content</item>
 
 		<item name="android:layout_marginTop">25dp</item>
 		<item name="android:layout_marginStart">25dp</item>
-		<item name="android:layout_marginEnd">15dp</item>
+		<item name="android:layout_marginEnd">35dp</item>
 	</style>
 
 	<style name="DetailContent.Intro">
@@ -538,6 +539,7 @@
 		<item name="android:textSize">18sp</item>
 
 		<item name="autoSizeTextType">uniform</item>
+		<item name="android:ellipsize">end</item>
 	</style>
 
 	<style name="DetailContent.Content">
@@ -545,6 +547,7 @@
 		<item name="android:textSize">14sp</item>
 
 		<item name="autoSizeTextType">uniform</item>
+		<item name="android:ellipsize">end</item>
 	</style>
 
 	<style name="IntroSection">

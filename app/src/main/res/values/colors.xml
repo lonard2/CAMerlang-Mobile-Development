@@ -116,5 +116,6 @@
 
 	<color name="credits_part_two_intro">#F8BB92</color>
 
+	<color name="dark_red_color">#809C4048</color>
 	<color name="scanner_lens_main_color">#4DFFFFFF</color>
 </resources>

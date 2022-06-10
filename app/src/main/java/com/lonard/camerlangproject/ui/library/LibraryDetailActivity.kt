@@ -61,7 +61,7 @@ class LibraryDetailActivity : AppCompatActivity() {
 
             expertName.text = diseaseParcel.expertName
             expertSpecialization.text = diseaseParcel.expertSpecialization
-            expertVerifiedDate.text = getString(R.string.expert_verifed_date_format, diseaseParcel.verifiedAt?.formatDateTime())
+            expertVerifiedDate.text = diseaseParcel.verifiedAt
 
             libItemShortDesc.text = diseaseParcel.contentHeader
             libItemContent.text = diseaseParcel.content

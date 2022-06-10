@@ -11,8 +11,8 @@ class LibraryViewModelFactory private constructor(private val libraryRepo: Libra
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(LibraryViewModelFactory::class.java)) {
-            return LibraryViewModelFactory(libraryRepo) as T
+        if(modelClass.isAssignableFrom(LibraryViewModel::class.java)) {
+            return LibraryViewModel(libraryRepo) as T
         }
 
         throw IllegalArgumentException("LibraryViewModel can't be found on this application instance!")

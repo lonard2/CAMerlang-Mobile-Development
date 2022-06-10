@@ -11,8 +11,8 @@ class ConsultationViewModelFactory private constructor(private val consultationR
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(ConsultationViewModelFactory::class.java)) {
-            return ConsultationViewModelFactory(consultationRepo) as T
+        if(modelClass.isAssignableFrom(ConsultationViewModel::class.java)) {
+            return ConsultationViewModel(consultationRepo) as T
         }
 
         throw IllegalArgumentException("ConsultationViewModel can't be found on this application instance!")

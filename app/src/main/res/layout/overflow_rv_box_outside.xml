@@ -25,6 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
+            android:scaleType="centerCrop"
+
             android:contentDescription="@string/content_list_img_article_desc"/>
 
     </androidx.cardview.widget.CardView>
@@ -34,9 +36,12 @@
 
         style="@style/RvText.Title"
 
+        android:layout_marginTop="8dp"
+        android:text="@string/content_title_article_sample"
+        app:layout_constraintEnd_toEndOf="@id/content_list_card"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/content_list_card"
-        app:layout_constraintTop_toBottomOf="@id/content_list_card"
-        android:text="@string/content_title_article_sample" />
+        app:layout_constraintTop_toBottomOf="@id/content_list_card" />
 
     <TextView
         android:id="@+id/content_category"
