@@ -38,6 +38,8 @@ class LibraryHomeFragment : Fragment() {
         fragmentManagerVar.commit {
             replace(R.id.fragment_container, LibraryHomeMainFragment())
         }
+
+        searchLibrary()
     }
 
     override fun onDestroyView() {
