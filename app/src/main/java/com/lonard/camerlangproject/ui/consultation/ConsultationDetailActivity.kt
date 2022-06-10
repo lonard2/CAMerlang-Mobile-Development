@@ -64,10 +64,10 @@ class ConsultationDetailActivity : AppCompatActivity() {
                 startActivity(viewZoomedImg, sharedAnim.toBundle())
             }
 
-            val consultFactory: ConsultationViewModelFactory = ConsultationViewModelFactory.getFactory(this@ConsultationDetailActivity)
-            val consultViewModel: ConsultationViewModel by viewModels {
-                consultFactory
-            }
+//            val consultFactory: ConsultationViewModelFactory = ConsultationViewModelFactory.getFactory(this@ConsultationDetailActivity)
+//            val consultViewModel: ConsultationViewModel by viewModels {
+//                consultFactory
+//            }
 
 //            consultViewModel.retrieveConsultationDetections().observe(this@ConsultationDetailActivity) { detections ->
 //                showDetectionResults(detections)
