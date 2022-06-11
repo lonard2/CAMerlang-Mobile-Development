@@ -18,6 +18,7 @@ import com.lonard.camerlangproject.camera.ScannerCameraActivity
 import com.lonard.camerlangproject.databinding.ActivityImageTakenPreviewBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.formatDateTime
+import com.lonard.camerlangproject.formatPhotoDateTime
 import com.lonard.camerlangproject.mvvm.ConsultationViewModel
 import com.lonard.camerlangproject.mvvm.ConsultationViewModelFactory
 import com.lonard.camerlangproject.ui.consultation.ConsultationDetailActivity
@@ -121,7 +122,7 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
 
             val fileToUri = Uri.fromFile(acceptedImage)
             val currentDateTime = LocalDateTime.now().toString()
-            val formattedCurrentDateTime = currentDateTime.formatDateTime()
+            val formattedCurrentDateTime = currentDateTime.formatPhotoDateTime()
 
             bind.apply {
                 consultViewModel.addConsultationEntry(fileToUri.toString(), formattedCurrentDateTime)

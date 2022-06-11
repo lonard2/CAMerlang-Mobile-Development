@@ -10,3 +10,10 @@ fun String.formatDateTime(): String {
 
     return DateFormat.getDateInstance(DateFormat.FULL).format(date)
 }
+
+fun String.formatPhotoDateTime(): String {
+    val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.US)
+    val date = dateFormat.parse(this) as Date
+
+    return DateFormat.getDateInstance(DateFormat.FULL).format(date)
+}

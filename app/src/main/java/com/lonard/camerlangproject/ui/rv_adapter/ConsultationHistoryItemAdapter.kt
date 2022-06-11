@@ -3,6 +3,7 @@ package com.lonard.camerlangproject.ui.rv_adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ConsultationHistoryRvBoxBinding
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 
@@ -23,11 +24,11 @@ class ConsultationHistoryItemAdapter(private val consultationList: ArrayList<Con
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(consultDatetime, consultId) = consultationList[position]
+        val(consultId, _, consultDateTime) = consultationList[position]
 
         holder.bind.apply {
-            datetimeInfo.text = consultDatetime.toString()
-            diagnosisId.text = consultId
+            datetimeInfo.text = consultDateTime.toString()
+            diagnosisId.text = holder.itemView.context.getString(R.string.consultation_id_format, consultId.toString())
         }
 
         holder.itemView.setOnClickListener {

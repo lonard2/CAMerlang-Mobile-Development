@@ -14,27 +14,22 @@ import org.tensorflow.lite.task.vision.detector.ObjectDetector
 class ObjectDetectionUtil {
 
     companion object {
-        private lateinit var context: Context
-        private lateinit var resultBitmap: Bitmap
+        fun objectDetection(imageUri: Uri, context: Context): Bitmap {
 
-        private val boundingBoxTypeface: Typeface = Typeface.createFromAsset(context.assets, "poppins_regular.ttf")
-        private val boundingBoxTypefaceColor = ContextCompat.getColor(context, R.color.primary_color_logo)
-        private val boundingBoxColor = ContextCompat.getColor(context, R.color.secondary_color_logo)
+            val resultBitmap: Bitmap
 
-        private lateinit var bitmap: Bitmap
-        private lateinit var contentResolver: ContentResolver
+            val boundingBoxTypeface: Typeface = Typeface.createFromAsset(context.assets, "poppins_regular.ttf")
+            val boundingBoxTypefaceColor = ContextCompat.getColor(context, R.color.primary_color_logo)
+            val boundingBoxColor = ContextCompat.getColor(context, R.color.secondary_color_logo)
 
-        fun objectDetection(imageUri: Uri): Bitmap {
+            val bitmap: Bitmap
+            val contentResolver: ContentResolver = context.contentResolver
 
-            try {
-                bitmap = if(Build.VERSION.SDK_INT < 28) {
-                    MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
-                } else {
-                    val imgSource = ImageDecoder.createSource(contentResolver, imageUri)
-                    ImageDecoder.decodeBitmap(imgSource)
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
+            bitmap = if(Build.VERSION.SDK_INT < 28) {
+                MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
+            } else {
+                val imgSource = ImageDecoder.createSource(contentResolver, imageUri)
+                ImageDecoder.decodeBitmap(imgSource)
             }
 
             val retrievedTakenImage = TensorImage.fromBitmap(bitmap)
@@ -46,7 +41,7 @@ class ObjectDetectionUtil {
 
             val detector = ObjectDetector.createFromFileAndOptions(
                 context,
-                "CAMerlang_training_model.tflite",
+                "efficientdet-lite0-camerlang-v4.tflite",
                 objectDetectionOptions
             )
 
@@ -59,7 +54,9 @@ class ObjectDetectionUtil {
                 DetectionResult(detection.boundingBox, text)
             }
 
-            val imgWithResult = drawDetectionResult(bitmap, displayResults)
+            val imgWithResult = drawDetectionResult(bitmap, displayResults,
+                boundingBoxColor, boundingBoxTypefaceColor, boundingBoxTypeface)
+
             resultBitmap = imgWithResult
 
             return resultBitmap
@@ -67,7 +64,10 @@ class ObjectDetectionUtil {
 
         private fun drawDetectionResult(
             bitmap: Bitmap,
-            detectionResults: List<DetectionResult>
+            detectionResults: List<DetectionResult>,
+            boundingBoxColor: Int,
+            boundingBoxTypefaceColor: Int,
+            boundingBoxTypeface: Typeface,
         ): Bitmap {
             val outputBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
             val canvas = Canvas(outputBitmap)

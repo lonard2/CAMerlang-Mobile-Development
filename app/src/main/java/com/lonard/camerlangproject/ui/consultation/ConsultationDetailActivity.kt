@@ -21,8 +21,6 @@ import com.squareup.picasso.Picasso
 class ConsultationDetailActivity : AppCompatActivity() {
     private lateinit var bind: ActivityConsultationDetailBinding
 
-    private lateinit var context: Context
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = ActivityConsultationDetailBinding.inflate(layoutInflater)
@@ -45,7 +43,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
             val consultationTakenImageOnUri = Uri.parse(consultationParcel.consultationImg)
 
-            val detectionResult = ObjectDetectionUtil.objectDetection(consultationTakenImageOnUri)
+            val detectionResult = ObjectDetectionUtil.objectDetection(consultationTakenImageOnUri, applicationContext)
 
             runOnUiThread {
                 consultationTakenImage.setImageBitmap(detectionResult)
