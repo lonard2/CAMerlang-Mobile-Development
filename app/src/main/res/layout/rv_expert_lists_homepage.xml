@@ -16,7 +16,7 @@
 
         app:cardBackgroundColor="@color/expert_bg_color"
 
-        app:cardElevation="20dp"
+        app:cardElevation="15dp"
         app:cardCornerRadius="15dp"
 
         app:layout_constraintTop_toTopOf="parent"

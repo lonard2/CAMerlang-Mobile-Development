@@ -16,18 +16,19 @@
 
         style="@style/Card.Box.Recommendation"
 
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/content_list_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:scaleType="centerCrop"
+            android:contentDescription="@string/content_list_img_article_desc"
 
-            android:contentDescription="@string/content_list_img_article_desc"/>
+            android:scaleType="centerCrop" />
 
     </androidx.cardview.widget.CardView>
 

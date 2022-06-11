@@ -281,17 +281,23 @@
 	<style name="Card.Box.Inside">
 		<item name="android:layout_width">250dp</item>
 		<item name="android:layout_height">150dp</item>
+
+		<item name="cardElevation">15dp</item>
 	</style>
 
 	<style name="Card.Box.Inside.Small">
 		<item name="android:layout_width">170dp</item>
 		<item name="android:layout_height">100dp</item>
 
+		<item name="android:layout_marginStart">5dp</item>
+		<item name="android:layout_marginEnd">5dp</item>
+		<item name="android:layout_marginBottom">25dp</item>
+		<item name="android:layout_marginTop">25dp</item>
 		<item name="cardCornerRadius">10dp</item>
 	</style>
 
 	<style name="Card.Box.InsideDetail">
-		<item name="cardMaxElevation">15dp</item>
+		<item name="cardElevation">10dp</item>
 		<item name="cardCornerRadius">15dp</item>
 	</style>
 
@@ -300,7 +306,7 @@
 		<item name="android:layout_height">35dp</item>
 
 		<item name="cardCornerRadius">5dp</item>
-		<item name="cardElevation">60dp</item>
+		<item name="cardElevation">10dp</item>
 
 		<item name="android:layout_marginStart">15dp</item>
 		<item name="android:layout_marginEnd">15dp</item>
@@ -376,6 +382,13 @@
 		<item name="android:textSize">14sp</item>
 
 		<item name="android:ellipsize">end</item>
+	</style>
+
+	<style name="CardText.InsideDetail">
+		<item name="android:layout_marginStart">0dp</item>
+		<item name="android:layout_marginEnd">15dp</item>
+		<item name="android:layout_marginTop">20dp</item>
+		<item name="android:layout_marginBottom">0dp</item>
 	</style>
 
 	<style name="CardText.RecyclerView">
@@ -521,14 +534,12 @@
 	</style>
 
 	<style name="RvText.Title">
-		<item name="android:layout_width">match_parent</item>
 
 		<item name="android:fontFamily">@font/poppins_semibold</item>
 		<item name="android:textColor">?attr/colorOnPrimaryContainer</item>
 	</style>
 
 	<style name="RvText.Category">
-		<item name="android:layout_width">match_parent</item>
 
 		<item name="android:fontFamily">@font/poppins_bold</item>
 		<item name="android:textColor">@color/md_theme_light_secondary</item>

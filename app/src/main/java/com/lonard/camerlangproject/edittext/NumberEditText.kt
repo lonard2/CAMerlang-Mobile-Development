@@ -84,9 +84,6 @@ class NumberEditText: AppCompatEditText, View.OnTouchListener {
 
     private fun init() {
         clearBtn = ContextCompat.getDrawable(context, R.drawable.clear_btn) as Drawable
-        clearBtn.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(
-            R.color.md_theme_dark_tertiary,
-            BlendModeCompat.SRC)
 
         edtStyle = ContextCompat.getDrawable(context, R.drawable.rounded_box_edt) as Drawable
 
@@ -102,20 +99,6 @@ class NumberEditText: AppCompatEditText, View.OnTouchListener {
             }
 
             override fun afterTextChanged(seq: Editable) {
-                if (seq.matches(numberRegex)) {
-                    error = when (locale) {
-                        "in" -> {
-                            "Kamu tidak bisa memasukkan huruf dan simbol di kolom ini. Yuk, masukkan lagi dengan angka saja. :)"
-                        }
-                        "en" -> {
-                            "You can input characters or symbols in this column. Let's input with numbers only. :)"
-                        }
-                        else -> {
-                            "NUMBER COLUMN ERROR!"
-                        }
-                    }
-                }
-
                 if(seq.isEmpty()) {
                     error = when(locale) {
                         "in" -> {

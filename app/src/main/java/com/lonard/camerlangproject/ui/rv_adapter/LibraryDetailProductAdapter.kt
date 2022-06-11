@@ -23,7 +23,7 @@ class LibraryDetailProductAdapter(private val skinProductList: ArrayList<Product
 
         holder.bind.apply {
             Picasso.get().load(productPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
-            Picasso.get().load(sellerPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)
+            Picasso.get().load(sellerPicUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImageSellerPic)
 
             contentTitle.text = productName
         }

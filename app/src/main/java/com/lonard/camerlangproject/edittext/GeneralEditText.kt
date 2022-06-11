@@ -84,8 +84,6 @@ class GeneralEditText: AppCompatEditText, View.OnTouchListener {
         edtStyle = ContextCompat.getDrawable(context, R.drawable.rounded_box_edt) as Drawable
 
         clearBtn = ContextCompat.getDrawable(context, R.drawable.clear_btn) as Drawable
-        clearBtn.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(R.color.md_theme_dark_tertiary,
-            BlendModeCompat.SRC)
 
         setOnTouchListener(this)
 
