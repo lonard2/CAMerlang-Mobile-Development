@@ -59,7 +59,7 @@
     <string name="consultation_page_emoji_desc">Chat bubbles as representatives of conversation.</string>
     <string name="information_box_desc">Information box for indicating information section.</string>
     <string name="notification_emoji_desc">A ring as a symbol of notification.</string>
-    <string name="scanner_use_how_to">Aim your camera to your facial skin to detect your skin problem…\nand capture!</string>
+    <string name="scanner_use_how_to">Aim your camera closely to your facial skin to detect your skin problem…\nand capture!</string>
     <string name="camera_mode_switch_icon_desc">An camera with switch icon to indicate camera mode switch (from landscape to portrait, and conversely).</string>
     <string name="user_emoji_desc">An person as an representative of an application user.</string>
     <string name="rename_icon_desc">A rename icon.</string>
@@ -191,6 +191,7 @@
 
     <string name="expert_verifed_date_format">verified on %1$s</string>
     <string name="consultation_id_format">consultation-scan-clrg%1$s</string>
+    <string name="age_string_format">%1$s years old</string>
 
     <string name="other_attribution_5">Weifeng</string>
     <string name="other_attribution_5_jobdesc">Lottie animation for loading \n\n from LottieFiles.com - published under Lottie Simple License (https://lottiefiles.com/page/license)</string>

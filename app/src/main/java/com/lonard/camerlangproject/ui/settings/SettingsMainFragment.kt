@@ -65,23 +65,10 @@ class SettingsMainFragment : Fragment() {
 
             bind.btnSettingsCard2.setOnClickListener {
                 if (appSetting.darkMode) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-
-                    bind.btnSettingsSelect2Text.text =
-                        getString(R.string.light_mode_ask)
-                    bind.btnSettingsSelect2.setImageResource(R.drawable.light_mode_icon)
-
-                    localViewModel.setDarkTheme(true)
-
-                    bind.btnSettingsSelect2.resources.getColor(
-                        R.color.md_theme_light_onPrimary,
-                        null
-                    )
-                    bind.btnSettingsSelect2.setBackgroundResource(R.color.md_theme_light_tertiaryContainer)
-                } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-                    bind.btnSettingsSelect2Text.text = getString(R.string.dark_mode_ask)
+                    bind.btnSettingsSelect2Text.text =
+                        getString(R.string.dark_mode_ask)
                     bind.btnSettingsSelect2.setImageResource(R.drawable.night_icon)
 
                     localViewModel.setDarkTheme(false)
@@ -90,14 +77,29 @@ class SettingsMainFragment : Fragment() {
                         R.color.md_theme_light_onPrimary,
                         null
                     )
+
                     bind.btnSettingsSelect2.setBackgroundResource(R.color.settings_menu_2)
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
+                    bind.btnSettingsSelect2Text.text = getString(R.string.light_mode_ask)
+                    bind.btnSettingsSelect2.setImageResource(R.drawable.light_mode_icon)
+
+                    localViewModel.setDarkTheme(true)
+
+                    bind.btnSettingsSelect2.resources.getColor(
+                        R.color.md_theme_light_onPrimary,
+                        null
+                    )
+
+                    bind.btnSettingsSelect2.setBackgroundResource(R.color.md_theme_light_tertiaryContainer)
                 }
             }
 
             localViewModel.getLocalUser().observe(viewLifecycleOwner) { localUser ->
                 bind.apply {
                     settingsMainName.text = localUser.name
-                    settingsMainAge.text = localUser.age
+                    settingsMainAge.text = getString(R.string.age_string_format, localUser.age)
                     settingsMainProfession.text = localUser.profession
                     settingsMainStatus.text = localUser.status
                 }

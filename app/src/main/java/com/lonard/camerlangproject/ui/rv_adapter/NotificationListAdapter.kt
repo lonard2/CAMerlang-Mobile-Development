@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.databinding.NotificationRvBoxBinding
 import com.lonard.camerlangproject.db.homepage.NotificationContentEntity
+import com.lonard.camerlangproject.formatDateTime
 
 class NotificationListAdapter(private val notificationList: ArrayList<NotificationContentEntity>): RecyclerView.Adapter<NotificationListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
@@ -20,7 +21,7 @@ class NotificationListAdapter(private val notificationList: ArrayList<Notificati
 
         holder.bind.apply {
             notificationType.text = type
-            datetimeInfo.text = datetime
+            datetimeInfo.text = datetime?.formatDateTime()
             notificationContent.text = infoContent
             notificationDetail.text = infoDetail
         }

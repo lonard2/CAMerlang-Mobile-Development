@@ -54,7 +54,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
             consultationTakenImage.setOnClickListener {
                 val sharedAnim =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        context as Activity,
+                        this@ConsultationDetailActivity,
                         Pair(bind.consultationTakenImage, "zoomed_image"),
                     )
 

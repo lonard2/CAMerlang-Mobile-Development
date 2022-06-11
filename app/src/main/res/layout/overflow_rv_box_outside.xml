@@ -4,22 +4,19 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
 
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/content_list_card"
 
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+
         style="@style/Card.Box.Recommendation"
 
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/content_list_image"
@@ -37,11 +34,10 @@
 
         style="@style/RvText.Title"
 
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:text="@string/content_title_article_sample"
-        app:layout_constraintEnd_toEndOf="@id/content_list_card"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/content_list_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/content_list_card" />
 
     <TextView
@@ -49,10 +45,9 @@
 
         style="@style/RvText.Category"
 
-        app:layout_constraintStart_toStartOf="@id/content_list_card"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/content_title"
 
         android:text="@string/category_name_sample"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
