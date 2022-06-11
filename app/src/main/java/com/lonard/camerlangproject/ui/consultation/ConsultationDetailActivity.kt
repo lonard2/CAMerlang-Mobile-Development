@@ -9,23 +9,36 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import androidx.activity.viewModels
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.core.util.Pair
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityConsultationDetailBinding
+import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
+import com.lonard.camerlangproject.db.consultation.DetectionResultEntity
 import com.lonard.camerlangproject.ml.DetectionResult
 import com.lonard.camerlangproject.mvvm.ConsultationViewModel
 import com.lonard.camerlangproject.mvvm.ConsultationViewModelFactory
 import com.lonard.camerlangproject.ui.images.ImageShowActivity
+import com.lonard.camerlangproject.ui.rv_adapter.ConsultationDetailAdapter
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ConsultationDetailActivity : AppCompatActivity() {
     private lateinit var bind: ActivityConsultationDetailBinding
+
+    private val locale: String = Locale.getDefault().language
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,17 +60,29 @@ class ConsultationDetailActivity : AppCompatActivity() {
                 finish()
             }
 
-            Picasso.get().load(consultationParcel.consultationImg).into(consultationTakenImage)
-
             consultationIdDetail.text = getString(R.string.consultation_id_format, consultationParcel.id.toString())
             consultationDatetimeDetail.text = consultationParcel.processedAt
 
             val consultationTakenImageOnUri = Uri.parse(consultationParcel.consultationImg)
 
-            val detectionResult = objectDetection(consultationTakenImageOnUri, applicationContext,
-                consultViewModel, consultationIdDetail.toString())
+            val bitmap: Bitmap
+            val contentResolver: ContentResolver = contentResolver
 
-            consultationTakenImage.setImageBitmap(detectionResult)
+            bitmap = if(Build.VERSION.SDK_INT < 28) {
+                MediaStore.Images.Media.getBitmap(contentResolver, consultationTakenImageOnUri)
+            } else {
+                val imgSource = ImageDecoder.createSource(contentResolver, consultationTakenImageOnUri)
+                ImageDecoder.decodeBitmap(imgSource, )
+            }
+
+            val bitmap8888 = rgbaBitmap(bitmap)
+
+            lifecycleScope.launch(Dispatchers.Unconfined) {
+                val detectedBitmap = objectDetection(bitmap8888, applicationContext,
+                    consultViewModel, consultationIdDetail.toString())
+
+                bind.consultationTakenImage.setImageBitmap(detectedBitmap)
+            }
 
             consultationTakenImage.setOnClickListener {
                 val sharedAnim =
@@ -72,39 +97,66 @@ class ConsultationDetailActivity : AppCompatActivity() {
                 startActivity(viewZoomedImg, sharedAnim.toBundle())
             }
 
-//            consultViewModel.retrieveConsultationDetections().observe(this@ConsultationDetailActivity) { detections ->
-//                showDetectionResults(detections)
-//            }
+            consultViewModel.retrieveAllDetections().observe(this@ConsultationDetailActivity) { detections ->
+                if (detections != null) {
+                    when (detections) {
+                        is DataLoadResult.Loading -> {
+                            loadFrame.visibility = View.VISIBLE
+                            loadAnimLottie.visibility = View.VISIBLE
+                        }
+
+                        is DataLoadResult.Successful -> {
+                            val detectedProblems = detections.data
+
+                            showDetectionResults(detectedProblems)
+
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+                        }
+
+                        is DataLoadResult.Failed -> {
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+
+                            Snackbar.make(
+                                consultationOutcomeCard, when (locale) {
+                                    "in" -> {
+                                        "Aduh, data para ahli kulit tidak bisa ditampilkan. Silakan coba lagi ya."
+                                    }
+                                    "en" -> {
+                                        "Ouch, the skin experts data cannot be shown to you. Please try again."
+                                    }
+                                    else -> {
+                                        "Error in skin experts data retrieval."
+                                    }
+                                }, Snackbar.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                }
+            }
         }
     }
 
-//    private fun showDetectionResults(detectionItems: List<ConsultationDetectionItemEntity>) {
-//        bind.consultationOutcomeCard.layoutManager = LinearLayoutManager(this@ConsultationDetailActivity,
-//            LinearLayoutManager.VERTICAL, false)
-//
-//        val consultHistoryAdapter = ConsultationDetailAdapter(detectionItems as ArrayList<ConsultationDetectionItemEntity>)
-//        bind.consultationOutcomeCard.adapter = consultHistoryAdapter
-//    }
+    private fun rgbaBitmap(bitmap: Bitmap): Bitmap {
+        return bitmap.copy(Bitmap.Config.ARGB_8888, true)
+    }
 
-    private fun objectDetection(imageUri: Uri, context: Context,
+    private fun showDetectionResults(detectionItems: List<DetectionResultEntity>) {
+        bind.consultationOutcomeCard.layoutManager = LinearLayoutManager(this@ConsultationDetailActivity,
+            LinearLayoutManager.VERTICAL, false)
+
+        val consultHistoryAdapter = ConsultationDetailAdapter(detectionItems as ArrayList<DetectionResultEntity>)
+        bind.consultationOutcomeCard.adapter = consultHistoryAdapter
+    }
+
+    private fun objectDetection(bitmap: Bitmap, context: Context,
                                 consultViewModel: ConsultationViewModel,
                                 consultationId: String): Bitmap {
-
-        val resultBitmap: Bitmap
 
         val boundingBoxTypeface: Typeface = Typeface.createFromAsset(context.assets, "poppins_regular.ttf")
         val boundingBoxTypefaceColor = ContextCompat.getColor(context, R.color.primary_color_logo)
         val boundingBoxColor = ContextCompat.getColor(context, R.color.secondary_color_logo)
-
-        val bitmap: Bitmap
-        val contentResolver: ContentResolver = context.contentResolver
-
-        bitmap = if(Build.VERSION.SDK_INT < 28) {
-            MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
-        } else {
-            val imgSource = ImageDecoder.createSource(contentResolver, imageUri)
-            ImageDecoder.decodeBitmap(imgSource)
-        }
 
         val retrievedTakenImage = TensorImage.fromBitmap(bitmap)
 
@@ -133,9 +185,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
         val imgWithResult = drawDetectionResult(bitmap, displayResults,
             boundingBoxColor, boundingBoxTypefaceColor, boundingBoxTypeface)
 
-        resultBitmap = imgWithResult
-
-        return resultBitmap
+        return imgWithResult
     }
 
     private fun drawDetectionResult(

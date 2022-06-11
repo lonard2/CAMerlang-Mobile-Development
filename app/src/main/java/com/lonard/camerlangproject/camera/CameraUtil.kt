@@ -24,11 +24,11 @@ class CameraUtil {
 
         private fun createCustomTempFile(context: Context): File {
             val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-            return File.createTempFile(timeStamp, ".jpg", storageDir)
+            return File.createTempFile(timeStamp, ".png", storageDir)
         }
 
         fun fileCompressToFile(bitmap: Bitmap, image: File): File {
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, FileOutputStream(image))
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, FileOutputStream(image))
 
             return image
         }

@@ -8,6 +8,8 @@ class ConsultationViewModel(private val consultRepo: ConsultationRepository): Vi
 
     fun retrieveAllConsultations() = consultRepo.retrieveAllConsultations()
 
+    fun retrieveAllDetections() = consultRepo.retrieveAllDetections()
+
     fun addConsultationEntry(
         image: String,
         dateTime: String,

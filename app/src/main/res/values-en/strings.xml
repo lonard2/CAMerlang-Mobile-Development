@@ -192,6 +192,7 @@
     <string name="expert_verifed_date_format">verified on %1$s</string>
     <string name="consultation_id_format">consultation-scan-clrg%1$s</string>
     <string name="age_string_format">%1$s years old</string>
+    <string name="percentage_format">%1$s%</string>
 
     <string name="other_attribution_5">Weifeng</string>
     <string name="other_attribution_5_jobdesc">Lottie animation for loading \n\n from LottieFiles.com - published under Lottie Simple License (https://lottiefiles.com/page/license)</string>

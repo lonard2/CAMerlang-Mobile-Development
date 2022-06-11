@@ -156,8 +156,6 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
                                 val consultationIntent = Intent(this@ImageTakenPreviewActivity, ConsultationDetailActivity::class.java)
                                 consultationIntent.putExtra(ConsultationDetailActivity.EXTRA_CONSULTATION_DATA, containedData)
 
-                                consultationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-
                                 startActivity(consultationIntent,
                                     ActivityOptions.makeSceneTransitionAnimation(this@ImageTakenPreviewActivity).toBundle())
                             }
