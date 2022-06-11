@@ -20,14 +20,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:background="?attr/colorSecondaryContainer"
+        android:background="@color/bottom_navbar_color"
 
         app:menu="@menu/bottom_navbar_menu"
         app:itemTextAppearanceActive="@style/BottomNavbarText"
         app:itemTextAppearanceInactive="@style/BottomNavbarText"
 
+        android:alpha="0"
+
         app:itemIconTint="@drawable/navbar_color"
-        app:itemIconSize="33dp"
+        app:itemIconSize="28dp"
         app:itemTextColor="@color/primary_color_logo"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,6 +50,8 @@
         app:maxImageSize="65dp"
         app:rippleColor="@color/md_theme_light_tertiary"
         app:backgroundTint="@color/md_theme_light_tertiaryContainer_normal"
+
+        android:alpha="1"
 
         app:layout_constraintBottom_toTopOf="@id/bottom_navbar"
         app:layout_constraintTop_toTopOf="@id/bottom_navbar"

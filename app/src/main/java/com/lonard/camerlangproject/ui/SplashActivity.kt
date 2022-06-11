@@ -1,7 +1,5 @@
 package com.lonard.camerlangproject.ui
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
@@ -9,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -24,8 +21,6 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "lo
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var bind: ActivitySplashBinding
-
-    private val animation = AnimatorSet()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,14 +38,7 @@ class SplashActivity : AppCompatActivity() {
 
         localViewModel.getStartUp().observe(this) { setting ->
 
-            if(!setting.firstRun) {
-                Handler(Looper.getMainLooper()).postDelayed({
-                    val splashIntent = Intent(this@SplashActivity, FrontActivity::class.java)
-                    startActivity(splashIntent)
-                    finish()
-                }, SPLASH_DELAY)
-            }
-            else {
+            if(setting.firstRun) {
                 Handler(Looper.getMainLooper()).postDelayed({
                     val onboardingIntent = Intent(this@SplashActivity, OnboardingActivity::class.java)
                     startActivity(onboardingIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
@@ -60,27 +48,26 @@ class SplashActivity : AppCompatActivity() {
                     localViewModel.disableFirstRun()
                 }, SPLASH_DELAY)
             }
+            else {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val splashIntent = Intent(this@SplashActivity, FrontActivity::class.java)
+                    startActivity(splashIntent)
+                    finish()
+                }, SPLASH_DELAY)
+            }
         }
     }
 
     private fun showSplashAnimation() {
-        val logo = ObjectAnimator.ofFloat(bind.appLogo, View.ALPHA, 1f).setDuration(600)
+        bind.appLogo.animate().alpha(1f).duration = 600
 
-        val wordmark = ObjectAnimator.ofFloat(bind.appWordmark, View.ALPHA, 1f).setDuration(1750)
-        val slogan = ObjectAnimator.ofFloat(bind.appVersion, View.ALPHA, 1f).setDuration(1750)
-        val version = ObjectAnimator.ofFloat(bind.appVersion, View.ALPHA, 1f).setDuration(1750)
-
-        val otherThings = animation.apply {
-            playTogether(wordmark, slogan, version)
-        }
-
-        animation.apply {
-            playSequentially(logo, otherThings)
-        }
+        bind.appWordmark.animate().alpha(1f).setDuration(1750).startDelay = 800
+        bind.appSlogan.animate().alpha(1f).setDuration(1750).startDelay = 800
+        bind.appVersion.animate().alpha(1f).setDuration(1750).startDelay = 800
     }
 
     companion object {
-        const val SPLASH_DELAY = 3500L
+        const val SPLASH_DELAY = 4000L
     }
 
 }

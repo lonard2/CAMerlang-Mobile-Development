@@ -1,7 +1,6 @@
 package com.lonard.camerlangproject.ui
 
 import android.Manifest
-import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -29,8 +28,6 @@ class FrontActivity : AppCompatActivity() {
 
     private val locale: String = Locale.getDefault().country
 
-    private val animation = AnimatorSet()
-
     private var fragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +36,14 @@ class FrontActivity : AppCompatActivity() {
         setContentView(bind.root)
 
         showAnimation()
+
+        if(!checkAllCameraPermissionsGranted()) {
+            ActivityCompat.requestPermissions(
+                this,
+                CAMERA_PERMISSIONS,
+                CAMERAX_RESPONSE_CODE
+            )
+        }
 
         bind.bottomNavbar.setOnItemSelectedListener { navbarItem ->
             when(navbarItem.itemId) {
@@ -58,14 +63,6 @@ class FrontActivity : AppCompatActivity() {
         bind.bottomNavbar.selectedItemId = R.id.navbar_menu_1
 
         bind.scannerToActionFab.setOnClickListener{
-            if(!checkAllCameraPermissionsGranted()) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    CAMERA_PERMISSIONS,
-                    CAMERAX_RESPONSE_CODE
-                )
-            }
-
             launchCamera()
         }
     }
@@ -116,12 +113,8 @@ class FrontActivity : AppCompatActivity() {
     }
 
     private fun showAnimation() {
-        val navbar = ObjectAnimator.ofFloat(bind.bottomNavbar, View.ALPHA, 1f).setDuration(600)
-        val fab = ObjectAnimator.ofFloat(bind.scannerToActionFab, View.ALPHA, 1f).setDuration(600)
-
-        animation.apply {
-            playTogether(navbar, fab)
-        }
+        bind.bottomNavbar.animate().alpha(1f).duration = 1500
+        bind.scannerToActionFab.animate().alpha(1f).duration = 1500
     }
 
     companion object {

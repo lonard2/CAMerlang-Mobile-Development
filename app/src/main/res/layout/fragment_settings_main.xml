@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_settings_select_1"
                     style="@style/SettingBox.Main"
 
@@ -174,7 +174,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_settings_select_2"
                     style="@style/SettingBox.Main"
 
@@ -207,7 +207,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_settings_select_3"
                     style="@style/SettingBox.Main"
 
@@ -238,7 +238,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_settings_select_4"
                     style="@style/SettingBox.Main"
 

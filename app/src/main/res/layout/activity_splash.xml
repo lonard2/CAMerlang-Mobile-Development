@@ -18,6 +18,8 @@
 
         android:text="@string/version_info"
 
+        android:alpha="0"
+
         android:textAlignment="center"
         android:textSize="12sp"
         android:textColor="?attr/colorPrimaryInverse"
@@ -35,6 +37,8 @@
         android:src="@drawable/camerlang_color_logo_transparent"
         android:contentDescription="@string/logo_content_desc"
 
+        android:alpha="0"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,6 +55,8 @@
 
         android:src="@drawable/camerlang_wordmark_bw_transparent_cropped"
         android:contentDescription="@string/CAMerlang_bw_wordmark_desc"
+
+        android:alpha="0"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +77,8 @@
         android:textAlignment="center"
         android:textSize="22sp"
         android:textColor="?attr/colorTertiary"
+
+        android:alpha="0"
 
         android:fontFamily="@font/poppins_mediumitalic"
 

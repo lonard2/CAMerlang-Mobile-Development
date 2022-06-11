@@ -93,10 +93,12 @@
 
         android:background="@color/md_theme_light_surfaceVariant"
 
+        android:padding="5dp"
         android:fontFamily="@font/poppins_regular"
 
         app:layout_constraintTop_toBottomOf="@id/settings_user_section_1_intro_txt"
         app:layout_constraintStart_toEndOf="@id/settings_user_section_1"
+        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_1"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
@@ -133,10 +135,12 @@
 
         android:background="@color/md_theme_light_surfaceVariant"
 
+        android:padding="5dp"
         android:fontFamily="@font/poppins_regular"
 
         app:layout_constraintTop_toBottomOf="@id/settings_user_section_2_intro_txt"
         app:layout_constraintStart_toEndOf="@id/settings_user_section_2"
+        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_2"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 
@@ -173,10 +177,12 @@
 
         android:background="@color/md_theme_light_surfaceVariant"
 
+        android:padding="5dp"
         android:fontFamily="@font/poppins_regular"
 
         app:layout_constraintTop_toBottomOf="@id/settings_user_section_3_intro_txt"
         app:layout_constraintStart_toEndOf="@id/settings_user_section_3"
+        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_3"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 
@@ -215,12 +221,14 @@
 
         android:fontFamily="@font/poppins_regular"
         android:inputType="textMultiLine"
-        android:ems="15"
+        android:maxLines="5"
+        android:padding="5dp"
 
         android:gravity="top"
 
         app:layout_constraintTop_toBottomOf="@id/settings_user_section_4_intro_txt"
         app:layout_constraintStart_toEndOf="@id/settings_user_section_4"
+        app:layout_constraintBottom_toBottomOf="@id/settings_user_section_4"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 
