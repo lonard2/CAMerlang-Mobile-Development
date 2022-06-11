@@ -97,45 +97,6 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
                 startActivity(viewZoomedImg, sharedAnim.toBundle())
             }
-
-//            consultViewModel.retrieveAllDetections().observe(this@ConsultationDetailActivity) { detections ->
-//                if (detections != null) {
-//                    when (detections) {
-//                        is DataLoadResult.Loading -> {
-//                            loadFrame.visibility = View.VISIBLE
-//                            loadAnimLottie.visibility = View.VISIBLE
-//                        }
-//
-//                        is DataLoadResult.Successful -> {
-//                            val detectedProblems = detections.data
-//
-//                            showDetectionResults(detectedProblems)
-//
-//                            loadFrame.visibility = View.GONE
-//                            loadAnimLottie.visibility = View.GONE
-//                        }
-//
-//                        is DataLoadResult.Failed -> {
-//                            loadFrame.visibility = View.GONE
-//                            loadAnimLottie.visibility = View.GONE
-//
-//                            Snackbar.make(
-//                                consultationOutcomeCard, when (locale) {
-//                                    "in" -> {
-//                                        "Aduh, data para ahli kulit tidak bisa ditampilkan. Silakan coba lagi ya."
-//                                    }
-//                                    "en" -> {
-//                                        "Ouch, the skin experts data cannot be shown to you. Please try again."
-//                                    }
-//                                    else -> {
-//                                        "Error in skin experts data retrieval."
-//                                    }
-//                                }, Snackbar.LENGTH_LONG
-//                            ).show()
-//                        }
-//                    }
-//                }
-//            }
         }
     }
 
