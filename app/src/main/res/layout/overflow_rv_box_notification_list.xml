@@ -9,14 +9,20 @@
 
         style="@style/Card.Box.Chip"
 
+        android:layout_gravity="center"
+        android:gravity="center"
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/chip_text"
             android:text="@string/category_sample"
-           style="@style/CardText.Chip"/>
+            android:textAllCaps="true"
+
+            style="@style/CardText.Chip"/>
 
 
     </androidx.cardview.widget.CardView>

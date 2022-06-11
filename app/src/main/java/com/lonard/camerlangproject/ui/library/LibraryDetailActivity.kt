@@ -20,6 +20,7 @@ import com.lonard.camerlangproject.db.library.ProblemImagesEntity
 import com.lonard.camerlangproject.formatDateTime
 import com.lonard.camerlangproject.mvvm.LibraryViewModel
 import com.lonard.camerlangproject.mvvm.LibraryViewModelFactory
+import com.lonard.camerlangproject.ui.FrontActivity
 import com.lonard.camerlangproject.ui.images.ImageShowActivity
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailImgAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
@@ -48,7 +49,10 @@ class LibraryDetailActivity : AppCompatActivity() {
 
         bind.apply {
             backBtn.setOnClickListener {
-                finishAfterTransition()
+                val backIntent = Intent(this@LibraryDetailActivity, FrontActivity::class.java)
+
+                backIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(backIntent)
             }
 
             Picasso.get().load(diseaseParcel.thumbnailPic).into(libDetailHeaderPic)

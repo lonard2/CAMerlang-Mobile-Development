@@ -10,6 +10,10 @@
 
         style="@style/Card.Box.Inside"
 
+        android:layout_gravity="center"
+        android:gravity="center"
+
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -24,7 +28,7 @@
         <TextView
             android:id="@+id/content_title"
 
-            style="@style/CardText"
+            style="@style/CardText.RecyclerView"
 
             android:layout_gravity="start|bottom"
 

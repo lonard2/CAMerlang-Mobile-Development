@@ -128,7 +128,7 @@ class NotificationActivity : AppCompatActivity() {
 
     private fun showNotificationList(notificationItems: List<NotificationContentEntity>) {
         bind.notificationDataListRv.layoutManager = LinearLayoutManager(this,
-            LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager.VERTICAL, false)
 
         val notificationAdapter = NotificationListAdapter(notificationItems as ArrayList<NotificationContentEntity>)
         bind.notificationDataListRv.adapter = notificationAdapter

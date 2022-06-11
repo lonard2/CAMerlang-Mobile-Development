@@ -314,6 +314,8 @@
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
 
+		<item name="android:padding">5dp</item>
+
 		<item name="cardCornerRadius">10dp</item>
 		<item name="cardElevation">15dp</item>
 		<item name="cardBackgroundColor">?attr/colorSecondary</item>
@@ -361,7 +363,7 @@
 	</style>
 
 	<style name="CardText">
-		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
 
 		<item name="android:layout_marginStart">15dp</item>
@@ -374,6 +376,11 @@
 		<item name="android:textSize">14sp</item>
 
 		<item name="android:ellipsize">end</item>
+	</style>
+
+	<style name="CardText.RecyclerView">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
 	</style>
 
 	<style name="CardText.Small">
@@ -514,11 +521,15 @@
 	</style>
 
 	<style name="RvText.Title">
+		<item name="android:layout_width">match_parent</item>
+
 		<item name="android:fontFamily">@font/poppins_semibold</item>
 		<item name="android:textColor">?attr/colorOnPrimaryContainer</item>
 	</style>
 
 	<style name="RvText.Category">
+		<item name="android:layout_width">match_parent</item>
+
 		<item name="android:fontFamily">@font/poppins_bold</item>
 		<item name="android:textColor">@color/md_theme_light_secondary</item>
 
