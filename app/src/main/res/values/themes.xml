@@ -339,8 +339,15 @@
 	</style>
 
 	<style name="Card.Box.Clean">
-		<item name="android:layout_width">350dp</item>
-		<item name="android:layout_height">250dp</item>
+		<item name="android:layout_width">225dp</item>
+		<item name="android:layout_height">125dp</item>
+
+		<item name="cardElevation">10dp</item>
+
+		<item name="android:layout_marginEnd">10dp</item>
+		<item name="android:layout_marginStart">5dp</item>
+		<item name="android:layout_marginTop">15dp</item>
+		<item name="android:layout_marginBottom">15dp</item>
 	</style>
 
 	<style name="Card.Notification">
@@ -594,15 +601,15 @@
 		<item name="android:layout_height">wrap_content</item>
 
 		<item name="android:fontFamily">@font/poppins_bold</item>
-		<item name="android:textSize">16sp</item>
+		<item name="android:textSize">20sp</item>
 
 		<item name="android:layout_marginStart">15dp</item>
 		<item name="autoSizeTextType">uniform</item>
 	</style>
 
 	<style name="DetailIcon">
-		<item name="android:layout_width">30dp</item>
-		<item name="android:layout_height">30dp</item>
+		<item name="android:layout_width">40dp</item>
+		<item name="android:layout_height">40dp</item>
 
 		<item name="android:layout_marginStart">25dp</item>
 		<item name="android:layout_marginTop">25dp</item>
@@ -613,7 +620,6 @@
 		<item name="android:layout_height">wrap_content</item>
 
 		<item name="android:layout_marginStart">25dp</item>
-		<item name="android:layout_marginTop">15dp</item>
 
 		<item name="android:orientation">horizontal</item>
 	</style>

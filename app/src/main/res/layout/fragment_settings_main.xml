@@ -278,7 +278,7 @@
 
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="200dp"
 
             android:src="@drawable/camerlang_wordmark_bw_transparent_cropped"
             android:contentDescription="@string/CAMerlang_bw_wordmark_desc"

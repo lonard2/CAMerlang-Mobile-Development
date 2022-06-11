@@ -8,6 +8,22 @@
     tools:context=".ui.images.ImageShowActivity">
 
     <ImageView
+        android:id="@+id/detailed_image_click_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:contentDescription="@string/detailed_img_container_library_desc"
+        android:transitionName="zoomed_image"
+
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
         android:id="@+id/back_btn"
 
         style="@style/BackButton"
@@ -16,19 +32,6 @@
         app:layout_constraintTop_toTopOf="parent"
 
         android:contentDescription="@string/back_btn_desc"/>
-
-    <ImageView
-        android:id="@+id/detailed_image_click_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:contentDescription="@string/detailed_img_container_library_desc"
-        android:transitionName="zoomed_image"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/load_anim_lottie"
