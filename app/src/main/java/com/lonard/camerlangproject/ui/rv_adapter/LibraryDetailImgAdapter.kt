@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.databinding.OverflowRvOnlyPicBinding
 import com.lonard.camerlangproject.db.library.ProblemImagesEntity
 import com.lonard.camerlangproject.ui.ShimmerPlaceHolder
+import com.lonard.camerlangproject.ui.images.ImageShowActivity
 import com.squareup.picasso.Picasso
 
 class LibraryDetailImgAdapter(private val otherPicList: ArrayList<ProblemImagesEntity>): RecyclerView.Adapter<LibraryDetailImgAdapter.ViewHolder>() {
@@ -28,7 +29,7 @@ class LibraryDetailImgAdapter(private val otherPicList: ArrayList<ProblemImagesE
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(_, imageUrl) = otherPicList[position]
+        val(_, _, imageUrl, _, _) = otherPicList[position]
 
         holder.bind.apply {
             Picasso.get().load(imageUrl).placeholder(ShimmerPlaceHolder.active()).into(contentListImage)

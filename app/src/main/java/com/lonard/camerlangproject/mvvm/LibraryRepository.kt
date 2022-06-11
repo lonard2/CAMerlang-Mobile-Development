@@ -116,7 +116,7 @@ class LibraryRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<ProblemImagesEntity>>> = db.libraryDao().retrieveAllImagesForIndividualLibEntry(problemType).map { imagesItem ->
+        val savedData: LiveData<DataLoadResult<List<ProblemImagesEntity>>> = db.libraryDao().retrieveAllImagesForIndividualLibEntry().map { imagesItem ->
             DataLoadResult.Successful(imagesItem)
         }
         emitSource(savedData)
