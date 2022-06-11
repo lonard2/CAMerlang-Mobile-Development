@@ -37,8 +37,8 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
         bind = ActivityImageTakenPreviewBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
-        var galleryImage: Uri? = intent.getParcelableExtra("imageCameraTaken")
-        var takenImage = intent.getSerializableExtra("imageFile") as File?
+        var galleryImage: Uri? = intent.getParcelableExtra("image_gallery")
+        var takenImage = intent.getSerializableExtra("imageCameraTaken") as File?
         val backCamera = intent.getBooleanExtra("isSetBackCam", true)
 
         bind.apply {
@@ -58,11 +58,13 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
 
                 val cameraXIntent = Intent(this@ImageTakenPreviewActivity,
                     ScannerCameraActivity::class.java)
+                cameraXIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
 
                 cameraLauncher.launch(cameraXIntent)
             }
 
             pictureSendBtn.setOnClickListener {
+                Log.d(TAG, retrievedImgFile.toString())
                 retrievedImgFile?.let { it1 -> saveConsultationToDb(it1) }
             }
 
@@ -96,7 +98,7 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
 
         bind.imageTakenPreviewContainer.setImageBitmap(rotatedBitmap)
 
-        retrievedImgFile = CameraUtil.fileRotateFromBitmap(rotatedBitmap, takenImageFile)
+        retrievedImgFile = CameraUtil.fileCompressToFile(rotatedBitmap, takenImageFile)
     }
 
     private fun processImageFromGallery(galleryImage: Uri) {
@@ -125,7 +127,6 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
                 consultViewModel.addConsultationEntry(fileToUri.toString(), formattedCurrentDateTime)
                     .observe(this@ImageTakenPreviewActivity) { inclusionStatus ->
 
-
                     if (inclusionStatus != null) {
                         when (inclusionStatus) {
                             is DataLoadResult.Loading -> {
@@ -153,6 +154,8 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
 
                                 val consultationIntent = Intent(this@ImageTakenPreviewActivity, ConsultationDetailActivity::class.java)
                                 consultationIntent.putExtra(ConsultationDetailActivity.EXTRA_CONSULTATION_DATA, containedData)
+
+                                consultationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
 
                                 startActivity(consultationIntent,
                                     ActivityOptions.makeSceneTransitionAnimation(this@ImageTakenPreviewActivity).toBundle())

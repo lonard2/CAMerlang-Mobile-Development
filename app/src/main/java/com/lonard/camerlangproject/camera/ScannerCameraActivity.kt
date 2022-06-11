@@ -114,6 +114,8 @@ class ScannerCameraActivity : AppCompatActivity() {
                     previewIntent.putExtra("isSetBackCam", modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
                     setResult(ImageTakenPreviewActivity.CAMERAX_RESPONSE_CODE, intent)
 
+                    previewIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+
                     startActivity(previewIntent)
                 }
 
@@ -157,6 +159,8 @@ class ScannerCameraActivity : AppCompatActivity() {
 
             val sendIntent = Intent(this@ScannerCameraActivity, ImageTakenPreviewActivity::class.java)
             sendIntent.putExtra("image_gallery", selectedImg)
+
+            sendIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
 
             setResult(ImageTakenPreviewActivity.GALLERY_RESPONSE_CODE, sendIntent)
             startActivity(sendIntent)

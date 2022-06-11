@@ -27,7 +27,7 @@ class CameraUtil {
             return File.createTempFile(timeStamp, ".jpg", storageDir)
         }
 
-        fun fileRotateFromBitmap(bitmap: Bitmap, image: File): File {
+        fun fileCompressToFile(bitmap: Bitmap, image: File): File {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, FileOutputStream(image))
 
             return image
@@ -48,7 +48,7 @@ class CameraUtil {
         fun rotateBitmap(bitmap: Bitmap, isBackCamera: Boolean = false): Bitmap {
             val matrix = Matrix()
             return if (isBackCamera) {
-//                matrix.postRotate(90f)
+                matrix.postRotate(90f)
                 Bitmap.createBitmap(
                     bitmap,
                     0,
@@ -59,7 +59,7 @@ class CameraUtil {
                     true
                 )
             } else {
-//                matrix.postRotate(-90f)
+                matrix.postRotate(-90f)
                 matrix.postScale(-1f, 1f, bitmap.width / 2f, bitmap.height / 2f)
                 Bitmap.createBitmap(
                     bitmap,
