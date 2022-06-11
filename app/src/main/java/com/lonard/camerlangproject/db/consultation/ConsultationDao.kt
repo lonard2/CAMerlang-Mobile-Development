@@ -30,6 +30,6 @@ interface ConsultationDao {
     fun retrieveAllConsultationData(): LiveData<List<ConsultationItemEntity>>
 
     @Query("SELECT * FROM consultation_items WHERE consultation_id = :id")
-    fun retrieveSpecificConsultationData(): LiveData<ConsultationItemEntity>
+    fun retrieveSpecificConsultationData(id: Int): LiveData<ConsultationItemEntity>
 
 }
