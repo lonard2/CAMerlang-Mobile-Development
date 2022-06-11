@@ -78,7 +78,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
             val bitmap8888 = rgbaBitmap(bitmap)
 
             lifecycleScope.launch(Dispatchers.Unconfined) {
-                val results = objectDetection(bitmap8888, applicationContext)
+                val results = objectDetection(bitmap8888, applicationContext, consultViewModel)
 
                 runOnUiThread {
                     bind.consultationTakenImage.setImageBitmap(results)
@@ -151,7 +151,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
         bind.consultationOutcomeCard.adapter = consultHistoryAdapter
     }
 
-    private fun objectDetection(bitmap: Bitmap, context: Context): Bitmap {
+    private fun objectDetection(bitmap: Bitmap, context: Context, consultViewModel: ConsultationViewModel): Bitmap {
 
         val boundingBoxTypeface: Typeface = Typeface.createFromAsset(context.assets, "poppins_regular.ttf")
         val boundingBoxTypefaceColor = ContextCompat.getColor(context, R.color.primary_color_logo)
@@ -175,20 +175,53 @@ class ConsultationDetailActivity : AppCompatActivity() {
         val displayResults = detectionResults.map { detection ->
             val category = detection.categories.first()
             val text = "${category.label}, ${category.score.times(100).toInt()}%"
-
-//            consultViewModel.addDetectionResultData(consultationId, category.label, category.score.times(100).toInt())
-
             DetectionResult(detection.boundingBox, text)
+        }
+
+        detectionResults.map { results ->
+            val category = results.categories.first()
+            consultViewModel.addDetectionResultData(category.label, category.score.times(100).toInt()).observe(this ) { detections ->
+                if (detections != null) {
+                    when (detections) {
+                        is DataLoadResult.Loading -> {
+                            bind.loadFrame.visibility = View.VISIBLE
+                            bind.loadAnimLottie.visibility = View.VISIBLE
+                        }
+
+                        is DataLoadResult.Successful -> {
+                            showDetectionResults(detections.data)
+
+                            bind.loadFrame.visibility = View.GONE
+                            bind.loadAnimLottie.visibility = View.GONE
+                        }
+
+                        is DataLoadResult.Failed -> {
+                            bind.loadFrame.visibility = View.GONE
+                            bind.loadAnimLottie.visibility = View.GONE
+
+                            Snackbar.make(
+                                bind.consultationOutcomeCard, when (locale) {
+                                    "in" -> {
+                                        "Aduh, data para ahli kulit tidak bisa ditampilkan. Silakan coba lagi ya."
+                                    }
+                                    "en" -> {
+                                        "Ouch, the skin experts data cannot be shown to you. Please try again."
+                                    }
+                                    else -> {
+                                        "Error in skin experts data retrieval."
+                                    }
+                                }, Snackbar.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                }
+            }
         }
 
         val imgWithResult = drawDetectionResult(bitmap, displayResults,
             boundingBoxColor, boundingBoxTypefaceColor, boundingBoxTypeface)
 
         return imgWithResult
-
-//        runOnUiThread {
-//            bind.consultationTakenImage.setImageBitmap(imgWithResult)
-//        }
     }
 
     private fun drawDetectionResult(
@@ -205,7 +238,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
         detectionResults.forEach {
             pen.color = boundingBoxColor
-            pen.strokeWidth = 12F
+            pen.strokeWidth = 10F
             pen.style = Paint.Style.STROKE
             val box = it.boundingBox
             canvas.drawRect(box, pen)
@@ -214,7 +247,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
             pen.style = Paint.Style.FILL_AND_STROKE
             pen.color = boundingBoxTypefaceColor
-            pen.strokeWidth = 4F
+            pen.strokeWidth = 6F
 
             pen.typeface = boundingBoxTypeface
 

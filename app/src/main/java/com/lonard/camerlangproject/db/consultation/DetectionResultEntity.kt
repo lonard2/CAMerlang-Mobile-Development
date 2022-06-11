@@ -14,9 +14,6 @@ data class DetectionResultEntity (
     @ColumnInfo(name = "id")
     var id: Int?,
 
-    @ColumnInfo(name = "problem_id")
-    var problemId: String? = null,
-
     @ColumnInfo(name = "result_disease")
     var resultDisease: String? = null,
 

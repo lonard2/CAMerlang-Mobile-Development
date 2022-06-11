@@ -18,7 +18,7 @@ import com.lonard.camerlangproject.db.library.ProblemImagesEntity
     ProductEntity::class, ConsultationItemEntity::class, ProblemImagesEntity::class,
     NotificationContentEntity::class, NotificationCatEntity::class,
     ExpertEntity::class, DetectionResultEntity::class],
-    version = 2, exportSchema = false)
+    version = 1, exportSchema = false)
 abstract class AppDB: RoomDatabase() {
 
     abstract fun libraryDao(): LibraryDao
