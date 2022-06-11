@@ -273,7 +273,7 @@ class HomepageFragment : Fragment() {
             LinearLayoutManager.HORIZONTAL, false)
 
         val productsOverflowRecyclerview = HomepageProductContentListAdapter(productList as ArrayList<ProductEntity>)
-        bind.articleOverflowRecyclerview.adapter = productsOverflowRecyclerview
+        bind.productsOverflowRecyclerview.adapter = productsOverflowRecyclerview
     }
 
     private fun showLibrarySection(entryList: List<LibraryContentEntity>) {

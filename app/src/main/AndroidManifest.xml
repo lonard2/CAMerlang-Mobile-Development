@@ -57,10 +57,6 @@
             android:exported="false"
             android:screenOrientation="sensorPortrait" />
         <activity
-            android:name=".ui.consultation.ConsultationActivity"
-            android:exported="false"
-            android:screenOrientation="sensorPortrait" />
-        <activity
             android:name=".ui.homepage.NotificationActivity"
             android:exported="false"
             android:screenOrientation="sensorPortrait" />
