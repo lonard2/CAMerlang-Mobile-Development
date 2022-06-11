@@ -232,6 +232,7 @@
                 android:textColor="?attr/colorOnPrimary"
 
                 app:layout_constraintTop_toBottomOf="@id/expert_verified_date"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
@@ -244,6 +245,7 @@
                 android:textColor="?attr/colorOnPrimary"
 
                 app:layout_constraintTop_toBottomOf="@id/lib_item_short_desc"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <ImageView

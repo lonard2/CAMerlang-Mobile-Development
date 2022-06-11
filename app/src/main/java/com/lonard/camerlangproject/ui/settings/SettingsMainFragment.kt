@@ -4,6 +4,7 @@ import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,27 +40,6 @@ class SettingsMainFragment : Fragment() {
             requireActivity(),
             LocalUserViewModelFactory(localPref)
         )[LocalUserViewModel::class.java]
-
-        bind.apply {
-            btnSettingsCard1.setOnClickListener {
-                val userAccountIntent =
-                    Intent(requireActivity(), SettingsUserActivity::class.java)
-                startActivity(userAccountIntent,
-                    ActivityOptions.makeSceneTransitionAnimation(requireActivity())
-                        .toBundle()
-                )
-            }
-
-            btnSettingsCard3.setOnClickListener {
-                val localizationMenuIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
-                startActivity(localizationMenuIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
-            }
-
-            btnSettingsCard4.setOnClickListener {
-                val creditIntent = Intent(requireActivity(), CreditsActivity::class.java)
-                startActivity(creditIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
-            }
-        }
 
         localViewModel.getStartUp().observe(viewLifecycleOwner) { appSetting ->
 
@@ -104,11 +84,36 @@ class SettingsMainFragment : Fragment() {
                     settingsMainStatus.text = localUser.status
                 }
             }
+
+            bind.apply {
+                btnSettingsCard1.setOnClickListener {
+                    val userAccountIntent =
+                        Intent(context, SettingsUserActivity::class.java)
+                    startActivity(userAccountIntent,
+                        ActivityOptions.makeSceneTransitionAnimation(requireActivity())
+                            .toBundle()
+                    )
+                }
+
+                btnSettingsCard3.setOnClickListener {
+                    val localizationMenuIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                    startActivity(localizationMenuIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
+                }
+
+                btnSettingsCard4.setOnClickListener {
+                    val creditsIntent = Intent(context, CreditsActivity::class.java)
+                    startActivity(creditsIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
+                }
+            }
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _bind = null
+    }
+
+    companion object {
+        const val TAG = "Main Settings Fragment"
     }
 }
