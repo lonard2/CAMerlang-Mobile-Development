@@ -39,6 +39,7 @@ class ScannerCameraActivity : AppCompatActivity() {
             cameraModeSwitch.setOnClickListener {
                 modeSelect = if (modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
                     CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
+                    provideCamera()
             }
 
             pictureTakeBtn.setOnClickListener {

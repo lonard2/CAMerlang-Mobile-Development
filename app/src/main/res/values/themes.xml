@@ -289,11 +289,13 @@
 		<item name="android:layout_width">170dp</item>
 		<item name="android:layout_height">100dp</item>
 
-		<item name="android:layout_marginStart">5dp</item>
+		<item name="android:layout_marginStart">10dp</item>
 		<item name="android:layout_marginEnd">5dp</item>
-		<item name="android:layout_marginBottom">25dp</item>
-		<item name="android:layout_marginTop">25dp</item>
+		<item name="android:layout_marginBottom">15dp</item>
+		<item name="android:layout_marginTop">15dp</item>
 		<item name="cardCornerRadius">10dp</item>
+
+		<item name="cardElevation">8dp</item>
 	</style>
 
 	<style name="Card.Box.InsideDetail">
@@ -328,8 +330,12 @@
 	</style>
 
 	<style name="Card.Box.Recommendation">
+		<item name="android:layout_marginTop">0dp</item>
+
 		<item name="android:layout_width">275dp</item>
 		<item name="android:layout_height">175dp</item>
+
+		<item name="cardElevation">15dp</item>
 	</style>
 
 	<style name="Card.Box.Clean">
@@ -339,6 +345,8 @@
 
 	<style name="Card.Notification">
 		<item name="cardCornerRadius">15dp</item>
+
+		<item name="cardElevation">10dp</item>
 
 		<item name="android:layout_width">match_parent</item>
 		<item name="android:layout_height">wrap_content</item>
@@ -387,7 +395,7 @@
 	<style name="CardText.InsideDetail">
 		<item name="android:layout_marginStart">0dp</item>
 		<item name="android:layout_marginEnd">15dp</item>
-		<item name="android:layout_marginTop">20dp</item>
+		<item name="android:layout_marginTop">10dp</item>
 		<item name="android:layout_marginBottom">0dp</item>
 	</style>
 
@@ -509,6 +517,11 @@
 		<item name="android:layout_marginBottom">5dp</item>
 		<item name="android:layout_marginTop">5dp</item>
 
+		<item name="android:layout_marginStart">55dp</item>
+		<item name="android:layout_marginEnd">25dp</item>
+
+		<item name="android:layout_width">wrap_content</item>
+
 		<item name="android:fontFamily">@font/poppins_black</item>
 		<item name="android:textSize">20sp</item>
 	</style>
@@ -534,12 +547,16 @@
 	</style>
 
 	<style name="RvText.Title">
+		<item name="android:layout_width">0dp</item>
 
 		<item name="android:fontFamily">@font/poppins_semibold</item>
 		<item name="android:textColor">?attr/colorOnPrimaryContainer</item>
+
+		<item name="android:ellipsize">end</item>
 	</style>
 
 	<style name="RvText.Category">
+		<item name="android:layout_width">0dp</item>
 
 		<item name="android:fontFamily">@font/poppins_bold</item>
 		<item name="android:textColor">@color/md_theme_light_secondary</item>

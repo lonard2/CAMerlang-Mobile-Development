@@ -63,7 +63,7 @@
     <string name="consultation_page_emoji_desc">Gelembung percakapan sebagai representatif dari percakapan.</string>
     <string name="information_box_desc">Information box for indicating information section.</string>
     <string name="notification_emoji_desc">A ring as a symbol of notification.</string>
-    <string name="scanner_use_how_to">Arahkah kameramu ke kulit wajahmu untuk mendeteksi masalah kulitmu…\ndan tangkap!</string>
+    <string name="scanner_use_how_to">Arahkah kameramu secara dekat ke kulit wajahmu untuk mendeteksi masalah kulitmu…\ndan tangkap!</string>
     <string name="camera_mode_switch_icon_desc">Sebuah gambar kamera dengan ikon switch untuk mengindikasikan perpindahan mode kamera (dari landscape ke portrait, dan sebaliknya).</string>
     <string name="user_emoji_desc">Seseorang sebagai perwakilan pengguna suatu aplikasi.</string>
     <string name="rename_icon_desc">Sebuah ikon rename (mengganti nama).</string>
@@ -88,7 +88,7 @@
     <string name="profession_sample">Mahasiswa</string>
     <string name="user_status_sample">Mencoba untuk menjadi seseorang yang bersinar…</string>
     <string name="btn_settings_1_text">Akun pengguna</string>
-    <string name="btn_settings_2_text">Mode malam</string>
+    <string name="btn_settings_2_text">Mode gelap</string>
     <string name="btn_settings_3_text">Lokalisasi</string>
     <string name="consultation_history_emoji_desc">Ikon emoji notepad atau catatan, sebagai salah satu metode pengarsipan.</string>
     <string name="btn_settings_4_text">Kredit</string>
@@ -191,6 +191,7 @@
 
     <string name="expert_verifed_date_format">diverifikasi pada %1$s</string>
     <string name="consultation_id_format">consultation-scan-clrg%1$s</string>
+    <string name="age_string_format">%1$s tahun</string>
 
     <string name="other_attribution_5">Weifeng</string>
     <string name="other_attribution_5_jobdesc">Animasi Lottie untuk loading \n\n dari LottieFiles.com - dipublikasikan dengan Lottie Simple License (https://lottiefiles.com/page/license)</string>

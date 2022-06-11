@@ -31,7 +31,6 @@ import kotlin.collections.ArrayList
 
 class LibraryDetailActivity : AppCompatActivity() {
     private lateinit var bind: ActivityLibraryDetailBinding
-    private lateinit var context: Context
 
     private val locale: String = Locale.getDefault().language
 
@@ -71,45 +70,6 @@ class LibraryDetailActivity : AppCompatActivity() {
             libItemContent.text = diseaseParcel.content
 
             diseaseParcel.name?.let {
-                libraryViewModel.retrieveProblemImages(it).observe(this@LibraryDetailActivity) { imageList ->
-                    if(imageList != null) {
-                        when (imageList) {
-                            is DataLoadResult.Loading -> {
-                                loadFrame.visibility = View.VISIBLE
-                                loadAnimLottie.visibility = View.VISIBLE
-                            }
-
-                            is DataLoadResult.Successful -> {
-                                loadFrame.visibility = View.GONE
-                                loadAnimLottie.visibility = View.GONE
-
-                                val images = imageList.data
-
-                                showMoreImagesContent(images)
-                            }
-
-                            is DataLoadResult.Failed -> {
-                                loadFrame.visibility = View.GONE
-                                loadAnimLottie.visibility = View.GONE
-
-                                Snackbar.make(
-                                    productsSectionRv, when (locale) {
-                                        "in" -> {
-                                            "Data produk terkait item masalah ini tidak bisa ditampilkan. Silakan coba lagi ya."
-                                        }
-                                        "en" -> {
-                                            "Ouch, the products data regarding this problem item cannot be shown to you. Please try again."
-                                        }
-                                        else -> {
-                                            "Error in products retrieval for a specific item."
-                                        }
-                                    }, Snackbar.LENGTH_LONG
-                                ).show()
-                            }
-                        }
-                    }
-                }
-            }
 
             libDetailHeaderPic.setOnClickListener {
                 val showImageIntent = Intent(this@LibraryDetailActivity, ImageShowActivity::class.java)
@@ -117,7 +77,7 @@ class LibraryDetailActivity : AppCompatActivity() {
 
                 val sharedAnim =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        context as Activity,
+                        this@LibraryDetailActivity,
                         Pair(bind.libDetailHeaderPic, "zoomed_image"),
                     )
 
@@ -126,79 +86,119 @@ class LibraryDetailActivity : AppCompatActivity() {
 
             libraryViewModel.retrieveLibraryEntriesList().observe(this@LibraryDetailActivity) { entriesList ->
                 libraryViewModel.retrieveProductsInfo().observe(this@LibraryDetailActivity) { productList ->
-                    if(productList != null) {
-                        when (productList) {
-                            is DataLoadResult.Loading -> {
-                                loadFrame.visibility = View.VISIBLE
-                                loadAnimLottie.visibility = View.VISIBLE
+                    libraryViewModel.retrieveProblemImages(it).observe(this@LibraryDetailActivity) { imageList ->
+                        if(imageList != null) {
+                            when (imageList) {
+                                is DataLoadResult.Loading -> {
+                                    loadFrame.visibility = View.VISIBLE
+                                    loadAnimLottie.visibility = View.VISIBLE
+                                }
+
+                                is DataLoadResult.Successful -> {
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
+
+                                    val images = imageList.data
+
+                                    showMoreImagesContent(images)
+                                }
+
+                                is DataLoadResult.Failed -> {
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
+
+                                    Snackbar.make(
+                                        productsSectionRv, when (locale) {
+                                            "in" -> {
+                                                "Data produk terkait item masalah ini tidak bisa ditampilkan. Silakan coba lagi ya."
+                                            }
+                                            "en" -> {
+                                                "Ouch, the products data regarding this problem item cannot be shown to you. Please try again."
+                                            }
+                                            else -> {
+                                                "Error in products retrieval for a specific item."
+                                            }
+                                        }, Snackbar.LENGTH_LONG
+                                    ).show()
+                                }
                             }
+                        }
 
-                            is DataLoadResult.Successful -> {
-                                loadFrame.visibility = View.GONE
-                                loadAnimLottie.visibility = View.GONE
+                        if(productList != null) {
+                            when (productList) {
+                                is DataLoadResult.Loading -> {
+                                    loadFrame.visibility = View.VISIBLE
+                                    loadAnimLottie.visibility = View.VISIBLE
+                                }
 
-                                val products = productList.data
+                                is DataLoadResult.Successful -> {
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
 
-                                showProductsContent(products)
+                                    val products = productList.data
+
+                                    showProductsContent(products)
+                                }
+
+                                is DataLoadResult.Failed -> {
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
+
+                                    Snackbar.make(
+                                        productsSectionRv, when (locale) {
+                                            "in" -> {
+                                                "Data produk terkait item masalah ini tidak bisa ditampilkan. Silakan coba lagi ya."
+                                            }
+                                            "en" -> {
+                                                "Ouch, the products data regarding this problem item cannot be shown to you. Please try again."
+                                            }
+                                            else -> {
+                                                "Error in products retrieval for a specific item."
+                                            }
+                                        }, Snackbar.LENGTH_LONG
+                                    ).show()
+                                }
                             }
+                        }
 
-                            is DataLoadResult.Failed -> {
-                                loadFrame.visibility = View.GONE
-                                loadAnimLottie.visibility = View.GONE
+                        if (entriesList != null) {
+                            when (entriesList) {
+                                is DataLoadResult.Loading -> {
+                                    loadFrame.visibility = View.VISIBLE
+                                    loadAnimLottie.visibility = View.VISIBLE
+                                }
 
-                                Snackbar.make(
-                                    productsSectionRv, when (locale) {
-                                        "in" -> {
-                                            "Data produk terkait item masalah ini tidak bisa ditampilkan. Silakan coba lagi ya."
-                                        }
-                                        "en" -> {
-                                            "Ouch, the products data regarding this problem item cannot be shown to you. Please try again."
-                                        }
-                                        else -> {
-                                            "Error in products retrieval for a specific item."
-                                        }
-                                    }, Snackbar.LENGTH_LONG
-                                ).show()
+                                is DataLoadResult.Successful -> {
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
+
+                                    val libraryEntries = entriesList.data
+
+                                    showOtherEntriesContent(libraryEntries)
+                                }
+
+                                is DataLoadResult.Failed -> {
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
+
+                                    Snackbar.make(
+                                        productsSectionRv, when (locale) {
+                                            "in" -> {
+                                                "Data entri pustaka terkait item masalah ini tidak bisa ditampilkan. Silakan coba lagi ya."
+                                            }
+                                            "en" -> {
+                                                "Ouch, the library entries data regarding this problem item cannot be shown to you. Please try again."
+                                            }
+                                            else -> {
+                                                "Error in library entries retrieval for a specific item."
+                                            }
+                                        }, Snackbar.LENGTH_LONG
+                                    ).show()
+                                }
                             }
                         }
                     }
-
-                    if (entriesList != null) {
-                        when (entriesList) {
-                            is DataLoadResult.Loading -> {
-                                loadFrame.visibility = View.VISIBLE
-                                loadAnimLottie.visibility = View.VISIBLE
-                            }
-
-                            is DataLoadResult.Successful -> {
-                                loadFrame.visibility = View.GONE
-                                loadAnimLottie.visibility = View.GONE
-
-                                val libraryEntries = entriesList.data
-
-                                showOtherEntriesContent(libraryEntries)
-                            }
-
-                            is DataLoadResult.Failed -> {
-                                loadFrame.visibility = View.GONE
-                                loadAnimLottie.visibility = View.GONE
-
-                                Snackbar.make(
-                                    productsSectionRv, when (locale) {
-                                        "in" -> {
-                                            "Data entri pustaka terkait item masalah ini tidak bisa ditampilkan. Silakan coba lagi ya."
-                                        }
-                                        "en" -> {
-                                            "Ouch, the library entries data regarding this problem item cannot be shown to you. Please try again."
-                                        }
-                                        else -> {
-                                            "Error in library entries retrieval for a specific item."
-                                        }
-                                    }, Snackbar.LENGTH_LONG
-                                ).show()
-                            }
-                        }
-                    }
+                }
                 }
             }
         }
