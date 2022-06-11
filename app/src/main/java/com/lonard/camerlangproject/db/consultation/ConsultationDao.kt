@@ -32,4 +32,17 @@ interface ConsultationDao {
     @Query("SELECT * FROM consultation_items WHERE consultation_id = :id")
     fun retrieveSpecificConsultationData(id: Int): LiveData<ConsultationItemEntity>
 
+    // CRUD functions related to detection results of a picture
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addNewDetectionResultSetToDb(detectionItem: DetectionResultEntity?)
+
+    @Query("DELETE FROM detection_results")
+    suspend fun deleteAllDetectionResults()
+
+    @Query("SELECT * FROM detection_results")
+    fun retrieveAllDetectionResults(): LiveData<List<DetectionResultEntity>>
+
+    @Query("SELECT * FROM detection_results WHERE id = :id")
+    fun retrieveSpecificDetectionResultData(id: Int): LiveData<DetectionResultEntity>
+
 }

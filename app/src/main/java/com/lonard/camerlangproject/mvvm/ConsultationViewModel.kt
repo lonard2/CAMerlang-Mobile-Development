@@ -13,4 +13,10 @@ class ConsultationViewModel(private val consultRepo: ConsultationRepository): Vi
         dateTime: String,
     ) = consultRepo.addNewConsultationEntry(image, dateTime)
 
+    fun addDetectionResultData(
+        problemId: String,
+        label: String,
+        percentage: Int
+    ) = consultRepo.addNewDetectionResultSet(problemId, label, percentage)
+
 }

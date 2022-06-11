@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import com.lonard.camerlangproject.db.consultation.ConsultationDao
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.lonard.camerlangproject.db.consultation.ExpertEntity
+import com.lonard.camerlangproject.db.consultation.DetectionResultEntity
 import com.lonard.camerlangproject.db.homepage.*
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.LibraryDao
@@ -16,8 +17,8 @@ import com.lonard.camerlangproject.db.library.ProblemImagesEntity
     [LibraryContentEntity::class, ArticleEntity::class,
     ProductEntity::class, ConsultationItemEntity::class, ProblemImagesEntity::class,
     NotificationContentEntity::class, NotificationCatEntity::class,
-    ExpertEntity::class],
-    version = 1, exportSchema = false)
+    ExpertEntity::class, DetectionResultEntity::class],
+    version = 2, exportSchema = false)
 abstract class AppDB: RoomDatabase() {
 
     abstract fun libraryDao(): LibraryDao

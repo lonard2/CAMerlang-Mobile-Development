@@ -9,6 +9,7 @@ import com.lonard.camerlangproject.db.AppDB
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.consultation.ConsultationDao
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
+import com.lonard.camerlangproject.db.consultation.DetectionResultEntity
 import com.lonard.camerlangproject.db.consultation.ExpertEntity
 
 class ConsultationRepository(private val db: AppDB, private val api: ApiInterface) {
@@ -54,13 +55,14 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
         emit(DataLoadResult.Loading)
 
         try {
-            db.consultationDao().addNewConsultationToDb(
+            val consultData =
                 ConsultationItemEntity(
                     0,
                     consultationImg,
-                    processedAt,
+                    processedAt
                 )
-            )
+
+            db.consultationDao().addNewConsultationToDb(consultData)
         } catch (exception: Exception) {
             emit(DataLoadResult.Failed(exception.message.toString()))
             Log.e(
@@ -95,6 +97,37 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
         emitSource(savedData)
 
     }
+
+    fun addNewDetectionResultSet(
+        problemId: String,
+        label: String,
+        percentage: Int
+    ): LiveData<DataLoadResult<DetectionResultEntity>> = liveData {
+        emit(DataLoadResult.Loading)
+
+        try {
+            db.consultationDao().addNewDetectionResultSetToDb(
+                DetectionResultEntity(
+                    0,
+                    problemId,
+                    label,
+                    percentage,
+                )
+            )
+        } catch (exception: Exception) {
+            emit(DataLoadResult.Failed(exception.message.toString()))
+            Log.e(
+                TAG, "Cannot save detection results to Room DB." +
+                        "Occurred error: ${exception.message.toString()}")
+        }
+
+        val savedData: LiveData<DataLoadResult<DetectionResultEntity>> = db.consultationDao().retrieveSpecificDetectionResultData(0).map {
+            DataLoadResult.Successful(it)
+        }
+
+        emitSource(savedData)
+    }
+
 
     companion object {
         private const val TAG = "Consultation & Chatbot Repository"
