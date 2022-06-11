@@ -78,10 +78,11 @@ class ConsultationDetailActivity : AppCompatActivity() {
             val bitmap8888 = rgbaBitmap(bitmap)
 
             lifecycleScope.launch(Dispatchers.Unconfined) {
-                val detectedBitmap = objectDetection(bitmap8888, applicationContext,
-                    consultViewModel, consultationIdDetail.toString())
+                val results = objectDetection(bitmap8888, applicationContext)
 
-                bind.consultationTakenImage.setImageBitmap(detectedBitmap)
+                runOnUiThread {
+                    bind.consultationTakenImage.setImageBitmap(results)
+                }
             }
 
             consultationTakenImage.setOnClickListener {
@@ -97,44 +98,44 @@ class ConsultationDetailActivity : AppCompatActivity() {
                 startActivity(viewZoomedImg, sharedAnim.toBundle())
             }
 
-            consultViewModel.retrieveAllDetections().observe(this@ConsultationDetailActivity) { detections ->
-                if (detections != null) {
-                    when (detections) {
-                        is DataLoadResult.Loading -> {
-                            loadFrame.visibility = View.VISIBLE
-                            loadAnimLottie.visibility = View.VISIBLE
-                        }
-
-                        is DataLoadResult.Successful -> {
-                            val detectedProblems = detections.data
-
-                            showDetectionResults(detectedProblems)
-
-                            loadFrame.visibility = View.GONE
-                            loadAnimLottie.visibility = View.GONE
-                        }
-
-                        is DataLoadResult.Failed -> {
-                            loadFrame.visibility = View.GONE
-                            loadAnimLottie.visibility = View.GONE
-
-                            Snackbar.make(
-                                consultationOutcomeCard, when (locale) {
-                                    "in" -> {
-                                        "Aduh, data para ahli kulit tidak bisa ditampilkan. Silakan coba lagi ya."
-                                    }
-                                    "en" -> {
-                                        "Ouch, the skin experts data cannot be shown to you. Please try again."
-                                    }
-                                    else -> {
-                                        "Error in skin experts data retrieval."
-                                    }
-                                }, Snackbar.LENGTH_LONG
-                            ).show()
-                        }
-                    }
-                }
-            }
+//            consultViewModel.retrieveAllDetections().observe(this@ConsultationDetailActivity) { detections ->
+//                if (detections != null) {
+//                    when (detections) {
+//                        is DataLoadResult.Loading -> {
+//                            loadFrame.visibility = View.VISIBLE
+//                            loadAnimLottie.visibility = View.VISIBLE
+//                        }
+//
+//                        is DataLoadResult.Successful -> {
+//                            val detectedProblems = detections.data
+//
+//                            showDetectionResults(detectedProblems)
+//
+//                            loadFrame.visibility = View.GONE
+//                            loadAnimLottie.visibility = View.GONE
+//                        }
+//
+//                        is DataLoadResult.Failed -> {
+//                            loadFrame.visibility = View.GONE
+//                            loadAnimLottie.visibility = View.GONE
+//
+//                            Snackbar.make(
+//                                consultationOutcomeCard, when (locale) {
+//                                    "in" -> {
+//                                        "Aduh, data para ahli kulit tidak bisa ditampilkan. Silakan coba lagi ya."
+//                                    }
+//                                    "en" -> {
+//                                        "Ouch, the skin experts data cannot be shown to you. Please try again."
+//                                    }
+//                                    else -> {
+//                                        "Error in skin experts data retrieval."
+//                                    }
+//                                }, Snackbar.LENGTH_LONG
+//                            ).show()
+//                        }
+//                    }
+//                }
+//            }
         }
     }
 
@@ -150,9 +151,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
         bind.consultationOutcomeCard.adapter = consultHistoryAdapter
     }
 
-    private fun objectDetection(bitmap: Bitmap, context: Context,
-                                consultViewModel: ConsultationViewModel,
-                                consultationId: String): Bitmap {
+    private fun objectDetection(bitmap: Bitmap, context: Context): Bitmap {
 
         val boundingBoxTypeface: Typeface = Typeface.createFromAsset(context.assets, "poppins_regular.ttf")
         val boundingBoxTypefaceColor = ContextCompat.getColor(context, R.color.primary_color_logo)
@@ -177,7 +176,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
             val category = detection.categories.first()
             val text = "${category.label}, ${category.score.times(100).toInt()}%"
 
-            consultViewModel.addDetectionResultData(consultationId, category.label, category.score.times(100).toInt())
+//            consultViewModel.addDetectionResultData(consultationId, category.label, category.score.times(100).toInt())
 
             DetectionResult(detection.boundingBox, text)
         }
@@ -186,6 +185,10 @@ class ConsultationDetailActivity : AppCompatActivity() {
             boundingBoxColor, boundingBoxTypefaceColor, boundingBoxTypeface)
 
         return imgWithResult
+
+//        runOnUiThread {
+//            bind.consultationTakenImage.setImageBitmap(imgWithResult)
+//        }
     }
 
     private fun drawDetectionResult(
@@ -202,7 +205,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
         detectionResults.forEach {
             pen.color = boundingBoxColor
-            pen.strokeWidth = 8F
+            pen.strokeWidth = 12F
             pen.style = Paint.Style.STROKE
             val box = it.boundingBox
             canvas.drawRect(box, pen)
@@ -211,11 +214,11 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
             pen.style = Paint.Style.FILL_AND_STROKE
             pen.color = boundingBoxTypefaceColor
-            pen.strokeWidth = 2F
+            pen.strokeWidth = 4F
 
             pen.typeface = boundingBoxTypeface
 
-            pen.textSize = 24F
+            pen.textSize = 28F
             pen.getTextBounds(it.text, 0, it.text.length, tagSize)
             val fontSize: Float = pen.textSize * box.width() / tagSize.width()
 
