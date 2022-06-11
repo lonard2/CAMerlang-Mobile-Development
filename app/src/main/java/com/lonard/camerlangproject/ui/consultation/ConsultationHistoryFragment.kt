@@ -52,12 +52,12 @@ class ConsultationHistoryFragment : Fragment() {
                         }
 
                         is DataLoadResult.Successful -> {
-                            loadFrame.visibility = View.GONE
-                            loadAnimLottie.visibility = View.GONE
-
                             val consultations = consultationList.data
 
                             showConsultations(consultations)
+
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
                         }
 
                         is DataLoadResult.Failed -> {

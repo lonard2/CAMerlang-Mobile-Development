@@ -51,11 +51,13 @@
         app:rippleColor="@color/md_theme_light_tertiary"
         app:backgroundTint="@color/md_theme_light_tertiaryContainer_normal"
 
-        android:alpha="1"
+        android:alpha="0"
 
-        app:layout_constraintBottom_toTopOf="@id/bottom_navbar"
+        android:layout_marginBottom="50dp"
+
+        app:layout_constraintBottom_toBottomOf="@id/bottom_navbar"
         app:layout_constraintTop_toTopOf="@id/bottom_navbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/bottom_navbar"
+        app:layout_constraintEnd_toEndOf="@id/bottom_navbar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

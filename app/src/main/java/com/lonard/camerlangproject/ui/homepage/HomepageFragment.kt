@@ -75,12 +75,13 @@ class HomepageFragment : Fragment() {
                         }
 
                         is DataLoadResult.Successful -> {
-                            loadFrame.visibility = View.GONE
-                            loadAnimLottie.visibility = View.GONE
-
                             val articles = articleList.data
 
                             showArticleSection(articles)
+
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
+
                         }
 
                         is DataLoadResult.Failed -> {
@@ -114,11 +115,12 @@ class HomepageFragment : Fragment() {
                         }
 
                         is DataLoadResult.Successful -> {
-                            loadFrame.visibility = View.GONE
-                            loadAnimLottie.visibility = View.GONE
                             val products = productList.data
 
                             showProductSection(products)
+
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
                         }
 
                         is DataLoadResult.Failed -> {
@@ -153,11 +155,12 @@ class HomepageFragment : Fragment() {
                         }
 
                         is DataLoadResult.Successful -> {
-                            loadFrame.visibility = View.GONE
-                            loadAnimLottie.visibility = View.GONE
                             val entries = libraryList.data
 
                             showLibrarySection(entries)
+
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
                         }
 
                         is DataLoadResult.Failed -> {
@@ -191,11 +194,12 @@ class HomepageFragment : Fragment() {
                         }
 
                         is DataLoadResult.Successful -> {
-                            loadFrame.visibility = View.GONE
-                            loadAnimLottie.visibility = View.GONE
                             val expertPeople = expertList.data
 
                             showExpertSection(expertPeople)
+
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
                         }
 
                         is DataLoadResult.Failed -> {

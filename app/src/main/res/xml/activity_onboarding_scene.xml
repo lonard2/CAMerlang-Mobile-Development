@@ -7,7 +7,8 @@
         motion:constraintSetEnd="@+id/motionA"
         motion:constraintSetStart="@id/start"
         motion:duration="1500"
-        motion:motionInterpolator="easeIn">
+        motion:motionInterpolator="easeIn"
+        motion:autoTransition="animateToEnd">
        <KeyFrameSet>
        </KeyFrameSet>
     </Transition>
@@ -130,7 +131,9 @@
         motion:constraintSetStart="@+id/motionA"
         motion:constraintSetEnd="@+id/motionB"
         motion:duration="1500"
-        motion:motionInterpolator="easeIn" />
+        motion:motionInterpolator="easeIn" >
+        <OnSwipe motion:dragDirection="dragLeft" />
+    </Transition>
     <ConstraintSet
         android:id="@+id/motionC"
         motion:deriveConstraintsFrom="@+id/motionB" >

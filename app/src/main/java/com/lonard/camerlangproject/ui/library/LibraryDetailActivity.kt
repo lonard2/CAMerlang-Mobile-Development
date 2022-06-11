@@ -95,12 +95,12 @@ class LibraryDetailActivity : AppCompatActivity() {
                                 }
 
                                 is DataLoadResult.Successful -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
-
                                     val images = imageList.data
 
                                     showMoreImagesContent(images)
+
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
                                 }
 
                                 is DataLoadResult.Failed -> {
@@ -132,12 +132,12 @@ class LibraryDetailActivity : AppCompatActivity() {
                                 }
 
                                 is DataLoadResult.Successful -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
-
                                     val products = productList.data
 
                                     showProductsContent(products)
+
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
                                 }
 
                                 is DataLoadResult.Failed -> {
@@ -169,12 +169,12 @@ class LibraryDetailActivity : AppCompatActivity() {
                                 }
 
                                 is DataLoadResult.Successful -> {
-                                    loadFrame.visibility = View.GONE
-                                    loadAnimLottie.visibility = View.GONE
-
                                     val libraryEntries = entriesList.data
 
                                     showOtherEntriesContent(libraryEntries)
+
+                                    loadFrame.visibility = View.GONE
+                                    loadAnimLottie.visibility = View.GONE
                                 }
 
                                 is DataLoadResult.Failed -> {

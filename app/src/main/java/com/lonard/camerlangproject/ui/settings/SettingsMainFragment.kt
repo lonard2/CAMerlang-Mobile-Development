@@ -41,6 +41,14 @@ class SettingsMainFragment : Fragment() {
             LocalUserViewModelFactory(localPref)
         )[LocalUserViewModel::class.java]
 
+        bind.btnSettingsCard4.setOnClickListener {
+            View.OnClickListener { v ->
+                val creditsIntent = Intent(v.context, CreditsActivity::class.java)
+
+                startActivity(creditsIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
+            }
+        }
+
         localViewModel.getStartUp().observe(viewLifecycleOwner) { appSetting ->
 
             bind.btnSettingsCard2.setOnClickListener {
@@ -98,11 +106,6 @@ class SettingsMainFragment : Fragment() {
                 btnSettingsCard3.setOnClickListener {
                     val localizationMenuIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
                     startActivity(localizationMenuIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
-                }
-
-                btnSettingsCard4.setOnClickListener {
-                    val creditsIntent = Intent(context, CreditsActivity::class.java)
-                    startActivity(creditsIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
                 }
             }
         }

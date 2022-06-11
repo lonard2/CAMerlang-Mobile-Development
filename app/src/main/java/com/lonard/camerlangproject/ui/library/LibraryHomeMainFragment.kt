@@ -52,12 +52,12 @@ class LibraryHomeMainFragment : Fragment() {
                         }
 
                         is DataLoadResult.Successful -> {
-                            loadFrame.visibility = View.GONE
-                            loadAnimLottie.visibility = View.GONE
-
                             val entries = entriesList.data
 
                             showAlphabetItemContent(entries)
+
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
                         }
 
                         is DataLoadResult.Failed -> {

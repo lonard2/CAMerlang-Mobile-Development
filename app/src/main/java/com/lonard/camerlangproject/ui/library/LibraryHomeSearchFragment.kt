@@ -54,12 +54,12 @@ class LibraryHomeSearchFragment : Fragment() {
                         }
 
                         is DataLoadResult.Successful -> {
-                            loadFrame.visibility = View.GONE
-                            loadAnimLottie.visibility = View.GONE
-
                             val entries = searchResult.data
 
                             showResultsOnQuery(entries)
+
+                            loadFrame.visibility = View.GONE
+                            loadAnimLottie.visibility = View.GONE
                         }
 
                         is DataLoadResult.Failed -> {
