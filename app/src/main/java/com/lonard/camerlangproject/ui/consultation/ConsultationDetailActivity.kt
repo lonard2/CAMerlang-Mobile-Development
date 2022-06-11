@@ -77,12 +77,10 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
             val bitmap8888 = rgbaBitmap(bitmap)
 
-            lifecycleScope.launch(Dispatchers.Unconfined) {
-                val results = objectDetection(bitmap8888, applicationContext)
+            val results = objectDetection(bitmap8888, applicationContext)
 
-                runOnUiThread {
-                    bind.consultationTakenImage.setImageBitmap(results)
-                }
+            runOnUiThread {
+                bind.consultationTakenImage.setImageBitmap(results)
             }
 
             consultationTakenImage.setOnClickListener {
@@ -93,7 +91,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
                     )
 
                 val viewZoomedImg = Intent(this@ConsultationDetailActivity, ImageShowActivity::class.java)
-                viewZoomedImg.putExtra(ImageShowActivity.EXTRA_PIC, consultationParcel.consultationImg)
+                viewZoomedImg.putExtra(ImageShowActivity.EXTRA_BITMAP, results)
 
                 startActivity(viewZoomedImg, sharedAnim.toBundle())
             }
@@ -205,7 +203,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
         detectionResults.forEach {
             pen.color = boundingBoxColor
-            pen.strokeWidth = 12F
+            pen.strokeWidth = 40F
             pen.style = Paint.Style.STROKE
             val box = it.boundingBox
             canvas.drawRect(box, pen)
@@ -214,11 +212,11 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
             pen.style = Paint.Style.FILL_AND_STROKE
             pen.color = boundingBoxTypefaceColor
-            pen.strokeWidth = 4F
+            pen.strokeWidth = 6F
 
             pen.typeface = boundingBoxTypeface
 
-            pen.textSize = 28F
+            pen.textSize = 80F
             pen.getTextBounds(it.text, 0, it.text.length, tagSize)
             val fontSize: Float = pen.textSize * box.width() / tagSize.width()
 
