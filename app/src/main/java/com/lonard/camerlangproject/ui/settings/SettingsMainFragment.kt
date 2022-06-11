@@ -42,11 +42,10 @@ class SettingsMainFragment : Fragment() {
         )[LocalUserViewModel::class.java]
 
         bind.btnSettingsCard4.setOnClickListener {
-            View.OnClickListener { v ->
-                val creditsIntent = Intent(v.context, CreditsActivity::class.java)
+            Log.d(TAG, "Credits button clicked.")
 
-                startActivity(creditsIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
-            }
+            val creditsIntent = Intent(context, CreditsActivity::class.java)
+            startActivity(creditsIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
         }
 
         localViewModel.getStartUp().observe(viewLifecycleOwner) { appSetting ->

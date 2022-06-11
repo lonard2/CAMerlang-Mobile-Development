@@ -86,7 +86,7 @@ class LibraryDetailActivity : AppCompatActivity() {
 
             libraryViewModel.retrieveLibraryEntriesList().observe(this@LibraryDetailActivity) { entriesList ->
                 libraryViewModel.retrieveProductsInfo().observe(this@LibraryDetailActivity) { productList ->
-                    libraryViewModel.retrieveProblemImages(it).observe(this@LibraryDetailActivity) { imageList ->
+                    libraryViewModel.retrieveProblemImages(diseaseParcel.name!!).observe(this@LibraryDetailActivity) { imageList ->
                         if(imageList != null) {
                             when (imageList) {
                                 is DataLoadResult.Loading -> {

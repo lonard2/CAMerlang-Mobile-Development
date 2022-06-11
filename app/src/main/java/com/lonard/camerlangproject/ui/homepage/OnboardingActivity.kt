@@ -22,7 +22,7 @@ class OnboardingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = ActivityOnboardingBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_onboarding)
+        setContentView(bind.root)
 
         val localUserStorage = LocalUser_pref.getLocalUserInstance(dataStore)
 
@@ -32,14 +32,10 @@ class OnboardingActivity : AppCompatActivity() {
         )[LocalUserViewModel::class.java]
 
             bind.goToHomeBtn.setOnClickListener {
-                localViewModel.disableFirstRun()
-                finish()
-
                 val goToHomeIntent = Intent(this@OnboardingActivity, FrontActivity::class.java)
                 startActivity(goToHomeIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
 
+                localViewModel.disableFirstRun()
             }
-
-
     }
 }

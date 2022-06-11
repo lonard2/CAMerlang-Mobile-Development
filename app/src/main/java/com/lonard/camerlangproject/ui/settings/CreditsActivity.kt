@@ -14,7 +14,9 @@ class CreditsActivity : AppCompatActivity() {
         setContentView(bind.root)
 
         bind.apply {
-            finishAfterTransition()
+            backBtn.setOnClickListener {
+                finishAfterTransition()
+            }
         }
     }
 }
