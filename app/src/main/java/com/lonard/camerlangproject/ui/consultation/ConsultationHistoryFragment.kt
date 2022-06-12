@@ -67,15 +67,15 @@ class ConsultationHistoryFragment : Fragment() {
                             Snackbar.make(
                                 consultationHistoryListRv, when (locale) {
                                     "in" -> {
-                                        "Aduh, data kategori notifikasi tidak dapat ditampilkan. " +
+                                        "Aduh, data histori konsultasi sedang tidak dapat ditampilkan. " +
                                                 "Silakan coba lagi ya."
                                     }
                                     "en" -> {
-                                        "Ouch, the notification categories data cannot be shown to you. " +
+                                        "Ouch, the consultation history data cannot be shown to you. " +
                                                 "Please try again."
                                     }
                                     else -> {
-                                        "Error in notification categories data retrieval."
+                                        "Error in consultation history data retrieval."
                                     }
                                 }, Snackbar.LENGTH_LONG
                             ).show()

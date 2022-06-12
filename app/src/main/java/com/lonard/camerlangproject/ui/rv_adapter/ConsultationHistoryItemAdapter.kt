@@ -19,7 +19,7 @@ class ConsultationHistoryItemAdapter(private val consultationList: ArrayList<Con
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val bind = ConsultationHistoryRvBoxBinding.inflate(LayoutInflater.from(parent.context))
+        val bind = ConsultationHistoryRvBoxBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(bind)
     }
 

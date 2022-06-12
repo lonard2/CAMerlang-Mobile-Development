@@ -87,7 +87,7 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
                 }
             }
             else -> {
-                finish()
+                finishAfterTransition()
                 Log.e(ScannerCameraActivity.TAG, "Image processing error!")
             }
         }

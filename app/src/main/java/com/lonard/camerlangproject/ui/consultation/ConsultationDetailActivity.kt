@@ -57,7 +57,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
         bind.apply {
 
             backBtn.setOnClickListener {
-                finish()
+                finishAfterTransition()
             }
 
             consultationIdDetail.text = getString(R.string.consultation_id_format, consultationParcel.id.toString())
@@ -72,7 +72,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
                 MediaStore.Images.Media.getBitmap(contentResolver, consultationTakenImageOnUri)
             } else {
                 val imgSource = ImageDecoder.createSource(contentResolver, consultationTakenImageOnUri)
-                ImageDecoder.decodeBitmap(imgSource, )
+                ImageDecoder.decodeBitmap(imgSource)
             }
 
             val bitmap8888 = rgbaBitmap(bitmap)

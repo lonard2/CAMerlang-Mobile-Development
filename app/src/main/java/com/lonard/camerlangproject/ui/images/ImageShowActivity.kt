@@ -17,7 +17,7 @@ class ImageShowActivity : AppCompatActivity() {
 
         bind.apply {
             backBtn.setOnClickListener {
-                finish()
+                finishAfterTransition()
             }
 
             val imagePack = intent.getStringExtra(EXTRA_PIC)
@@ -25,7 +25,7 @@ class ImageShowActivity : AppCompatActivity() {
 
             imagePack?.let { Picasso.get().load(it).into(detailedImageClickContainer) }
 
-            bitmapPack?.let { Glide.with(this@ImageShowActivity).load(bitmapPack).into(detailedImageClickContainer) }
+            bitmapPack?.let { Glide.with(this@ImageShowActivity).load(it).into(detailedImageClickContainer) }
 
         }
     }

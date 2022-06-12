@@ -1,5 +1,7 @@
 package com.lonard.camerlangproject.camera
 
+import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Intent
 import android.content.Intent.ACTION_GET_CONTENT
 import android.net.Uri
@@ -116,7 +118,9 @@ class ScannerCameraActivity : AppCompatActivity() {
 
                     previewIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
 
-                    startActivity(previewIntent)
+                    startActivity(previewIntent, ActivityOptions.makeSceneTransitionAnimation(
+                        this@ScannerCameraActivity
+                    ).toBundle())
                 }
 
                 override fun onError(exception: ImageCaptureException) {
@@ -163,7 +167,7 @@ class ScannerCameraActivity : AppCompatActivity() {
             sendIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
 
             setResult(ImageTakenPreviewActivity.GALLERY_RESPONSE_CODE, sendIntent)
-            startActivity(sendIntent)
+            startActivity(sendIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
         }
     }
 

@@ -92,7 +92,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_settings_user.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/activity_splash.xml" value="0.16" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/bottom_navbar_menu.xml" value="0.16032608695652173" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/consultation_history_rv_box.xml" value="0.1" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/consultation_history_rv_box.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/divert_dialog.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/fragment_consultation_history.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/fragment_homepage.xml" value="0.11270491803278689" />
@@ -109,7 +109,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_box_notification_list.xml" value="0.4666666666666667" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_box_outside.xml" value="0.18" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/overflow_rv_only_pic.xml" value="0.33" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/rv_box_consultation_detail_result.xml" value="0.151953125" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/rv_box_consultation_detail_result.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/rv_expert_lists_homepage.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/rv_info_listing_homepage.xml" value="0.22" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/CamerlangProject/app/src/main/res/layout/rv_info_listing_library.xml" value="0.3125" />

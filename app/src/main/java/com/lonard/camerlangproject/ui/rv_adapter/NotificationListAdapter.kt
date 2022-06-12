@@ -12,7 +12,7 @@ class NotificationListAdapter(private val notificationList: ArrayList<Notificati
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val bind = NotificationRvBoxBinding.inflate(LayoutInflater.from(parent.context))
+        val bind = NotificationRvBoxBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(bind)
     }
 

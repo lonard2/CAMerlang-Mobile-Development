@@ -13,7 +13,7 @@ class ConsultationDetailAdapter(private val problemList: ArrayList<DetectionResu
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val bind = RvBoxConsultationDetailResultBinding.inflate(LayoutInflater.from(parent.context))
+        val bind = RvBoxConsultationDetailResultBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(bind)
     }
 
