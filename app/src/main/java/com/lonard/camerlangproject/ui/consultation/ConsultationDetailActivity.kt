@@ -22,6 +22,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.R
+import com.lonard.camerlangproject.camera.CameraUtil
 import com.lonard.camerlangproject.databinding.ActivityConsultationDetailBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
@@ -41,6 +42,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
+import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -48,6 +50,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
     private lateinit var bind: ActivityConsultationDetailBinding
 
     private val locale: String = Locale.getDefault().language
+    private var zoomedImgFile: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,20 +119,6 @@ class ConsultationDetailActivity : AppCompatActivity() {
             runOnUiThread {
                 bind.consultationTakenImage.setImageBitmap(results)
             }
-
-            consultationTakenImage.setOnClickListener {
-                val sharedAnim =
-                    ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        this@ConsultationDetailActivity,
-                        Pair(bind.consultationTakenImage, "zoomed_image"),
-                    )
-
-                val viewZoomedImg = Intent(this@ConsultationDetailActivity, ImageShowActivity::class.java)
-                viewZoomedImg.putExtra(ImageShowActivity.EXTRA_BITMAP, results)
-                viewZoomedImg.putExtra(ImageShowActivity.DIRECTED_FROM_CONSULTATION_DETAIL, true)
-
-                startActivity(viewZoomedImg, sharedAnim.toBundle())
-            }
         }
     }
 
@@ -184,7 +173,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
         val detector = ObjectDetector.createFromFileAndOptions(
             context,
-            "efficientdet-lite0-camerlang-v4.tflite",
+            "camerlang-efficientdet-lite2.tflite",
             objectDetectionOptions
         )
 

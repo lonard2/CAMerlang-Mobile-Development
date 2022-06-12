@@ -28,12 +28,12 @@ class CameraUtil {
             Locale.US
         ).format(System.currentTimeMillis())
 
-        private fun createCustomTempFile(context: Context): File {
+        fun createCustomTempFile(context: Context): File {
             val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-            return File.createTempFile(timeStamp, ".png", storageDir)
+            return File.createTempFile("CAMerlang-temp-img-$dateStamp-$timeStamp", ".png", storageDir)
         }
 
-        fun fileCompressToFile(bitmap: Bitmap, image: File): File {
+        fun bitmapCompressToFile(bitmap: Bitmap, image: File): File {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, FileOutputStream(image))
 
             return image

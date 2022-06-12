@@ -120,7 +120,7 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
 
         bind.imageTakenPreviewContainer.setImageBitmap(rotatedBitmap)
 
-        retrievedImgFile = CameraUtil.fileCompressToFile(rotatedBitmap, takenImageFile)
+        retrievedImgFile = CameraUtil.bitmapCompressToFile(rotatedBitmap, takenImageFile)
     }
 
     private fun processImageFromGallery(galleryImage: Uri) {
@@ -149,6 +149,7 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
                 consultViewModel.addConsultationEntry(fileToUri.toString(), formattedCurrentDateTime)
                     .observe(this@ImageTakenPreviewActivity) { inclusionStatus ->
 
+                        Log.d("Taken Preview Activity", inclusionStatus.toString())
                     if (inclusionStatus != null) {
                         when (inclusionStatus) {
                             is DataLoadResult.Loading -> {
