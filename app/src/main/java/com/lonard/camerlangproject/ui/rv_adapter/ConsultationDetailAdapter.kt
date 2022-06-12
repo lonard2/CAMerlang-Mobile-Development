@@ -23,8 +23,7 @@ class ConsultationDetailAdapter(private val problemList: ArrayList<DetectionResu
         holder.bind.apply {
             problemNumber.text = consultId.toString()
             problemShow.text = problem
-
-            problemPercentageTxt.text = holder.itemView.context.getString(R.string.percentage_format, problemPercentage.toString())
+            problemPercentageTxt.text = problemPercentage.toString()
         }
     }
 

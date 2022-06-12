@@ -98,17 +98,15 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
     }
 
     fun addNewDetectionResultSet(
-        problemId: String,
         label: String,
         percentage: Int
-    ): LiveData<DataLoadResult<DetectionResultEntity>> = liveData {
+    ): LiveData<DataLoadResult<List<DetectionResultEntity>>> = liveData {
         emit(DataLoadResult.Loading)
 
         try {
             db.consultationDao().addNewDetectionResultSetToDb(
                 DetectionResultEntity(
                     0,
-                    problemId,
                     label,
                     percentage,
                 )
@@ -120,7 +118,7 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
                         "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<DetectionResultEntity>> = db.consultationDao().retrieveSpecificDetectionResultData(0).map {
+        val savedData: LiveData<DataLoadResult<List<DetectionResultEntity>>> = db.consultationDao().retrieveSpecificDetectionResultData(0).map {
             DataLoadResult.Successful(it)
         }
 
