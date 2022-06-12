@@ -1,87 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimaryContainer"
+    tools:context=".ui.consultation.ConsultationHistoryFragment">
+
+    <ImageView
+        android:id="@+id/consultation_history_intro_emoji_icon"
+        style="@style/PageHeader.Emoji"
+
+        app:layout_constraintEnd_toStartOf="@id/consultation_history_intro_text"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:contentDescription="@string/consultation_history_emoji_desc"
+
+        android:src="@drawable/consultation_history_emoji_icon" />
+
+    <TextView
+        android:id="@+id/consultation_history_intro_text"
+        style="@style/PageHeader.Text"
+
+        android:text="@string/consultation_history_page_intro"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/consultation_history_list_rv"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorPrimaryContainer"
-        tools:context=".ui.consultation.ConsultationHistoryFragment">
 
-        <ImageView
-            android:id="@+id/consultation_history_intro_emoji_icon"
-            style="@style/PageHeader.Emoji"
+        android:layout_marginTop="85dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="110dp"
 
-            app:layout_constraintEnd_toStartOf="@id/consultation_history_intro_text"
-            app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/consultation_history_intro_emoji_icon"/>
 
-            android:contentDescription="@string/consultation_history_emoji_desc"
+    <ImageView
+        android:id="@+id/load_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-            android:src="@drawable/consultation_history_emoji_icon" />
+        android:background="@color/md_theme_light_secondaryContainer_50"
 
-        <TextView
-            android:id="@+id/consultation_history_intro_text"
-            style="@style/PageHeader.Text"
+        android:visibility="invisible"
 
-            android:text="@string/consultation_history_page_intro"
+        android:contentDescription="@string/loading_frame"
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/consultation_history_list_rv"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/load_anim_lottie"
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
 
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+        android:layout_margin="5dp"
 
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/consultation_history_intro_emoji_icon"/>
+        app:lottie_rawRes="@raw/loading_anim"
 
-        <ImageView
-            android:id="@+id/load_frame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
 
-            android:background="@color/md_theme_light_secondaryContainer_50"
+        android:visibility="invisible"
 
-            android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-            android:contentDescription="@string/loading_frame"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/load_anim_lottie"
-
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-
-            android:layout_margin="5dp"
-
-            app:lottie_rawRes="@raw/loading_anim"
-
-            app:lottie_autoPlay="true"
-
-            android:visibility="invisible"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 

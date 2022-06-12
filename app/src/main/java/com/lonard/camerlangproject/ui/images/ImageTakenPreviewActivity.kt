@@ -11,17 +11,23 @@ import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.camera.CameraUtil
 import com.lonard.camerlangproject.camera.CameraUtil.Companion.reduceFileImage
 import com.lonard.camerlangproject.camera.ScannerCameraActivity
 import com.lonard.camerlangproject.databinding.ActivityImageTakenPreviewBinding
 import com.lonard.camerlangproject.db.DataLoadResult
+import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModel
+import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModelFactory
+import com.lonard.camerlangproject.db.user_datastore.LocalUser_pref
 import com.lonard.camerlangproject.formatDateTime
 import com.lonard.camerlangproject.formatPhotoDateTime
 import com.lonard.camerlangproject.mvvm.ConsultationViewModel
 import com.lonard.camerlangproject.mvvm.ConsultationViewModelFactory
 import com.lonard.camerlangproject.ui.consultation.ConsultationDetailActivity
+import com.lonard.camerlangproject.ui.dataStore
 import java.io.File
 import java.time.LocalDateTime
 import java.util.*
@@ -41,6 +47,21 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
         var galleryImage: Uri? = intent.getParcelableExtra("image_gallery")
         var takenImage = intent.getSerializableExtra("imageCameraTaken") as File?
         val backCamera = intent.getBooleanExtra("isSetBackCam", true)
+
+        val localPref = LocalUser_pref.getLocalUserInstance(dataStore)
+
+        val localViewModel = ViewModelProvider(
+            this,
+            LocalUserViewModelFactory(localPref)
+        )[LocalUserViewModel::class.java]
+
+        localViewModel.getStartUp().observe(this) { appSetting ->
+            if (appSetting.darkMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
 
         bind.apply {
 
@@ -87,7 +108,7 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
                 }
             }
             else -> {
-                finish()
+                finishAfterTransition()
                 Log.e(ScannerCameraActivity.TAG, "Image processing error!")
             }
         }
@@ -155,6 +176,7 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
 
                                 val consultationIntent = Intent(this@ImageTakenPreviewActivity, ConsultationDetailActivity::class.java)
                                 consultationIntent.putExtra(ConsultationDetailActivity.EXTRA_CONSULTATION_DATA, containedData)
+                                consultationIntent.putExtra(ConsultationDetailActivity.EXTRA_DIRECTED_FROM_PREVIEW_ACTIVITY, true)
 
                                 startActivity(consultationIntent,
                                     ActivityOptions.makeSceneTransitionAnimation(this@ImageTakenPreviewActivity).toBundle())

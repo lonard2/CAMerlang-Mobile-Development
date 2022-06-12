@@ -46,7 +46,7 @@ class LibraryHomeSearchFragment : Fragment() {
 
         bind.apply {
             if (query != null) {
-                libraryViewModel.searchLibrary(query).observe(viewLifecycleOwner) { searchResult ->
+                libraryViewModel.retrieveLibraryEntriesListWithSearchQuery(query).observe(viewLifecycleOwner) { searchResult ->
                     when (searchResult) {
                         is DataLoadResult.Loading -> {
                             loadFrame.visibility = View.VISIBLE

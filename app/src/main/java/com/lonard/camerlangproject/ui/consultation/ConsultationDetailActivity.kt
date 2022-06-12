@@ -1,5 +1,6 @@
 package com.lonard.camerlangproject.ui.consultation
 
+import android.app.ActivityOptions
 import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
@@ -11,9 +12,11 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.core.util.Pair
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -22,9 +25,14 @@ import com.lonard.camerlangproject.databinding.ActivityConsultationDetailBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.lonard.camerlangproject.db.consultation.DetectionResultEntity
+import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModel
+import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModelFactory
+import com.lonard.camerlangproject.db.user_datastore.LocalUser_pref
 import com.lonard.camerlangproject.ml.DetectionResult
 import com.lonard.camerlangproject.mvvm.ConsultationViewModel
 import com.lonard.camerlangproject.mvvm.ConsultationViewModelFactory
+import com.lonard.camerlangproject.ui.FrontActivity
+import com.lonard.camerlangproject.ui.dataStore
 import com.lonard.camerlangproject.ui.images.ImageShowActivity
 import com.lonard.camerlangproject.ui.rv_adapter.ConsultationDetailAdapter
 import com.squareup.picasso.Picasso
@@ -45,6 +53,23 @@ class ConsultationDetailActivity : AppCompatActivity() {
         bind = ActivityConsultationDetailBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
+        val sentFromPreviewActivity = intent.getBooleanExtra(EXTRA_DIRECTED_FROM_PREVIEW_ACTIVITY, false)
+
+        val localPref = LocalUser_pref.getLocalUserInstance(dataStore)
+
+        val localViewModel = ViewModelProvider(
+            this,
+            LocalUserViewModelFactory(localPref)
+        )[LocalUserViewModel::class.java]
+
+        localViewModel.getStartUp().observe(this) { appSetting ->
+            if (appSetting.darkMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+
         val consultationParcel = intent.getParcelableExtra<ConsultationItemEntity>(
             EXTRA_CONSULTATION_DATA
         ) as ConsultationItemEntity
@@ -56,8 +81,17 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
         bind.apply {
 
-            backBtn.setOnClickListener {
-                finish()
+            if(sentFromPreviewActivity) {
+                backBtn.setOnClickListener {
+                    val backIntent = Intent(this@ConsultationDetailActivity, FrontActivity::class.java)
+
+                    backIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(backIntent, ActivityOptions.makeSceneTransitionAnimation(this@ConsultationDetailActivity).toBundle())
+                }
+            } else {
+                backBtn.setOnClickListener {
+                    finishAfterTransition()
+                }
             }
 
             consultationIdDetail.text = getString(R.string.consultation_id_format, consultationParcel.id.toString())
@@ -72,17 +106,14 @@ class ConsultationDetailActivity : AppCompatActivity() {
                 MediaStore.Images.Media.getBitmap(contentResolver, consultationTakenImageOnUri)
             } else {
                 val imgSource = ImageDecoder.createSource(contentResolver, consultationTakenImageOnUri)
-                ImageDecoder.decodeBitmap(imgSource, )
+                ImageDecoder.decodeBitmap(imgSource)
             }
 
             val bitmap8888 = rgbaBitmap(bitmap)
+            val results = objectDetection(bitmap8888, applicationContext)
 
-            lifecycleScope.launch(Dispatchers.Unconfined) {
-                val results = objectDetection(bitmap8888, applicationContext, consultViewModel)
-
-                runOnUiThread {
-                    bind.consultationTakenImage.setImageBitmap(results)
-                }
+            runOnUiThread {
+                bind.consultationTakenImage.setImageBitmap(results)
             }
 
             consultationTakenImage.setOnClickListener {
@@ -93,11 +124,34 @@ class ConsultationDetailActivity : AppCompatActivity() {
                     )
 
                 val viewZoomedImg = Intent(this@ConsultationDetailActivity, ImageShowActivity::class.java)
-                viewZoomedImg.putExtra(ImageShowActivity.EXTRA_PIC, consultationParcel.consultationImg)
+                viewZoomedImg.putExtra(ImageShowActivity.EXTRA_BITMAP, results)
+                viewZoomedImg.putExtra(ImageShowActivity.DIRECTED_FROM_CONSULTATION_DETAIL, true)
 
                 startActivity(viewZoomedImg, sharedAnim.toBundle())
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        val sentFromPreviewActivity = intent.getBooleanExtra(EXTRA_DIRECTED_FROM_PREVIEW_ACTIVITY, false)
+
+        bind.apply {
+            if(sentFromPreviewActivity) {
+                backBtn.setOnClickListener {
+                    val backIntent = Intent(this@ConsultationDetailActivity, FrontActivity::class.java)
+
+                    backIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(backIntent, ActivityOptions.makeSceneTransitionAnimation(this@ConsultationDetailActivity).toBundle())
+                }
+            } else {
+                backBtn.setOnClickListener {
+                    finishAfterTransition()
+                }
+            }
+        }
+
     }
 
     private fun rgbaBitmap(bitmap: Bitmap): Bitmap {
@@ -127,7 +181,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
         val detector = ObjectDetector.createFromFileAndOptions(
             context,
-            "efficientdet-lite0-camerlang-v4.tflite",
+            "camerlang-efficientdet-lite2.tflite",
             objectDetectionOptions
         )
 
@@ -199,7 +253,8 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
         detectionResults.forEach {
             pen.color = boundingBoxColor
-            pen.strokeWidth = 10F
+            pen.strokeWidth = 40F
+          
             pen.style = Paint.Style.STROKE
             val box = it.boundingBox
             canvas.drawRect(box, pen)
@@ -208,18 +263,18 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
             pen.style = Paint.Style.FILL_AND_STROKE
             pen.color = boundingBoxTypefaceColor
-            pen.strokeWidth = 6F
+            pen.strokeWidth = 3F
 
             pen.typeface = boundingBoxTypeface
 
-            pen.textSize = 28F
+            pen.textSize = 80F
             pen.getTextBounds(it.text, 0, it.text.length, tagSize)
             val fontSize: Float = pen.textSize * box.width() / tagSize.width()
 
             if (fontSize < pen.textSize) pen.textSize = fontSize
 
             var margin = (box.width() - tagSize.width()) / 2.0F
-            if (margin < 0F) margin = 0F
+            if (margin < 5F) margin = 5F
             canvas.drawText(
                 it.text, box.left + margin,
                 box.top + tagSize.height().times(1F), pen
@@ -230,5 +285,6 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_CONSULTATION_DATA = "captured_consultation_information"
+        const val EXTRA_DIRECTED_FROM_PREVIEW_ACTIVITY = "from_previous_activity_is_preview_activity"
     }
 }

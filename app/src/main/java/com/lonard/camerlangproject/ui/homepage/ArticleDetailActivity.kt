@@ -20,7 +20,7 @@ class ArticleDetailActivity : AppCompatActivity() {
 
         bind.apply {
             backBtn.setOnClickListener {
-                finish()
+                finishAfterTransition()
             }
 
             Picasso.get().load(articleParcel.thumbnailPic).into(articleDetailHeaderPic)
@@ -38,6 +38,12 @@ class ArticleDetailActivity : AppCompatActivity() {
             articleHeader.text = articleParcel.header
             articleContent.text = articleParcel.content
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        finish()
     }
 
     companion object {

@@ -70,12 +70,11 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
                         "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<ConsultationItemEntity>> = db.consultationDao().retrieveSpecificConsultationData(0).map {
+        val savedData: LiveData<DataLoadResult<ConsultationItemEntity>> = db.consultationDao().retrieveSpecificConsultationData(consultationImg).map {
             DataLoadResult.Successful(it)
         }
 
         emitSource(savedData)
-
     }
 
     fun retrieveAllConsultations(): LiveData<DataLoadResult<List<ConsultationItemEntity>>> = liveData {

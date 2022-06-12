@@ -4,9 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lonard.camerlangproject.R
-import com.lonard.camerlangproject.databinding.ConsultationHistoryRvBoxBinding
 import com.lonard.camerlangproject.databinding.RvBoxConsultationDetailResultBinding
-import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.lonard.camerlangproject.db.consultation.DetectionResultEntity
 
 class ConsultationDetailAdapter(private val problemList: ArrayList<DetectionResultEntity>): RecyclerView.Adapter<ConsultationDetailAdapter.ViewHolder>() {
@@ -15,7 +13,7 @@ class ConsultationDetailAdapter(private val problemList: ArrayList<DetectionResu
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val bind = RvBoxConsultationDetailResultBinding.inflate(LayoutInflater.from(parent.context))
+        val bind = RvBoxConsultationDetailResultBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(bind)
     }
 

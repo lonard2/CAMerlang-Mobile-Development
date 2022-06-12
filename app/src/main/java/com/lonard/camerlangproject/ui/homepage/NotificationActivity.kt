@@ -118,6 +118,12 @@ class NotificationActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        finishAfterTransition()
+    }
+
     private fun showCategories(categoryItems: List<NotificationCatEntity>) {
         bind.notificationCatListRv.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.HORIZONTAL, false)

@@ -21,7 +21,7 @@ interface ConsultationDao {
 
     // CRUD functions related to consultation items (including scanner-retrieved ones)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addNewConsultationToDb(consultItem: ConsultationItemEntity?)
+    suspend fun addNewConsultationToDb(consultItem: ConsultationItemEntity)
 
     @Query("DELETE FROM consultation_items")
     suspend fun deleteAllConsultation()
@@ -29,8 +29,8 @@ interface ConsultationDao {
     @Query("SELECT * FROM consultation_items")
     fun retrieveAllConsultationData(): LiveData<List<ConsultationItemEntity>>
 
-    @Query("SELECT * FROM consultation_items WHERE consultation_id = :id")
-    fun retrieveSpecificConsultationData(id: Int): LiveData<ConsultationItemEntity>
+    @Query("SELECT * FROM consultation_items WHERE consultation_img = :img")
+    fun retrieveSpecificConsultationData(img: String): LiveData<ConsultationItemEntity>
 
     // CRUD functions related to detection results of a picture
     @Insert(onConflict = OnConflictStrategy.REPLACE)

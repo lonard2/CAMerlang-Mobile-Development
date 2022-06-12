@@ -12,10 +12,10 @@ data class ConsultationItemEntity (
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "consultation_id")
-    var id: Int?,
+    var id: Int = 0,
 
     @ColumnInfo("consultation_img")
-    val consultationImg: String?,
+    var consultationImg: String?,
 
     @ColumnInfo(name = "processed_at")
     var processedAt: String? = null,

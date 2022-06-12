@@ -2,6 +2,7 @@ package com.lonard.camerlangproject.ui
 
 import android.Manifest
 import android.animation.ObjectAnimator
+import android.app.ActivityOptions
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -98,7 +99,7 @@ class FrontActivity : AppCompatActivity() {
     private fun launchCamera() {
         val cameraIntent = Intent(this, ScannerCameraActivity::class.java)
 
-        startActivity(cameraIntent)
+        startActivity(cameraIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
     }
 
     override fun onBackPressed() {

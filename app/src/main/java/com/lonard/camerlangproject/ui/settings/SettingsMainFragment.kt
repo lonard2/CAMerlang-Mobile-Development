@@ -115,6 +115,7 @@ class SettingsMainFragment : Fragment() {
         _bind = null
     }
 
+
     companion object {
         const val TAG = "Main Settings Fragment"
     }
