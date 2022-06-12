@@ -34,7 +34,6 @@ import com.lonard.camerlangproject.ui.dataStore
 import com.lonard.camerlangproject.ui.rv_adapter.ConsultationDetailAdapter
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
-import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -82,8 +81,6 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
                     backIntent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
                     startActivity(backIntent, ActivityOptions.makeSceneTransitionAnimation(this@ConsultationDetailActivity).toBundle())
-
-                    finishAfterTransition()
                 }
             } else {
                 backBtn.setOnClickListener {
@@ -122,10 +119,16 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
         bind.apply {
             if(sentFromPreviewActivity) {
-                finishAfterTransition()
-                finishAfterTransition()
+                backBtn.setOnClickListener {
+                    val backIntent = Intent(this@ConsultationDetailActivity, FrontActivity::class.java)
+
+                    backIntent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(backIntent, ActivityOptions.makeSceneTransitionAnimation(this@ConsultationDetailActivity).toBundle())
+                }
             } else {
-                finishAfterTransition()
+                backBtn.setOnClickListener {
+                    finishAfterTransition()
+                }
             }
         }
 

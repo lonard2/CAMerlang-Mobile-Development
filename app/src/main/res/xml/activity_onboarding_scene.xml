@@ -250,13 +250,13 @@
         motion:constraintSetEnd="@+id/motionC"
         motion:duration="1500"
         motion:motionInterpolator="easeIn">
-        <OnSwipe motion:dragDirection="dragRight" />
+        <OnSwipe motion:dragDirection="dragLeft" />
     </Transition>
     <Transition
         motion:constraintSetStart="@+id/motionC"
         motion:constraintSetEnd="@+id/motionDend"
         motion:motionInterpolator="easeIn"
         motion:duration="1500" >
-        <OnSwipe motion:dragDirection="dragRight" />
+        <OnSwipe motion:dragDirection="dragLeft" />
     </Transition>
 </MotionScene>
