@@ -7,7 +7,11 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "detection_results")
+@Entity(tableName = "detection_results",
+    indices = [androidx.room.Index(
+    value = ["problem_id", "result_disease", "result_percentage"],
+    unique = true,
+    )])
 data class DetectionResultEntity (
 
     @PrimaryKey(autoGenerate = true)

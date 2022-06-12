@@ -122,7 +122,7 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
                         "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<DetectionResultEntity>>> = db.consultationDao().retrieveAllDetectionResults().map { detectionResults ->
+        val savedData: LiveData<DataLoadResult<List<DetectionResultEntity>>> = db.consultationDao().retrieveSpecificDetectionResultData(problemId).map { detectionResults ->
             DataLoadResult.Successful(detectionResults)
         }
 

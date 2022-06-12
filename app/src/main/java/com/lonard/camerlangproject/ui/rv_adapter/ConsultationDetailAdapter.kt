@@ -21,7 +21,6 @@ class ConsultationDetailAdapter(private val problemList: ArrayList<DetectionResu
         val(detectionId, _, problem, problemPercentage) = problemList[position]
 
         holder.bind.apply {
-            problemNumber.text = detectionId.plus(1).toString()
             problemShow.text = problem
             problemPercentageTxt.text = holder.itemView.context.getString(R.string.percentage_format, problemPercentage.toString())
         }
