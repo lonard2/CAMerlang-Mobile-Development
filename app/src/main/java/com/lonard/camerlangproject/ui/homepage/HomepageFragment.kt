@@ -6,17 +6,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.FragmentHomepageBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.consultation.ExpertEntity
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
+import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModel
+import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModelFactory
+import com.lonard.camerlangproject.db.user_datastore.LocalUser_pref
 import com.lonard.camerlangproject.mvvm.*
+import com.lonard.camerlangproject.ui.dataStore
 import com.lonard.camerlangproject.ui.library.LibraryDetailActivity
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageArticleContentListAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageExpertContentListAdapter
@@ -58,6 +65,21 @@ class HomepageFragment : Fragment() {
         val libraryFactory: LibraryViewModelFactory = LibraryViewModelFactory.getFactory(requireContext())
         val libraryViewModel: LibraryViewModel by viewModels {
             libraryFactory
+        }
+
+        val localPref = LocalUser_pref.getLocalUserInstance(requireActivity().dataStore)
+
+        val localViewModel = ViewModelProvider(
+            requireActivity(),
+            LocalUserViewModelFactory(localPref)
+        )[LocalUserViewModel::class.java]
+
+        localViewModel.getStartUp().observe(viewLifecycleOwner) { appSetting ->
+            if (appSetting.darkMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
         }
 
         bind.apply {
