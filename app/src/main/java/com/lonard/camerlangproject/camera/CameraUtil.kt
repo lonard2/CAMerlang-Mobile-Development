@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 private const val DATE_FORMAT = "dd-MMM-yyyy"
-private const val TIME_FORMAT = "dd-MMM-yyyy"
+private const val TIME_FORMAT = "hh-mm-ss.SSS"
 
 class CameraUtil {
     companion object {
@@ -24,7 +24,7 @@ class CameraUtil {
         ).format(System.currentTimeMillis())
 
         private val timeStamp: String = SimpleDateFormat(
-            DATE_FORMAT,
+            TIME_FORMAT,
             Locale.US
         ).format(System.currentTimeMillis())
 
