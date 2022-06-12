@@ -81,8 +81,6 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
                     backIntent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
                     startActivity(backIntent, ActivityOptions.makeSceneTransitionAnimation(this@ConsultationDetailActivity).toBundle())
-
-                    finishAfterTransition()
                 }
             } else {
                 backBtn.setOnClickListener {
@@ -124,7 +122,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
                 backBtn.setOnClickListener {
                     val backIntent = Intent(this@ConsultationDetailActivity, FrontActivity::class.java)
 
-                    backIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    backIntent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
                     startActivity(backIntent, ActivityOptions.makeSceneTransitionAnimation(this@ConsultationDetailActivity).toBundle())
                 }
             } else {
