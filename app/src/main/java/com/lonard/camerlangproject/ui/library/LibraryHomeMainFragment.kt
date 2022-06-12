@@ -89,14 +89,6 @@ class LibraryHomeMainFragment : Fragment() {
             _bind = null
         }
 
-//    private fun showCategoryItem(categoryItems: List<CategoryItem>) {
-//        bind.libCategoryListRv.layoutManager = LinearLayoutManager(requireActivity(),
-//            LinearLayoutManager.HORIZONTAL, false)
-//
-//        val categoryAdapter = LibraryDetailMoreAdapter(categoryItems as ArrayList<LibraryResponseItem>)
-//        bind.libCategoryListRv.adapter = categoryAdapter
-//    }
-
         private fun showAlphabetItemContent(alphabetEntryItems: List<LibraryContentEntity>) {
             bind.libContentListRv.layoutManager = GridLayoutManager(requireActivity(), 2)
 
