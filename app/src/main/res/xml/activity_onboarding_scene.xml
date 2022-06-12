@@ -132,7 +132,7 @@
         motion:constraintSetEnd="@+id/motionB"
         motion:duration="1500"
         motion:motionInterpolator="easeIn" >
-        <OnSwipe motion:dragDirection="dragLeft" />
+        <OnSwipe motion:dragDirection="dragRight" />
     </Transition>
     <ConstraintSet
         android:id="@+id/motionC"
@@ -250,13 +250,13 @@
         motion:constraintSetEnd="@+id/motionC"
         motion:duration="1500"
         motion:motionInterpolator="easeIn">
-        <OnSwipe motion:dragDirection="dragLeft" />
+        <OnSwipe motion:dragDirection="dragRight" />
     </Transition>
     <Transition
         motion:constraintSetStart="@+id/motionC"
         motion:constraintSetEnd="@+id/motionDend"
         motion:motionInterpolator="easeIn"
         motion:duration="1500" >
-        <OnSwipe motion:dragDirection="dragLeft" />
+        <OnSwipe motion:dragDirection="dragRight" />
     </Transition>
 </MotionScene>
