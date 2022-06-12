@@ -20,7 +20,7 @@ class ArticleDetailActivity : AppCompatActivity() {
 
         bind.apply {
             backBtn.setOnClickListener {
-                finish()
+                finishAfterTransition()
             }
 
             Picasso.get().load(articleParcel.thumbnailPic).into(articleDetailHeaderPic)

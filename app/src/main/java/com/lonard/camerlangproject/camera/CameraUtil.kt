@@ -13,12 +13,18 @@ import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-private const val FILENAME_FORMAT = "dd-MMM-yyyy"
+private const val DATE_FORMAT = "dd-MMM-yyyy"
+private const val TIME_FORMAT = "dd-MMM-yyyy"
 
 class CameraUtil {
     companion object {
+        private val dateStamp: String = SimpleDateFormat(
+            DATE_FORMAT,
+            Locale.US
+        ).format(System.currentTimeMillis())
+
         private val timeStamp: String = SimpleDateFormat(
-            FILENAME_FORMAT,
+            DATE_FORMAT,
             Locale.US
         ).format(System.currentTimeMillis())
 
@@ -42,7 +48,7 @@ class CameraUtil {
                 mediaDir != null && mediaDir.exists()
             ) mediaDir else application.filesDir
 
-            return File(outputDirectory, "CAMerlang-consultation-scan-img-$timeStamp.jpg")
+            return File(outputDirectory, "CAMerlang-consultation-scan-img-$dateStamp-$timeStamp.jpg")
         }
 
         fun rotateBitmap(bitmap: Bitmap, isBackCamera: Boolean = false): Bitmap {
