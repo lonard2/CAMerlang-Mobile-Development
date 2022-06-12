@@ -47,7 +47,7 @@ class ScannerCameraActivity : AppCompatActivity() {
         ).format(System.currentTimeMillis())
 
         val timeStamp: String = SimpleDateFormat(
-            DATE_FORMAT,
+            TIME_FORMAT,
             Locale.US
         ).format(System.currentTimeMillis())
 
