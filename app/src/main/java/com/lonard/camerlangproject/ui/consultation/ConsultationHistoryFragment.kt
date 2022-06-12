@@ -89,7 +89,11 @@ class ConsultationHistoryFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _bind = null
+
+        if(!activity?.isFinishing!!) {
+            _bind = null
+        }
+
     }
 
     private fun showConsultations(consultHistoryItem: List<ConsultationItemEntity>) {
