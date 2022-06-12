@@ -116,8 +116,6 @@ class ScannerCameraActivity : AppCompatActivity() {
                     previewIntent.putExtra("isSetBackCam", modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
                     setResult(ImageTakenPreviewActivity.CAMERAX_RESPONSE_CODE, intent)
 
-                    previewIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-
                     startActivity(previewIntent, ActivityOptions.makeSceneTransitionAnimation(
                         this@ScannerCameraActivity
                     ).toBundle())

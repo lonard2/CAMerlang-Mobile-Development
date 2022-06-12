@@ -31,11 +31,11 @@ class OnboardingActivity : AppCompatActivity() {
             LocalUserViewModelFactory(localUserStorage)
         )[LocalUserViewModel::class.java]
 
-            bind.goToHomeBtn.setOnClickListener {
-                val goToHomeIntent = Intent(this@OnboardingActivity, FrontActivity::class.java)
-                startActivity(goToHomeIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+        bind.goToHomeBtn.setOnClickListener {
+            val goToHomeIntent = Intent(this@OnboardingActivity, FrontActivity::class.java)
+            startActivity(goToHomeIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
 
-                localViewModel.disableFirstRun()
-            }
+            localViewModel.disableFirstRun()
+        }
     }
 }

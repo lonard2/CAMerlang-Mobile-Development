@@ -1,5 +1,6 @@
 package com.lonard.camerlangproject.ui.consultation
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -118,6 +119,6 @@ class ConsultationHistoryFragment : Fragment() {
         val zoomImgIntent = Intent(activity, ConsultationDetailActivity::class.java)
         zoomImgIntent.putExtra(ConsultationDetailActivity.EXTRA_CONSULTATION_DATA, consultationItems)
 
-        startActivity(zoomImgIntent)
+        startActivity(zoomImgIntent, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
     }
 }

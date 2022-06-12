@@ -40,6 +40,12 @@ class ArticleDetailActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        finish()
+    }
+
     companion object {
         const val EXTRA_ARTICLE = "showed_article_information"
     }

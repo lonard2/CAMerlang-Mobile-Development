@@ -49,14 +49,14 @@ class SplashActivity : AppCompatActivity() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     val onboardingIntent = Intent(this@SplashActivity, OnboardingActivity::class.java)
                     onboardingIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    startActivity(onboardingIntent)
+                    startActivity(onboardingIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
                 }, SPLASH_DELAY)
             }
             else {
                 Handler(Looper.getMainLooper()).postDelayed({
                     val splashIntent = Intent(this@SplashActivity, FrontActivity::class.java)
                     splashIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    startActivity(splashIntent)
+                    startActivity(splashIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
 
                 }, SPLASH_DELAY)
             }

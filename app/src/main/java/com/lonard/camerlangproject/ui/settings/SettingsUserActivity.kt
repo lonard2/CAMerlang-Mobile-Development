@@ -31,9 +31,7 @@ class SettingsUserActivity : AppCompatActivity() {
                 settingsUserSection2Column.setText(localUser.age)
                 settingsUserSection3Column.setText(localUser.profession)
                 settingsUserSection4Column.setText(localUser.status)
-            }
 
-            bind.apply {
                 backBtn.setOnClickListener {
                     val savedName = settingsUserSection1Column.text.toString()
                     val savedAge = settingsUserSection2Column.text.toString()
@@ -52,6 +50,36 @@ class SettingsUserActivity : AppCompatActivity() {
                     finishAfterTransition()
                 }
             }
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        val localUserPref = LocalUser_pref.getLocalUserInstance(dataStore)
+
+        val localViewModel = ViewModelProvider(
+            this,
+            LocalUserViewModelFactory(localUserPref)
+        )[LocalUserViewModel::class.java]
+
+        localViewModel.getLocalUser().observe(this) { localUser ->
+            bind.apply {
+                val savedName = settingsUserSection1Column.text.toString()
+                val savedAge = settingsUserSection2Column.text.toString()
+                val savedProfession = settingsUserSection3Column.text.toString()
+                val savedStatus = settingsUserSection4Column.text.toString()
+
+                localViewModel.modifyLocalUser(
+                    UserModel(
+                        savedName,
+                        savedAge,
+                        savedProfession,
+                        savedStatus
+                    )
+                )
+            }
+            finishAfterTransition()
         }
     }
 }
