@@ -11,10 +11,10 @@ import android.os.Environment
 import com.lonard.camerlangproject.R
 import java.io.*
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
 import java.util.*
 
 private const val DATE_FORMAT = "dd-MMM-yyyy"
-private const val TIME_FORMAT = "hh-mm-ss.SSS"
 
 class CameraUtil {
     companion object {
@@ -23,10 +23,7 @@ class CameraUtil {
             Locale.US
         ).format(System.currentTimeMillis())
 
-        private val timeStamp: String = SimpleDateFormat(
-            TIME_FORMAT,
-            Locale.US
-        ).format(System.currentTimeMillis())
+        private val timeStamp: String = LocalDateTime.now().toString()
 
         fun createCustomTempFile(context: Context): File {
             val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)

@@ -20,7 +20,7 @@ interface ConsultationDao {
     fun retrieveAllExperts(): LiveData<List<ExpertEntity>>
 
     // CRUD functions related to consultation items (including scanner-retrieved ones)
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addNewConsultationToDb(consultItem: ConsultationItemEntity)
 
     @Query("DELETE FROM consultation_items")

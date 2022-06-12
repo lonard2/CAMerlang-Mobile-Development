@@ -45,8 +45,9 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
         setContentView(bind.root)
 
         var galleryImage: Uri? = intent.getParcelableExtra("image_gallery")
-        var takenImage = intent.getSerializableExtra("imageCameraTaken") as File?
-        val backCamera = intent.getBooleanExtra("isSetBackCam", true)
+        var takenImage: Uri? = intent.getParcelableExtra("imageCameraTaken")
+
+        Log.d(TAG, takenImage.toString())
 
         val localPref = LocalUser_pref.getLocalUserInstance(dataStore)
 
@@ -65,7 +66,7 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
 
         bind.apply {
 
-            takenImage?.let { processImageFromCameraX(it, backCamera) }
+            takenImage?.let { processImageFromCameraX(it) }
 
             galleryImage?.let { processImageFromGallery(it) }
 
@@ -98,13 +99,10 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
     ) { result ->
         when(result.resultCode) {
             CAMERAX_RESPONSE_CODE -> {
-                val recentTakenImageFile = result.data?.getSerializableExtra("imageFile") as File?
-                val recentTakenCameraType = result.data?.getBooleanExtra("isSetBackCam", true)
+                val recentTakenImageFile: Uri? = intent.getParcelableExtra("imageCameraTaken")
 
                 if (recentTakenImageFile != null) {
-                    if (recentTakenCameraType != null) {
-                        processImageFromCameraX(recentTakenImageFile, recentTakenCameraType)
-                    }
+                    processImageFromCameraX(recentTakenImageFile)
                 }
             }
             else -> {
@@ -114,13 +112,11 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
         }
     }
 
-    private fun processImageFromCameraX(takenImageFile: File, cameraType: Boolean) {
-        val rotatedBitmap: Bitmap =
-            CameraUtil.rotateBitmap(BitmapFactory.decodeFile(takenImageFile.path), cameraType)
+    private fun processImageFromCameraX(takenImageUri: Uri) {
+        val convertedFile = takenImageUri.let { CameraUtil.uriToFile(it, this@ImageTakenPreviewActivity) }
 
-        bind.imageTakenPreviewContainer.setImageBitmap(rotatedBitmap)
-
-        retrievedImgFile = CameraUtil.bitmapCompressToFile(rotatedBitmap, takenImageFile)
+        retrievedImgFile = convertedFile
+        bind.imageTakenPreviewContainer.setImageURI(takenImageUri)
     }
 
     private fun processImageFromGallery(galleryImage: Uri) {
@@ -160,6 +156,8 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
                                 loadAnimLottie.visibility = View.GONE
 
                                 val containedData = inclusionStatus.data
+                                Log.d("Taken Preview Activity", inclusionStatus.toString())
+                                Log.d("Taken Preview Activity", containedData.toString())
 
                                 Snackbar.make(
                                     pictureSendBtn, when (locale) {

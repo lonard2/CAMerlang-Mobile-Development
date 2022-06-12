@@ -2,10 +2,14 @@ package com.lonard.camerlangproject.camera
 
 import android.app.Activity
 import android.app.ActivityOptions
+import android.content.ContentValues
 import android.content.Intent
 import android.content.Intent.ACTION_GET_CONTENT
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
@@ -15,11 +19,11 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
-import com.lonard.camerlangproject.camera.CameraUtil.Companion.createFile
 import com.lonard.camerlangproject.camera.CameraUtil.Companion.uriToFile
 import com.lonard.camerlangproject.databinding.ActivityScannerCameraBinding
 import com.lonard.camerlangproject.ui.images.ImageTakenPreviewActivity
 import java.io.File
+import java.text.SimpleDateFormat
 import java.util.*
 
 class ScannerCameraActivity : AppCompatActivity() {
@@ -37,6 +41,16 @@ class ScannerCameraActivity : AppCompatActivity() {
         bind = ActivityScannerCameraBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
+        val dateStamp: String = SimpleDateFormat(
+            DATE_FORMAT,
+            Locale.US
+        ).format(System.currentTimeMillis())
+
+        val timeStamp: String = SimpleDateFormat(
+            DATE_FORMAT,
+            Locale.US
+        ).format(System.currentTimeMillis())
+
         bind.apply {
             cameraModeSwitch.setOnClickListener {
                 modeSelect = if (modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
@@ -45,7 +59,7 @@ class ScannerCameraActivity : AppCompatActivity() {
             }
 
             pictureTakeBtn.setOnClickListener {
-                takePicture()
+                takePicture(dateStamp, timeStamp)
             }
 
             galleryGetBtn.setOnClickListener {
@@ -92,11 +106,26 @@ class ScannerCameraActivity : AppCompatActivity() {
         }, ContextCompat.getMainExecutor(this))
     }
 
-    private fun takePicture() {
+    private fun takePicture(
+        dateStamp: String,
+        timeStamp: String
+    ) {
         val imgCapture = imgCapture ?: return
 
-        val imgFile = createFile(application)
-        val outputFileOptions = ImageCapture.OutputFileOptions.Builder(imgFile).build()
+        val imgName = "CAMerlang-consultation-scan-img-$dateStamp-$timeStamp"
+
+        val imgValue = ContentValues().apply {
+            put(MediaStore.MediaColumns.DISPLAY_NAME, imgName)
+            put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+            if(Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+                put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/CameraX-Image")
+            }
+        }
+
+        val outputFileOptions = ImageCapture.OutputFileOptions.Builder(
+            contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+            imgValue
+        ).build()
 
         imgCapture.takePicture(
             outputFileOptions,
@@ -112,9 +141,8 @@ class ScannerCameraActivity : AppCompatActivity() {
 
                     val previewIntent = Intent(this@ScannerCameraActivity, ImageTakenPreviewActivity::class.java)
 
-                    previewIntent.putExtra("imageCameraTaken", imgFile)
-                    previewIntent.putExtra("isSetBackCam", modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
-                    setResult(ImageTakenPreviewActivity.CAMERAX_RESPONSE_CODE, intent)
+                    previewIntent.putExtra("imageCameraTaken", outputFileResults.savedUri)
+                    setResult(ImageTakenPreviewActivity.CAMERAX_RESPONSE_CODE, previewIntent)
 
                     startActivity(previewIntent, ActivityOptions.makeSceneTransitionAnimation(
                         this@ScannerCameraActivity
@@ -128,7 +156,6 @@ class ScannerCameraActivity : AppCompatActivity() {
                         Snackbar.LENGTH_LONG
                     ).show()
                 }
-
             }
         )
     }
@@ -171,8 +198,9 @@ class ScannerCameraActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "Camera scanner activity"
+
+        const val DATE_FORMAT = "dd-MMM-yyyy"
+        const val TIME_FORMAT = "hh-mm-ss"
     }
-
-
 
 }
