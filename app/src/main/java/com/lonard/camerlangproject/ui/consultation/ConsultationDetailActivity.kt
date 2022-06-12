@@ -14,15 +14,11 @@ import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
-import androidx.core.util.Pair
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.R
-import com.lonard.camerlangproject.camera.CameraUtil
 import com.lonard.camerlangproject.databinding.ActivityConsultationDetailBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
@@ -35,11 +31,7 @@ import com.lonard.camerlangproject.mvvm.ConsultationViewModel
 import com.lonard.camerlangproject.mvvm.ConsultationViewModelFactory
 import com.lonard.camerlangproject.ui.FrontActivity
 import com.lonard.camerlangproject.ui.dataStore
-import com.lonard.camerlangproject.ui.images.ImageShowActivity
 import com.lonard.camerlangproject.ui.rv_adapter.ConsultationDetailAdapter
-import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
 import java.io.File
@@ -50,7 +42,6 @@ class ConsultationDetailActivity : AppCompatActivity() {
     private lateinit var bind: ActivityConsultationDetailBinding
 
     private val locale: String = Locale.getDefault().language
-    private var zoomedImgFile: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,7 +78,11 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
             if(sentFromPreviewActivity) {
                 backBtn.setOnClickListener {
-                    finishAfterTransition()
+                    val backIntent = Intent(this@ConsultationDetailActivity, FrontActivity::class.java)
+
+                    backIntent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(backIntent, ActivityOptions.makeSceneTransitionAnimation(this@ConsultationDetailActivity).toBundle())
+
                     finishAfterTransition()
                 }
             } else {
