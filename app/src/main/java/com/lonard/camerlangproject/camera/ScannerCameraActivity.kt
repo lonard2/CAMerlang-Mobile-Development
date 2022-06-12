@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.camera.CameraUtil.Companion.uriToFile
 import com.lonard.camerlangproject.databinding.ActivityScannerCameraBinding
+import com.lonard.camerlangproject.ui.FrontActivity
 import com.lonard.camerlangproject.ui.images.ImageTakenPreviewActivity
 import java.io.File
 import java.text.SimpleDateFormat
@@ -64,6 +65,14 @@ class ScannerCameraActivity : AppCompatActivity() {
 
             galleryGetBtn.setOnClickListener {
                 goToGallery()
+            }
+            backBtn.setOnClickListener {
+                val backIntent = Intent(this@ScannerCameraActivity, FrontActivity::class.java)
+
+                backIntent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(backIntent, ActivityOptions.makeSceneTransitionAnimation(this@ScannerCameraActivity).toBundle())
+
+                finishAfterTransition()
             }
         }
 

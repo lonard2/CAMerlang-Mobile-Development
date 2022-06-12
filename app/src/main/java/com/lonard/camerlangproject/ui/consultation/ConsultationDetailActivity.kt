@@ -179,8 +179,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
                 if (detections != null) {
                     when (detections) {
                         is DataLoadResult.Loading -> {
-                            bind.loadFrame.visibility = View.VISIBLE
-                            bind.loadAnimLottie.visibility = View.VISIBLE
+
                         }
 
                         is DataLoadResult.Successful -> {
