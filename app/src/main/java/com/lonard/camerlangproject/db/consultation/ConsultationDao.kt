@@ -33,7 +33,7 @@ interface ConsultationDao {
     fun retrieveSpecificConsultationData(img: String): LiveData<ConsultationItemEntity>
 
     // CRUD functions related to detection results of a picture
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addNewDetectionResultSetToDb(detectionItem: DetectionResultEntity?)
 
     @Query("DELETE FROM detection_results")
