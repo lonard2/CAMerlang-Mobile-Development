@@ -34,7 +34,6 @@ class ScannerCameraActivity : AppCompatActivity() {
     private var imgCapture: ImageCapture? = null
     private var modeSelect: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
-    private var retrievedImgFile: File? = null
     private val locale: String = Locale.getDefault().country
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -151,6 +150,7 @@ class ScannerCameraActivity : AppCompatActivity() {
                     val previewIntent = Intent(this@ScannerCameraActivity, ImageTakenPreviewActivity::class.java)
 
                     previewIntent.putExtra("imageCameraTaken", outputFileResults.savedUri)
+                    previewIntent.putExtra("cameraPosition", modeSelect == CameraSelector.DEFAULT_BACK_CAMERA)
                     setResult(ImageTakenPreviewActivity.CAMERAX_RESPONSE_CODE, previewIntent)
 
                     startActivity(previewIntent, ActivityOptions.makeSceneTransitionAnimation(
@@ -191,14 +191,9 @@ class ScannerCameraActivity : AppCompatActivity() {
     ) { result ->
         if(result.resultCode == RESULT_OK) {
             val selectedImg: Uri = result.data?.data as Uri
-            val convertedFile = uriToFile(selectedImg, this@ScannerCameraActivity)
-
-            retrievedImgFile = convertedFile
 
             val sendIntent = Intent(this@ScannerCameraActivity, ImageTakenPreviewActivity::class.java)
             sendIntent.putExtra("image_gallery", selectedImg)
-
-            sendIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
 
             setResult(ImageTakenPreviewActivity.GALLERY_RESPONSE_CODE, sendIntent)
             startActivity(sendIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
@@ -209,7 +204,7 @@ class ScannerCameraActivity : AppCompatActivity() {
         const val TAG = "Camera scanner activity"
 
         const val DATE_FORMAT = "dd-MMM-yyyy"
-        const val TIME_FORMAT = "hh-mm-ss"
+        const val TIME_FORMAT = "hh:mm:ss.SSS"
     }
 
 }

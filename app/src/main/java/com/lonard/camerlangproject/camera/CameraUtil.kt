@@ -15,6 +15,7 @@ import java.time.LocalDateTime
 import java.util.*
 
 private const val DATE_FORMAT = "dd-MMM-yyyy"
+private const val TIME_FORMAT = "hh:mm:ss.SSS"
 
 class CameraUtil {
     companion object {
@@ -23,29 +24,14 @@ class CameraUtil {
             Locale.US
         ).format(System.currentTimeMillis())
 
-        private val timeStamp: String = LocalDateTime.now().toString()
+        private val timeStamp: String = SimpleDateFormat(
+            TIME_FORMAT,
+            Locale.US
+        ).format(System.currentTimeMillis())
 
         fun createCustomTempFile(context: Context): File {
             val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-            return File.createTempFile("CAMerlang-temp-img-$dateStamp-$timeStamp", ".png", storageDir)
-        }
-
-        fun bitmapCompressToFile(bitmap: Bitmap, image: File): File {
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, FileOutputStream(image))
-
-            return image
-        }
-
-        fun createFile(application: Application): File {
-            val mediaDir = application.externalMediaDirs.firstOrNull()?.let {
-                File(it, application.resources.getString(R.string.app_name)).apply { mkdirs() }
-            }
-
-            val outputDirectory = if (
-                mediaDir != null && mediaDir.exists()
-            ) mediaDir else application.filesDir
-
-            return File(outputDirectory, "CAMerlang-consultation-scan-img-$dateStamp-$timeStamp.jpg")
+            return File.createTempFile("CAMerlang-consultation-img-$dateStamp-$timeStamp", ".png", storageDir)
         }
 
         fun rotateBitmap(bitmap: Bitmap, isBackCamera: Boolean = false): Bitmap {
@@ -91,21 +77,23 @@ class CameraUtil {
             return myFile
         }
 
-        fun reduceFileImage(file: File): File {
+        fun rotateFileImage(file: File, isBackCamera: Boolean): File {
             val bitmap = BitmapFactory.decodeFile(file.path)
+
+            val rotatedBitmap = rotateBitmap(bitmap, isBackCamera)
 
             var compressQuality = 100
             var streamLength: Int
 
             do {
                 val bmpStream = ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+                rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
                 val bmpPicByteArray = bmpStream.toByteArray()
                 streamLength = bmpPicByteArray.size
                 compressQuality -= 5
             } while (streamLength > 1000000)
 
-            bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
+            rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
 
             return file
         }

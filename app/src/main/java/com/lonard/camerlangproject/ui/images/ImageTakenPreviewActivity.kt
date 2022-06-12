@@ -2,8 +2,6 @@ package com.lonard.camerlangproject.ui.images
 
 import android.app.ActivityOptions
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -15,14 +13,13 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.lonard.camerlangproject.camera.CameraUtil
-import com.lonard.camerlangproject.camera.CameraUtil.Companion.reduceFileImage
+import com.lonard.camerlangproject.camera.CameraUtil.Companion.rotateFileImage
 import com.lonard.camerlangproject.camera.ScannerCameraActivity
 import com.lonard.camerlangproject.databinding.ActivityImageTakenPreviewBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModel
 import com.lonard.camerlangproject.db.user_datastore.LocalUserViewModelFactory
 import com.lonard.camerlangproject.db.user_datastore.LocalUser_pref
-import com.lonard.camerlangproject.formatDateTime
 import com.lonard.camerlangproject.formatPhotoDateTime
 import com.lonard.camerlangproject.mvvm.ConsultationViewModel
 import com.lonard.camerlangproject.mvvm.ConsultationViewModelFactory
@@ -46,6 +43,8 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
 
         var galleryImage: Uri? = intent.getParcelableExtra("image_gallery")
         var takenImage: Uri? = intent.getParcelableExtra("imageCameraTaken")
+
+        val cameraMode = intent.getBooleanExtra("cameraPosition", true)
 
         Log.d(TAG, takenImage.toString())
 
@@ -88,7 +87,7 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
 
             pictureSendBtn.setOnClickListener {
                 Log.d(TAG, retrievedImgFile.toString())
-                retrievedImgFile?.let { it1 -> saveConsultationToDb(it1) }
+                retrievedImgFile?.let { it1 -> saveConsultationToDb(it1, cameraMode) }
             }
 
         }
@@ -126,9 +125,9 @@ class ImageTakenPreviewActivity : AppCompatActivity() {
         bind.imageTakenPreviewContainer.setImageURI(galleryImage)
     }
 
-    private fun saveConsultationToDb(acceptedImageFile: File) {
+    private fun saveConsultationToDb(acceptedImageFile: File, cameraMode: Boolean) {
         if(retrievedImgFile != null) {
-            val acceptedImage = reduceFileImage(acceptedImageFile)
+            val acceptedImage = rotateFileImage(acceptedImageFile, cameraMode)
 
             val consultFactory: ConsultationViewModelFactory =
                 ConsultationViewModelFactory.getFactory(this)
