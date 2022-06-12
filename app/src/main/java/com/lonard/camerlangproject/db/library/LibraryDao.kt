@@ -18,7 +18,7 @@ interface LibraryDao {
     @Query("SELECT * FROM library_contents")
     fun retrieveAllEntries(): LiveData<List<LibraryContentEntity>>
 
-    @Query("SELECT * FROM library_contents WHERE entry_name = :q")
+    @Query("SELECT * FROM library_contents WHERE entry_name LIKE '%' || :q || '%'")
     fun retrieveAllEntriesForSpecificQuery(q: String): LiveData<List<LibraryContentEntity>>
 
     // library entry images (more images) CRUD operations
