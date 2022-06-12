@@ -1,6 +1,7 @@
 package com.lonard.camerlangproject.ui.library
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -51,7 +52,7 @@ class LibraryDetailActivity : AppCompatActivity() {
                 val backIntent = Intent(this@LibraryDetailActivity, FrontActivity::class.java)
 
                 backIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                startActivity(backIntent)
+                startActivity(backIntent, ActivityOptions.makeSceneTransitionAnimation(this@LibraryDetailActivity).toBundle())
             }
 
             Picasso.get().load(diseaseParcel.thumbnailPic).into(libDetailHeaderPic)
@@ -73,6 +74,7 @@ class LibraryDetailActivity : AppCompatActivity() {
             libDetailHeaderPic.setOnClickListener {
                 val showImageIntent = Intent(this@LibraryDetailActivity, ImageShowActivity::class.java)
                 showImageIntent.putExtra(ImageShowActivity.EXTRA_PIC, diseaseParcel.thumbnailPic)
+                showImageIntent.putExtra(ImageShowActivity.DIRECTED_FROM_INFORMATIVE_SECTIONS, true)
 
                 val sharedAnim =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(
@@ -208,7 +210,8 @@ class LibraryDetailActivity : AppCompatActivity() {
         val backIntent = Intent(this@LibraryDetailActivity, FrontActivity::class.java)
 
         backIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-        startActivity(backIntent)
+        startActivity(backIntent, ActivityOptions.
+        makeSceneTransitionAnimation(this@LibraryDetailActivity).toBundle())
     }
 
     private fun showMoreImagesContent(imagesItems: List<ProblemImagesEntity>) {
@@ -241,6 +244,7 @@ class LibraryDetailActivity : AppCompatActivity() {
 
         val zoomImgIntent = Intent(this@LibraryDetailActivity, ImageShowActivity::class.java)
         zoomImgIntent.putExtra(ImageShowActivity.EXTRA_PIC, imagesList.imagePic)
+        zoomImgIntent.putExtra(ImageShowActivity.DIRECTED_FROM_INFORMATIVE_SECTIONS, true)
 
         startActivity(zoomImgIntent, bundle)
     }

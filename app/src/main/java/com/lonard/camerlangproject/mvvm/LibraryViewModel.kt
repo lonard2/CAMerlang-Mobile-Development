@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 
 class LibraryViewModel(private val libraryRepo: LibraryRepository): ViewModel() {
 
-    fun searchLibrary(query: String) = libraryRepo.retrieveLibraryEntriesListWithSearchQuery(query)
-
     fun retrieveLibraryEntriesList() = libraryRepo.retrieveLibraryEntriesList()
+
+    fun retrieveLibraryEntriesListWithSearchQuery(q: String) = libraryRepo.retrieveLibraryEntriesListWithSearchQuery(q)
 
     fun retrieveProductsInfo() = libraryRepo.retrieveProductsInfo()
 

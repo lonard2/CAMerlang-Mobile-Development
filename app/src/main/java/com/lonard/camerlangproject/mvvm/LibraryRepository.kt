@@ -47,7 +47,7 @@ class LibraryRepository(private val db: AppDB,
                     "Occurred error: ${exception.message.toString()}")
         }
 
-        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = db.libraryDao().retrieveAllEntries().map { entryItem ->
+        val savedData: LiveData<DataLoadResult<List<LibraryContentEntity>>> = db.libraryDao().retrieveAllEntriesForSpecificQuery(q).map { entryItem ->
             DataLoadResult.Successful(entryItem)
         }
         emitSource(savedData)

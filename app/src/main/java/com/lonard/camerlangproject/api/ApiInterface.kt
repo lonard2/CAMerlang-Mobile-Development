@@ -15,13 +15,13 @@ interface ApiInterface {
     // Endpoint 1. Retrieve articles information
     @GET("articles")
     suspend fun retrieveArticles(
-        @Query("article_titles") articleTitle: String?,
+        @Query("articleTitles") articleTitle: String?,
     ): ArticleResponse
 
     // Endpoint 2. Retrieve library
     @GET("libraries")
     suspend fun retrieveLibrary(
-        @Query("library_names") libraryEntryTitles: String?,
+        @Query("libraryNames") libraryEntryTitles: String?,
     ): LibraryContentResponse
 
     // Endpoint 3. Retrieve a library's problem images
@@ -33,7 +33,7 @@ interface ApiInterface {
     // Endpoint 4. Retrieve skincare products information
     @GET("skincare_products")
     suspend fun retrieveProductsInformation(
-        @Query("product_names") product: String?,
+        @Query("productNames") product: String?,
     ): ProductResponse
 
     // Endpoint 5. Retrieve notification data
