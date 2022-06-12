@@ -42,7 +42,7 @@ interface ConsultationDao {
     @Query("SELECT * FROM detection_results")
     fun retrieveAllDetectionResults(): LiveData<List<DetectionResultEntity>>
 
-    @Query("SELECT * FROM detection_results WHERE id = :id")
-    fun retrieveSpecificDetectionResultData(id: Int): LiveData<List<DetectionResultEntity>>
+    @Query("SELECT * FROM detection_results WHERE problem_id = :problemId")
+    fun retrieveSpecificDetectionResultData(problemId: Int): LiveData<List<DetectionResultEntity>>
 
 }

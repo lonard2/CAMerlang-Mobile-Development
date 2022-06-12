@@ -12,7 +12,10 @@ data class DetectionResultEntity (
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: Int?,
+    var id: Int = 0,
+
+    @ColumnInfo(name = "problem_id")
+    var problemId: Int? = null,
 
     @ColumnInfo(name = "result_disease")
     var resultDisease: String? = null,

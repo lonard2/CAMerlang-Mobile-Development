@@ -10,6 +10,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
@@ -110,7 +111,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
             }
 
             val bitmap8888 = rgbaBitmap(bitmap)
-            val results = objectDetection(bitmap8888, applicationContext)
+            val results = objectDetection(bitmap8888, applicationContext, consultViewModel, consultationParcel.id)
 
             runOnUiThread {
                 bind.consultationTakenImage.setImageBitmap(results)
@@ -166,7 +167,9 @@ class ConsultationDetailActivity : AppCompatActivity() {
         bind.consultationOutcomeCard.adapter = consultHistoryAdapter
     }
 
-    private fun objectDetection(bitmap: Bitmap, context: Context, consultViewModel: ConsultationViewModel): Bitmap {
+    private fun objectDetection(bitmap: Bitmap, context: Context,
+                                consultViewModel: ConsultationViewModel,
+                                consultId: Int): Bitmap {
 
         val boundingBoxTypeface: Typeface = Typeface.createFromAsset(context.assets, "poppins_regular.ttf")
         val boundingBoxTypefaceColor = ContextCompat.getColor(context, R.color.primary_color_logo)
@@ -181,7 +184,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
         val detector = ObjectDetector.createFromFileAndOptions(
             context,
-            "camerlang-efficientdet-lite2.tflite",
+            "efficientdet-lite0-camerlang-v4.tflite",
             objectDetectionOptions
         )
 
@@ -195,7 +198,8 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
         detectionResults.map { results ->
             val category = results.categories.first()
-            consultViewModel.addDetectionResultData(category.label, category.score.times(100).toInt()).observe(this ) { detections ->
+            Log.d("Consultation Detail Activity", category.toString())
+            consultViewModel.addDetectionResultData(consultId, category.label, category.score.times(100).toInt()).observe(this) { detections ->
                 if (detections != null) {
                     when (detections) {
                         is DataLoadResult.Loading -> {
@@ -204,6 +208,7 @@ class ConsultationDetailActivity : AppCompatActivity() {
                         }
 
                         is DataLoadResult.Successful -> {
+                            Log.d("Consultation Detail Activity", detections.data.toString())
                             showDetectionResults(detections.data)
 
                             bind.loadFrame.visibility = View.GONE
@@ -217,13 +222,13 @@ class ConsultationDetailActivity : AppCompatActivity() {
                             Snackbar.make(
                                 bind.consultationOutcomeCard, when (locale) {
                                     "in" -> {
-                                        "Aduh, data para ahli kulit tidak bisa ditampilkan. Silakan coba lagi ya."
+                                        "Aduh, data deteksi gambar ini tidak bisa ditampilkan. Silakan coba lagi ya."
                                     }
                                     "en" -> {
-                                        "Ouch, the skin experts data cannot be shown to you. Please try again."
+                                        "Ouch, this picture's detection data cannot be shown to you. Please try again."
                                     }
                                     else -> {
-                                        "Error in skin experts data retrieval."
+                                        "Error in detection data retrieval."
                                     }
                                 }, Snackbar.LENGTH_LONG
                             ).show()

@@ -143,10 +143,10 @@
 
 		<item name="android:layout_marginStart">15dp</item>
 		<item name="android:layout_marginEnd">15dp</item>
-		<item name="android:layout_marginTop">12dp</item>
-		<item name="android:layout_marginBottom">12dp</item>
+		<item name="android:layout_marginTop">15dp</item>
+		<item name="android:layout_marginBottom">15dp</item>
 
-		<item name="cardElevation">15dp</item>
+		<item name="cardElevation">12dp</item>
 	</style>
 
 	<style name="Card.ConsultationDetail.OutsideFirst">

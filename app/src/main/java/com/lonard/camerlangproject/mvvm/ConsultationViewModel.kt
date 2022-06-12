@@ -16,8 +16,9 @@ class ConsultationViewModel(private val consultRepo: ConsultationRepository): Vi
     ) = consultRepo.addNewConsultationEntry(image, dateTime)
 
     fun addDetectionResultData(
+        problemId: Int,
         label: String,
         percentage: Int
-    ) = consultRepo.addNewDetectionResultSet(label, percentage)
+    ) = consultRepo.addNewDetectionResultSet(problemId, label, percentage)
 
 }

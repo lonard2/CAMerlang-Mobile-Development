@@ -18,12 +18,12 @@ class ConsultationDetailAdapter(private val problemList: ArrayList<DetectionResu
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(consultId, problem, problemPercentage) = problemList[position]
+        val(detectionId, _, problem, problemPercentage) = problemList[position]
 
         holder.bind.apply {
-            problemNumber.text = consultId.toString()
+            problemNumber.text = detectionId.plus(1).toString()
             problemShow.text = problem
-            problemPercentageTxt.text = problemPercentage.toString()
+            problemPercentageTxt.text = holder.itemView.context.getString(R.string.percentage_format, problemPercentage.toString())
         }
     }
 
