@@ -65,6 +65,10 @@ class ScannerCameraActivity : AppCompatActivity() {
             galleryGetBtn.setOnClickListener {
                 goToGallery()
             }
+
+            backBtn.setOnClickListener{
+                finishAfterTransition()
+            }
         }
 
     }

@@ -87,8 +87,10 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
             if(sentFromPreviewActivity) {
                 backBtn.setOnClickListener {
-                    finishAfterTransition()
-                    finishAfterTransition()
+                    val backIntent = Intent(this@ConsultationDetailActivity, FrontActivity::class.java)
+
+                    backIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(backIntent, ActivityOptions.makeSceneTransitionAnimation(this@ConsultationDetailActivity).toBundle())
                 }
             } else {
                 backBtn.setOnClickListener {
@@ -127,10 +129,16 @@ class ConsultationDetailActivity : AppCompatActivity() {
 
         bind.apply {
             if(sentFromPreviewActivity) {
-                finishAfterTransition()
-                finishAfterTransition()
+                backBtn.setOnClickListener {
+                    val backIntent = Intent(this@ConsultationDetailActivity, FrontActivity::class.java)
+
+                    backIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(backIntent, ActivityOptions.makeSceneTransitionAnimation(this@ConsultationDetailActivity).toBundle())
+                }
             } else {
-                finishAfterTransition()
+                backBtn.setOnClickListener {
+                    finishAfterTransition()
+                }
             }
         }
 

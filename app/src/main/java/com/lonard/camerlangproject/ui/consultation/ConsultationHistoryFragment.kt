@@ -94,7 +94,7 @@ class ConsultationHistoryFragment : Fragment() {
     }
 
     private fun showConsultations(consultHistoryItem: List<ConsultationItemEntity>) {
-        bind.consultationHistoryListRv.layoutManager = LinearLayoutManager(requireActivity(),
+        bind.consultationHistoryListRv.layoutManager = LinearLayoutManager(context,
             LinearLayoutManager.VERTICAL, false)
 
         val consultHistoryAdapter = ConsultationHistoryItemAdapter(consultHistoryItem as ArrayList<ConsultationItemEntity>)
