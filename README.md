@@ -28,7 +28,7 @@ A. UI/UX and design
 * [CircleImageView](https://github.com/hdodenhof/CircleImageView)
 * [OkHttp3](https://github.com/square/okhttp)
 
-B. Image &
+B. Image Processing
 * [Picasso](https://github.com/square/picasso)
 * [Glide](https://github.com/bumptech/glide)
 * [Retrofit](https://github.com/square/retrofit)
@@ -78,16 +78,20 @@ To make use of this repository, the software and hardware should meet these prer
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
 ## Features
 
 Here are some features that you can try in the CAMerlang application:
 
 * Object detection with CameraX: Detect your skin problems, only by using your device camera! You can even use a picture from the gallery. At this time, the application are detecting acnes & comedos. The model used in the application is based on <a href="https://tfhub.dev/tensorflow/efficientdet/lite2/detection/1"><strong>EfficentDet-Lite2 model, reference website & dataset included</strong></a>
-*
+* Articles picked by skin experts: Articles approved by certified experts to help keep you updated with informations regarding facial skin health. Get your daily fix on everything skin by reading the latest skin-related news, tips, research, and more.
+* A library of skin problems: Library filled with many skin problems' definition and how to prevent it, and also includes product recommendations for those problems. Absorb your knowledge about skin and its problems by making use of library contents provided in the application.
+* Localization support: CAMerlang supports 2 system language: English and Bahasa Indonesia.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+# License
+Distributed under the MIT License. See `LICENSE` for more information.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
