@@ -1,13 +1,9 @@
 # You are now in the Mobile Development repository of CAMerlang.
 
-<p align="center"> <img src="https://user-images.githubusercontent.com/86178738/171544543-61170e4e-dc04-4369-98ab-2ccc89c63017.png" width="75" height="75" /> </p>
+<p align="center"> <img src="https://user-images.githubusercontent.com/86178738/171544543-61170e4e-dc04-4369-98ab-2ccc89c63017.png" width="150" height="150" /> </p>
 
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="CAMerlang Logo" width="80" height="80">
-  </a>
-
 <h3 align="center">CAMerlang - Mobile Development</h3>
 
   <p align="center">
