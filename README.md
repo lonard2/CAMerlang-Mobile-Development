@@ -68,35 +68,13 @@ You can choose to use one of two methods below to get and use the application bu
 
 ### Prerequisites
 
-To make use of this repository with (at least good) runnable results, the software and hardware should be fulfilling prerequisities below:
+To make use of this repository, the software and hardware should meet these prerequisities:
 
-<table>
-
-	<tr>
-		<th>Components</th>
-		<th>Minimum requirements</th>
-		<th>Recommended</th>
-	</tr>
-	
-	<tr>
-		<td>Android devices</td>
-		<td>Running Android 6.0 (API 23)</td>
-		<td>Running Android 8.0 (API 26) and above</td>
-	</tr>
-	
-	<tr>
-		<td>Android Studio version</td>
-		<td><i>All versions</i></td>
-		<td>The latest version (2021.2.1 - Chipmunk)</td>
-	</tr>
-	
-	<tr>
-		<td>JDK & JRE</td>
-		<td> </td>
-		<td> </td>
-	</tr>
-	
-</table>
+| Components | Minimum requirements | Recommended
+| :---: | :---: | :---: |
+| Android devices | Running Android 6.0 (API 23) | Running Android 8.0 (API 26) and above |
+| Android Studio | Newer version (2021.x.x) | The latest version (2021.2.1 - Chipmunk) |
+| JDK & JRE | 11 | - |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
