@@ -2,10 +2,7 @@
 
 <p align="center"> <img src="https://user-images.githubusercontent.com/86178738/171544543-61170e4e-dc04-4369-98ab-2ccc89c63017.png" width="150" height="150" /> </p>
 
-<br />
 <div align="center">
-<h3 align="center">CAMerlang - Mobile Development</h3>
-
   <p align="center">
     <a href="https://github.com/lonard2/CAMerlang"><strong>Back to the main repository</strong></a>
   </p>
@@ -82,7 +79,7 @@ To make use of this repository, the software and hardware should meet these prer
 
 Here are some features that you can try in the CAMerlang application:
 
-* Object detection with CameraX: Detect your skin problems, only by using your device camera! You can even use a picture from the gallery. At this time, the application are detecting acnes & comedos. The model used in the application is based on <a href="https://tfhub.dev/tensorflow/efficientdet/lite2/detection/1"><strong>EfficentDet-Lite2 model, reference website & dataset included</strong></a>
+* Object detection with CameraX: Detect your skin problems, only by using your device camera! You can even use a picture from the gallery. At this time, the application are detecting acnes & comedos. The model used in the application is based on <a href="https://tfhub.dev/tensorflow/efficientdet/lite2/detection/1"><strong>EfficentDet-Lite2 model - reference (sample) website & dataset linked</strong></a>
 * Articles picked by skin experts: Articles approved by certified experts to help keep you updated with informations regarding facial skin health. Get your daily fix on everything skin by reading the latest skin-related news, tips, research, and more.
 * A library of skin problems: Library filled with many skin problems' definition and how to prevent it, and also includes product recommendations for those problems. Absorb your knowledge about skin and its problems by making use of library contents provided in the application.
 * Localization support: CAMerlang supports 2 system language: English and Bahasa Indonesia.
