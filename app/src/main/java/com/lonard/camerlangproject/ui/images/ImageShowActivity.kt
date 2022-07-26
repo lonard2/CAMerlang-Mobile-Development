@@ -1,13 +1,10 @@
 package com.lonard.camerlangproject.ui.images
 
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.lonard.camerlangproject.databinding.ActivityImageShowBinding
-import com.lonard.camerlangproject.ui.consultation.ConsultationDetailActivity
-import com.lonard.camerlangproject.ui.consultation.ConsultationDetailActivity.Companion.EXTRA_DIRECTED_FROM_PREVIEW_ACTIVITY
-import com.squareup.picasso.Picasso
 
 class ImageShowActivity : AppCompatActivity() {
     private lateinit var bind: ActivityImageShowBinding

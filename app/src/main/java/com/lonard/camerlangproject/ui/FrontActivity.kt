@@ -1,12 +1,10 @@
 package com.lonard.camerlangproject.ui
 
 import android.Manifest
-import android.animation.ObjectAnimator
 import android.app.ActivityOptions
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat

@@ -9,7 +9,6 @@ import com.lonard.camerlangproject.db.AppDB
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
-import com.lonard.camerlangproject.db.library.LibraryDao
 import com.lonard.camerlangproject.db.library.ProblemImagesEntity
 
 class LibraryRepository(private val db: AppDB,

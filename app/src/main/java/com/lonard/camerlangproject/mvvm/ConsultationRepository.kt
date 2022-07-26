@@ -7,7 +7,6 @@ import androidx.lifecycle.map
 import com.lonard.camerlangproject.api.ApiInterface
 import com.lonard.camerlangproject.db.AppDB
 import com.lonard.camerlangproject.db.DataLoadResult
-import com.lonard.camerlangproject.db.consultation.ConsultationDao
 import com.lonard.camerlangproject.db.consultation.ConsultationItemEntity
 import com.lonard.camerlangproject.db.consultation.DetectionResultEntity
 import com.lonard.camerlangproject.db.consultation.ExpertEntity
@@ -127,26 +126,6 @@ class ConsultationRepository(private val db: AppDB, private val api: ApiInterfac
         }
 
         emitSource(savedData)
-    }
-
-    fun retrieveAllDetections(): LiveData<DataLoadResult<List<DetectionResultEntity>>> = liveData {
-        emit(DataLoadResult.Loading)
-
-        try {
-            db.consultationDao().retrieveAllDetectionResults()
-        } catch (exception: Exception) {
-            emit(DataLoadResult.Failed(exception.message.toString()))
-            Log.e(
-                TAG, "Cannot show detections results in the Room DB." +
-                        "Occurred error: ${exception.message.toString()}")
-        }
-
-        val savedData: LiveData<DataLoadResult<List<DetectionResultEntity>>> = db.consultationDao().retrieveAllDetectionResults().map { detectionItem ->
-            DataLoadResult.Successful(detectionItem)
-        }
-
-        emitSource(savedData)
-
     }
 
 

@@ -1,8 +1,7 @@
 package com.lonard.camerlangproject.ui.homepage
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.lonard.camerlangproject.R
+import androidx.appcompat.app.AppCompatActivity
 import com.lonard.camerlangproject.databinding.ActivityArticleDetailBinding
 import com.lonard.camerlangproject.db.homepage.ArticleEntity
 import com.lonard.camerlangproject.formatDateTime

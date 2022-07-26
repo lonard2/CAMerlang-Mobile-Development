@@ -1,6 +1,5 @@
 package com.lonard.camerlangproject.camera
 
-import android.app.Application
 import android.content.ContentResolver
 import android.content.Context
 import android.graphics.Bitmap
@@ -8,10 +7,8 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
 import android.os.Environment
-import com.lonard.camerlangproject.R
 import java.io.*
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
 import java.util.*
 
 private const val DATE_FORMAT = "dd-MMM-yyyy"
@@ -29,12 +26,12 @@ class CameraUtil {
             Locale.US
         ).format(System.currentTimeMillis())
 
-        fun createCustomTempFile(context: Context): File {
+        private fun createCustomTempFile(context: Context): File {
             val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
             return File.createTempFile("CAMerlang-consultation-img-$dateStamp-$timeStamp", ".png", storageDir)
         }
 
-        fun rotateBitmap(bitmap: Bitmap, isBackCamera: Boolean = false): Bitmap {
+        private fun rotateBitmap(bitmap: Bitmap, isBackCamera: Boolean = false): Bitmap {
             val matrix = Matrix()
             return if (isBackCamera) {
                 matrix.postRotate(90f)

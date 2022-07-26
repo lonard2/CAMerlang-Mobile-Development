@@ -1,24 +1,20 @@
 package com.lonard.camerlangproject.ui.library
 
-import android.app.Activity
 import android.app.ActivityOptions
-import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.ActivityLibraryDetailBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.homepage.ProductEntity
 import com.lonard.camerlangproject.db.library.LibraryContentEntity
 import com.lonard.camerlangproject.db.library.ProblemImagesEntity
-import com.lonard.camerlangproject.formatDateTime
 import com.lonard.camerlangproject.mvvm.LibraryViewModel
 import com.lonard.camerlangproject.mvvm.LibraryViewModelFactory
 import com.lonard.camerlangproject.ui.FrontActivity
@@ -28,7 +24,6 @@ import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailMoreAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.LibraryDetailProductAdapter
 import com.squareup.picasso.Picasso
 import java.util.*
-import kotlin.collections.ArrayList
 
 class LibraryDetailActivity : AppCompatActivity() {
     private lateinit var bind: ActivityLibraryDetailBinding

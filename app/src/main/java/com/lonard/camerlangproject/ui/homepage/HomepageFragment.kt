@@ -12,7 +12,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.lonard.camerlangproject.R
 import com.lonard.camerlangproject.databinding.FragmentHomepageBinding
 import com.lonard.camerlangproject.db.DataLoadResult
 import com.lonard.camerlangproject.db.consultation.ExpertEntity
@@ -30,8 +29,6 @@ import com.lonard.camerlangproject.ui.rv_adapter.HomepageExpertContentListAdapte
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageLibraryContentListAdapter
 import com.lonard.camerlangproject.ui.rv_adapter.HomepageProductContentListAdapter
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.math.exp
 
 class HomepageFragment : Fragment() {
 

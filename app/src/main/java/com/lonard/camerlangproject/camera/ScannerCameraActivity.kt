@@ -1,6 +1,5 @@
 package com.lonard.camerlangproject.camera
 
-import android.app.Activity
 import android.app.ActivityOptions
 import android.content.ContentValues
 import android.content.Intent
@@ -9,7 +8,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
@@ -19,11 +17,9 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
-import com.lonard.camerlangproject.camera.CameraUtil.Companion.uriToFile
 import com.lonard.camerlangproject.databinding.ActivityScannerCameraBinding
 import com.lonard.camerlangproject.ui.FrontActivity
 import com.lonard.camerlangproject.ui.images.ImageTakenPreviewActivity
-import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 

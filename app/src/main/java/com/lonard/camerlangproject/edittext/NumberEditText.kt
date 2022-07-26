@@ -10,8 +10,6 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.BlendModeColorFilterCompat
-import androidx.core.graphics.BlendModeCompat
 import com.lonard.camerlangproject.R
 import java.util.*
 
@@ -22,7 +20,6 @@ class NumberEditText: AppCompatEditText, View.OnTouchListener {
     private lateinit var edtStyle: Drawable
 
     private val locale: String = Locale.getDefault().language
-    private val numberRegex = Regex("[0-9]*")
 
     constructor(context: Context): super(context) {
         init()
